@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerRH — Design System Preview & Especificação Visual</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System CSS Canônico e Centralizado -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    /* Estilos específicos para layout da documentação do preview */
+    .ds-preview-nav {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-header);
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .ds-preview-hero {
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .ds-toc {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-6);
+    }
+
+    .ds-toc a {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: all var(--transition-fast);
+    }
+
+    .ds-toc a:hover {
+      background-color: var(--color-gray-900);
+      color: var(--color-white);
+      border-color: var(--color-gray-900);
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .swatch-card {
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .swatch-color {
+      height: 80px;
+      width: 100%;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .swatch-body {
+      padding: var(--space-3);
+    }
+
+    .swatch-name {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .swatch-role {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Tabela Tipográfica */
+    .type-specimen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .type-specimen-table th {
+      text-align: left;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      color: var(--text-muted);
+      padding: 12px 16px;
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .type-specimen-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+      vertical-align: middle;
+    }
+
+    .type-token-badge {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      background-color: var(--bg-surface-muted);
+      border: 1px solid var(--border-default);
+      padding: 3px 8px;
+      border-radius: var(--radius-xs);
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* Espaçamentos e Sombras Visuais */
+    .space-ruler {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .space-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      background-color: var(--bg-surface);
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+    }
+
+    .space-meta {
+      width: 140px;
+      font-family: var(--font-family-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .space-bar {
+      height: 18px;
+      background-color: var(--color-gray-900);
+      border-radius: var(--radius-xs);
+    }
+
+    .shadow-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+
+    .shadow-box {
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .shadow-box p {
+      font-family: var(--font-family-mono);
+      font-size: 12px;
+      margin-top: var(--space-2);
+      color: var(--text-muted);
+    }
+
+    .comp-panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .comp-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .comp-panel-title {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+    }
+
+    .comp-demo-row {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Switcher de Navegação Rápida entre Visões -->
+  <aside class="sk-top-switcher" aria-label="Alternar Modo de Visualização">
+    <a href="index-wireframe-skeleton.html" title="Visualização Blueprint Skeleton v0">👁️ Skeleton (v0)</a>
+    <a href="index-wireframe.html" title="Visualização Wireframe com Conteúdo v1">📄 Conteúdo (v1)</a>
+    <a href="design-system-preview.html" class="active" title="Biblioteca de Especificação e Tokens">📐 Design System</a>
+  </aside>
+
+  <!-- =========================================================================
+       TOP STICKY NAVBAR DO DESIGN SYSTEM
+       ========================================================================= -->
+  <header class="ds-preview-nav">
+    <div class="container container-wide">
+      <div class="site-nav">
+        <a href="#inicio" class="nav-brand">
+          <div class="brand-icon-box">PR</div>
+          <div class="brand-text-block">
+            <span class="brand-name">PowerRH</span>
+            <span class="brand-tagline">Design System Preview</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <span class="badge">
+            <span class="badge-dot"></span>
+            v1.0.0 • Wireframe Neutro
+          </span>
+          <a href="index-wireframe.html" class="btn btn-primary btn-sm">
+            Ver Wireframe Completo →
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO BANNER DA ESPECIFICAÇÃO
+       ========================================================================= -->
+  <section class="ds-preview-hero" id="inicio">
+    <div class="container container-wide">
+      <span class="section-eyebrow">Arquitetura de Interface & Biblioteca Canônica</span>
+      <h1 class="section-title">Design System & Especificação Visual</h1>
+      <p class="section-subtitle">
+        Documentação viva e funcional dos tokens semânticos, tipografia, escala modular e componentes reutilizáveis construídos para a <strong>PowerRH (Graciete Corrêa)</strong>.
+      </p>
+
+      <div class="ds-toc">
+        <a href="#cores">01. Cores & Tokens</a>
+        <a href="#tipografia">02. Tipografia & Escala</a>
+        <a href="#espacamento">03. Espaçamentos & Raios</a>
+        <a href="#botoes">04. Botões & Badges</a>
+        <a href="#formularios">05. Formulários</a>
+        <a href="#cards">06. Cards & Grids</a>
+        <a href="#metodo">07. Processo / Método</a>
+        <a href="#faq">08. Acordeão & FAQ</a>
+        <a href="#navegacao">09. Header & Rodapé</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       01. PALETA DE CORES & TOKENS SEMÂNTICOS
+       ========================================================================= -->
+  <section class="section" id="cores">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 01</span>
+        <h2 class="section-title">Paleta de Cores e Tokens Semânticos</h2>
+        <p class="section-subtitle">
+          Na fase de wireframe, a paleta é composta estritamente por valores acromáticos calibrados para garantir contraste WCAG AA, hierarquia de leitura e transição transparente para a identidade final.
+        </p>
+      </div>
+
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Escala Neutra Primitiva (Gray Scale)</h3>
+      <div class="swatch-grid" style="margin-bottom: var(--space-8);">
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-white);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-white</div>
+            <div class="swatch-hex">#FFFFFF</div>
+            <div class="swatch-role">Superfície base & Fundo claro</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-50);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-50</div>
+            <div class="swatch-hex">#F8F9FA</div>
+            <div class="swatch-role">Fundo suave alternado</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-100);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-100</div>
+            <div class="swatch-hex">#F1F3F5</div>
+            <div class="swatch-role">Inputs e chips neutros</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-200);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-200</div>
+            <div class="swatch-hex">#E9ECEF</div>
+            <div class="swatch-role">Linhas divisórias (Hairline)</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-300);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-300</div>
+            <div class="swatch-hex">#DEE2E6</div>
+            <div class="swatch-role">Bordas padrão de cards</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-500);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-500</div>
+            <div class="swatch-hex">#ADB5BD</div>
+            <div class="swatch-role">Textos atenuados (Muted)</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-700);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-700</div>
+            <div class="swatch-hex">#495057</div>
+            <div class="swatch-role">Textos secundários de leitura</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-900);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-900</div>
+            <div class="swatch-hex">#212529</div>
+            <div class="swatch-role">Títulos principais & CTA primário</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gray-950);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gray-950</div>
+            <div class="swatch-hex">#121416</div>
+            <div class="swatch-role">Rodapé & Superfície profunda</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Mapeamento Semântico de Aplicação</h3>
+      <div class="comp-panel">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4);">
+          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-900);">
+            <div class="font-mono" style="font-size: 12px; font-weight: 700;">--action-primary-bg</div>
+            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Fundo do botão principal de conversão</div>
+          </div>
+          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-400);">
+            <div class="font-mono" style="font-size: 12px; font-weight: 700;">--border-default</div>
+            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Delimitação padrão de cartões e inputs</div>
+          </div>
+          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-900);">
+            <div class="font-mono" style="font-size: 12px; font-weight: 700;">--bg-inverse</div>
+            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Planos de fundo de banners de impacto</div>
+          </div>
+          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-500);">
+            <div class="font-mono" style="font-size: 12px; font-weight: 700;">--text-muted</div>
+            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Legendas e anotações complementares</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       02. TIPOGRAFIA & HIERARQUIA VISUAL
+       ========================================================================= -->
+  <section class="section section-subtle" id="tipografia">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 02</span>
+        <h2 class="section-title">Tipografia & Hierarquia Visual</h2>
+        <p class="section-subtitle">
+          Construída sobre a família tipográfica <strong>Inter</strong>, proporcionando legibilidade técnica e clareza visual corporativa para consultoria estratégica executiva.
+        </p>
+      </div>
+
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Amostrador de Pesos e Estilos</span>
+          <span class="badge">Família: Inter</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="font-weight: 400; font-size: var(--font-size-lg);">Inter Regular 400 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+          <div style="font-weight: 500; font-size: var(--font-size-lg);">Inter Medium 500 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+          <div style="font-weight: 600; font-size: var(--font-size-lg);">Inter Semibold 600 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+          <div style="font-weight: 700; font-size: var(--font-size-lg);">Inter Bold 700 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+          <div style="font-weight: 800; font-size: var(--font-size-lg);">Inter Extrabold 800 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+        </div>
+      </div>
+
+      <table class="type-specimen-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Tamanho (rem / px)</th>
+            <th>Leading</th>
+            <th>Exemplo & Aplicação Real</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="type-token-badge">--font-size-5xl</span></td>
+            <td>3.50rem / 56px</td>
+            <td>1.15</td>
+            <td><h1 style="font-size: var(--font-size-5xl); margin: 0;">Empresas crescem.</h1></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-4xl</span></td>
+            <td>2.875rem / 46px</td>
+            <td>1.15</td>
+            <td><h2 style="font-size: var(--font-size-4xl); margin: 0;">Pessoas evoluem.</h2></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-3xl</span></td>
+            <td>2.25rem / 36px</td>
+            <td>1.30</td>
+            <td><h3 style="font-size: var(--font-size-3xl); margin: 0;">Um processo claro, próximo e eficaz.</h3></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-2xl</span></td>
+            <td>1.875rem / 30px</td>
+            <td>1.30</td>
+            <td><div style="font-size: var(--font-size-2xl); font-weight: 800;">+9.000 pessoas desenvolvidas</div></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-xl</span></td>
+            <td>1.50rem / 24px</td>
+            <td>1.30</td>
+            <td><div style="font-size: var(--font-size-xl); font-weight: 700;">Graciete Corrêa</div></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-lg</span></td>
+            <td>1.25rem / 20px</td>
+            <td>1.40</td>
+            <td><div style="font-size: var(--font-size-lg); font-weight: 600;">Cultura & Estrutura Organizacional</div></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-md</span></td>
+            <td>1.125rem / 18px</td>
+            <td>1.50</td>
+            <td><div style="font-size: var(--font-size-md); color: var(--text-secondary);">Estratégia, liderança e cultura para transformar o potencial humano.</div></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-base</span></td>
+            <td>1.00rem / 16px</td>
+            <td>1.65</td>
+            <td><p style="margin: 0;">Mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura.</p></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-sm</span></td>
+            <td>0.875rem / 14px</td>
+            <td>1.50</td>
+            <td><div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Quero um diagnóstico gratuito →</div></td>
+          </tr>
+          <tr>
+            <td><span class="type-token-badge">--font-size-xs</span></td>
+            <td>0.75rem / 12px</td>
+            <td>1.20</td>
+            <td><span class="section-eyebrow" style="margin: 0;">CONSULTORIA ESTRATÉGICA EM PESSOAS</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       03. ESPAÇAMENTOS, RAIOS & SOMBRAS
+       ========================================================================= -->
+  <section class="section" id="espacamento">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 03</span>
+        <h2 class="section-title">Espaçamento, Raios de Borda e Sombras</h2>
+        <p class="section-subtitle">
+          Escala de dimensões rigorosamente proporcional com base em múltiplos de 4px, acompanhada de raios de curvatura e elevação espacial.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8);">
+        <!-- Régua de Espaçamentos -->
+        <div class="comp-panel">
+          <div class="comp-panel-header">
+            <span class="comp-panel-title">Régua Escalar de Espaçamentos</span>
+            <span class="badge">Grid 4px</span>
+          </div>
+          <div class="space-ruler">
+            <div class="space-row"><div class="space-meta">--space-1 (4px)</div><div class="space-bar" style="width: 4px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-2 (8px)</div><div class="space-bar" style="width: 8px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-3 (12px)</div><div class="space-bar" style="width: 12px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-4 (16px)</div><div class="space-bar" style="width: 16px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-6 (24px)</div><div class="space-bar" style="width: 24px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-8 (32px)</div><div class="space-bar" style="width: 32px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-12 (48px)</div><div class="space-bar" style="width: 48px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-16 (64px)</div><div class="space-bar" style="width: 64px;"></div></div>
+            <div class="space-row"><div class="space-meta">--space-20 (80px)</div><div class="space-bar" style="width: 80px;"></div></div>
+          </div>
+        </div>
+
+        <!-- Raios e Sombras -->
+        <div class="comp-panel">
+          <div class="comp-panel-header">
+            <span class="comp-panel-title">Raios de Curvatura (Border Radius) & Elevação (Box Shadows)</span>
+          </div>
+          
+          <div class="comp-demo-row" style="margin-bottom: var(--space-8);">
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-xs); font-size: 12px; font-weight: 600;">xs (4px)</div>
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">sm (8px)</div>
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-md); font-size: 12px; font-weight: 600;">md (12px)</div>
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-lg); font-size: 12px; font-weight: 600;">lg (16px)</div>
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-xl); font-size: 12px; font-weight: 600;">xl (20px)</div>
+            <div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-2xl); font-size: 12px; font-weight: 600;">2xl (28px)</div>
+            <div style="padding: 16px 24px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-full); font-size: 12px; font-weight: 600;">full (Pill)</div>
+          </div>
+
+          <div class="shadow-showcase-grid">
+            <div class="shadow-box" style="box-shadow: var(--shadow-xs);">
+              <strong>Sombra XS</strong>
+              <p>--shadow-xs</p>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-sm);">
+              <strong>Sombra SM</strong>
+              <p>--shadow-sm</p>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-md);">
+              <strong>Sombra MD</strong>
+              <p>--shadow-md</p>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-lg);">
+              <strong>Sombra LG</strong>
+              <p>--shadow-lg</p>
+            </div>
+            <div class="shadow-box" style="box-shadow: var(--shadow-xl);">
+              <strong>Sombra XL</strong>
+              <p>--shadow-xl</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       04. BOTÕES, CONTROLES DE AÇÃO & BADGES
+       ========================================================================= -->
+  <section class="section section-subtle" id="botoes">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 04</span>
+        <h2 class="section-title">Botões, Estados de Ação e Badges</h2>
+        <p class="section-subtitle">
+          Conjunto de botões semânticos testados para garantir feedback tátil, estados de hover, foco visível e acessibilidade.
+        </p>
+      </div>
+
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Hierarquia de Botões</span>
+        </div>
+        <div class="comp-demo-row">
+          <button type="button" class="btn btn-primary">Botão Primário →</button>
+          <button type="button" class="btn btn-secondary">Botão Secundário</button>
+          <button type="button" class="btn btn-outline">Botão Contorno</button>
+          <button type="button" class="btn btn-ghost">Botão Ghost</button>
+          <button type="button" class="btn btn-primary" disabled>Desabilitado</button>
+        </div>
+
+        <div style="background-color: var(--color-gray-900); padding: var(--space-6); border-radius: var(--radius-lg); margin-top: var(--space-4);">
+          <div style="font-size: 12px; color: var(--color-gray-400); margin-bottom: var(--space-3); text-transform: uppercase; font-weight: 700;">Em Superfície Inversa (Escura)</div>
+          <div class="comp-demo-row" style="margin-bottom: 0;">
+            <button type="button" class="btn btn-inverse">Botão Inverso Primário →</button>
+            <button type="button" class="btn btn-inverse-outline">Botão Inverso Contorno</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Tamanhos e Modificadores de Forma</span>
+        </div>
+        <div class="comp-demo-row">
+          <button type="button" class="btn btn-primary btn-sm">Small (btn-sm)</button>
+          <button type="button" class="btn btn-primary">Padrão (14px)</button>
+          <button type="button" class="btn btn-primary btn-lg">Large (btn-lg) →</button>
+          <button type="button" class="btn btn-primary btn-pill">Pill Arredondado</button>
+          <button type="button" class="btn btn-primary btn-icon-only" aria-label="Seta para a direita">→</button>
+        </div>
+      </div>
+
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Badges, Pills & Eyebrows</span>
+        </div>
+        <div class="comp-demo-row">
+          <span class="badge"><span class="badge-dot"></span> Padrão Neutro</span>
+          <span class="badge badge-outline">Badge Contorno</span>
+          <span class="section-eyebrow">Eyebrow de Seção</span>
+        </div>
+        <div style="background-color: var(--color-gray-900); padding: var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-3); display: inline-flex;">
+          <span class="badge badge-inverse"><span class="badge-dot"></span> Badge Inversa Escura</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       05. FORMULÁRIOS & ELEMENTOS DE ENTRADA
+       ========================================================================= -->
+  <section class="section" id="formularios">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 05</span>
+        <h2 class="section-title">Formulários & Entradas de Dados</h2>
+        <p class="section-subtitle">
+          Componentes de captura com contraste calibrado, foco visível por teclado e notas de conformidade com dados.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; max-width: 540px; margin: 0 auto;">
+        <div class="form-card">
+          <div style="text-align: center; margin-bottom: var(--space-6);">
+            <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-2);">Fale com a nossa especialista</h3>
+            <p style="font-size: var(--font-size-sm); color: var(--text-muted); margin: 0;">Receba um diagnóstico inicial para a sua empresa.</p>
+          </div>
+
+          <form action="#" method="POST" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label class="form-label" for="preview-nome">Seu nome</label>
+              <input type="text" id="preview-nome" class="form-control" placeholder="Ex: Roberto Almeida">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preview-email">E-mail corporativo</label>
+              <input type="email" id="preview-email" class="form-control" placeholder="nome@suaempresa.com.br">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preview-tel">Telefone / WhatsApp</label>
+              <input type="tel" id="preview-tel" class="form-control" placeholder="(00) 00000-0000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preview-empresa">Nome da empresa</label>
+              <input type="text" id="preview-empresa" class="form-control" placeholder="Sua Empresa Ltda.">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preview-servico">Como podemos ajudar?</label>
+              <select id="preview-servico" class="form-select">
+                <option value="">Selecione uma área de foco...</option>
+                <option value="cultura">Cultura & Estrutura Organizacional</option>
+                <option value="lideranca">Liderança & Desenvolvimento</option>
+                <option value="governanca">Governança & Sucessão Familiar</option>
+                <option value="outro">Outro desafio de RH / Pessoas</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-3); padding: 14px;">
+              Solicitar diagnóstico gratuito →
+            </button>
+
+            <div class="form-security-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Seus dados estão seguros conosco. Não compartilhamos informações.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       06. CARDS & GRIDS DE CONTEÚDO
+       ========================================================================= -->
+  <section class="section section-subtle" id="cards">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 06</span>
+        <h2 class="section-title">Cards e Padrões de Grid do Wireframe</h2>
+        <p class="section-subtitle">
+          Implementação funcional dos cards de prova social, cenários de diagnóstico e vitrine de soluções corporativas.
+        </p>
+      </div>
+
+      <!-- Barra de Métricas / Números -->
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.1 Barra de Métricas em Superfície Inversa</h3>
+      <div class="card-metric-bar" style="margin-bottom: var(--space-12);">
+        <div class="metric-item">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div>
+            <div class="metric-value">+120</div>
+            <div class="metric-label">empresas atendidas com sucesso</div>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div>
+            <div class="metric-value">+9.000</div>
+            <div class="metric-label">pessoas desenvolvidas</div>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div>
+            <div class="metric-value">95%</div>
+            <div class="metric-label">de satisfação dos clientes</div>
+          </div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <div>
+            <div class="metric-value">+15 anos</div>
+            <div class="metric-label">de experiência executiva</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Cenários / Quando Entra -->
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.2 Cards de Diagnóstico ("Quando é hora de contar com apoio?")</h3>
+      <div class="trigger-grid" style="margin-bottom: var(--space-12);">
+        <div class="card-trigger">
+          <div class="card-trigger-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </div>
+          <div class="card-trigger-text">
+            Sua empresa está crescendo rapidamente e precisa estruturar a área de pessoas com solidez.
+          </div>
+        </div>
+
+        <div class="card-trigger">
+          <div class="card-trigger-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <div class="card-trigger-text">
+            Há desafios de liderança ou desalinhamento de cultura que impactam os resultados operacionais.
+          </div>
+        </div>
+
+        <div class="card-trigger">
+          <div class="card-trigger-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <div class="card-trigger-text">
+            É momento de preparar a sucessão familiar e garantir a continuidade sustentável do negócio.
+          </div>
+        </div>
+
+        <div class="card-trigger">
+          <div class="card-trigger-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div class="card-trigger-text">
+            Você quer levar sua organização a um novo patamar com um time mais forte, autônomo e engajado.
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Cards de Soluções -->
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.3 Cards de Soluções Estratégicas (com Fotos Reais & Barra de Ação)</h3>
+      <div class="solutions-grid">
+        <div class="card-solution">
+          <div class="card-solution-image-wrap">
+            <img src="assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/21_diagnostico_de_cultura.webp" alt="Cultura & Estrutura" class="card-solution-image">
+          </div>
+          <div class="card-solution-bar">
+            <div class="card-solution-info">
+              <div class="card-solution-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              </div>
+              <span class="card-solution-title">Cultura & Estrutura</span>
+            </div>
+            <div class="card-solution-arrow">→</div>
+          </div>
+        </div>
+
+        <div class="card-solution">
+          <div class="card-solution-image-wrap">
+            <img src="assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/08_lideranca_people_culture.webp" alt="Liderança & Desenvolvimento" class="card-solution-image">
+          </div>
+          <div class="card-solution-bar">
+            <div class="card-solution-info">
+              <div class="card-solution-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <span class="card-solution-title">Liderança & Desenv.</span>
+            </div>
+            <div class="card-solution-arrow">→</div>
+          </div>
+        </div>
+
+        <div class="card-solution">
+          <div class="card-solution-image-wrap">
+            <img src="assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/41_fundador_e_sucessor.webp" alt="Governança & Sucessão" class="card-solution-image">
+          </div>
+          <div class="card-solution-bar">
+            <div class="card-solution-info">
+              <div class="card-solution-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+              </div>
+              <span class="card-solution-title">Governança & Sucessão</span>
+            </div>
+            <div class="card-solution-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       07. TIMELINE DO MÉTODO (4 ETAPAS)
+       ========================================================================= -->
+  <section class="section" id="metodo">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 07</span>
+        <h2 class="section-title">Timeline do Método ("Como Trabalhamos")</h2>
+        <p class="section-subtitle">
+          Sequência linear de 4 passos com conectores horizontais e badges numeradas para transmitir clareza operacional.
+        </p>
+      </div>
+
+      <div class="steps-wrapper">
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-badge">01</div>
+            <div class="step-title">Diagnóstico</div>
+            <div class="step-desc">Entendemos a realidade, histórico, gargalos e desafios profundos da organização.</div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge">02</div>
+            <div class="step-title">Planejamento</div>
+            <div class="step-desc">Desenhamos soluções personalizadas e alinhadas aos objetivos estratégicos do negócio.</div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge">03</div>
+            <div class="step-title">Implementação</div>
+            <div class="step-desc">Colocamos o plano em prática lado a lado com os líderes e equipes da empresa.</div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-badge">04</div>
+            <div class="step-title">Evolução</div>
+            <div class="step-desc">Acompanhamos indicadores, calibramos rituais e garantimos a sustentação a longo prazo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       08. ACORDEÃO & PERGUNTAS FREQUENTES (FAQ)
+       ========================================================================= -->
+  <section class="section section-subtle" id="faq">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 08</span>
+        <h2 class="section-title">Perguntas Frequentes (FAQ) & Depoimentos</h2>
+        <p class="section-subtitle">
+          Módulos de prova social e redução de atrito comercial com acordeão interativo nativo.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); margin-bottom: var(--space-12);">
+        <!-- Depoimentos -->
+        <div class="testimonials-grid">
+          <div class="card-testimonial">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                A PowerRH nos ajudou a estruturar nosso RH e a fortalecer nossa cultura. O impacto nos resultados operacionais e no clima foi imediato e evidente.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">ML</div>
+              <div>
+                <div class="testimonial-author-name">Mariana Lopes</div>
+                <div class="testimonial-author-role">CEO, Grupo Vértice</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-testimonial">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                Profissionalismo, sensibilidade e visão estratégica impecável. Uma parceria de confiança que realmente fez a diferença para o crescimento do nosso negócio.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">RA</div>
+              <div>
+                <div class="testimonial-author-name">Roberto Almeida</div>
+                <div class="testimonial-author-role">Diretor, TechBrasil</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-testimonial">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-text">
+                A Graciete tem uma capacidade única de conectar pessoas, estratégia e governança. Recomendo com absoluta tranquilidade para qualquer empresário.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">CM</div>
+              <div>
+                <div class="testimonial-author-name">Carla Mendes</div>
+                <div class="testimonial-author-role">Sócia, Mendes & Associados</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Interativo -->
+        <div class="faq-layout" style="margin-top: var(--space-6);">
+          <div>
+            <span class="section-eyebrow">Dúvidas Frequentes</span>
+            <h3 class="section-title" style="font-size: var(--font-size-2xl);">Tire suas dúvidas antes de começar</h3>
+            <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-6);">
+              Entenda como a PowerRH conduz diagnósticos, formata projetos sob medida e atua junto a líderes e empresas familiares.
+            </p>
+            <a href="index-wireframe.html#contato" class="btn btn-secondary btn-sm">Falar diretamente com a equipe →</a>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item active">
+              <h4 class="accordion-header">
+                <button type="button" class="accordion-trigger" aria-expanded="true">
+                  <span>Quais tipos de empresas a PowerRH atende?</span>
+                  <span class="accordion-icon">+</span>
+                </button>
+              </h4>
+              <div class="accordion-body">
+                Atendemos empresas de médio e grande porte, organizações familiares em fase de profissionalização ou sucessão, bem como empresas em franca expansão que necessitam consolidar sua estrutura de gestão de pessoas.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Como funciona o diagnóstico inicial gratuito?</span>
+                  <span class="accordion-icon">+</span>
+                </button>
+              </h4>
+              <div class="accordion-body">
+                Realizamos uma reunião estratégica individual com a fundadora ou diretoria para mapear os pontos críticos de pessoas, gargalos de liderança e oportunidades imediatas de melhoria, sem compromisso de contratação.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button type="button" class="accordion-trigger" aria-expanded="false">
+                  <span>Os projetos são padronizados ou personalizados?</span>
+                  <span class="accordion-icon">+</span>
+                </button>
+              </h4>
+              <div class="accordion-body">
+                100% personalizados. Não aplicamos fórmulas genéricas. Cada arquitetura de cargos, rito de cultura ou mentoria é desenhada com base no momento e no setor específico do cliente.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       09. BANNER CTA & RODAPÉ INSTITUCIONAL
+       ========================================================================= -->
+  <section class="section" id="navegacao">
+    <div class="container container-wide">
+      <div class="section-header">
+        <span class="section-eyebrow">Seção 09</span>
+        <h2 class="section-title">Banner de Conversão Final & Rodapé</h2>
+        <p class="section-subtitle">
+          Superfícies de alto impacto e fechamento comercial com ancoragem de confiança.
+        </p>
+      </div>
+
+      <!-- Banner CTA -->
+      <div class="cta-banner-dark" style="margin-bottom: var(--space-12);">
+        <div class="cta-banner-grid">
+          <div>
+            <h3 style="font-size: var(--font-size-3xl); color: var(--color-white); margin-bottom: var(--space-3);">
+              Vamos conversar sobre o futuro da sua empresa?
+            </h3>
+            <p style="color: var(--text-inverse-secondary); margin-bottom: 0;">
+              Descubra como a PowerRH pode ajudar o seu negócio a crescer com pessoas mais engajadas, líderes mais preparados e resultados sustentáveis.
+            </p>
+          </div>
+
+          <div>
+            <ul class="cta-checklist">
+              <li class="cta-check-item">
+                <span class="check-icon-circle">✓</span>
+                Diagnóstico inicial sem compromisso comercial
+              </li>
+              <li class="cta-check-item">
+                <span class="check-icon-circle">✓</span>
+                Conversa direta com a especialista Graciete Corrêa
+              </li>
+              <li class="cta-check-item">
+                <span class="check-icon-circle">✓</span>
+                Soluções desenhadas sob medida para a sua realidade
+              </li>
+            </ul>
+            <a href="index-wireframe.html#contato" class="btn btn-inverse btn-lg">Quero falar com a Graciete →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé Institucional do Preview -->
+  <footer class="site-footer">
+    <div class="container container-wide">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name" style="color: var(--color-white); margin-bottom: var(--space-3);">PowerRH</div>
+          <p style="font-size: var(--font-size-sm); color: var(--color-gray-400); max-width: 320px;">
+            Consultoria estratégica em pessoas, liderança, cultura e estratégia para empresas que querem crescer de forma sustentável.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navegação</div>
+          <ul class="footer-links">
+            <li><a href="#inicio" class="footer-link">Início</a></li>
+            <li><a href="#cores" class="footer-link">Cores & Tokens</a></li>
+            <li><a href="#tipografia" class="footer-link">Tipografia</a></li>
+            <li><a href="#cards" class="footer-link">Componentes</a></li>
+            <li><a href="index-wireframe.html" class="footer-link">Wireframe do Site</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Soluções</div>
+          <ul class="footer-links">
+            <li><a href="#cards" class="footer-link">Cultura & Estrutura</a></li>
+            <li><a href="#cards" class="footer-link">Liderança & Desenvolvimento</a></li>
+            <li><a href="#cards" class="footer-link">Governança & Sucessão</a></li>
+            <li><a href="#formularios" class="footer-link">Diagnóstico Gratuito</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contato</div>
+          <div class="footer-contact-item">Travessa Mauriti, 1822 — Belém, PA</div>
+          <div class="footer-contact-item">(91) 99299-2091</div>
+          <div class="footer-contact-item">contato@powerrh.com.br</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2024 PowerRH. Todos os direitos reservados.</div>
+        <div class="footer-bottom-links">
+          <span>Política de Privacidade</span>
+          <span>Termos de Uso</span>
+          <span>Desenvolvido com propósito</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script nativo para interação do acordeão do preview -->
+  <script>
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        const isActive = item.classList.contains('active');
+        
+        // Fecha todos os itens
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('active');
+          const btn = i.querySelector('.accordion-trigger');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Se não estava ativo, abre
+        if (!isActive) {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

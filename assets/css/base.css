@@ -1,0 +1,255 @@
+/**
+ * ==============================================================================
+ * POWER RH — BASE CSS & RESET
+ * ==============================================================================
+ * Reset moderno, regras fundamentais de layout, tipografia base e utilitários.
+ * ==============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+ * 1. RESET MODERNO & BOX-SIZING
+ * ---------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  overflow-x: hidden;
+}
+
+/* ----------------------------------------------------------------------------
+ * 2. TIPOGRAFIA BASE & ELEMENTOS DE TEXTO
+ * ---------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+@media (min-width: 768px) {
+  h1 { font-size: var(--font-size-5xl); }
+  h2 { font-size: var(--font-size-4xl); }
+  h3 { font-size: var(--font-size-3xl); }
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* ----------------------------------------------------------------------------
+ * 3. CONTAINERS & ESTRUTURA DE SEÇÕES
+ * ---------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
+}
+
+@media (min-width: 768px) {
+  .container, .container-narrow, .container-wide {
+    padding-left: var(--container-pad-tablet);
+    padding-right: var(--container-pad-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container, .container-narrow, .container-wide {
+    padding-left: var(--container-pad-desktop);
+    padding-right: var(--container-pad-desktop);
+  }
+}
+
+.section {
+  padding-top: var(--section-pad-y-normal);
+  padding-bottom: var(--section-pad-y-normal);
+  position: relative;
+}
+
+.section-compact {
+  padding-top: var(--section-pad-y-compact);
+  padding-bottom: var(--section-pad-y-compact);
+}
+
+.section-spacious {
+  padding-top: var(--section-pad-y-spacious);
+  padding-bottom: var(--section-pad-y-spacious);
+}
+
+.section-subtle {
+  background-color: var(--bg-surface-subtle);
+}
+
+.section-dark {
+  background-color: var(--bg-inverse);
+  color: var(--text-inverse);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--text-inverse);
+}
+
+.section-dark p {
+  color: var(--text-inverse-secondary);
+}
+
+/* ----------------------------------------------------------------------------
+ * 4. CABEÇALHOS DE SEÇÃO PADRONIZADOS
+ * ---------------------------------------------------------------------------- */
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-12);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.section-dark .section-eyebrow {
+  color: var(--text-inverse-muted);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.section-title span.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 680px;
+}
+
+.section-header-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----------------------------------------------------------------------------
+ * 5. ACESSIBILIDADE & UTILITÁRIOS
+ * ---------------------------------------------------------------------------- */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-mono { font-family: var(--font-family-mono); }
