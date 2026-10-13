@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa</title>
+  <meta name="description" content="Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis. Consultoria com mais de 15 anos de atuação.">
+
+  <!-- Favicon com Emblema Dourado -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2301243E'/><path d='M30 25h24a18 18 0 0 1 0 36H30V25zm0 24h22a6 6 0 0 0 0-12H30v12z' fill='%23C88A3B'/><circle cx='68' cy='65' r='10' fill='%23C88A3B'/></svg>">
+
+  <!-- Google Fonts: Inter & Alex Brush (Assinatura Oficial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System Base & Componentes Master -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <!-- Folha de Estilos Exclusiva da Versão Final (Pixel Perfect) -->
+  <link rel="stylesheet" href="assets/css/site-final.css">
+</head>
+<body>
+
+  <!-- Switcher de Navegação Rápida entre as 4 Visões do Ecossistema -->
+  <aside class="sk-top-switcher" aria-label="Alternar Modo de Visualização">
+    <a href="index-wireframe-skeleton.html" title="Visualização Blueprint Skeleton v0">👁️ Skeleton (v0)</a>
+    <a href="index-wireframe.html" title="Visualização Wireframe com Conteúdo v1">📄 Conteúdo (v1)</a>
+    <a href="index-final.html" class="active" title="Versão Final Pixel Perfect v2">✨ Versão Final (v2)</a>
+    <a href="design-system-preview.html" title="Biblioteca de Especificação e Tokens">📐 Design System</a>
+  </aside>
+
+  <!-- =========================================================================
+       HEADER INSTITUCIONAL & NAVEGAÇÃO
+       ========================================================================= -->
+  <header class="site-header-final">
+    <div class="container container-wide">
+      <nav class="site-nav-final" aria-label="Navegação Principal">
+        <!-- Logo Institucional PowerRH com Emblema Vetorial Dourado -->
+        <a href="#inicio" class="brand-link-final">
+          <svg class="brand-emblem-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="44" height="44" rx="10" fill="#01243E"/>
+            <path d="M12 11H24C28.4183 11 32 14.5817 32 19C32 23.4183 28.4183 27 24 27H18V33H12V11Z" fill="url(#goldGradientLogo)"/>
+            <circle cx="28.5" cy="30.5" r="4.5" fill="#C88A3B"/>
+            <defs>
+              <linearGradient id="goldGradientLogo" x1="12" y1="11" x2="32" y2="33" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#D49B55"/>
+                <stop offset="1" stop-color="#B87B2E"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="brand-text-final">
+            <span class="brand-title-final">PowerRH</span>
+            <span class="brand-tagline-final">Pessoas que transformam negócios</span>
+          </div>
+        </a>
+
+        <!-- Menu de Links -->
+        <ul class="nav-links-final">
+          <li><a href="#inicio" class="nav-link-final active">Home</a></li>
+          <li><a href="#sobre" class="nav-link-final">Sobre</a></li>
+          <li><a href="#solucoes" class="nav-link-final">Soluções</a></li>
+          <li><a href="#depoimentos" class="nav-link-final">Depoimentos</a></li>
+          <li><a href="#formulario-diagnostico" class="nav-link-final">Contato</a></li>
+        </ul>
+
+        <!-- CTA Principal Header -->
+        <div>
+          <a href="#formulario-diagnostico" class="btn-gold">
+            Falar com a especialista →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         SEÇÃO 01: HERO SECTION
+         ======================================================================= -->
+    <section class="hero-final-section" id="inicio">
+      <div class="container container-wide">
+        <div class="hero-panoramic-layout">
+          
+          <!-- Coluna Esquerda: Copywriting, Headline e Mini-Badges -->
+          <div class="hero-copy-box">
+            <span class="hero-eyebrow-final">CONSULTORIA ESTRATÉGICA EM PESSOAS</span>
+            <h1 class="hero-title-final">
+              Empresas crescem<br>
+              quando <span class="highlight-gold">pessoas</span><br>
+              evoluem.
+            </h1>
+            <p class="hero-subtitle-final">
+              Estratégia, liderança e cultura para transformar<br>
+              o potencial humano em resultados reais<br>
+              e sustentáveis.
+            </p>
+
+            <div>
+              <a href="#formulario-diagnostico" class="btn-hero-pill">
+                QUERO UM DIAGNÓSTICO →
+              </a>
+            </div>
+
+            <!-- Mini-Badges de Benefícios Rápidos com Ícones Dourados -->
+            <div class="hero-mini-badges-row">
+              <div class="hero-mini-badge-item">
+                <div class="mini-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <div class="mini-badge-text">
+                  <span>VISÃO</span>
+                  <span>ESTRATÉGICA</span>
+                </div>
+              </div>
+
+              <div class="hero-mini-badge-item">
+                <div class="mini-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <div class="mini-badge-text">
+                  <span>FOCO EM</span>
+                  <span>RESULTADOS</span>
+                </div>
+              </div>
+
+              <div class="hero-mini-badge-item">
+                <div class="mini-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="mini-badge-text">
+                  <span>SOLUÇÕES</span>
+                  <span>SOB MEDIDA</span>
+                </div>
+              </div>
+
+              <div class="hero-mini-badge-item">
+                <div class="mini-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <div class="mini-badge-text">
+                  <span>PARCERIA</span>
+                  <span>DE LONGO PRAZO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Card de Formulário de Conversão Flutuante -->
+          <div class="hero-form-column" id="formulario-diagnostico">
+            <div class="hero-form-card-final">
+              <div class="hero-form-card-header">
+                <h2 class="hero-form-title">Fale com a nossa especialista</h2>
+                <p class="hero-form-desc">Receba um diagnóstico inicial<br>para a sua empresa.</p>
+              </div>
+
+              <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitação de diagnóstico enviada com sucesso! Em breve a especialista Graciete Corrêa entrará em contato.');">
+                <!-- Campo Nome -->
+                <div class="form-field-final">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <input type="text" id="hero-nome" class="form-input-final" placeholder="Seu nome" required>
+                  </div>
+                </div>
+
+                <!-- Campo E-mail -->
+                <div class="form-field-final">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <input type="email" id="hero-email" class="form-input-final" placeholder="E-mail" required>
+                  </div>
+                </div>
+
+                <!-- Campo Telefone -->
+                <div class="form-field-final">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <input type="tel" id="hero-telefone" class="form-input-final" placeholder="Telefone" required>
+                  </div>
+                </div>
+
+                <!-- Campo Empresa -->
+                <div class="form-field-final">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <input type="text" id="hero-empresa" class="form-input-final" placeholder="Nome da empresa" required>
+                  </div>
+                </div>
+
+                <!-- Campo Dropdown Solução -->
+                <div class="form-field-final">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <select id="hero-ajuda" class="form-select-final" required>
+                      <option value="">Como podemos ajudar?</option>
+                      <option value="cultura">Cultura & Estrutura</option>
+                      <option value="lideranca">Liderança & Desenvolvimento</option>
+                      <option value="governanca">Governança & Sucessão</option>
+                      <option value="outro">Outro desafio de RH Estratégico</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Botão Enviar Formulário -->
+                <button type="submit" class="btn-form-submit">
+                  SOLICITAR DIAGNÓSTICO →
+                </button>
+
+                <!-- Nota de Segurança -->
+                <div class="form-security-badge-final">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>Seus dados estão seguros conosco.</span>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 02: NÚMEROS & PROVA RÁPIDA (CONTAINER FLUTUANTE ARREDONDADO)
+         ======================================================================= -->
+    <section class="section-metrics-band">
+      <div class="container container-wide">
+        <div class="metrics-rounded-card">
+          <!-- Métrica 1 -->
+          <div class="metric-item-cell">
+            <div class="metric-icon-gold">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="metric-info-box">
+              <span class="metric-num-bold">+120</span>
+              <span class="metric-desc-label">empresas atendidas</span>
+            </div>
+          </div>
+
+          <div class="metric-cell-divider"></div>
+
+          <!-- Métrica 2 -->
+          <div class="metric-item-cell">
+            <div class="metric-icon-gold">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="metric-info-box">
+              <span class="metric-num-bold">+9.000</span>
+              <span class="metric-desc-label">pessoas desenvolvidas</span>
+            </div>
+          </div>
+
+          <div class="metric-cell-divider"></div>
+
+          <!-- Métrica 3 -->
+          <div class="metric-item-cell">
+            <div class="metric-icon-gold">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="metric-info-box">
+              <span class="metric-num-bold">+95%</span>
+              <span class="metric-desc-label">de satisfação dos clientes</span>
+            </div>
+          </div>
+
+          <div class="metric-cell-divider"></div>
+
+          <!-- Métrica 4 -->
+          <div class="metric-item-cell">
+            <div class="metric-icon-gold">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div class="metric-info-box">
+              <span class="metric-num-bold">+15 anos</span>
+              <span class="metric-desc-label">de experiência em estratégia de pessoas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 03: QUANDO É HORA DE CONTAR COM APOIO ESTRATÉGICO?
+         ======================================================================= -->
+    <section class="section-quando-hora">
+      <div class="container container-wide">
+        <div class="section-eyebrow-divider">
+          <span>QUANDO É HORA</span>
+        </div>
+        <h2 class="section-title-center-final">
+          Quando é hora de contar com apoio estratégico?
+        </h2>
+
+        <div class="quando-hora-grid-final">
+          <!-- Card 1 -->
+          <div class="quando-hora-card-final">
+            <div class="quando-hora-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <p class="quando-hora-text-final">
+              Sua empresa está crescendo e precisa estruturar a área de pessoas.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="quando-hora-card-final">
+            <div class="quando-hora-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <p class="quando-hora-text-final">
+              Há desafios de liderança ou de cultura que impactam os resultados.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="quando-hora-card-final">
+            <div class="quando-hora-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <p class="quando-hora-text-final">
+              É momento de preparar a sucessão e garantir a continuidade do negócio.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="quando-hora-card-final">
+            <div class="quando-hora-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <p class="quando-hora-text-final">
+              Você quer levar sua empresa a um novo patamar com um time mais forte e engajado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 04: NOSSAS SOLUÇÕES (CARDS FOTOGRÁFICOS)
+         ======================================================================= -->
+    <section class="section-solucoes-final" id="solucoes">
+      <div class="container container-wide">
+        <div class="section-eyebrow-divider">
+          <span>NOSSAS SOLUÇÕES</span>
+        </div>
+        <h2 class="section-title-center-final">
+          Estratégia em pessoas para cada etapa do seu crescimento.
+        </h2>
+
+        <div class="solucoes-grid-final">
+          <!-- Card 1: Cultura & Estrutura -->
+          <article class="solucao-card-final">
+            <div class="solucao-img-box-final">
+              <img src="assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/21_diagnostico_de_cultura.webp" alt="Cultura e Estrutura Organizacional" class="solucao-img-final">
+            </div>
+            <div class="solucao-footer-bar-final">
+              <div class="solucao-text-block-final">
+                <div class="solucao-title-row">
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  <h3 class="solucao-title-final">Cultura & Estrutura</h3>
+                </div>
+                <p class="solucao-desc-final">Conectamos pessoas, processos e cultura para sustentar o crescimento.</p>
+              </div>
+              <a href="#formulario-diagnostico" class="solucao-arrow-btn-final" aria-label="Conhecer Cultura e Estrutura">→</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Liderança & Desenvolvimento -->
+          <article class="solucao-card-final">
+            <div class="solucao-img-box-final">
+              <img src="assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/08_lideranca_people_culture.webp" alt="Liderança e Desenvolvimento de Gestores" class="solucao-img-final">
+            </div>
+            <div class="solucao-footer-bar-final">
+              <div class="solucao-text-block-final">
+                <div class="solucao-title-row">
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  <h3 class="solucao-title-final">Liderança & Desenvolvimento</h3>
+                </div>
+                <p class="solucao-desc-final">Desenvolvemos líderes e times para elevar a performance.</p>
+              </div>
+              <a href="#formulario-diagnostico" class="solucao-arrow-btn-final" aria-label="Conhecer Liderança e Desenvolvimento">→</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Governança & Sucessão -->
+          <article class="solucao-card-final">
+            <div class="solucao-img-box-final">
+              <img src="assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/41_fundador_e_sucessor.webp" alt="Governança e Sucessão Familiar" class="solucao-img-final">
+            </div>
+            <div class="solucao-footer-bar-final">
+              <div class="solucao-text-block-final">
+                <div class="solucao-title-row">
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <h3 class="solucao-title-final">Governança & Sucessão</h3>
+                </div>
+                <p class="solucao-desc-final">Preparamos pessoas e estruturas para um futuro sustentável.</p>
+              </div>
+              <a href="#formulario-diagnostico" class="solucao-arrow-btn-final" aria-label="Conhecer Governança e Sucessão">→</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 05: COMO TRABALHAMOS (MÉTODO EM 4 ETAPAS)
+         ======================================================================= -->
+    <section class="section-processo-final">
+      <div class="container container-wide">
+        <div class="processo-header-layout-final">
+          <div>
+            <span class="hero-eyebrow-final" style="margin-bottom: 4px;">COMO TRABALHAMOS</span>
+            <h2 class="processo-title-final">
+              Um processo claro, próximo e eficaz.
+            </h2>
+          </div>
+
+          <div class="processo-steps-track">
+            <!-- Etapa 01 -->
+            <div class="step-card-final">
+              <div class="step-circle-badge-final">01</div>
+              <div class="step-arrow-tail"></div>
+              <h3 class="step-title-final">Diagnóstico</h3>
+              <p class="step-desc-final">Entendemos sua realidade e desafios.</p>
+            </div>
+
+            <!-- Etapa 02 -->
+            <div class="step-card-final">
+              <div class="step-circle-badge-final">02</div>
+              <div class="step-arrow-tail"></div>
+              <h3 class="step-title-final">Planejamento</h3>
+              <p class="step-desc-final">Desenhamos soluções personalizadas.</p>
+            </div>
+
+            <!-- Etapa 03 -->
+            <div class="step-card-final">
+              <div class="step-circle-badge-final">03</div>
+              <div class="step-arrow-tail"></div>
+              <h3 class="step-title-final">Implementação</h3>
+              <p class="step-desc-final">Colocamos o plano em prática, lado a lado.</p>
+            </div>
+
+            <!-- Etapa 04 -->
+            <div class="step-card-final">
+              <div class="step-circle-badge-final">04</div>
+              <h3 class="step-title-final">Evolução</h3>
+              <p class="step-desc-final">Acompanhamos resultados e ajustes contínuos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 06: SOBRE A FUNDADORA (GRACIETE CORRÊA)
+         ======================================================================= -->
+    <section class="section-sobre-final" id="sobre">
+      <div class="container container-wide">
+        <div class="sobre-grid-final">
+          
+          <!-- Foto Oficial em Poltrona de Autoridade -->
+          <div class="sobre-photo-container">
+            <div class="sobre-img-box">
+              <img src="assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp" alt="Graciete Corrêa — Especialista em Estratégia de Pessoas" class="sobre-photo-final">
+            </div>
+            
+            <!-- Badge Flutuante de Credencial -->
+            <div class="sobre-floating-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              <span>Mais de 15 anos transformando pessoas e negócios.</span>
+            </div>
+          </div>
+
+          <!-- Conteúdo Biográfico & Rótulos -->
+          <div class="sobre-details-col">
+            <span class="hero-eyebrow-final" style="margin-bottom: 4px;">SOBRE A FUNDADORA</span>
+            <h2 class="sobre-name-final">Graciete Corrêa</h2>
+            <span class="sobre-subtitle-gold">ESPECIALISTA EM ESTRATÉGIA DE PESSOAS</span>
+
+            <p class="sobre-bio-text">
+              Executiva e consultora com mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura. Apaixonada por pessoas, acredita no poder de uma gestão mais humana e estratégica para construir mais pontes e um futuro melhor.
+            </p>
+
+            <div style="margin-bottom: 28px;">
+              <a href="#formulario-diagnostico" class="btn-gold">
+                Conheça minha história →
+              </a>
+            </div>
+
+            <!-- 4 Credenciais com Ícones Dourados Circulares -->
+            <div class="sobre-credentials-list">
+              <div class="credential-item-final">
+                <div class="credential-icon-circle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <span class="credential-text-final">Especialista em Desenvolvimento Organizacional e Liderança</span>
+              </div>
+
+              <div class="credential-item-final">
+                <div class="credential-icon-circle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <span class="credential-text-final">Consultora e Mentora de Executivos e Times</span>
+              </div>
+
+              <div class="credential-item-final">
+                <div class="credential-icon-circle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <span class="credential-text-final">Atuação em diversos setores e portes de empresas</span>
+              </div>
+
+              <div class="credential-item-final">
+                <div class="credential-icon-circle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <span class="credential-text-final">Compromisso com resultados e impacto real</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 07: DIFERENCIAIS QUE FAZEM A DIFERENÇA
+         ======================================================================= -->
+    <section class="section-diferenciais-final" id="diferenciais">
+      <div class="container container-wide">
+        <div class="diferenciais-grid-final">
+          
+          <!-- Lado Esquerdo: 4 Diferenciais Estratégicos -->
+          <div>
+            <span class="diferenciais-eyebrow">POR QUE POWER RH ——</span>
+            <h2 class="diferenciais-title-final">Diferenciais que fazem a diferença.</h2>
+
+            <div class="diferenciais-cards-grid">
+              <div class="diferencial-card-single">
+                <div class="diferencial-icon-final">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <h3 class="diferencial-name-final">Visão Estratégica</h3>
+                <p class="diferencial-desc-final">Conectamos pessoas aos objetivos do negócio.</p>
+              </div>
+
+              <div class="diferencial-card-single">
+                <div class="diferencial-icon-final">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="diferencial-name-final">Abordagem Personalizada</h3>
+                <p class="diferencial-desc-final">Soluções sob medida para a sua realidade.</p>
+              </div>
+
+              <div class="diferencial-card-single">
+                <div class="diferencial-icon-final">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <h3 class="diferencial-name-final">Foco em Resultados</h3>
+                <p class="diferencial-desc-final">Projetos práticos e mensuráveis.</p>
+              </div>
+
+              <div class="diferencial-card-single">
+                <div class="diferencial-icon-final">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <h3 class="diferencial-name-final">Experiência Comprovada</h3>
+                <p class="diferencial-desc-final">Mais de 15 anos transformando organizações.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Direito: Card de Destaque Emocional com Foto e Painel Quente -->
+          <div>
+            <div class="diferenciais-destaque-card">
+              <div class="destaque-card-image-box">
+                <img src="assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp" alt="Pessoas no centro, resultados no futuro" class="destaque-card-img">
+              </div>
+              <div class="destaque-card-content">
+                <div class="destaque-play-row">
+                  <div class="destaque-play-btn">▶</div>
+                </div>
+                <h4 class="destaque-card-title">Pessoas no centro. Resultados no futuro.</h4>
+                <p class="destaque-card-desc">Estratégia e humanidade caminhando juntas para negócios mais fortes.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 08: DEPOIMENTOS DE CLIENTES
+         ======================================================================= -->
+    <section class="section-depoimentos-final" id="depoimentos">
+      <div class="container container-wide">
+        <div class="section-eyebrow-divider">
+          <span>DEPOIMENTOS</span>
+        </div>
+        <h2 class="section-title-center-final">
+          O que nossos clientes dizem
+        </h2>
+
+        <div class="depoimentos-grid-final">
+          <!-- Depoimento 1 -->
+          <div class="depoimento-card-final">
+            <div>
+              <div class="depoimento-quote-mark">“</div>
+              <p class="depoimento-text-final">
+                A PowerRH nos ajudou a estruturar nossa liderança e a fortalecer nossa cultura. O impacto nos resultados foi evidente.
+              </p>
+            </div>
+            <div class="depoimento-author-row">
+              <img src="assets/imagens-diversas/avatar-mariana.png" alt="Mariana Lopes" class="depoimento-avatar-img">
+              <div>
+                <div class="depoimento-author-name">Mariana Lopes</div>
+                <div class="depoimento-author-role">CEO, Grupo Vértice</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 -->
+          <div class="depoimento-card-final">
+            <div>
+              <div class="depoimento-quote-mark">“</div>
+              <p class="depoimento-text-final">
+                Profissionalismo, sensibilidade e visão estratégica. Uma parceria que realmente faz a diferença para o nosso negócio.
+              </p>
+            </div>
+            <div class="depoimento-author-row">
+              <img src="assets/imagens-diversas/avatar-roberto.png" alt="Roberto Almeida" class="depoimento-avatar-img">
+              <div>
+                <div class="depoimento-author-name">Roberto Almeida</div>
+                <div class="depoimento-author-role">Diretor, TechBrasil</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 -->
+          <div class="depoimento-card-final">
+            <div>
+              <div class="depoimento-quote-mark">“</div>
+              <p class="depoimento-text-final">
+                A Graciete tem uma capacidade única de conectar pessoas, estratégia e resultados. Recomendo de olhos fechados.
+              </p>
+            </div>
+            <div class="depoimento-author-row">
+              <img src="assets/imagens-diversas/avatar-carla.png" alt="Carla Mendes" class="depoimento-avatar-img">
+              <div>
+                <div class="depoimento-author-name">Carla Mendes</div>
+                <div class="depoimento-author-role">Sócia, Mendes & Associados</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 09: FAQ / PERGUNTAS FREQUENTES (ACCORDION)
+         ======================================================================= -->
+    <section class="section-faq-final" id="faq">
+      <div class="container container-wide">
+        <div class="faq-layout-final">
+          <div>
+            <span class="hero-eyebrow-final" style="margin-bottom: 4px;">DÚVIDAS FREQUENTES</span>
+            <h2 class="faq-title-final">Perguntas frequentes</h2>
+            <p class="faq-desc-final">
+              Confira as respostas para as dúvidas mais comuns sobre o formato de trabalho da PowerRH.
+            </p>
+            <a href="#formulario-diagnostico" class="btn-gold" style="font-size: 12.5px; padding: 10px 20px;">
+              Quero tirar outra dúvida →
+            </a>
+          </div>
+
+          <div class="faq-accordion-list">
+            <!-- FAQ 1 -->
+            <div class="faq-item-final active">
+              <button type="button" class="faq-btn-trigger" aria-expanded="true">
+                <span>Quais tipos de empresas a PowerRH atende?</span>
+                <span class="faq-chevron-icon">▼</span>
+              </button>
+              <div class="faq-answer-body">
+                Atendemos empresas em fase de expansão, organizações familiares em processo de profissionalização e governança, e empresas de médio e grande porte que buscam desenvolver líderes e alinhar cultura com resultados.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item-final">
+              <button type="button" class="faq-btn-trigger" aria-expanded="false">
+                <span>Como funciona o diagnóstico inicial?</span>
+                <span class="faq-chevron-icon">▼</span>
+              </button>
+              <div class="faq-answer-body">
+                O diagnóstico é uma sessão estratégica sem compromisso com a fundadora para mapear a situação atual de gestão de pessoas, identificar gargalos imediatos e estruturar os passos necessários para a evolução.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item-final">
+              <button type="button" class="faq-btn-trigger" aria-expanded="false">
+                <span>Os projetos são personalizados?</span>
+                <span class="faq-chevron-icon">▼</span>
+              </button>
+              <div class="faq-answer-body">
+                Sim, 100% personalizados. Entendemos a realidade, maturidade e cultura de cada cliente para desenhar intervenções sob medida que gerem adesão real do time.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item-final">
+              <button type="button" class="faq-btn-trigger" aria-expanded="false">
+                <span>Qual o formato de trabalho?</span>
+                <span class="faq-chevron-icon">▼</span>
+              </button>
+              <div class="faq-answer-body">
+                Trabalhamos em formato híbrido (presencial e online), com visitas técnicas em campo, oficinas práticas de facilitação, mentorias executivas e acompanhamento periódico dos rituais de liderança.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item-final">
+              <button type="button" class="faq-btn-trigger" aria-expanded="false">
+                <span>Em quanto tempo posso ver resultados?</span>
+                <span class="faq-chevron-icon">▼</span>
+              </button>
+              <div class="faq-answer-body">
+                Os alinhamentos iniciais e a clareza de papéis geram impactos perceptíveis nas primeiras semanas. Resultados estruturais consolidados ocorrem normalmente entre o 3º e o 6º mês de implementação.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SEÇÃO 10: BANNER CTA FINAL
+         ======================================================================= -->
+    <section class="section-cta-final-banner">
+      <div class="container container-wide">
+        <div class="cta-banner-wrapper">
+          <div class="cta-banner-inner-grid">
+            
+            <!-- Coluna 1: Foto do Escritório com Vista ao Pôr do Sol -->
+            <div class="cta-banner-photo-col">
+              <img src="assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/05_sala_com_vista_porto.webp" alt="Mesa de reunião corporativa com vista para o porto">
+              <div class="cta-banner-photo-gradient"></div>
+            </div>
+
+            <!-- Coluna 2: Título e Descrição Comercial -->
+            <div class="cta-banner-content-col">
+              <h2 class="cta-banner-heading">
+                Vamos conversar sobre<br>
+                o futuro da sua empresa?
+              </h2>
+              <p class="cta-banner-sub">
+                Descubra como a PowerRH pode ajudar o seu negócio a crescer com pessoas mais engajadas, líderes mais preparados e resultados sustentáveis.
+              </p>
+            </div>
+
+            <!-- Coluna 3: Checklist Dourado e Botão CTA -->
+            <div class="cta-banner-actions-col">
+              <ul class="cta-checklist-final">
+                <li class="cta-check-item-final">
+                  <span class="cta-check-gold-icon">✓</span>
+                  <span>Diagnóstico inicial sem compromisso</span>
+                </li>
+                <li class="cta-check-item-final">
+                  <span class="cta-check-gold-icon">✓</span>
+                  <span>Conversa direta com a especialista</span>
+                </li>
+                <li class="cta-check-item-final">
+                  <span class="cta-check-gold-icon">✓</span>
+                  <span>Soluções sob medida para a sua realidade</span>
+                </li>
+              </ul>
+
+              <div>
+                <a href="#formulario-diagnostico" class="btn-gold" style="padding: 14px 26px; width: 100%;">
+                  QUERO FALAR COM A GRACIETE →
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SEÇÃO 11: FOOTER INSTITUCIONAL OCEÂNICO
+       ========================================================================= -->
+  <footer class="site-footer-final">
+    <div class="container container-wide">
+      <div class="footer-main-grid-final">
+        
+        <!-- Coluna 1: Logo & Missão -->
+        <div>
+          <div class="footer-brand-title">PowerRH</div>
+          <p class="footer-brand-desc">
+            Consultoria estratégica em pessoas, liderança, cultura e governança para organizações que buscam crescimento sustentável e perene.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <div class="footer-col-heading">Navegação</div>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#inicio">Início</a></li>
+            <li class="footer-link-item"><a href="#sobre">Sobre a Fundadora</a></li>
+            <li class="footer-link-item"><a href="#solucoes">Nossas Soluções</a></li>
+            <li class="footer-link-item"><a href="#diferenciais">Diferenciais</a></li>
+            <li class="footer-link-item"><a href="#depoimentos">Depoimentos</a></li>
+            <li class="footer-link-item"><a href="#faq">Dúvidas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Soluções -->
+        <div>
+          <div class="footer-col-heading">Soluções</div>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#solucoes">Cultura & Estrutura</a></li>
+            <li class="footer-link-item"><a href="#solucoes">Liderança & Desenvolvimento</a></li>
+            <li class="footer-link-item"><a href="#solucoes">Governança & Sucessão</a></li>
+            <li class="footer-link-item"><a href="#formulario-diagnostico">Diagnóstico Gratuito</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Contato -->
+        <div>
+          <div class="footer-col-heading">Contato</div>
+          <div class="footer-contact-item-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Travessa Mauriti, 1822<br>Belém — PA</span>
+          </div>
+          <div class="footer-contact-item-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>(91) 99299-2091</span>
+          </div>
+          <div class="footer-contact-item-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>contato@powerrh.com.br</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé Inferior -->
+      <div class="footer-bottom-bar">
+        <div>© 2024 PowerRH. Todos os direitos reservados.</div>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacidade</a>
+          <span>•</span>
+          <a href="#">Termos de Uso</a>
+        </div>
+        <div>Pessoas que transformam negócios.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Interativos Leves -->
+  <script>
+    // FAQ Accordion Interativo
+    document.querySelectorAll('.faq-btn-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item-final');
+        const isActive = item.classList.contains('active');
+        
+        // Fecha todos
+        document.querySelectorAll('.faq-item-final').forEach(i => {
+          i.classList.remove('active');
+          const trigger = i.querySelector('.faq-btn-trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+
+        // Alterna o clicado
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

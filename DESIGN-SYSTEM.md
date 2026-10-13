@@ -24,12 +24,20 @@ assets/css/
 ├── tokens.css          # Design Tokens (Variáveis CSS primitivas, semânticas e escalares)
 ├── base.css            # Reset moderno, tipografia base, containers e utilitários
 ├── components.css      # Componentes de interface (botões, cards, formulários, nav, etc.)
-└── design-system.css   # Arquivo mestre que importa todos os módulos acima
+├── design-system.css   # Arquivo mestre que importa todos os módulos acima
+└── site-final.css      # Extensão corporativa final (paleta ouro/navy, fotos HD, micro-interações)
 ```
 
-Para consumir todo o Design System em qualquer página HTML, utiliza-se uma única importação canônica:
+### 🧭 Ecossistema de Visões Integradas (4 Modos de Navegação)
+1. **👁️ Skeleton (v0):** `index-wireframe-skeleton.html` — Blueprint estrutural e de diagramação com blocos visuais.
+2. **📄 Conteúdo (v1):** `index-wireframe.html` — Wireframe neutro de alta fidelidade em escala de cinza com copy real.
+3. **✨ Versão Final (v2):** `index-final.html` — Versão definitiva pixel perfect com fotografia executiva, identidade ouro e navy.
+4. **📐 Design System:** `design-system-preview.html` — Biblioteca viva de componentes, tokens e documentação.
+
+Para consumir todo o Design System e a camada final em qualquer página HTML:
 ```html
 <link rel="stylesheet" href="assets/css/design-system.css">
+<link rel="stylesheet" href="assets/css/site-final.css">
 ```
 
 ---
