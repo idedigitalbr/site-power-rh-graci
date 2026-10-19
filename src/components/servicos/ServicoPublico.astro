@@ -1,0 +1,188 @@
+---
+// ServicoPublico.astro — Segmentação por perfil e transformação entregue
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import type { ServiceProfileItem } from '../../data/siteContent';
+
+interface Props {
+  targetAudience: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    profiles: ServiceProfileItem[];
+  };
+}
+
+const { targetAudience } = Astro.props;
+---
+
+<section class="section-servico-publico" id="para-quem-e">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={targetAudience.eyebrow}
+      title={targetAudience.title}
+      subtitle={targetAudience.subtitle}
+      center={true}
+    />
+
+    <div class="servico-publico-grid">
+      {targetAudience.profiles.map((profile) => (
+        <div class="publico-card-item">
+          <div class="publico-role-header">
+            <span class="role-badge-tag">PERFIL ATENDIDO</span>
+            <h3 class="publico-role-title">{profile.role}</h3>
+          </div>
+
+          <div class="publico-comparison-box">
+            <!-- Desafio Atual -->
+            <div class="publico-state-box is-challenge">
+              <div class="state-label">
+                <span class="state-dot challenge-dot"></span>
+                <span>O desafio que enfrenta:</span>
+              </div>
+              <p class="state-text">{profile.challenge}</p>
+            </div>
+
+            <!-- Transformação com a PowerRH -->
+            <div class="publico-state-box is-transformation">
+              <div class="state-label">
+                <span class="state-dot transform-dot"></span>
+                <span>A transformação com a PowerRH:</span>
+              </div>
+              <p class="state-text">{profile.transformation}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-servico-publico {
+    position: relative;
+    padding: 100px 0 105px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(1, 36, 62, 0.06);
+  }
+
+  .servico-publico-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 991px) {
+    .servico-publico-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .publico-card-item {
+    background: var(--color-bg-warm, #FCFAF7);
+    border-radius: 24px;
+    padding: 34px 28px;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 18px rgba(1, 36, 62, 0.04);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .publico-card-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 138, 59, 0.35);
+  }
+
+  .publico-role-header {
+    margin-bottom: 24px;
+  }
+
+  .role-badge-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-gold, #C88A3B);
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono, monospace);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .publico-role-title {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+
+  .publico-comparison-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .publico-state-box {
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .publico-state-box.is-challenge {
+    background: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .publico-state-box.is-transformation {
+    background: var(--color-gold-light, #FDF6EC);
+    border: 1px solid rgba(200, 138, 59, 0.25);
+  }
+
+  .state-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  .is-challenge .state-label {
+    color: #718096;
+  }
+
+  .is-transformation .state-label {
+    color: var(--color-gold-dark, #9A621D);
+  }
+
+  .state-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .challenge-dot {
+    background-color: #A0AEC0;
+  }
+
+  .transform-dot {
+    background-color: var(--color-gold, #C88A3B);
+  }
+
+  .state-text {
+    margin: 0;
+    color: #2D3748;
+  }
+
+  .is-transformation .state-text {
+    color: #1A202C;
+    font-weight: 500;
+  }
+</style>

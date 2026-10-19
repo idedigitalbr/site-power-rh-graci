@@ -73,9 +73,9 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
             </p>
           </div>
           <a
-            href="#formulario-diagnostico"
+            href={`${base}/servicos/cultura-organizacional`}
             class="solucao-arrow-btn btn-right"
-            aria-label={`Conhecer ${cultura.title}`}
+            aria-label={`Conhecer página de ${cultura.title}`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -119,9 +119,9 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
             <!-- Botão de Seta Alinhado à Esquerda -->
             <a
-              href="#formulario-diagnostico"
+              href={`${base}/servicos/lideranca-executiva`}
               class="solucao-arrow-btn btn-left"
-              aria-label={`Conhecer ${lideranca.title}`}
+              aria-label={`Conhecer página de ${lideranca.title}`}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -166,9 +166,9 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
               </div>
             </div>
             <a
-              href="#formulario-diagnostico"
+              href={`${base}/servicos/governanca-e-sucessao`}
               class="solucao-arrow-btn btn-right flex-shrink-0"
-              aria-label={`Conhecer ${governanca.title}`}
+              aria-label={`Conhecer página de ${governanca.title}`}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -179,6 +179,17 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
         </article>
 
       </div>
+    </div>
+
+    <!-- Botão Central: Explorar Todas as 4 Soluções & Advisory -->
+    <div class="solucoes-hub-cta-wrap">
+      <a href={`${base}/servicos`} class="btn-solucoes-hub-pill">
+        <span>Conhecer o portfólio completo com as 4 soluções de Advisory</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
   </Container>
 </section>
@@ -659,6 +670,47 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
     .governanca-bottom-bar {
       padding: 14px 18px;
+    }
+  }
+
+  .solucoes-hub-cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  .btn-solucoes-hub-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #01243E;
+    color: #FFFFFF;
+    border: 1px solid rgba(200, 138, 59, 0.4);
+    padding: 14px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 20px rgba(1, 36, 62, 0.15);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-solucoes-hub-pill:hover {
+    background: #081624;
+    border-color: var(--color-gold, #C88A3B);
+    color: #ECC78A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(1, 36, 62, 0.25);
+  }
+
+  @media (max-width: 640px) {
+    .btn-solucoes-hub-pill {
+      font-size: 13px;
+      padding: 12px 20px;
+      text-align: center;
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

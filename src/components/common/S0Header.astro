@@ -5,7 +5,7 @@ import Button from '../ui/Button.astro';
 import { siteContent } from '../../data/siteContent';
 
 interface Props {
-  currentPage?: 'home' | 'sobre' | 'design-system';
+  currentPage?: 'home' | 'sobre' | 'servicos' | 'design-system';
 }
 
 const { currentPage = 'home' } = Astro.props;
@@ -25,8 +25,8 @@ const navLinks = [
   },
   {
     label: 'Soluções',
-    href: `${base}/#solucoes`,
-    active: false,
+    href: currentPage === 'home' ? '#solucoes' : `${base}/servicos`,
+    active: currentPage === 'servicos',
   },
   {
     label: 'Contato',

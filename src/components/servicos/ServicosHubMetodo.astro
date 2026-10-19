@@ -1,0 +1,125 @@
+---
+// ServicosHubMetodo.astro — A metodologia consultiva unificada da PowerRH
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import type { ServicosHubData } from '../../data/siteContent';
+
+interface Props {
+  metodo: ServicosHubData['metodoUnificado'];
+}
+
+const { metodo } = Astro.props;
+---
+
+<section class="section-hub-metodo" id="metodologia-unificada">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={metodo.eyebrow}
+      title={metodo.title}
+      subtitle={metodo.subtitle}
+      center={true}
+    />
+
+    <div class="hub-metodo-grid">
+      {metodo.steps.map((step) => (
+        <div class="hub-metodo-card">
+          <div class="hub-metodo-top">
+            <span class="hub-metodo-num">{step.step}</span>
+            <span class="hub-metodo-tag">{step.tag}</span>
+          </div>
+
+          <h3 class="hub-metodo-title">{step.title}</h3>
+          <p class="hub-metodo-desc">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-hub-metodo {
+    position: relative;
+    padding: 100px 0 105px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(1, 36, 62, 0.08);
+  }
+
+  .hub-metodo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 991px) {
+    .hub-metodo-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hub-metodo-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hub-metodo-card {
+    background: var(--color-bg-warm, #FCFAF7);
+    border-radius: 20px;
+    padding: 30px 24px;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 18px rgba(1, 36, 62, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  .hub-metodo-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 138, 59, 0.4);
+    box-shadow: 0 16px 36px rgba(1, 36, 62, 0.08);
+  }
+
+  .hub-metodo-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .hub-metodo-num {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    font-family: var(--font-mono, monospace);
+    line-height: 1;
+  }
+
+  .hub-metodo-tag {
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--color-gold-light, #FDF6EC);
+    color: var(--color-gold-dark, #9A621D);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .hub-metodo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.35;
+    margin: 0 0 12px;
+  }
+
+  .hub-metodo-desc {
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>

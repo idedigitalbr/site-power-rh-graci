@@ -1,0 +1,44 @@
+---
+// index.astro — Página Hub Oficial de Soluções & Advisory da PowerRH (Graciete Corrêa)
+import Layout from '../../layouts/Layout.astro';
+import S0Header from '../../components/common/S0Header.astro';
+import Footer from '../../components/common/Footer.astro';
+
+// Componentes exclusivos do Hub de Serviços
+import ServicosHubHero from '../../components/servicos/ServicosHubHero.astro';
+import ServicosHubCards from '../../components/servicos/ServicosHubCards.astro';
+import ServicosHubMetodo from '../../components/servicos/ServicosHubMetodo.astro';
+
+// Seções reutilizadas da Home com acabamento executivo de alto padrão
+import S8Depoimentos from '../../components/home/S8Depoimentos.astro';
+import S10CtaBanner from '../../components/home/S10CtaBanner.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { servicosHub } = siteContent;
+---
+
+<Layout
+  title={servicosHub.meta.title}
+  description={servicosHub.meta.description}
+>
+  <S0Header currentPage="servicos" />
+
+  <main>
+    <!-- S1: Topo Hero Panorâmico de Soluções & Advisory -->
+    <ServicosHubHero hubData={servicosHub} />
+
+    <!-- S2: Grade Editorial das 4 Frentes Estratégicas -->
+    <ServicosHubCards hubData={servicosHub} />
+
+    <!-- S3: Metodologia Unificada em 4 Etapas -->
+    <ServicosHubMetodo metodo={servicosHub.metodoUnificado} />
+
+    <!-- S4: Prova Social & Depoimentos de Clientes (Reaproveitamento da Home) -->
+    <S8Depoimentos />
+
+    <!-- S5: Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
+    <S10CtaBanner />
+  </main>
+
+  <Footer />
+</Layout>

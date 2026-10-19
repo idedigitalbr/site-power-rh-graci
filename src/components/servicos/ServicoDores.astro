@@ -1,0 +1,209 @@
+---
+// ServicoDores.astro — Cenários reais e momentos críticos que demandam o serviço
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import type { ServiceScenarioItem } from '../../data/siteContent';
+
+interface Props {
+  scenarios: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: ServiceScenarioItem[];
+  };
+}
+
+const { scenarios } = Astro.props;
+---
+
+<section class="section-servico-dores" id="cenarios-criticos">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={scenarios.eyebrow}
+      title={scenarios.title}
+      subtitle={scenarios.subtitle}
+      center={true}
+    />
+
+    <div class="servico-dores-grid">
+      {scenarios.items.map((item, index) => (
+        <article class="dor-card-item">
+          <div class="dor-card-header">
+            <!-- Número Sequencial com Design Dourado Sutil -->
+            <span class="dor-card-number">0{index + 1}</span>
+
+            <!-- Ícone Semântico SVG -->
+            <div class="dor-icon-badge">
+              {item.iconType === 'chaos' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              )}
+              {item.iconType === 'bottleneck' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+              )}
+              {item.iconType === 'turnover' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <polyline points="17 11 19 13 23 9"></polyline>
+                </svg>
+              )}
+              {item.iconType === 'clash' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              )}
+              {item.iconType === 'growth' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+              )}
+              {item.iconType === 'loneliness' && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              )}
+            </div>
+          </div>
+
+          <h3 class="dor-card-title">{item.title}</h3>
+          <p class="dor-card-desc">{item.desc}</p>
+
+          <div class="dor-card-footer">
+            <span class="dor-badge-status">Cenário de intervenção</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-servico-dores {
+    position: relative;
+    padding: 95px 0 90px;
+    background-color: var(--color-bg-warm, #FCFAF7);
+    border-bottom: 1px solid rgba(200, 138, 59, 0.15);
+  }
+
+  .servico-dores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 1100px) {
+    .servico-dores-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .servico-dores-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .dor-card-item {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px 26px;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 18px rgba(1, 36, 62, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dor-card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C88A3B, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .dor-card-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(1, 36, 62, 0.08);
+    border-color: rgba(200, 138, 59, 0.35);
+  }
+
+  .dor-card-item:hover::before {
+    opacity: 1;
+  }
+
+  .dor-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .dor-card-number {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .dor-icon-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--color-gold-light, #FDF6EC);
+    border: 1px solid rgba(200, 138, 59, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dor-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.35;
+    margin: 0 0 12px;
+    letter-spacing: -0.015em;
+  }
+
+  .dor-card-desc {
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.55;
+    margin: 0 0 20px;
+    flex-grow: 1;
+  }
+
+  .dor-card-footer {
+    padding-top: 14px;
+    border-top: 1px solid rgba(1, 36, 62, 0.06);
+  }
+
+  .dor-badge-status {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8C9BA8;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+</style>

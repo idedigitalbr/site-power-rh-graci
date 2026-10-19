@@ -1,0 +1,65 @@
+---
+// advisory-empresarial.astro — Página Oficial da Solução 04: Advisory Empresarial & Apoio ao Decisor
+import Layout from '../../layouts/Layout.astro';
+import S0Header from '../../components/common/S0Header.astro';
+import Footer from '../../components/common/Footer.astro';
+
+// Componentes da Página de Serviço
+import ServicoHero from '../../components/servicos/ServicoHero.astro';
+import ServicosNavSelector from '../../components/servicos/ServicosNavSelector.astro';
+import ServicoDores from '../../components/servicos/ServicoDores.astro';
+import ServicoModulos from '../../components/servicos/ServicoModulos.astro';
+import ServicoMetodo from '../../components/servicos/ServicoMetodo.astro';
+import ServicoPublico from '../../components/servicos/ServicoPublico.astro';
+import ServicoDiferencial from '../../components/servicos/ServicoDiferencial.astro';
+import ServicoFaq from '../../components/servicos/ServicoFaq.astro';
+
+// Seções reutilizadas da Home
+import S8Depoimentos from '../../components/home/S8Depoimentos.astro';
+import S10CtaBanner from '../../components/home/S10CtaBanner.astro';
+
+import { siteContent } from '../../data/siteContent';
+
+const service = siteContent.servicos['advisory-empresarial'];
+---
+
+<Layout
+  title={service.meta.title}
+  description={service.meta.description}
+>
+  <S0Header currentPage="servicos" />
+
+  <main>
+    <!-- S1: Topo Hero Panorâmico com Selo e Foto Oficial -->
+    <ServicoHero service={service} />
+
+    <!-- Barra de Navegação Rápida entre Serviços -->
+    <ServicosNavSelector currentSlug={service.slug} />
+
+    <!-- S2: Sintomas & Momentos Críticos (Cenários de Aplicação) -->
+    <ServicoDores scenarios={service.scenarios} />
+
+    <!-- S3: Escopo Detalhado & Módulos com Entregáveis Práticos -->
+    <ServicoModulos modules={service.modules} />
+
+    <!-- S4: Metodologia de Implementação em 4 Etapas -->
+    <ServicoMetodo method={service.method} />
+
+    <!-- S5: Para Quem É & Transformação por Perfil -->
+    <ServicoPublico targetAudience={service.targetAudience} />
+
+    <!-- S6: Diferencial de Autoridade Executiva Graciete Corrêa -->
+    <ServicoDiferencial differential={service.differential} />
+
+    <!-- S7: Perguntas Frequentes com Acordeão Interativo -->
+    <ServicoFaq faq={service.faq} serviceTitle={service.shortTitle} />
+
+    <!-- S8: Prova Social Consolidada (Reaproveitamento da Home) -->
+    <S8Depoimentos />
+
+    <!-- S9: Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
+    <S10CtaBanner />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,246 @@
+---
+// ServicosHubCards.astro — Grid de cards das 4 frentes estratégicas
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import Button from '../ui/Button.astro';
+import type { ServicosHubData } from '../../data/siteContent';
+
+interface Props {
+  hubData: ServicosHubData;
+}
+
+const { hubData } = Astro.props;
+const { intro, cards } = hubData;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="section-hub-cards" id="grade-solucoes">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={intro.eyebrow}
+      title={intro.title}
+      subtitle={intro.subtitle}
+      center={true}
+    />
+
+    <div class="hub-cards-grid">
+      {cards.map((card) => (
+        <article class="hub-card-item">
+          <!-- Mídia Visual Superior com Selo -->
+          <div class="hub-card-media-box">
+            <img
+              src={`${base}/${card.image}`}
+              alt={card.title}
+              class="hub-card-img"
+              loading="lazy"
+            />
+            <div class="hub-media-overlay"></div>
+            <div class="hub-media-badges">
+              <span class="hub-num-badge">{card.number}</span>
+              <span class="hub-category-badge">{card.category}</span>
+            </div>
+          </div>
+
+          <!-- Conteúdo do Card -->
+          <div class="hub-card-body">
+            <h3 class="hub-card-title">{card.title}</h3>
+            <p class="hub-card-desc">{card.desc}</p>
+
+            <div class="hub-highlights-block">
+              <span class="highlights-heading">Principais Entregas:</span>
+              <ul class="hub-deliverables-list">
+                {card.highlights.map((hl) => (
+                  <li class="hub-deliv-item">
+                    <svg class="hub-check-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{hl}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="hub-card-footer-action">
+              <Button
+                href={`${base}/servicos/${card.slug}`}
+                variant="gold"
+                class="w-full text-center flex items-center justify-center py-3.5"
+              >
+                {card.ctaLabel} →
+              </Button>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-hub-cards {
+    position: relative;
+    padding: 100px 0 110px;
+    background-color: var(--color-bg-warm, #FCFAF7);
+  }
+
+  .hub-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    margin-top: 54px;
+  }
+
+  @media (max-width: 991px) {
+    .hub-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .hub-card-item {
+    background: #FFFFFF;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 24px rgba(1, 36, 62, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hub-card-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(1, 36, 62, 0.10);
+    border-color: rgba(200, 138, 59, 0.4);
+  }
+
+  .hub-card-media-box {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #01243E;
+  }
+
+  .hub-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 0.6s ease;
+  }
+
+  .hub-card-item:hover .hub-card-img {
+    transform: scale(1.05);
+  }
+
+  .hub-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(1, 36, 62, 0) 40%, rgba(1, 36, 62, 0.75) 100%);
+    pointer-events: none;
+  }
+
+  .hub-media-badges {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hub-num-badge {
+    background: rgba(1, 36, 62, 0.90);
+    backdrop-filter: blur(8px);
+    color: var(--color-gold, #C88A3B);
+    font-size: 13px;
+    font-weight: 800;
+    font-family: var(--font-mono, monospace);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.4);
+  }
+
+  .hub-category-badge {
+    background: rgba(200, 138, 59, 0.2);
+    backdrop-filter: blur(8px);
+    color: #ECC78A;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono, monospace);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.45);
+    text-transform: uppercase;
+  }
+
+  .hub-card-body {
+    padding: 34px 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .hub-card-title {
+    font-size: clamp(21px, 1.8vw, 24px);
+    font-weight: 800;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.25;
+    margin: 0 0 12px;
+    letter-spacing: -0.015em;
+  }
+
+  .hub-card-desc {
+    font-size: 15px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  .hub-highlights-block {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(1, 36, 62, 0.08);
+    margin-bottom: 28px;
+  }
+
+  .highlights-heading {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .hub-deliverables-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hub-deliv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #2D3748;
+    line-height: 1.45;
+  }
+
+  .hub-check-svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hub-card-footer-action {
+    margin-top: 8px;
+  }
+</style>

@@ -1,0 +1,215 @@
+---
+// ServicoModulos.astro — Detalhamento minucioso dos módulos e entregáveis práticos
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import type { ServiceModuleItem } from '../../data/siteContent';
+
+interface Props {
+  modules: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: ServiceModuleItem[];
+  };
+}
+
+const { modules } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="section-servico-modulos" id="escopo-modulos">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={modules.eyebrow}
+      title={modules.title}
+      subtitle={modules.subtitle}
+      center={true}
+    />
+
+    <div class="servico-modulos-grid">
+      {modules.items.map((item) => (
+        <article class="modulo-card-card">
+          {item.image && (
+            <div class="modulo-media-wrap">
+              <img
+                src={`${base}/${item.image}`}
+                alt={item.title}
+                class="modulo-media-img"
+                loading="lazy"
+              />
+              <span class="modulo-number-badge">{item.number}</span>
+            </div>
+          )}
+
+          <div class="modulo-content-wrap">
+            <span class="modulo-subtitle-eyebrow">{item.subtitle}</span>
+            <h3 class="modulo-card-title">{item.title}</h3>
+            <p class="modulo-card-desc">{item.desc}</p>
+
+            <div class="modulo-deliverables-box">
+              <h4 class="deliverables-title">Entregáveis práticos:</h4>
+              <ul class="deliverables-list">
+                {item.deliverables.map((deliv) => (
+                  <li class="deliverable-item">
+                    <svg class="deliv-check-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{deliv}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-servico-modulos {
+    position: relative;
+    padding: 100px 0 105px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(1, 36, 62, 0.06);
+  }
+
+  .servico-modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 991px) {
+    .servico-modulos-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  .modulo-card-card {
+    background: var(--color-bg-warm, #FCFAF7);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(1, 36, 62, 0.03);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .modulo-card-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(1, 36, 62, 0.08);
+    border-color: rgba(200, 138, 59, 0.35);
+  }
+
+  .modulo-media-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #01243E;
+  }
+
+  .modulo-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 0.5s ease;
+  }
+
+  .modulo-card-card:hover .modulo-media-img {
+    transform: scale(1.04);
+  }
+
+  .modulo-number-badge {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    background: rgba(1, 36, 62, 0.88);
+    backdrop-filter: blur(8px);
+    color: var(--color-gold, #C88A3B);
+    font-size: 13px;
+    font-weight: 800;
+    font-family: var(--font-mono, monospace);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .modulo-content-wrap {
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .modulo-subtitle-eyebrow {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--color-gold, #C88A3B);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    display: block;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .modulo-card-title {
+    font-size: clamp(19px, 1.5vw, 22px);
+    font-weight: 800;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.3;
+    margin: 0 0 12px;
+    letter-spacing: -0.015em;
+  }
+
+  .modulo-card-desc {
+    font-size: 14.5px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  .modulo-deliverables-box {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(1, 36, 62, 0.08);
+  }
+
+  .deliverables-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+  }
+
+  .deliverables-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .deliverable-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #2D3748;
+    line-height: 1.45;
+  }
+
+  .deliv-check-svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+</style>

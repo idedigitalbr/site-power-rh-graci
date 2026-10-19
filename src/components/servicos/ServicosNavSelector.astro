@@ -1,0 +1,175 @@
+---
+// ServicosNavSelector.astro — Barra de navegação rápida entre os 4 serviços
+import Container from '../ui/Container.astro';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const servicesList = [
+  {
+    slug: 'cultura-organizacional',
+    title: 'Cultura & Design',
+    category: '01',
+    href: `${base}/servicos/cultura-organizacional`,
+  },
+  {
+    slug: 'lideranca-executiva',
+    title: 'Líderes de Líderes',
+    category: '02',
+    href: `${base}/servicos/lideranca-executiva`,
+  },
+  {
+    slug: 'governanca-e-sucessao',
+    title: 'Governança & Sucessão',
+    category: '03',
+    href: `${base}/servicos/governanca-e-sucessao`,
+  },
+  {
+    slug: 'advisory-empresarial',
+    title: 'Advisory Empresarial',
+    category: '04',
+    href: `${base}/servicos/advisory-empresarial`,
+  },
+];
+---
+
+<section class="section-servicos-selector" aria-label="Navegar entre outras soluções">
+  <Container size="wide">
+    <div class="selector-inner-box">
+      <div class="selector-title-side">
+        <span class="selector-eyebrow">PORTFÓLIO ESTRATÉGICO</span>
+        <span class="selector-lead">Conheça outras frentes de atuação:</span>
+      </div>
+
+      <div class="selector-links-track">
+        {servicesList.map((item) => {
+          const isActive = item.slug === currentSlug;
+          return (
+            <a
+              href={item.href}
+              class={`selector-pill-btn ${isActive ? 'is-active' : ''}`.trim()}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              <span class="pill-category-num">{item.category}</span>
+              <span class="pill-title-txt">{item.title}</span>
+              {isActive && <span class="pill-active-dot" aria-hidden="true"></span>}
+            </a>
+          );
+        })}
+
+        <a href={`${base}/servicos`} class="selector-hub-link" title="Ver portfólio completo">
+          <span>Ver todas →</span>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-servicos-selector {
+    position: relative;
+    padding: 24px 0;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(1, 36, 62, 0.08);
+  }
+
+  .selector-inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .selector-title-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .selector-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    letter-spacing: 0.12em;
+    font-family: var(--font-mono, monospace);
+    text-transform: uppercase;
+  }
+
+  .selector-lead {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+  }
+
+  .selector-links-track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .selector-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 15px;
+    border-radius: 9999px;
+    background: var(--color-bg-warm, #FCFAF7);
+    border: 1px solid rgba(1, 36, 62, 0.12);
+    color: var(--color-navy-deep, #01243E);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .selector-pill-btn:hover {
+    border-color: var(--color-gold, #C88A3B);
+    background: #FFFFFF;
+    color: var(--color-gold-hover, #B07427);
+    transform: translateY(-1px);
+  }
+
+  .selector-pill-btn.is-active {
+    background: #01243E;
+    color: #FFFFFF;
+    border-color: #01243E;
+  }
+
+  .pill-category-num {
+    font-size: 10.5px;
+    font-family: var(--font-mono, monospace);
+    color: var(--color-gold, #C88A3B);
+    font-weight: 700;
+  }
+
+  .is-active .pill-category-num {
+    color: #ECC78A;
+  }
+
+  .pill-active-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-gold, #C88A3B);
+  }
+
+  .selector-hub-link {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-gold-dark, #9A621D);
+    text-decoration: none;
+    padding: 6px 10px;
+    transition: color 0.2s ease;
+  }
+
+  .selector-hub-link:hover {
+    color: var(--color-gold-hover, #B07427);
+    text-decoration: underline;
+  }
+</style>

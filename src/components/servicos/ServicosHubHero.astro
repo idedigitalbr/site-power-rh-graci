@@ -1,0 +1,174 @@
+---
+// ServicosHubHero.astro — Hero panorâmico para a página Hub Geral de Soluções
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import type { ServicosHubData } from '../../data/siteContent';
+
+interface Props {
+  hubData: ServicosHubData;
+}
+
+const { hubData } = Astro.props;
+const { hero } = hubData;
+---
+
+<section class="hero-final-section hub-hero-custom" id="inicio-solucoes">
+  <!-- Camada de Fundo Panorâmica Executiva -->
+  <div class="hero-bg-media-layer" aria-hidden="true">
+    <div class="hub-hero-glow"></div>
+    <div class="hero-bg-media-gradient"></div>
+  </div>
+
+  <!-- Arcos Dourados Finos da Marca -->
+  <GoldenArcs position="right" variant="arcs-right" />
+
+  <Container size="wide" class="hero-container-relative">
+    <div class="hub-hero-content-center">
+      <div class="hub-hero-badge-wrap">
+        <span class="hero-eyebrow-final">{hero.eyebrow}</span>
+      </div>
+
+      <h1 class="hero-title-final hub-title-clamp">
+        {hero.titlePrefix}{' '}
+        <span class="highlight-gold">{hero.titleHighlight}</span>{' '}
+        {hero.titleSuffix}
+      </h1>
+
+      <p class="hero-subtitle-final hub-subtitle-lead">
+        {hero.lead}
+      </p>
+
+      <!-- Grupo de Ações -->
+      <div class="hero-cta-group hub-cta-center">
+        <Button href={hero.ctaHref} variant="hero-pill" whatsapp={true}>
+          {hero.ctaText}
+        </Button>
+        <Button href="#grade-solucoes" variant="secondary">
+          Explorar as 4 frentes ↓
+        </Button>
+      </div>
+
+      <!-- Pills de Destaque -->
+      <div class="hub-pills-row">
+        {hero.pills.map((pill) => (
+          <span class="hub-scope-pill">
+            <span class="scope-pill-dot" aria-hidden="true"></span>
+            {pill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .hub-hero-custom {
+    position: relative;
+    padding: 150px 0 95px;
+    background: radial-gradient(circle at 50% 20%, #0E2934 0%, #081624 60%, #020B13 100%);
+    overflow: hidden;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hub-hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200, 138, 59, 0.18) 0%, rgba(1, 36, 62, 0) 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .hub-hero-content-center {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .hub-title-clamp {
+    color: #FFFFFF;
+    font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .highlight-gold {
+    color: var(--color-gold, #C88A3B);
+    background: linear-gradient(135deg, #ECC78A 0%, #C88A3B 50%, #B07427 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hub-subtitle-lead {
+    color: #B2C3D2;
+    font-size: clamp(16px, 1.25vw, 18px);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 740px;
+  }
+
+  .hub-cta-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .hub-pills-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hub-scope-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: #E2EBF2;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+  }
+
+  .scope-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-gold, #C88A3B);
+  }
+
+  @media (max-width: 768px) {
+    .hub-hero-custom {
+      padding: 130px 0 75px;
+    }
+
+    .hub-cta-center {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>
