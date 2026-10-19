@@ -1518,8 +1518,17 @@
     margin: 0 auto;
     width: 100%;
   }
-  .metrics-grid-final {
-    grid-template-columns: repeat(2, 1fr);
+  .metrics-rounded-card {
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 24px;
+  }
+  .metric-item-cell {
+    flex: 1 1 40%;
+    min-width: 200px;
+  }
+  .metric-cell-divider {
+    display: none;
   }
   .quando-hora-grid-final {
     grid-template-columns: repeat(2, 1fr);
@@ -1571,8 +1580,14 @@
   .hero-form-card-final {
     grid-column: span 1;
   }
-  .metrics-grid-final {
-    grid-template-columns: 1fr;
+  .metrics-rounded-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+  .metric-item-cell {
+    width: 100%;
   }
   .quando-hora-grid-final {
     grid-template-columns: 1fr;
