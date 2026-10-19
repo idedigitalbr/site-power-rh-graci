@@ -27,33 +27,21 @@ npm run preview
 
 ---
 
-## 🌐 Ecossistema de Visões (4 Modos de Navegação)
+## 🌐 Páginas do Projeto
 
-O projeto conta com um ecossistema completo de 4 visões integradas com um switcher flutuante no topo de todas as telas:
-
-| Versão | Descrição | Rota Astro / GitHub Pages | Arquivo Fonte |
+| Página | Descrição | Rota Astro / GitHub Pages | Arquivo Fonte |
 | :--- | :--- | :--- | :--- |
-| **✨ Versão Final (v2)** | Versão definitiva pixel perfect com fotografia executiva, paleta ouro/navy e micro-interações | [`/`](https://idedigitalbr.github.io/site-power-rh-graci/) | `src/pages/index.astro` |
-| **📄 Conteúdo (v1)** | Wireframe funcional neutro de alta fidelidade em escala de cinza com copy real | [`/wireframe`](https://idedigitalbr.github.io/site-power-rh-graci/wireframe) | `src/pages/wireframe.astro` |
-| **👁️ Skeleton (v0)** | Blueprint estrutural e de diagramação com blocos visuais abstratos | [`/skeleton`](https://idedigitalbr.github.io/site-power-rh-graci/skeleton) | `src/pages/skeleton.astro` |
-| **📐 Design System** | Biblioteca viva de componentes, tokens e documentação visual | [`/design-system`](https://idedigitalbr.github.io/site-power-rh-graci/design-system) | `src/pages/design-system.astro` |
+| **✨ Site Oficial PowerRH** | Versão definitiva pixel-perfect com fotografia executiva, paleta ouro/navy e componentes modulares | [`/`](https://idedigitalbr.github.io/site-power-rh-graci/) | `src/pages/index.astro` |
+| **📐 Design System** | Biblioteca viva de componentes, tokens semânticos e documentação visual oficial (link no rodapé) | [`/design-system`](https://idedigitalbr.github.io/site-power-rh-graci/design-system) | `src/pages/design-system.astro` |
 
 ---
 
 ## 📁 Arquitetura Modular de Componentes (Padrão S0 a S10)
 
-Seguindo o padrão de engenharia e escalabilidade da StudUP, as seções estão organizadas de forma modular em `src/`:
+As seções estão organizadas de forma modular em `src/`:
 
 ```text
 site-power-rh-graci/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml              # CI/CD automático de deploy no GitHub Pages
-├── legacy-html/                    # Backup e integridade dos arquivos HTML originais
-│   ├── index-final.html
-│   ├── index-wireframe.html
-│   ├── index-wireframe-skeleton.html
-│   └── design-system-preview.html
 ├── public/
 │   └── assets/                     # CSS, tokens e acervo fotográfico servidos estaticamente
 │       ├── css/
