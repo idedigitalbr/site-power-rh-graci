@@ -1,14 +1,27 @@
 ---
-// S1Hero.astro — Hero Section panorâmico padronizado com dados tipados
+// S1Hero.astro — Hero Section panorâmico de alta conversão e estética executiva
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { hero } = siteContent;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero-final-section" id="inicio">
-  <Container size="wide">
+  <!-- Camada de Imagem Panorâmica com Enquadramento Perfeito (Sem cortes na cabeça) -->
+  <div class="hero-bg-media-layer" aria-hidden="true">
+    <img
+      src={`${base}/assets/imagens-diversas/fotos_graci_ia/01_HOME_HERO_TOPO/01_retrato_executivo_com_vista_para_o_rio.webp`}
+      alt="Graciete Corrêa — Consultoria Estratégica em Pessoas"
+      class="hero-bg-media-img"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero-bg-media-gradient"></div>
+  </div>
+
+  <Container size="wide" class="hero-container-relative">
     <div class="hero-panoramic-layout">
       <!-- Coluna Esquerda: Copywriting, Headline e Mini-Badges -->
       <div class="hero-copy-box">
@@ -67,12 +80,6 @@ const { hero } = siteContent;
             </div>
           ))}
         </div>
-      </div>
-
-      <!-- Assinatura Executiva Graciete Corrêa Flutuante (Fiel ao Mock Oficial v1) -->
-      <div class="hero-signature-badge" aria-hidden="true">
-        <span class="hero-signature-script">Graciete Corrêa</span>
-        <span class="hero-signature-sub">FUNDADORA<br />POWER RH</span>
       </div>
 
       <!-- Coluna Direita: Card de Formulário de Conversão Flutuante -->

@@ -255,7 +255,7 @@ export const siteContent = {
     destaque: {
       title: 'Pessoas no centro. Resultados no futuro.',
       desc: 'Estratégia e humanidade caminhando juntas para negócios mais fortes.',
-      image: 'assets/imagens-diversas/diferenciais-maos.png',
+      image: 'assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/10_conversa_executiva_terraco.webp',
     },
   },
 
@@ -318,7 +318,7 @@ export const siteContent = {
   ctaBanner: {
     heading: 'Vamos conversar sobre o futuro da sua empresa?',
     desc: 'Descubra como a PowerRH pode ajudar o seu negócio a crescer com pessoas mais engajadas, líderes mais preparados e resultados sustentáveis.',
-    image: 'assets/imagens-diversas/cta-banner-bg.png',
+    image: 'assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp',
     checklist: [
       'Diagnóstico inicial sem compromisso',
       'Conversa direta com a especialista',
