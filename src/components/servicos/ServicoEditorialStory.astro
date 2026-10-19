@@ -1,0 +1,238 @@
+---
+// ServicoEditorialStory.astro — Narrativa editorial profunda sobre a dor do decisor (Estilo SobreSplitStory)
+import Container from '../ui/Container.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import type { ServiceDetail } from '../../data/siteContent';
+
+interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="section-editorial-story" id="frente-editorial">
+  <GoldenArcs position="right" variant="arcs-right" />
+
+  <Container size="wide">
+    <div class="editorial-grid-layout">
+      <!-- Coluna da Foto: Retrato Executivo com Selo Oficial -->
+      <div class="editorial-media-col">
+        <div class="editorial-photo-box">
+          <img
+            src={`${base}/${service.differential.image}`}
+            alt={`${service.shortTitle} — Graciete Corrêa`}
+            class="editorial-photo-img"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="editorial-badge-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Presença sênior, neutra e confidencial</span>
+        </div>
+      </div>
+
+      <!-- Coluna do Texto Editorial: Enxuto, Profundo e Provocativo -->
+      <div class="editorial-copy-col">
+        <span class="hero-eyebrow-final">{service.scenarios.eyebrow}</span>
+        
+        <h2 class="editorial-title-h2">
+          {service.scenarios.title}
+        </h2>
+
+        <p class="editorial-lead-text">
+          {service.scenarios.subtitle}
+        </p>
+
+        <!-- Destaques das Dores Reais (Em formato sintético de leitura contínua, sem dezenas de caixas) -->
+        <div class="editorial-insights-list">
+          {service.scenarios.items.slice(0, 3).map((item) => (
+            <div class="insight-row">
+              <span class="insight-bullet">✦</span>
+              <div class="insight-text-wrap">
+                <strong class="insight-heading">{item.title}:</strong>
+                <span class="insight-detail">{item.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Bloco de Citação / Manifesto da Solução -->
+        <blockquote class="editorial-quote-box">
+          <div class="quote-sign">“</div>
+          <p class="quote-body">{service.differential.quote}</p>
+        </blockquote>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-editorial-story {
+    position: relative;
+    padding: 95px 0 100px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .editorial-grid-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 991px) {
+    .editorial-grid-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  /* Coluna da Imagem */
+  .editorial-media-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .editorial-photo-box {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(1, 36, 62, 0.12);
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    aspect-ratio: 4 / 4.9;
+    background: #01243E;
+  }
+
+  .editorial-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .editorial-photo-box:hover .editorial-photo-img {
+    transform: scale(1.02);
+  }
+
+  .editorial-badge-pill {
+    margin-top: -20px;
+    z-index: 3;
+    background: #01243E;
+    color: #FFFFFF;
+    border: 1px solid rgba(200, 138, 59, 0.4);
+    border-radius: 9999px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(1, 36, 62, 0.2);
+  }
+
+  /* Coluna do Conteúdo */
+  .editorial-copy-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .editorial-title-h2 {
+    font-size: clamp(24px, 2.7vw, 34px);
+    font-weight: 800;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .editorial-lead-text {
+    font-size: 16px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .editorial-insights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 6px;
+    padding: 18px 20px;
+    background: var(--color-bg-warm, #FCFAF7);
+    border-radius: 16px;
+    border: 1px solid rgba(1, 36, 62, 0.06);
+  }
+
+  .insight-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .insight-bullet {
+    color: var(--color-gold, #C88A3B);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .insight-text-wrap {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #2D3748;
+  }
+
+  .insight-heading {
+    font-weight: 700;
+    color: var(--color-navy-deep, #01243E);
+  }
+
+  .insight-detail {
+    color: #4A5568;
+    margin-left: 4px;
+  }
+
+  .editorial-quote-box {
+    position: relative;
+    border-left: 3px solid var(--color-gold, #C88A3B);
+    padding: 14px 20px 14px 24px;
+    background: #FDF6EC;
+    border-radius: 0 14px 14px 0;
+    margin-top: 8px;
+  }
+
+  .quote-sign {
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    font-size: 44px;
+    color: rgba(200, 138, 59, 0.2);
+    font-family: serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .quote-body {
+    font-size: 14.5px;
+    font-style: italic;
+    color: #1A202C;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+  }
+</style>

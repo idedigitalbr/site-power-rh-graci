@@ -4,17 +4,14 @@ import Layout from '../../layouts/Layout.astro';
 import S0Header from '../../components/common/S0Header.astro';
 import Footer from '../../components/common/Footer.astro';
 
-// Componentes da Página de Serviço
+// Componentes Editoriais de Alto Padrão
 import ServicoHero from '../../components/servicos/ServicoHero.astro';
 import ServicosNavSelector from '../../components/servicos/ServicosNavSelector.astro';
-import ServicoDores from '../../components/servicos/ServicoDores.astro';
-import ServicoModulos from '../../components/servicos/ServicoModulos.astro';
-import ServicoMetodo from '../../components/servicos/ServicoMetodo.astro';
-import ServicoPublico from '../../components/servicos/ServicoPublico.astro';
-import ServicoDiferencial from '../../components/servicos/ServicoDiferencial.astro';
-import ServicoFaq from '../../components/servicos/ServicoFaq.astro';
+import ServicoEditorialStory from '../../components/servicos/ServicoEditorialStory.astro';
+import ServicoPilaresMinimal from '../../components/servicos/ServicoPilaresMinimal.astro';
+import ServicoAutoridadeMetodo from '../../components/servicos/ServicoAutoridadeMetodo.astro';
 
-// Seções reutilizadas da Home
+// Seções de Prova Social e Conversão da Home
 import S8Depoimentos from '../../components/home/S8Depoimentos.astro';
 import S10CtaBanner from '../../components/home/S10CtaBanner.astro';
 
@@ -30,34 +27,25 @@ const service = siteContent.servicos['advisory-empresarial'];
   <S0Header currentPage="servicos" />
 
   <main>
-    <!-- S1: Topo Hero Panorâmico com Selo e Foto Oficial -->
+    <!-- 1. Topo Hero Panorâmico Oficial (Contraste Perfeito e Foto Executiva) -->
     <ServicoHero service={service} />
 
-    <!-- Barra de Navegação Rápida entre Serviços -->
+    <!-- 2. Barra de Navegação Rápida entre as Soluções -->
     <ServicosNavSelector currentSlug={service.slug} />
 
-    <!-- S2: Sintomas & Momentos Críticos (Cenários de Aplicação) -->
-    <ServicoDores scenarios={service.scenarios} />
+    <!-- 3. Narrativa Editorial: O Momento do Negócio & O Desafio Estratégico -->
+    <ServicoEditorialStory service={service} />
 
-    <!-- S3: Escopo Detalhado & Módulos com Entregáveis Práticos -->
-    <ServicoModulos modules={service.modules} />
+    <!-- 4. Os 3 Pilares Centrais de Entrega (Design Enxuto e Respirável) -->
+    <ServicoPilaresMinimal service={service} />
 
-    <!-- S4: Metodologia de Implementação em 4 Etapas -->
-    <ServicoMetodo method={service.method} />
+    <!-- 5. Autoridade Executiva de Graciete Corrêa & Fases do Método -->
+    <ServicoAutoridadeMetodo service={service} />
 
-    <!-- S5: Para Quem É & Transformação por Perfil -->
-    <ServicoPublico targetAudience={service.targetAudience} />
-
-    <!-- S6: Diferencial de Autoridade Executiva Graciete Corrêa -->
-    <ServicoDiferencial differential={service.differential} />
-
-    <!-- S7: Perguntas Frequentes com Acordeão Interativo -->
-    <ServicoFaq faq={service.faq} serviceTitle={service.shortTitle} />
-
-    <!-- S8: Prova Social Consolidada (Reaproveitamento da Home) -->
+    <!-- 6. Prova Social (Depoimentos Oficiais da Home) -->
     <S8Depoimentos />
 
-    <!-- S9: Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
+    <!-- 7. Banner Comercial de Conversão (Reaproveitamento da Home) -->
     <S10CtaBanner />
   </main>
 

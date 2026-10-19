@@ -1,5 +1,5 @@
 ---
-// ServicoHero.astro — Topo executivo editorial para páginas de serviço PowerRH
+// ServicoHero.astro — Hero panorâmico executivo oficial com contraste impecável
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import GoldenArcs from '../ui/GoldenArcs.astro';
@@ -15,27 +15,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero-final-section servico-hero-custom" id="inicio-servico">
-  <!-- Camada de Fundo Panorâmica Executiva -->
+  <!-- Camada de Imagem Panorâmica em Fundo com Gradiente Oficial (Branco à esquerda, foto à direita) -->
   <div class="hero-bg-media-layer" aria-hidden="true">
-    <div class="servico-hero-glow"></div>
+    <img
+      src={`${base}/${hero.image}`}
+      alt={`${service.shortTitle} — PowerRH Consultoria Estratégica`}
+      class="hero-bg-media-img is-active"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
     <div class="hero-bg-media-gradient"></div>
   </div>
 
-  <!-- Arcos Dourados Finos da Marca -->
+  <!-- Arcos Dourados Finos da Marca na margem direita -->
   <GoldenArcs position="right" variant="arcs-right" />
 
   <Container size="wide" class="hero-container-relative">
-    <div class="servico-hero-grid">
-      <!-- Coluna 1: Copywriting, Headline e Badges Oficiais -->
-      <div class="servico-hero-copy">
-        <div class="servico-hero-badge-wrap">
-          <span class="hero-eyebrow-final">{service.eyebrow}</span>
-          <span class="servico-category-chip">{service.category}</span>
-        </div>
+    <div class="hero-panoramic-layout">
+      <!-- Coluna Principal: Tipografia de Alto Contraste (Navy #0A1C2E e Ouro #C48D47) -->
+      <div class="hero-copy-box">
+        <span class="hero-eyebrow-final">{service.eyebrow}</span>
 
         <h1 class="hero-title-final">
-          {hero.titlePrefix}{' '}
-          <span class="highlight-gold">{hero.titleHighlight}</span>{' '}
+          {hero.titlePrefix}<br />
+          <span class="highlight-gold">{hero.titleHighlight}</span><br />
           {hero.titleSuffix}
         </h1>
 
@@ -43,53 +47,51 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           {hero.lead}
         </p>
 
-        <!-- Ações Primária & Secundária -->
+        <!-- CTA Principal Header -->
         <div class="hero-cta-group">
           <Button href={hero.ctaHref} variant="hero-pill" whatsapp={true}>
             {hero.ctaText}
           </Button>
-          <Button href="#escopo-modulos" variant="secondary">
-            Ver escopo & módulos ↓
+          <Button href="#frente-editorial" variant="secondary">
+            Conhecer atuação ↓
           </Button>
         </div>
 
-        <!-- Pills de Escopo Rápido -->
-        <div class="servico-pills-row" aria-label="Especialidades inclusas">
-          {hero.pills.map((pill) => (
-            <span class="servico-scope-pill">
-              <span class="scope-pill-dot" aria-hidden="true"></span>
-              {pill}
-            </span>
+        <!-- Mini-Badges de Benefícios Rápidos com Ícones Dourados (Padrão Home) -->
+        <div class="hero-mini-badges-row">
+          {hero.pills.slice(0, 3).map((pill) => (
+            <div class="hero-mini-badge-item">
+              <div class="mini-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="mini-badge-text">
+                <span>{pill}</span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
 
-      <!-- Coluna 2: Card Fotográfico com Moldura Dourada e Selo Flutuante -->
-      <div class="servico-hero-media">
-        <div class="servico-photo-card-wrapper">
-          <div class="servico-photo-frame">
-            <img
-              src={`${base}/${hero.image}`}
-              alt={`${service.shortTitle} — PowerRH Consultoria Estratégica`}
-              class="servico-photo-img"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-            <div class="servico-photo-overlay"></div>
+      <!-- Card Lateral Executivo de Propósito (Idêntico ao padrão SobreHero) -->
+      <div class="servico-hero-card-col">
+        <div class="servico-hero-quote-card">
+          <div class="quote-card-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>{service.category}</span>
           </div>
 
-          <!-- Selo Flutuante Executivo -->
-          <div class="servico-floating-seal">
-            <div class="seal-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <div class="seal-text">
-              <span class="seal-badge-sub">MÉTODO POWERRH</span>
-              <strong class="seal-badge-title">{hero.floatingBadge}</strong>
+          <p class="quote-card-text">
+            “{hero.floatingBadge}”
+          </p>
+
+          <div class="quote-card-footer">
+            <div class="quote-card-author">
+              <strong>Graciete Corrêa</strong>
+              <span>30+ anos de Liderança Executiva • PowerRH</span>
             </div>
           </div>
         </div>
@@ -100,85 +102,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <style>
   .servico-hero-custom {
-    position: relative;
-    padding: 140px 0 90px;
-    background: radial-gradient(circle at 18% 25%, #0B253A 0%, #061524 75%, #020B13 100%);
-    overflow: hidden;
-    min-height: 82vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .servico-hero-glow {
-    position: absolute;
-    top: 15%;
-    left: 8%;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(200, 138, 59, 0.16) 0%, rgba(1, 36, 62, 0) 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    pointer-events: none;
-  }
-
-  .servico-hero-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
-    align-items: center;
-  }
-
-  .servico-hero-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .servico-hero-badge-wrap {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .servico-category-chip {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 9999px;
-    background: rgba(200, 138, 59, 0.15);
-    border: 1px solid rgba(200, 138, 59, 0.35);
-    color: #ECC78A;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-family: var(--font-mono, monospace);
-  }
-
-  .hero-title-final {
-    color: #FFFFFF;
-    font-size: clamp(2rem, 3.4vw, 3rem);
-    line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    margin: 0;
-  }
-
-  .highlight-gold {
-    color: var(--color-gold, #C88A3B);
-    background: linear-gradient(135deg, #ECC78A 0%, #C88A3B 50%, #B07427 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .hero-subtitle-final {
-    color: #A7B8C7;
-    font-size: clamp(15px, 1.2vw, 17px);
-    line-height: 1.55;
-    margin: 0;
-    max-width: 580px;
+    min-height: clamp(540px, 72vh, 680px);
+    background-color: #FFFFFF;
   }
 
   .hero-cta-group {
@@ -186,167 +111,81 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    margin-bottom: 24px;
   }
 
-  .servico-pills-row {
+  .servico-hero-card-col {
+    margin-left: auto;
+    z-index: 3;
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 14px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .servico-scope-pill {
+  @media (max-width: 991px) {
+    .servico-hero-card-col {
+      margin-left: 0;
+      margin-top: 32px;
+      width: 100%;
+    }
+    .hero-cta-group {
+      justify-content: center;
+    }
+  }
+
+  .servico-hero-quote-card {
+    background: rgba(1, 36, 62, 0.88);
+    border: 1px solid rgba(200, 138, 59, 0.35);
+    border-radius: 20px;
+    padding: 32px 28px;
+    max-width: 380px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 138, 59, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .quote-card-badge {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font-size: 12.5px;
-    color: #E2EBF2;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 6px 14px;
-    border-radius: 9999px;
-    backdrop-filter: blur(8px);
-    transition: all 0.2s ease;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--final-gold, #C88A3B);
+    text-transform: uppercase;
+    font-family: var(--font-mono, monospace);
   }
 
-  .servico-scope-pill:hover {
-    border-color: rgba(200, 138, 59, 0.45);
-    background: rgba(200, 138, 59, 0.08);
-    color: #FFFFFF;
+  .quote-card-text {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #F8FAFC;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
   }
 
-  .scope-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-gold, #C88A3B);
-    display: inline-block;
+  .quote-card-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
   }
 
-  /* Coluna da Imagem */
-  .servico-hero-media {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .servico-photo-card-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 440px;
-  }
-
-  .servico-photo-frame {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    aspect-ratio: 4 / 4.8;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(200, 138, 59, 0.25);
-    background: #0B253A;
-  }
-
-  .servico-photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .servico-photo-card-wrapper:hover .servico-photo-img {
-    transform: scale(1.03);
-  }
-
-  .servico-photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(1, 36, 62, 0) 50%, rgba(1, 36, 62, 0.75) 100%);
-    pointer-events: none;
-  }
-
-  .servico-floating-seal {
-    position: absolute;
-    bottom: -18px;
-    left: 20px;
-    right: 20px;
-    background: rgba(9, 34, 56, 0.92);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(200, 138, 59, 0.4);
-    border-radius: 16px;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  }
-
-  .seal-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(200, 138, 59, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .seal-text {
+  .quote-card-author {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
-  .seal-badge-sub {
-    font-size: 10px;
-    color: #ECC78A;
-    letter-spacing: 0.10em;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .seal-badge-title {
-    font-size: 13px;
+  .quote-card-author strong {
+    font-size: 14px;
     color: #FFFFFF;
-    font-weight: 600;
-    line-height: 1.3;
+    font-weight: 700;
   }
 
-  @media (max-width: 991px) {
-    .servico-hero-custom {
-      padding: 120px 0 70px;
-      min-height: auto;
-    }
-
-    .servico-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .servico-hero-media {
-      order: -1;
-    }
-
-    .servico-photo-card-wrapper {
-      max-width: 360px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .hero-cta-group {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .servico-floating-seal {
-      position: static;
-      margin-top: 14px;
-    }
+  .quote-card-author span {
+    font-size: 12px;
+    color: #94A3B8;
   }
 </style>

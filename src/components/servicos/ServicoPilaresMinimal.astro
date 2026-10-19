@@ -1,0 +1,171 @@
+---
+// ServicoPilaresMinimal.astro — Os 3 pilares estratégicos de atuação da frente
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import type { ServiceDetail } from '../../data/siteContent';
+
+interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+const { modules } = service;
+// Seleciona os 3 principais módulos para manter o layout limpo e sem poluição
+const displayModules = modules.items.slice(0, 3);
+---
+
+<section class="section-pilares-minimal" id="pilares-atuacao">
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={modules.eyebrow}
+      title={modules.title}
+      subtitle={modules.subtitle}
+      center={true}
+    />
+
+    <div class="pilares-minimal-grid">
+      {displayModules.map((item, index) => (
+        <article class="pilar-minimal-card">
+          <div class="pilar-card-top">
+            <span class="pilar-card-num">0{index + 1}</span>
+            <span class="pilar-card-tag">{item.subtitle}</span>
+          </div>
+
+          <h3 class="pilar-card-title">{item.title}</h3>
+          <p class="pilar-card-desc">{item.desc}</p>
+
+          <div class="pilar-card-bottom">
+            <ul class="pilar-deliv-chips">
+              {item.deliverables.slice(0, 2).map((deliv) => (
+                <li class="pilar-chip-item">
+                  <span class="chip-check">✓</span>
+                  <span>{deliv}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-pilares-minimal {
+    position: relative;
+    padding: 100px 0 105px;
+    background-color: var(--color-bg-warm, #FAF7F2);
+    border-top: 1px solid rgba(1, 36, 62, 0.06);
+    border-bottom: 1px solid rgba(1, 36, 62, 0.06);
+  }
+
+  .pilares-minimal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 991px) {
+    .pilares-minimal-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .pilar-minimal-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 38px 32px;
+    border: 1px solid rgba(1, 36, 62, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(1, 36, 62, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .pilar-minimal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(1, 36, 62, 0.08);
+    border-color: rgba(200, 138, 59, 0.35);
+  }
+
+  .pilar-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pilar-card-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    font-family: var(--font-mono, monospace);
+    line-height: 1;
+  }
+
+  .pilar-card-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    background: var(--color-bg-warm, #FAF7F2);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(1, 36, 62, 0.06);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pilar-card-title {
+    font-size: clamp(20px, 1.6vw, 22px);
+    font-weight: 800;
+    color: var(--color-navy-deep, #01243E);
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.015em;
+  }
+
+  .pilar-card-desc {
+    font-size: 14.5px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    flex-grow: 1;
+  }
+
+  .pilar-card-bottom {
+    padding-top: 18px;
+    border-top: 1px solid rgba(1, 36, 62, 0.08);
+  }
+
+  .pilar-deliv-chips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pilar-chip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.4;
+  }
+
+  .chip-check {
+    color: var(--color-gold, #C88A3B);
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+</style>

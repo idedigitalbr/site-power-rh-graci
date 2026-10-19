@@ -7,7 +7,6 @@ import Footer from '../../components/common/Footer.astro';
 // Componentes exclusivos do Hub de Serviços
 import ServicosHubHero from '../../components/servicos/ServicosHubHero.astro';
 import ServicosHubCards from '../../components/servicos/ServicosHubCards.astro';
-import ServicosHubMetodo from '../../components/servicos/ServicosHubMetodo.astro';
 
 // Seções reutilizadas da Home com acabamento executivo de alto padrão
 import S8Depoimentos from '../../components/home/S8Depoimentos.astro';
@@ -30,13 +29,10 @@ const { servicosHub } = siteContent;
     <!-- S2: Grade Editorial das 4 Frentes Estratégicas -->
     <ServicosHubCards hubData={servicosHub} />
 
-    <!-- S3: Metodologia Unificada em 4 Etapas -->
-    <ServicosHubMetodo metodo={servicosHub.metodoUnificado} />
-
-    <!-- S4: Prova Social & Depoimentos de Clientes (Reaproveitamento da Home) -->
+    <!-- S3: Prova Social & Depoimentos de Clientes (Reaproveitamento da Home) -->
     <S8Depoimentos />
 
-    <!-- S5: Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
+    <!-- S4: Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
     <S10CtaBanner />
   </main>
 

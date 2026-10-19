@@ -1,5 +1,5 @@
 ---
-// ServicosHubHero.astro — Hero panorâmico para a página Hub Geral de Soluções
+// ServicosHubHero.astro — Hero panorâmico oficial para o Hub de Soluções
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import GoldenArcs from '../ui/GoldenArcs.astro';
@@ -11,52 +11,88 @@ interface Props {
 
 const { hubData } = Astro.props;
 const { hero } = hubData;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero-final-section hub-hero-custom" id="inicio-solucoes">
-  <!-- Camada de Fundo Panorâmica Executiva -->
+  <!-- Imagem Panorâmica Oficial com Gradiente Branco à Esquerda -->
   <div class="hero-bg-media-layer" aria-hidden="true">
-    <div class="hub-hero-glow"></div>
+    <img
+      src={`${base}/assets/imagens-diversas/fotos_graci_ia/01_HOME_HERO_TOPO/topo-hero (4).webp`}
+      alt="PowerRH — Portfólio de Soluções e Advisory Executivo"
+      class="hero-bg-media-img is-active"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
     <div class="hero-bg-media-gradient"></div>
   </div>
 
-  <!-- Arcos Dourados Finos da Marca -->
   <GoldenArcs position="right" variant="arcs-right" />
 
   <Container size="wide" class="hero-container-relative">
-    <div class="hub-hero-content-center">
-      <div class="hub-hero-badge-wrap">
+    <div class="hero-panoramic-layout">
+      <!-- Coluna Principal com Texto em Alto Contraste -->
+      <div class="hero-copy-box">
         <span class="hero-eyebrow-final">{hero.eyebrow}</span>
+
+        <h1 class="hero-title-final">
+          {hero.titlePrefix}<br />
+          <span class="highlight-gold">{hero.titleHighlight}</span><br />
+          {hero.titleSuffix}
+        </h1>
+
+        <p class="hero-subtitle-final">
+          {hero.lead}
+        </p>
+
+        <div class="hero-cta-group">
+          <Button href={hero.ctaHref} variant="hero-pill" whatsapp={true}>
+            {hero.ctaText}
+          </Button>
+          <Button href="#grade-solucoes" variant="secondary">
+            Explorar as 4 frentes ↓
+          </Button>
+        </div>
+
+        <div class="hero-mini-badges-row">
+          {hero.pills.map((pill) => (
+            <div class="hero-mini-badge-item">
+              <div class="mini-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="mini-badge-text">
+                <span>{pill}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <h1 class="hero-title-final hub-title-clamp">
-        {hero.titlePrefix}{' '}
-        <span class="highlight-gold">{hero.titleHighlight}</span>{' '}
-        {hero.titleSuffix}
-      </h1>
+      <!-- Card Lateral de Propósito Executivo -->
+      <div class="hub-hero-card-col">
+        <div class="hub-hero-quote-card">
+          <div class="quote-card-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>ADVISORY SÊNIOR</span>
+          </div>
 
-      <p class="hero-subtitle-final hub-subtitle-lead">
-        {hero.lead}
-      </p>
+          <p class="quote-card-text">
+            “Não entregamos manuais teóricos ou diagnósticos engavetados: colocamos 30+ anos de vivência corporativa à mesa do decisor.”
+          </p>
 
-      <!-- Grupo de Ações -->
-      <div class="hero-cta-group hub-cta-center">
-        <Button href={hero.ctaHref} variant="hero-pill" whatsapp={true}>
-          {hero.ctaText}
-        </Button>
-        <Button href="#grade-solucoes" variant="secondary">
-          Explorar as 4 frentes ↓
-        </Button>
-      </div>
-
-      <!-- Pills de Destaque -->
-      <div class="hub-pills-row">
-        {hero.pills.map((pill) => (
-          <span class="hub-scope-pill">
-            <span class="scope-pill-dot" aria-hidden="true"></span>
-            {pill}
-          </span>
-        ))}
+          <div class="quote-card-footer">
+            <div class="quote-card-author">
+              <strong>Graciete Corrêa</strong>
+              <span>CEO da PowerRH • Conselheira de Empresas</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </Container>
@@ -64,111 +100,90 @@ const { hero } = hubData;
 
 <style>
   .hub-hero-custom {
-    position: relative;
-    padding: 150px 0 95px;
-    background: radial-gradient(circle at 50% 20%, #0E2934 0%, #081624 60%, #020B13 100%);
-    overflow: hidden;
-    min-height: 75vh;
+    min-height: clamp(540px, 72vh, 680px);
+    background-color: #FFFFFF;
+  }
+
+  .hero-cta-group {
     display: flex;
     align-items: center;
-    text-align: center;
-  }
-
-  .hub-hero-glow {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 650px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(200, 138, 59, 0.18) 0%, rgba(1, 36, 62, 0) 70%);
-    filter: blur(80px);
-    pointer-events: none;
-  }
-
-  .hub-hero-content-center {
-    position: relative;
-    z-index: 2;
-    max-width: 920px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
-  }
-
-  .hub-title-clamp {
-    color: #FFFFFF;
-    font-size: clamp(2.2rem, 3.8vw, 3.3rem);
-    line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    margin: 0;
-  }
-
-  .highlight-gold {
-    color: var(--color-gold, #C88A3B);
-    background: linear-gradient(135deg, #ECC78A 0%, #C88A3B 50%, #B07427 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .hub-subtitle-lead {
-    color: #B2C3D2;
-    font-size: clamp(16px, 1.25vw, 18px);
-    line-height: 1.6;
-    margin: 0;
-    max-width: 740px;
-  }
-
-  .hub-cta-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-top: 6px;
+    margin-bottom: 24px;
   }
 
-  .hub-pills-row {
+  .hub-hero-card-col {
+    margin-left: auto;
+    z-index: 3;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .hub-scope-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    color: #E2EBF2;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 6px 16px;
-    border-radius: 9999px;
-    backdrop-filter: blur(8px);
-  }
-
-  .scope-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-gold, #C88A3B);
-  }
-
-  @media (max-width: 768px) {
-    .hub-hero-custom {
-      padding: 130px 0 75px;
-    }
-
-    .hub-cta-center {
-      flex-direction: column;
+  @media (max-width: 991px) {
+    .hub-hero-card-col {
+      margin-left: 0;
+      margin-top: 32px;
       width: 100%;
     }
+    .hero-cta-group {
+      justify-content: center;
+    }
+  }
+
+  .hub-hero-quote-card {
+    background: rgba(1, 36, 62, 0.88);
+    border: 1px solid rgba(200, 138, 59, 0.35);
+    border-radius: 20px;
+    padding: 32px 28px;
+    max-width: 380px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 138, 59, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .quote-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--final-gold, #C88A3B);
+    text-transform: uppercase;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .quote-card-text {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #F8FAFC;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .quote-card-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+  }
+
+  .quote-card-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .quote-card-author strong {
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  .quote-card-author span {
+    font-size: 12px;
+    color: #94A3B8;
   }
 </style>

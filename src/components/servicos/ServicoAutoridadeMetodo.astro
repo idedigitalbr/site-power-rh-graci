@@ -1,0 +1,250 @@
+---
+// ServicoAutoridadeMetodo.astro — Bloco de autoridade executiva e metodologia em Dark Navy
+import Container from '../ui/Container.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import type { ServiceDetail } from '../../data/siteContent';
+
+interface Props {
+  service: ServiceDetail;
+}
+
+const { service } = Astro.props;
+---
+
+<section class="section-autoridade-metodo" id="metodo-atuacao">
+  <GoldenArcs position="left" variant="arcs-left" />
+
+  <Container size="wide">
+    <div class="autoridade-header-center">
+      <span class="hero-eyebrow-final" style="color: #ECC78A;">MÉTODO &amp; CREDENCIAIS</span>
+      <h2 class="autoridade-title-h2">
+        Experiência executiva para decisões que não cabem em fórmulas prontas.
+      </h2>
+      <p class="autoridade-subtitle-lead">
+        A PowerRH alia mais de 30 anos vivendo dentro das corporações a uma atuação discreta e sob medida ao lado do empresário.
+      </p>
+    </div>
+
+    <!-- 4 Indicadores de Autoridade Executiva -->
+    <div class="autoridade-kpis-grid">
+      <div class="kpi-box-item">
+        <span class="kpi-number">+30</span>
+        <span class="kpi-label">Anos de experiência executiva em Gente e Gestão</span>
+      </div>
+      <div class="kpi-box-item">
+        <span class="kpi-number">2</span>
+        <span class="kpi-label">Grandes operações de M&amp;A estruturadas e integradas</span>
+      </div>
+      <div class="kpi-box-item">
+        <span class="kpi-number">2</span>
+        <span class="kpi-label">Certificações GPTW conquistadas sob sua liderança</span>
+      </div>
+      <div class="kpi-box-item">
+        <span class="kpi-number">100%</span>
+        <span class="kpi-label">Compromisso ético de sigilo e confidencialidade (NDA)</span>
+      </div>
+    </div>
+
+    <!-- Metodologia em Barra Horizontal Minimalista -->
+    <div class="metodo-horizontal-strip">
+      <div class="metodo-strip-intro">
+        <span class="strip-eyebrow">NOSSO PROCESSO</span>
+        <strong class="strip-title">Como o trabalho acontece:</strong>
+      </div>
+
+      <div class="metodo-strip-phases">
+        <div class="phase-col">
+          <span class="phase-num">01</span>
+          <span class="phase-name">Diagnóstico &amp; Escuta</span>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-col">
+          <span class="phase-num">02</span>
+          <span class="phase-name">Desenho Sob Medida</span>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-col">
+          <span class="phase-num">03</span>
+          <span class="phase-name">Implantação Lado a Lado</span>
+        </div>
+        <div class="phase-arrow">→</div>
+        <div class="phase-col">
+          <span class="phase-num">04</span>
+          <span class="phase-name">Sustentação &amp; Governança</span>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section-autoridade-metodo {
+    position: relative;
+    padding: 105px 0 110px;
+    background: radial-gradient(circle at 75% 20%, #0E2934 0%, #081624 60%, #01243E 100%);
+    color: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .autoridade-header-center {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .autoridade-title-h2 {
+    font-size: clamp(24px, 2.9vw, 36px);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .autoridade-subtitle-lead {
+    font-size: 16px;
+    color: #A3B8CC;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .autoridade-kpis-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 991px) {
+    .autoridade-kpis-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .autoridade-kpis-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .kpi-box-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .kpi-box-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(200, 138, 59, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .kpi-number {
+    font-size: clamp(34px, 3.2vw, 42px);
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    line-height: 1;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .kpi-label {
+    font-size: 13.5px;
+    color: #CBD5E1;
+    line-height: 1.45;
+  }
+
+  /* Barra Horizontal do Método */
+  .metodo-horizontal-strip {
+    position: relative;
+    z-index: 2;
+    background: rgba(8, 22, 36, 0.8);
+    border: 1px solid rgba(200, 138, 59, 0.3);
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .metodo-strip-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 180px;
+  }
+
+  .strip-eyebrow {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #ECC78A;
+    letter-spacing: 0.10em;
+    font-family: var(--font-mono, monospace);
+  }
+
+  .strip-title {
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  .metodo-strip-phases {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .phase-col {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .phase-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-gold, #C88A3B);
+    font-family: var(--font-mono, monospace);
+  }
+
+  .phase-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #F1F5F9;
+  }
+
+  .phase-arrow {
+    color: rgba(200, 138, 59, 0.5);
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .metodo-strip-phases {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .phase-arrow {
+      display: none;
+    }
+  }
+</style>
