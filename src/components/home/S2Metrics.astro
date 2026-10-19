@@ -1,105 +1,54 @@
 ---
-// S2Metrics.astro — Faixa de métricas e prova rápida com container flutuante arredondado
+// S2Metrics.astro — Faixa de métricas e prova rápida orientada a dados
+import Container from '../ui/Container.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { metrics } = siteContent;
 ---
 
 <section class="section-metrics-band">
-  <div class="container container-wide">
+  <Container size="wide">
     <div class="metrics-rounded-card">
-      <!-- Métrica 1 -->
-      <div class="metric-item-cell">
-        <div class="metric-icon-gold">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-        </div>
-        <div class="metric-info-box">
-          <span class="metric-num-bold">+120</span>
-          <span class="metric-desc-label">empresas atendidas</span>
-        </div>
-      </div>
+      {metrics.map((item, index) => (
+        <>
+          <div class="metric-item-cell">
+            <div class="metric-icon-gold">
+              {item.iconType === 'network' && (
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              )}
+              {item.iconType === 'people' && (
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              )}
+              {item.iconType === 'star' && (
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              )}
+              {item.iconType === 'chart' && (
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              )}
+            </div>
+            <div class="metric-info-box">
+              <span class="metric-num-bold">{item.number}</span>
+              <span class="metric-desc-label">{item.label}</span>
+            </div>
+          </div>
 
-      <div class="metric-cell-divider"></div>
-
-      <!-- Métrica 2 -->
-      <div class="metric-item-cell">
-        <div class="metric-icon-gold">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-        <div class="metric-info-box">
-          <span class="metric-num-bold">+9.000</span>
-          <span class="metric-desc-label">pessoas desenvolvidas</span>
-        </div>
-      </div>
-
-      <div class="metric-cell-divider"></div>
-
-      <!-- Métrica 3 -->
-      <div class="metric-item-cell">
-        <div class="metric-icon-gold">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            ></polygon>
-          </svg>
-        </div>
-        <div class="metric-info-box">
-          <span class="metric-num-bold">+95%</span>
-          <span class="metric-desc-label">de satisfação dos clientes</span>
-        </div>
-      </div>
-
-      <div class="metric-cell-divider"></div>
-
-      <!-- Métrica 4 -->
-      <div class="metric-item-cell">
-        <div class="metric-icon-gold">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <line x1="18" y1="20" x2="18" y2="10"></line>
-            <line x1="12" y1="20" x2="12" y2="4"></line>
-            <line x1="6" y1="20" x2="6" y2="14"></line>
-          </svg>
-        </div>
-        <div class="metric-info-box">
-          <span class="metric-num-bold">+15 anos</span>
-          <span class="metric-desc-label"
-            >de experiência em estratégia de pessoas</span
-          >
-        </div>
-      </div>
+          {index < metrics.length - 1 && <div class="metric-cell-divider"></div>}
+        </>
+      ))}
     </div>
-  </div>
+  </Container>
 </section>

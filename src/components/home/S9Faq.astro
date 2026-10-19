@@ -1,81 +1,45 @@
 ---
-// S9Faq.astro — Seção FAQ / Perguntas Frequentes com acordeão interativo
+// S9Faq.astro — Seção FAQ orientada a dados com acordeão interativo
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { faq } = siteContent;
 ---
 
 <section class="section-faq-final" id="faq">
-  <div class="container container-wide">
+  <Container size="wide">
     <div class="faq-layout-final">
       <div>
-        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">DÚVIDAS FREQUENTES</span>
-        <h2 class="faq-title-final">Perguntas frequentes</h2>
-        <p class="faq-desc-final">
-          Confira as respostas para as dúvidas mais comuns sobre o formato de trabalho da PowerRH.
-        </p>
-        <a
-          href="#formulario-diagnostico"
-          class="btn-gold"
-          style="font-size: 12.5px; padding: 10px 20px;"
+        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">{faq.eyebrow}</span>
+        <h2 class="faq-title-final">{faq.title}</h2>
+        <p class="faq-desc-final">{faq.desc}</p>
+        <Button
+          href={faq.ctaHref}
+          variant="gold"
+          class="text-xs py-2 px-5"
         >
-          Quero tirar outra dúvida →
-        </a>
+          {faq.ctaText}
+        </Button>
       </div>
 
       <div class="faq-accordion-list">
-        <!-- FAQ 1 -->
-        <div class="faq-item-final active">
-          <button type="button" class="faq-btn-trigger" aria-expanded="true">
-            <span>Quais tipos de empresas a PowerRH atende?</span>
-            <span class="faq-chevron-icon">▼</span>
-          </button>
-          <div class="faq-answer-body">
-            Atendemos empresas em fase de expansão, organizações familiares em processo de profissionalização e governança, e empresas de médio e grande porte que buscam desenvolver líderes e alinhar cultura com resultados.
+        {faq.items.map((item) => (
+          <div class={`faq-item-final ${item.isOpenDefault ? 'active' : ''}`.trim()}>
+            <button
+              type="button"
+              class="faq-btn-trigger"
+              aria-expanded={item.isOpenDefault ? 'true' : 'false'}
+            >
+              <span>{item.question}</span>
+              <span class="faq-chevron-icon">▼</span>
+            </button>
+            <div class="faq-answer-body">
+              {item.answer}
+            </div>
           </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="faq-item-final">
-          <button type="button" class="faq-btn-trigger" aria-expanded="false">
-            <span>Como funciona o diagnóstico inicial?</span>
-            <span class="faq-chevron-icon">▼</span>
-          </button>
-          <div class="faq-answer-body">
-            O diagnóstico é uma sessão estratégica sem compromisso com a fundadora para mapear a situação atual de gestão de pessoas, identificar gargalos imediatos e estruturar os passos necessários para a evolução.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="faq-item-final">
-          <button type="button" class="faq-btn-trigger" aria-expanded="false">
-            <span>Os projetos são personalizados?</span>
-            <span class="faq-chevron-icon">▼</span>
-          </button>
-          <div class="faq-answer-body">
-            Sim, 100% personalizados. Entendemos a realidade, maturidade e cultura de cada cliente para desenhar intervenções sob medida que gerem adesão real do time.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item-final">
-          <button type="button" class="faq-btn-trigger" aria-expanded="false">
-            <span>Qual o formato de trabalho?</span>
-            <span class="faq-chevron-icon">▼</span>
-          </button>
-          <div class="faq-answer-body">
-            Trabalhamos em formato híbrido (presencial e online), com visitas técnicas em campo, oficinas práticas de facilitação, mentorias executivas e acompanhamento periódico dos rituais de liderança.
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-item-final">
-          <button type="button" class="faq-btn-trigger" aria-expanded="false">
-            <span>Em quanto tempo posso ver resultados?</span>
-            <span class="faq-chevron-icon">▼</span>
-          </button>
-          <div class="faq-answer-body">
-            Os alinhamentos iniciais e a clareza de papéis geram impactos perceptíveis nas primeiras semanas. Resultados estruturais consolidados ocorrem normalmente entre o 3º e o 6º mês de implementação.
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
+  </Container>
 </section>

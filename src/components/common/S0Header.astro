@@ -1,9 +1,14 @@
 ---
-// S0Header.astro — Header institucional com emblema vetorial dourado, navegação e CTA
+// S0Header.astro — Header institucional padronizado e orientado a dados
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { navigation } = siteContent;
 ---
 
 <header class="site-header-final">
-  <div class="container container-wide">
+  <Container size="wide">
     <nav class="site-nav-final" aria-label="Navegação Principal">
       <!-- Logo Institucional PowerRH com Emblema Vetorial Dourado -->
       <a href="#inicio" class="brand-link-final">
@@ -19,26 +24,28 @@
           </defs>
         </svg>
         <div class="brand-text-final">
-          <span class="brand-title-final">PowerRH</span>
-          <span class="brand-tagline-final">Pessoas que transformam negócios</span>
+          <span class="brand-title-final">{navigation.brandName}</span>
+          <span class="brand-tagline-final">{navigation.brandTagline}</span>
         </div>
       </a>
 
-      <!-- Menu de Links -->
+      <!-- Menu de Links Dinâmicos -->
       <ul class="nav-links-final">
-        <li><a href="#inicio" class="nav-link-final active">Home</a></li>
-        <li><a href="#sobre" class="nav-link-final">Sobre</a></li>
-        <li><a href="#solucoes" class="nav-link-final">Soluções</a></li>
-        <li><a href="#depoimentos" class="nav-link-final">Depoimentos</a></li>
-        <li><a href="#formulario-diagnostico" class="nav-link-final">Contato</a></li>
+        {navigation.links.map((link) => (
+          <li>
+            <a href={link.href} class={`nav-link-final ${link.active ? 'active' : ''}`.trim()}>
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
 
       <!-- CTA Principal Header -->
       <div>
-        <a href="#formulario-diagnostico" class="btn-gold">
-          Falar com a especialista →
-        </a>
+        <Button href={navigation.cta.href} variant="gold">
+          {navigation.cta.text}
+        </Button>
       </div>
     </nav>
-  </div>
+  </Container>
 </header>

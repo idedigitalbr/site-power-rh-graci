@@ -1,49 +1,29 @@
 ---
 // S5Processo.astro — Seção Como Trabalhamos (Método estruturado em 4 etapas)
+import Container from '../ui/Container.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { processo } = siteContent;
 ---
 
 <section class="section-processo-final">
-  <div class="container container-wide">
+  <Container size="wide">
     <div class="processo-header-layout-final">
       <div>
-        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">COMO TRABALHAMOS</span>
-        <h2 class="processo-title-final">
-          Um processo claro, próximo e eficaz.
-        </h2>
+        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">{processo.eyebrow}</span>
+        <h2 class="processo-title-final">{processo.title}</h2>
       </div>
 
       <div class="processo-steps-track">
-        <!-- Etapa 01 -->
-        <div class="step-card-final">
-          <div class="step-circle-badge-final">01</div>
-          <div class="step-arrow-tail"></div>
-          <h3 class="step-title-final">Diagnóstico</h3>
-          <p class="step-desc-final">Entendemos sua realidade e desafios.</p>
-        </div>
-
-        <!-- Etapa 02 -->
-        <div class="step-card-final">
-          <div class="step-circle-badge-final">02</div>
-          <div class="step-arrow-tail"></div>
-          <h3 class="step-title-final">Planejamento</h3>
-          <p class="step-desc-final">Desenhamos soluções personalizadas.</p>
-        </div>
-
-        <!-- Etapa 03 -->
-        <div class="step-card-final">
-          <div class="step-circle-badge-final">03</div>
-          <div class="step-arrow-tail"></div>
-          <h3 class="step-title-final">Implementação</h3>
-          <p class="step-desc-final">Colocamos o plano em prática, lado a lado.</p>
-        </div>
-
-        <!-- Etapa 04 -->
-        <div class="step-card-final">
-          <div class="step-circle-badge-final">04</div>
-          <h3 class="step-title-final">Evolução</h3>
-          <p class="step-desc-final">Acompanhamos resultados e ajustes contínuos.</p>
-        </div>
+        {processo.steps.map((step, idx) => (
+          <div class="step-card-final">
+            <div class="step-circle-badge-final">{step.step}</div>
+            {idx < processo.steps.length - 1 && <div class="step-arrow-tail"></div>}
+            <h3 class="step-title-final">{step.title}</h3>
+            <p class="step-desc-final">{step.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
+  </Container>
 </section>

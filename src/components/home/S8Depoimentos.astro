@@ -1,83 +1,42 @@
 ---
-// S8Depoimentos.astro — Seção Depoimentos de clientes com cards e avatares
+// S8Depoimentos.astro — Seção Depoimentos orientada a dados com cards e avatares
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { depoimentos } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-depoimentos-final" id="depoimentos">
-  <div class="container container-wide">
-    <div class="section-eyebrow-divider">
-      <span>DEPOIMENTOS</span>
-    </div>
-    <h2 class="section-title-center-final">
-      O que nossos clientes dizem
-    </h2>
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={depoimentos.eyebrow}
+      title={depoimentos.title}
+      center={true}
+    />
 
     <div class="depoimentos-grid-final">
-      <!-- Depoimento 1 -->
-      <div class="depoimento-card-final">
-        <div>
-          <div class="depoimento-quote-mark">“</div>
-          <p class="depoimento-text-final">
-            A PowerRH nos ajudou a estruturar nossa liderança e a fortalecer nossa cultura. O impacto nos resultados foi evidente.
-          </p>
-        </div>
-        <div class="depoimento-author-row">
-          <img
-            src={`${base}/assets/imagens-diversas/avatar-mariana.png`}
-            alt="Mariana Lopes"
-            class="depoimento-avatar-img"
-            loading="lazy"
-          />
+      {depoimentos.items.map((card) => (
+        <div class="depoimento-card-final">
           <div>
-            <div class="depoimento-author-name">Mariana Lopes</div>
-            <div class="depoimento-author-role">CEO, Grupo Vértice</div>
+            <div class="depoimento-quote-mark">“</div>
+            <p class="depoimento-text-final">{card.quote}</p>
+          </div>
+          <div class="depoimento-author-row">
+            <img
+              src={`${base}/${card.avatar}`}
+              alt={card.author}
+              class="depoimento-avatar-img"
+              loading="lazy"
+            />
+            <div>
+              <div class="depoimento-author-name">{card.author}</div>
+              <div class="depoimento-author-role">{card.role}</div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Depoimento 2 -->
-      <div class="depoimento-card-final">
-        <div>
-          <div class="depoimento-quote-mark">“</div>
-          <p class="depoimento-text-final">
-            Profissionalismo, sensibilidade e visão estratégica. Uma parceria que realmente faz a diferença para o nosso negócio.
-          </p>
-        </div>
-        <div class="depoimento-author-row">
-          <img
-            src={`${base}/assets/imagens-diversas/avatar-roberto.png`}
-            alt="Roberto Almeida"
-            class="depoimento-avatar-img"
-            loading="lazy"
-          />
-          <div>
-            <div class="depoimento-author-name">Roberto Almeida</div>
-            <div class="depoimento-author-role">Diretor, TechBrasil</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Depoimento 3 -->
-      <div class="depoimento-card-final">
-        <div>
-          <div class="depoimento-quote-mark">“</div>
-          <p class="depoimento-text-final">
-            A Graciete tem uma capacidade única de conectar pessoas, estratégia e resultados. Recomendo de olhos fechados.
-          </p>
-        </div>
-        <div class="depoimento-author-row">
-          <img
-            src={`${base}/assets/imagens-diversas/avatar-carla.png`}
-            alt="Carla Mendes"
-            class="depoimento-avatar-img"
-            loading="lazy"
-          />
-          <div>
-            <div class="depoimento-author-name">Carla Mendes</div>
-            <div class="depoimento-author-role">Sócia, Mendes & Associados</div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
-  </div>
+  </Container>
 </section>

@@ -1,17 +1,22 @@
 ---
 // S6Sobre.astro — Seção Sobre a Fundadora (Graciete Corrêa), biografia e credenciais
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { sobre } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-sobre-final" id="sobre">
-  <div class="container container-wide">
+  <Container size="wide">
     <div class="sobre-grid-final">
       <!-- Foto Oficial em Poltrona de Autoridade -->
       <div class="sobre-photo-container">
         <div class="sobre-img-box">
           <img
-            src={`${base}/assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp`}
-            alt="Graciete Corrêa — Especialista em Estratégia de Pessoas"
+            src={`${base}/${sobre.image}`}
+            alt={`${sobre.name} — ${sobre.title}`}
             class="sobre-photo-final"
             loading="lazy"
           />
@@ -19,121 +24,66 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
         <!-- Badge Flutuante de Credencial -->
         <div class="sobre-floating-pill">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.2"
-          >
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-            ></path>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          <span>Mais de 15 anos transformando pessoas e negócios.</span>
+          <span>{sobre.floatingPill}</span>
         </div>
       </div>
 
       <!-- Conteúdo Biográfico & Rótulos -->
       <div class="sobre-details-col">
-        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">SOBRE A FUNDADORA</span>
-        <h2 class="sobre-name-final">Graciete Corrêa</h2>
-        <span class="sobre-subtitle-gold">ESPECIALISTA EM ESTRATÉGIA DE PESSOAS</span>
+        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">{sobre.eyebrow}</span>
+        <h2 class="sobre-name-final">{sobre.name}</h2>
+        <span class="sobre-subtitle-gold">{sobre.title}</span>
 
         <p class="sobre-bio-text">
-          Executiva e consultora com mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura. Apaixonada por pessoas, acredita no poder de uma gestão mais humana e estratégica para construir mais pontes e um futuro melhor.
+          {sobre.bio}
         </p>
 
         <div style="margin-bottom: 28px;">
-          <a href="#formulario-diagnostico" class="btn-gold">
-            Conheça minha história →
-          </a>
+          <Button href={sobre.ctaHref} variant="gold">
+            {sobre.ctaText}
+          </Button>
         </div>
 
         <!-- 4 Credenciais com Ícones Dourados Circulares -->
         <div class="sobre-credentials-list">
-          <div class="credential-item-final">
-            <div class="credential-icon-circle">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+          {sobre.credentials.map((cred) => (
+            <div class="credential-item-final">
+              <div class="credential-icon-circle">
+                {cred.iconType === 'cert' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                )}
+                {cred.iconType === 'mentor' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                )}
+                {cred.iconType === 'industry' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                )}
+                {cred.iconType === 'star' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                )}
+              </div>
+              <span class="credential-text-final">{cred.text}</span>
             </div>
-            <span class="credential-text-final"
-              >Especialista em Desenvolvimento Organizacional e Liderança</span
-            >
-          </div>
-
-          <div class="credential-item-final">
-            <div class="credential-icon-circle">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <span class="credential-text-final"
-              >Consultora e Mentora de Executivos e Times</span
-            >
-          </div>
-
-          <div class="credential-item-final">
-            <div class="credential-icon-circle">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            </div>
-            <span class="credential-text-final"
-              >Atuação em diversos setores e portes de empresas</span
-            >
-          </div>
-
-          <div class="credential-item-final">
-            <div class="credential-icon-circle">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                ></polygon>
-              </svg>
-            </div>
-            <span class="credential-text-final"
-              >Compromisso com resultados e impacto real</span
-            >
-          </div>
+          ))}
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </section>

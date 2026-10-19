@@ -1,137 +1,70 @@
 ---
-// S4Solucoes.astro — Seção Nossas Soluções com 3 cards fotográficos estratégicos
+// S4Solucoes.astro — Seção Nossas Soluções com 3 cards fotográficos orientada a dados
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { solucoes } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-solucoes-final" id="solucoes">
-  <div class="container container-wide">
-    <div class="section-eyebrow-divider">
-      <span>NOSSAS SOLUÇÕES</span>
-    </div>
-    <h2 class="section-title-center-final">
-      Estratégia em pessoas para cada etapa do seu crescimento.
-    </h2>
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={solucoes.eyebrow}
+      title={solucoes.title}
+      center={true}
+    />
 
     <div class="solucoes-grid-final">
-      <!-- Card 1: Cultura & Estrutura -->
-      <article class="solucao-card-final">
-        <div class="solucao-img-box-final">
-          <img
-            src={`${base}/assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/21_diagnostico_de_cultura.webp`}
-            alt="Cultura e Estrutura Organizacional"
-            class="solucao-img-final"
-            loading="lazy"
-          />
-        </div>
-        <div class="solucao-footer-bar-final">
-          <div class="solucao-text-block-final">
-            <div class="solucao-title-row">
-              <svg
-                class="solucao-icon-svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              <h3 class="solucao-title-final">Cultura & Estrutura</h3>
-            </div>
-            <p class="solucao-desc-final">
-              Conectamos pessoas, processos e cultura para sustentar o crescimento.
-            </p>
+      {solucoes.items.map((card) => (
+        <article class="solucao-card-final">
+          <div class="solucao-img-box-final">
+            <img
+              src={`${base}/${card.image}`}
+              alt={card.alt}
+              class="solucao-img-final"
+              loading="lazy"
+            />
           </div>
-          <a
-            href="#formulario-diagnostico"
-            class="solucao-arrow-btn-final"
-            aria-label="Conhecer Cultura e Estrutura">→</a
-          >
-        </div>
-      </article>
-
-      <!-- Card 2: Liderança & Desenvolvimento -->
-      <article class="solucao-card-final">
-        <div class="solucao-img-box-final">
-          <img
-            src={`${base}/assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/08_lideranca_people_culture.webp`}
-            alt="Liderança e Desenvolvimento de Gestores"
-            class="solucao-img-final"
-            loading="lazy"
-          />
-        </div>
-        <div class="solucao-footer-bar-final">
-          <div class="solucao-text-block-final">
-            <div class="solucao-title-row">
-              <svg
-                class="solucao-icon-svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-              <h3 class="solucao-title-final">Liderança & Desenvolvimento</h3>
+          <div class="solucao-footer-bar-final">
+            <div class="solucao-text-block-final">
+              <div class="solucao-title-row">
+                {card.iconType === 'culture' && (
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                )}
+                {card.iconType === 'leadership' && (
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                )}
+                {card.iconType === 'governance' && (
+                  <svg class="solucao-icon-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 14"></polyline>
+                  </svg>
+                )}
+                <h3 class="solucao-title-final">{card.title}</h3>
+              </div>
+              <p class="solucao-desc-final">{card.desc}</p>
             </div>
-            <p class="solucao-desc-final">
-              Desenvolvemos líderes e times para elevar a performance.
-            </p>
+            <a
+              href="#formulario-diagnostico"
+              class="solucao-arrow-btn-final"
+              aria-label={`Conhecer ${card.title}`}
+            >
+              →
+            </a>
           </div>
-          <a
-            href="#formulario-diagnostico"
-            class="solucao-arrow-btn-final"
-            aria-label="Conhecer Liderança e Desenvolvimento">→</a
-          >
-        </div>
-      </article>
-
-      <!-- Card 3: Governança & Sucessão -->
-      <article class="solucao-card-final">
-        <div class="solucao-img-box-final">
-          <img
-            src={`${base}/assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/41_fundador_e_sucessor.webp`}
-            alt="Governança e Sucessão Familiar"
-            class="solucao-img-final"
-            loading="lazy"
-          />
-        </div>
-        <div class="solucao-footer-bar-final">
-          <div class="solucao-text-block-final">
-            <div class="solucao-title-row">
-              <svg
-                class="solucao-icon-svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 14 14"></polyline>
-              </svg>
-              <h3 class="solucao-title-final">Governança & Sucessão</h3>
-            </div>
-            <p class="solucao-desc-final">
-              Preparamos pessoas e estruturas para um futuro sustentável.
-            </p>
-          </div>
-          <a
-            href="#formulario-diagnostico"
-            class="solucao-arrow-btn-final"
-            aria-label="Conhecer Governança e Sucessão">→</a
-          >
-        </div>
-      </article>
+        </article>
+      ))}
     </div>
-  </div>
+  </Container>
 </section>

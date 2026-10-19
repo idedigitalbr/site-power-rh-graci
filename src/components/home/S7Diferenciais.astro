@@ -1,100 +1,57 @@
 ---
-// S7Diferenciais.astro — Seção Diferenciais que fazem a diferença com card de destaque
+// S7Diferenciais.astro — Seção Diferenciais orientada a dados com card de destaque
+import Container from '../ui/Container.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { diferenciais } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-diferenciais-final" id="diferenciais">
-  <div class="container container-wide">
+  <Container size="wide">
     <div class="diferenciais-grid-final">
       <!-- Lado Esquerdo: 4 Diferenciais Estratégicos -->
       <div>
-        <span class="diferenciais-eyebrow">POR QUE POWER RH ——</span>
-        <h2 class="diferenciais-title-final">Diferenciais que fazem a diferença.</h2>
+        <span class="diferenciais-eyebrow">{diferenciais.eyebrow}</span>
+        <h2 class="diferenciais-title-final">{diferenciais.title}</h2>
 
         <div class="diferenciais-cards-grid">
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
+          {diferenciais.items.map((item) => (
+            <div class="diferencial-card-single">
+              <div class="diferencial-icon-final">
+                {item.iconType === 'star' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                )}
+                {item.iconType === 'puzzle' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                )}
+                {item.iconType === 'chart' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                )}
+                {item.iconType === 'award' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                )}
+              </div>
+              <h3 class="diferencial-name-final">{item.name}</h3>
+              <p class="diferencial-desc-final">{item.desc}</p>
             </div>
-            <h3 class="diferencial-name-final">Visão Estratégica</h3>
-            <p class="diferencial-desc-final">
-              Conectamos pessoas aos objetivos do negócio.
-            </p>
-          </div>
-
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Abordagem Personalizada</h3>
-            <p class="diferencial-desc-final">
-              Soluções sob medida para a sua realidade.
-            </p>
-          </div>
-
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Foco em Resultados</h3>
-            <p class="diferencial-desc-final">
-              Projetos práticos e mensuráveis.
-            </p>
-          </div>
-
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Experiência Comprovada</h3>
-            <p class="diferencial-desc-final">
-              Mais de 15 anos transformando organizações.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -103,8 +60,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <div class="diferenciais-destaque-card">
           <div class="destaque-card-image-box">
             <img
-              src={`${base}/assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp`}
-              alt="Pessoas no centro, resultados no futuro"
+              src={`${base}/${diferenciais.destaque.image}`}
+              alt={diferenciais.destaque.title}
               class="destaque-card-img"
               loading="lazy"
             />
@@ -113,15 +70,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="destaque-play-row">
               <div class="destaque-play-btn">▶</div>
             </div>
-            <h4 class="destaque-card-title">
-              Pessoas no centro. Resultados no futuro.
-            </h4>
-            <p class="destaque-card-desc">
-              Estratégia e humanidade caminhando juntas para negócios mais fortes.
-            </p>
+            <h4 class="destaque-card-title">{diferenciais.destaque.title}</h4>
+            <p class="destaque-card-desc">{diferenciais.destaque.desc}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </section>

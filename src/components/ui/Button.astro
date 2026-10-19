@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: 'gold' | 'hero-pill' | 'form-submit' | 'secondary' | 'outline';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  id?: string;
+}
+
+const {
+  variant = 'gold',
+  href,
+  type = 'button',
+  size = 'md',
+  class: className = '',
+  id,
+  ...rest
+} = Astro.props;
+
+const variantClasses = {
+  gold: 'btn-gold',
+  'hero-pill': 'btn-hero-pill',
+  'form-submit': 'btn-form-submit',
+  secondary: 'btn-secondary',
+  outline: 'btn-outline',
+};
+
+const finalClass = `${variantClasses[variant] || 'btn-gold'} ${className}`.trim();
+---
+
+{
+  href ? (
+    <a href={href} class={finalClass} id={id} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={finalClass} id={id} {...rest}>
+      <slot />
+    </button>
+  )
+}

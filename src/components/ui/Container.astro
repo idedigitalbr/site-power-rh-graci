@@ -1,0 +1,13 @@
+---
+interface Props {
+  size?: 'default' | 'wide';
+  class?: string;
+}
+
+const { size = 'wide', class: className = '' } = Astro.props;
+const containerClass = size === 'wide' ? 'container container-wide' : 'container';
+---
+
+<div class={`${containerClass} ${className}`.trim()}>
+  <slot />
+</div>
