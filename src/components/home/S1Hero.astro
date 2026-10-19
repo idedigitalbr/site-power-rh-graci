@@ -35,9 +35,8 @@ const { hero } = siteContent;
               <div class="mini-badge-icon">
                 {idx === 0 && (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
+                    <path d="M1 12s4-8 11-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
                   </svg>
                 )}
                 {idx === 1 && (
@@ -68,6 +67,12 @@ const { hero } = siteContent;
             </div>
           ))}
         </div>
+      </div>
+
+      <!-- Assinatura Executiva Graciete Corrêa Flutuante (Fiel ao Mock Oficial v1) -->
+      <div class="hero-signature-badge" aria-hidden="true">
+        <span class="hero-signature-script">Graciete Corrêa</span>
+        <span class="hero-signature-sub">FUNDADORA<br />POWER RH</span>
       </div>
 
       <!-- Coluna Direita: Card de Formulário de Conversão Flutuante -->

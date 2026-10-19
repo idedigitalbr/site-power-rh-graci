@@ -168,7 +168,7 @@ export const siteContent = {
         id: 'lideranca',
         title: 'Liderança & Desenvolvimento',
         desc: 'Desenvolvemos líderes e times para elevar a performance.',
-        image: 'assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/08_lideranca_people_culture.webp',
+        image: 'assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/12_reuniao_pequena_tres_pessoas.webp',
         alt: 'Liderança e Desenvolvimento de Gestores',
         iconType: 'leadership',
       },
@@ -176,7 +176,7 @@ export const siteContent = {
         id: 'governanca',
         title: 'Governança & Sucessão',
         desc: 'Preparamos pessoas e estruturas para um futuro sustentável.',
-        image: 'assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/41_fundador_e_sucessor.webp',
+        image: 'assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/19_advisory_empresaria.webp',
         alt: 'Governança e Sucessão Familiar',
         iconType: 'governance',
       },
@@ -214,8 +214,8 @@ export const siteContent = {
     eyebrow: 'SOBRE A FUNDADORA',
     name: 'Graciete Corrêa',
     title: 'ESPECIALISTA EM ESTRATÉGIA DE PESSOAS',
-    bio: 'Executiva e consultora com mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura. Apaixonada por pessoas, acredita no poder de uma gestão mais humana e estratégica para construir mais pontes e um futuro melhor.',
-    ctaText: 'Conheça minha história →',
+    bio: 'Executiva e consultora com mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura. Apaixonada por pessoas, acredita no poder de uma gestão mais humana e estratégica para conexões mais fortes e um futuro melhor.',
+    ctaText: 'CONHEÇA MINHA HISTÓRIA →',
     ctaHref: '#formulario-diagnostico',
     floatingPill: 'Mais de 15 anos transformando pessoas e negócios.',
     image: 'assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp',
@@ -228,7 +228,7 @@ export const siteContent = {
   },
 
   diferenciais: {
-    eyebrow: 'POR QUE POWER RH ——',
+    eyebrow: 'POR QUE POWER RH —',
     title: 'Diferenciais que fazem a diferença.',
     items: [
       {
@@ -248,14 +248,14 @@ export const siteContent = {
       },
       {
         name: 'Experiência Comprovada',
-        desc: 'Mais de 15 anos transformando organizações.',
+        desc: 'Mais de 25 anos transformando organizações.',
         iconType: 'award',
       },
     ] as DifferentialItem[],
     destaque: {
       title: 'Pessoas no centro. Resultados no futuro.',
       desc: 'Estratégia e humanidade caminhando juntas para negócios mais fortes.',
-      image: 'assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp',
+      image: 'assets/imagens-diversas/diferenciais-maos.png',
     },
   },
 
@@ -318,7 +318,7 @@ export const siteContent = {
   ctaBanner: {
     heading: 'Vamos conversar sobre o futuro da sua empresa?',
     desc: 'Descubra como a PowerRH pode ajudar o seu negócio a crescer com pessoas mais engajadas, líderes mais preparados e resultados sustentáveis.',
-    image: 'assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/05_sala_com_vista_porto.webp',
+    image: 'assets/imagens-diversas/cta-banner-bg.png',
     checklist: [
       'Diagnóstico inicial sem compromisso',
       'Conversa direta com a especialista',
