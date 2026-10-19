@@ -1,0 +1,16 @@
+/**
+ * ==============================================================================
+ * POWER RH — DESIGN SYSTEM MASTER STYLESHEET
+ * ==============================================================================
+ * Ponto de entrada único e canônico do Design System.
+ * Agrupa tokens, estilos base e componentes para consumo padronizado.
+ * 
+ * Uso em páginas HTML:
+ * <link rel="stylesheet" href="assets/css/design-system.css">
+ * ==============================================================================
+ */
+
+@import url('tokens.css');
+@import url('base.css');
+@import url('components.css');
+@import url('site-final.css');

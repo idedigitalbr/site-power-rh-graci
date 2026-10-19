@@ -1,0 +1,273 @@
+/**
+ * ==============================================================================
+ * POWER RH — DESIGN SYSTEM TOKENS
+ * ==============================================================================
+ * Sistema de design baseado em tokens CSS nativos (Custom Properties).
+ * Fase atual: Wireframe Neutro de Alta Fidelidade (Escala de Cinza + Tipografia Inter).
+ * 
+ * Regra de Ouro:
+ * Nenhuma cor, espaçamento, fonte ou borda arbitrária deve ser declarada diretamente
+ * nos componentes. Toda a identidade e parametrização do projeto deriva deste arquivo.
+ * ==============================================================================
+ */
+
+:root {
+  /* ----------------------------------------------------------------------------
+   * BRAND TOKENS (POWERRH OFICIAL)
+   * ---------------------------------------------------------------------------- */
+  --color-gold: #C88A3B;
+  --color-gold-hover: #B07427;
+  --color-gold-dark: #9A621D;
+  --color-gold-light: #FDF6EC;
+  --color-gold-subtle: rgba(200, 138, 59, 0.12);
+  --color-gold-border: rgba(200, 138, 59, 0.35);
+  --color-gold-gradient: linear-gradient(135deg, #CB9857 0%, #B87B2E 100%);
+  --color-gold-glow: 0 8px 24px -4px rgba(184, 123, 46, 0.4);
+
+  --color-navy-deep: #01243E;
+  --color-navy-dark: #081624;
+  --color-navy-card: #01253E;
+  --color-navy-surface: #0E2934;
+  --color-navy-border: rgba(255, 255, 255, 0.1);
+
+  --color-bg-warm: #FCFAF7;
+  --color-bg-sand: #F6DAAA;
+  --color-card-warm: #FDEEDB;
+  --color-border-warm: #EDE7DD;
+
+  --font-signature: 'Alex Brush', cursive;
+
+  /* Aliases de compatibilidade */
+  --final-gold: var(--color-gold);
+  --final-gold-hover: var(--color-gold-hover);
+  --final-gold-dark: var(--color-gold-dark);
+  --final-gold-light: var(--color-gold-light);
+  --final-gold-subtle: var(--color-gold-subtle);
+  --final-gold-border: var(--color-gold-border);
+  --final-gold-gradient: var(--color-gold-gradient);
+  --final-gold-glow: var(--color-gold-glow);
+  --final-navy-deep: var(--color-navy-deep);
+  --final-navy-dark: var(--color-navy-dark);
+  --final-navy-card: var(--color-navy-card);
+  --final-navy-surface: var(--color-navy-surface);
+  --final-navy-border: var(--color-navy-border);
+  --final-bg-warm: var(--color-bg-warm);
+  --final-bg-sand: var(--color-bg-sand);
+  --final-card-warm: var(--color-card-warm);
+  --final-border-subtle: var(--color-border-warm);
+
+  /* ----------------------------------------------------------------------------
+   * 1. PALETA DE CORES PRIMITIVAS (ESCALA NEUTRA / WIREFRAME)
+   * ---------------------------------------------------------------------------- */
+  --color-white: #ffffff;
+  --color-gray-25: #fcfcfd;
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #f1f3f5;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #6c757d;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  --color-gray-950: #121416;
+  --color-black: #000000;
+
+  /* ----------------------------------------------------------------------------
+   * 2. CORES SEMÂNTICAS & SUPERFÍCIES (LIGHT THEME / WIREFRAME DEFAULT)
+   * ---------------------------------------------------------------------------- */
+  /* Telas e Planos de Fundo */
+  --bg-canvas: var(--color-white);
+  --bg-surface: var(--color-white);
+  --bg-surface-subtle: var(--color-gray-50);
+  --bg-surface-muted: var(--color-gray-100);
+  --bg-surface-elevated: var(--color-white);
+
+  /* Superfícies Escuras / Inversas (Banners, Headers e Destaques) */
+  --bg-inverse: var(--color-gray-900);
+  --bg-inverse-subtle: var(--color-gray-800);
+  --bg-inverse-card: #2b3035;
+
+  /* Textos & Tipografia */
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-700);
+  --text-muted: var(--color-gray-500);
+  --text-soft: var(--color-gray-400);
+  
+  --text-inverse: var(--color-white);
+  --text-inverse-secondary: var(--color-gray-300);
+  --text-inverse-muted: var(--color-gray-500);
+
+  /* Linhas, Divisores & Bordas */
+  --border-hairline: var(--color-gray-200);
+  --border-default: var(--color-gray-300);
+  --border-strong: var(--color-gray-400);
+  --border-inverse: var(--color-gray-700);
+  --border-inverse-subtle: #3d434a;
+
+  /* Ações & Interatividade (Botões, Links, Focus) */
+  --action-primary-bg: var(--color-gold);
+  --action-primary-hover: var(--color-gold-hover);
+  --action-primary-active: var(--color-gold-dark);
+  --action-primary-text: var(--color-white);
+
+  --action-secondary-bg: var(--color-white);
+  --action-secondary-border: var(--color-gold-border);
+  --action-secondary-hover: var(--color-gold-light);
+  --action-secondary-text: var(--color-gold-dark);
+
+  --action-inverse-bg: var(--color-gold-gradient);
+  --action-inverse-hover: linear-gradient(135deg, #B87B2E 0%, #A6681E 100%);
+  --action-inverse-text: var(--color-white);
+
+  --action-ghost-hover: var(--color-gold-light);
+  --action-disabled-bg: var(--color-gray-200);
+  --action-disabled-text: var(--color-gray-400);
+
+  /* Badges & Indicadores de Apoio */
+  --badge-bg: var(--color-gold-light);
+  --badge-border: var(--color-gold-border);
+  --badge-text: var(--color-gold-dark);
+
+  --badge-inverse-bg: rgba(200, 138, 59, 0.15);
+  --badge-inverse-border: rgba(200, 138, 59, 0.35);
+  --badge-inverse-text: var(--color-gold-light);
+
+  /* Acessibilidade & Estados de Foco */
+  --focus-ring: 0 0 0 3px rgba(200, 138, 59, 0.25);
+  --focus-ring-inverse: 0 0 0 3px rgba(200, 138, 59, 0.45);
+
+  /* ----------------------------------------------------------------------------
+   * 3. TIPOGRAFIA & ESCALA VISUAL
+   * ---------------------------------------------------------------------------- */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+
+  /* Tamanhos de Fonte */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-md: 1.125rem;   /* 18px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.875rem;  /* 30px */
+  --font-size-3xl: 2.25rem;   /* 36px */
+  --font-size-4xl: 2.875rem;  /* 46px */
+  --font-size-5xl: 3.5rem;    /* 56px */
+
+  /* Pesos Tipográficos */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Alturas de Linha (Leading) */
+  --line-height-none: 1;
+  --line-height-tight: 1.15;
+  --line-height-snug: 1.3;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.65;
+
+  /* Espaçamento entre Letras (Tracking) */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
+
+  /* ----------------------------------------------------------------------------
+   * 4. ESCALA DE ESPAÇAMENTOS (4px Grid)
+   * ---------------------------------------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  /* ----------------------------------------------------------------------------
+   * 5. CONTAINERS, BREAKPOINTS & GRID
+   * ---------------------------------------------------------------------------- */
+  --container-max-width: 1220px;
+  --container-narrow-width: 860px;
+  --container-wide-width: 1360px;
+
+  --container-pad-mobile: var(--space-4);
+  --container-pad-tablet: var(--space-6);
+  --container-pad-desktop: var(--space-8);
+
+  --section-pad-y-compact: var(--space-12);
+  --section-pad-y-normal: var(--space-20);
+  --section-pad-y-spacious: var(--space-24);
+
+  /* ----------------------------------------------------------------------------
+   * 6. BORDAS, RAIOS DE CURVATURA & SOMBRAS
+   * ---------------------------------------------------------------------------- */
+  --border-width-hairline: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* Sombras Sutis (Wireframe Moderno) */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(18, 20, 22, 0.05);
+  --shadow-sm: 0 2px 4px rgba(18, 20, 22, 0.06), 0 1px 2px rgba(18, 20, 22, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(18, 20, 22, 0.08), 0 2px 6px -1px rgba(18, 20, 22, 0.05);
+  --shadow-lg: 0 12px 24px -4px rgba(18, 20, 22, 0.1), 0 4px 8px -2px rgba(18, 20, 22, 0.04);
+  --shadow-xl: 0 20px 32px -8px rgba(18, 20, 22, 0.14), 0 8px 16px -4px rgba(18, 20, 22, 0.06);
+
+  /* ----------------------------------------------------------------------------
+   * 7. TRANSIÇÕES & ANIMAÇÕES
+   * ---------------------------------------------------------------------------- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ----------------------------------------------------------------------------
+   * 8. ELEVAÇÃO & CAMADAS (Z-INDEX)
+   * ---------------------------------------------------------------------------- */
+  --z-base: 0;
+  --z-card: 1;
+  --z-dropdown: 50;
+  --z-header: 100;
+  --z-modal: 500;
+  --z-tooltip: 1000;
+
+  /* ----------------------------------------------------------------------------
+   * 9. TOKENS DO MODO SKELETON WIREFRAME (REFERÊNCIA V0)
+   * ---------------------------------------------------------------------------- */
+  --wf-canvas: #f4f7fb;
+  --wf-surface: #ffffff;
+  --wf-border: #dde4ed;
+  --wf-border-light: #e8eef6;
+  
+  --wf-accent: #4d8bf5;
+  --wf-accent-hover: #3b7be8;
+  --wf-accent-light: #ebf3ff;
+  --wf-accent-border: #bcd5fd;
+  
+  --wf-bar-heading: #5f7089;
+  --wf-bar-body: #94a3b8;
+  --wf-bar-subtle: #cbd5e1;
+  --wf-bar-light: #e2e8f0;
+  
+  --wf-img-bg: #edf4fd;
+  --wf-img-border: #d2e3fc;
+  --wf-img-icon: #8db5f3;
+}

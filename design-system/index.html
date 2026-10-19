@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PowerRH — Design System &amp; Especificação Visual</title><meta name="description" content="Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis. Consultoria com mais de 15 anos de atuação."><!-- Favicon Oficial PowerRH (Emblema Dourado com Raio) --><link rel="icon" type="image/svg+xml" href="/site-power-rh-graci/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/site-power-rh-graci/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/site-power-rh-graci/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/site-power-rh-graci/apple-touch-icon.png"><link rel="shortcut icon" href="/site-power-rh-graci/favicon.ico"><link rel="manifest" href="/site-power-rh-graci/site.webmanifest"><meta name="theme-color" content="#01243E"><!-- Open Graph / Redes Sociais --><meta property="og:type" content="website"><meta property="og:title" content="PowerRH — Design System &amp; Especificação Visual"><meta property="og:description" content="Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis. Consultoria com mais de 15 anos de atuação."><meta property="og:image" content="/site-power-rh-graci/assets/imagens-diversas/logo-powerrh.png"><!-- Google Fonts: Inter, Alex Brush (Assinatura Oficial) e JetBrains Mono --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/site-power-rh-graci/_astro/Layout.BHp-SqtF.css"></head><body><style>
+/* Estilos específicos para layout da documentação do preview */
+    .ds-preview-nav {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-header);
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .ds-preview-hero {
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .ds-toc {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-6);
+    }
+
+    .ds-toc a {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: all var(--transition-fast);
+    }
+
+    .ds-toc a:hover {
+      background-color: var(--color-gray-900);
+      color: var(--color-white);
+      border-color: var(--color-gray-900);
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .swatch-card {
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .swatch-color {
+      height: 80px;
+      width: 100%;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .swatch-body {
+      padding: var(--space-3);
+    }
+
+    .swatch-name {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .swatch-role {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Tabela Tipográfica */
+    .type-specimen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .type-specimen-table th {
+      text-align: left;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      color: var(--text-muted);
+      padding: 12px 16px;
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .type-specimen-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+      vertical-align: middle;
+    }
+
+    .type-token-badge {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      background-color: var(--bg-surface-muted);
+      border: 1px solid var(--border-default);
+      padding: 3px 8px;
+      border-radius: var(--radius-xs);
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* Espaçamentos e Sombras Visuais */
+    .space-ruler {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .space-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      background-color: var(--bg-surface);
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+    }
+
+    .space-meta {
+      width: 140px;
+      font-family: var(--font-family-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .space-bar {
+      height: 18px;
+      background-color: var(--color-gray-900);
+      border-radius: var(--radius-xs);
+    }
+
+    .shadow-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+
+    .shadow-box {
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .shadow-box p {
+      font-family: var(--font-family-mono);
+      font-size: 12px;
+      margin-top: var(--space-2);
+      color: var(--text-muted);
+    }
+
+    .comp-panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .comp-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .comp-panel-title {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+    }
+
+    .comp-demo-row {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Regras Canônicas de Tipografia & Hierarquia */
+    .rule-callout {
+      border: 1.5px solid rgba(200, 138, 59, 0.45);
+      background: linear-gradient(135deg, rgba(200, 138, 59, 0.06) 0%, rgba(253, 246, 236, 0.65) 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+      box-shadow: 0 6px 24px -4px rgba(200, 138, 59, 0.12);
+    }
+
+    .rule-callout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid rgba(200, 138, 59, 0.25);
+      flex-wrap: wrap;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-4);
+    }
+
+    .rule-box-card {
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .rule-box-card.bad {
+      border-left: 4px solid #ef4444;
+      background: linear-gradient(to right, rgba(239, 68, 68, 0.03), var(--bg-surface));
+    }
+
+    .rule-box-card.good {
+      border-left: 4px solid #10b981;
+      background: linear-gradient(to right, rgba(16, 185, 129, 0.03), var(--bg-surface));
+    }
+
+    .rule-badge-good {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .rule-badge-bad {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(239, 68, 68, 0.12);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .font-signature-demo {
+      font-family: var(--font-signature);
+      font-size: 42px;
+      color: var(--color-gold);
+      line-height: 1.1;
+      display: inline-block;
+    }
+
+    .eyebrow-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .eyebrow-showcase-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-specimen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .btn-specimen-table th {
+      text-align: left;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      color: var(--text-muted);
+      padding: 12px 16px;
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .btn-specimen-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-hairline);
+      vertical-align: middle;
+      font-size: 13px;
+    }
+  </style><header class="ds-preview-nav"><div class="container container-wide"><div class="site-nav"><a href="#inicio" class="nav-brand"><div class="brand-icon-box" style="display: flex; align-items: center; justify-content: center; padding: 2px;"><img src="/site-power-rh-graci/assets/imagens-diversas/logo-powerrh-symbol.png" alt="PowerRH" style="width: 28px; height: 28px; object-fit: contain;"></div><div class="brand-text-block"><span class="brand-name">PowerRH</span><span class="brand-tagline">Design System Preview</span></div></a><div class="nav-actions"><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);"><span class="badge-dot" style="background-color: var(--color-gold);"></span>v2.0 • Astro + Tailwind + Tokens</span><a href="/site-power-rh-graci/" class="btn-gold" style="font-size: 13px; padding: 8px 18px; text-decoration: none;">← Voltar para o Site Oficial</a></div></div></div></header><section class="ds-preview-hero" id="inicio"><div class="container container-wide"><span class="section-eyebrow">Arquitetura de Interface & Biblioteca Canônica</span><h1 class="section-title">Design System & Especificação Visual</h1><p class="section-subtitle">Documentação viva e funcional dos tokens semânticos, tipografia, escala modular e componentes reutilizáveis construídos para a <strong>PowerRH (Graciete Corrêa)</strong>.</p><div class="ds-toc"><a href="#cores">01. Cores & Tokens</a><a href="#tipografia">02. Tipografia & Escala</a><a href="#espacamento">03. Espaçamentos & Raios</a><a href="#botoes">04. Botões & Badges</a><a href="#formularios">05. Formulários</a><a href="#cards">06. Cards & Grids</a><a href="#metodo">07. Processo / Método</a><a href="#faq">08. Acordeão & FAQ</a><a href="#navegacao">09. Header & Rodapé</a></div></div></section><section class="section" id="cores"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 01</span><h2 class="section-title">Paleta de Cores e Tokens Semânticos</h2><p class="section-subtitle">Na fase de wireframe, a paleta é composta estritamente por valores acromáticos calibrados para garantir contraste WCAG AA, hierarquia de leitura e transição transparente para a identidade final.</p></div><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--color-gold-dark); font-weight: 700;">✨ Paleta Oficial da Marca PowerRH (Identidade Homologada)</h3><div class="swatch-grid" style="margin-bottom: var(--space-8);"><div class="swatch-card" style="border: 2px solid var(--color-gold);"><div class="swatch-color" style="background-color: var(--color-gold);"></div><div class="swatch-body"><div class="swatch-name">--color-gold</div><div class="swatch-hex">#C88A3B</div><div class="swatch-role">Ouro Executivo / Ação Principal (CTA)</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gold-hover);"></div><div class="swatch-body"><div class="swatch-name">--color-gold-hover</div><div class="swatch-hex">#B07427</div><div class="swatch-role">Hover de Botões & Destaques Ouro</div></div></div><div class="swatch-card"><div class="swatch-color" style="background: var(--color-gold-gradient);"></div><div class="swatch-body"><div class="swatch-name">--color-gold-gradient</div><div class="swatch-hex">#CB9857 → #B87B2E</div><div class="swatch-role">Degradê Metálico / Emblema & Pills</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-navy-deep);"></div><div class="swatch-body"><div class="swatch-name">--color-navy-deep</div><div class="swatch-hex">#01243E</div><div class="swatch-role">Azul Oceânico Profundo / Emblema</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-navy-dark);"></div><div class="swatch-body"><div class="swatch-name">--color-navy-dark</div><div class="swatch-hex">#081624</div><div class="swatch-role">Superfície Escura Extrema / Rodapé</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-bg-warm); border: 1px solid var(--color-border-warm);"></div><div class="swatch-body"><div class="swatch-name">--color-bg-warm</div><div class="swatch-hex">#FCFAF7</div><div class="swatch-role">Canvas Quente & Acolhedor</div></div></div></div><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Escala Neutra Primitiva (Gray Scale)</h3><div class="swatch-grid" style="margin-bottom: var(--space-8);"><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-white);"></div><div class="swatch-body"><div class="swatch-name">--color-white</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-role">Superfície base & Fundo claro</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-50);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-50</div><div class="swatch-hex">#F8F9FA</div><div class="swatch-role">Fundo suave alternado</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-100);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-100</div><div class="swatch-hex">#F1F3F5</div><div class="swatch-role">Inputs e chips neutros</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-200);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-200</div><div class="swatch-hex">#E9ECEF</div><div class="swatch-role">Linhas divisórias (Hairline)</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-300);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-300</div><div class="swatch-hex">#DEE2E6</div><div class="swatch-role">Bordas padrão de cards</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-500);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-500</div><div class="swatch-hex">#ADB5BD</div><div class="swatch-role">Textos atenuados (Muted)</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-700);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-700</div><div class="swatch-hex">#495057</div><div class="swatch-role">Textos secundários de leitura</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-900);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-900</div><div class="swatch-hex">#212529</div><div class="swatch-role">Títulos principais & CTA primário</div></div></div><div class="swatch-card"><div class="swatch-color" style="background-color: var(--color-gray-950);"></div><div class="swatch-body"><div class="swatch-name">--color-gray-950</div><div class="swatch-hex">#121416</div><div class="swatch-role">Rodapé & Superfície profunda</div></div></div></div><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Mapeamento Semântico de Aplicação</h3><div class="comp-panel"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4);"><div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gold);"><div class="font-mono" style="font-size: 12px; font-weight: 700; color: var(--color-gold-dark);">--action-primary-bg (Ouro #C88A3B)</div><div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Fundo do botão primário CTA de conversão</div></div><div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-400);"><div class="font-mono" style="font-size: 12px; font-weight: 700;">--border-default</div><div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Delimitação padrão de cartões e inputs</div></div><div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-900);"><div class="font-mono" style="font-size: 12px; font-weight: 700;">--bg-inverse</div><div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Planos de fundo de banners de impacto</div></div><div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-500);"><div class="font-mono" style="font-size: 12px; font-weight: 700;">--text-muted</div><div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Legendas e anotações complementares</div></div></div></div><!-- Homologação da Logo PowerRH e Variações Oficiais --><h3 style="font-size: var(--font-size-md); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--color-gold-dark); font-weight: 700;">💎 Identidade Visual Homologada (Logo & Favicon)</h3><div class="comp-panel"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);"><!-- Versão 1: Fundo Claro --><div style="background: #FFFFFF; border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;"><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark);">Versão Principal (Fundo Claro)</span><img src="/site-power-rh-graci/assets/imagens-diversas/logo-powerrh.png" alt="Logo PowerRH Principal" style="max-height: 52px; width: auto; object-fit: contain;"><div style="font-size: 11px; color: var(--text-muted);">Uso: Header institucional, propostas e superfícies claras</div></div><!-- Versão 2: Fundo Escuro --><div style="background: #01243E; border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;"><span class="badge" style="background-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;">Versão Negativa / Branca (Fundo Escuro)</span><img src="/site-power-rh-graci/assets/imagens-diversas/logo-powerrh-white.png" alt="Logo PowerRH Branca" style="max-height: 52px; width: auto; object-fit: contain;"><div style="font-size: 11px; color: #94A3B8;">Uso: Hero escuro, seções noturnas e materiais em azul profundo</div></div><!-- Versão 3: Símbolo / Favicon --><div style="background: #FDF6EC; border: 1px solid rgba(200, 138, 59, 0.2); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;"><span class="badge" style="background-color: var(--color-gold); color: #FFFFFF;">Símbolo & Favicon Oficial</span><div style="display: flex; align-items: center; justify-content: center; gap: 16px;"><img src="/site-power-rh-graci/assets/imagens-diversas/logo-powerrh-symbol.png" alt="Símbolo PowerRH" style="width: 48px; height: 48px; object-fit: contain;"><img src="/site-power-rh-graci/favicon-32x32.png" alt="Favicon 32" style="width: 32px; height: 32px; object-fit: contain;"><img src="/site-power-rh-graci/favicon-16x16.png" alt="Favicon 16" style="width: 16px; height: 16px; object-fit: contain;"></div><div style="font-size: 11px; color: var(--color-gold-dark);">Uso: Favicon do navegador, app icons e avatares</div></div></div></div></div></section><section class="section section-subtle" id="tipografia"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 02</span><h2 class="section-title">Tipografia, Escala e Regras de Hierarquia Visual</h2><p class="section-subtitle">Especificação canônica das famílias <strong>Inter</strong> (sans-serif), <strong>Alex Brush</strong> (assinatura institucional) e <strong>JetBrains Mono</strong> (tokens). Regras rigorosas de tamanhos, leading, tracking e capitalização editorial para consultoria executiva.</p></div><!-- ===================================================================
+           REGRA DE OURO DA TIPOGRAFIA: TÍTULOS NÃO SÃO MAIÚSCULA
+           =================================================================== --><div class="rule-callout"><div class="rule-callout-header"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 24px;">📌</span><div><h3 style="font-size: 17px; font-weight: 800; color: var(--color-gold-dark); margin: 0;">Regra Canônica de Capitalização (Casing Standard PowerRH)</h3><p style="font-size: 12.5px; color: var(--text-secondary); margin: 2px 0 0;">Critério inegociável de sofisticação editorial para o ecossistema digital da PowerRH.</p></div></div><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-weight: 700;">Padrão Editorial Homologado</span></div><div class="rule-grid"><!-- Coluna 1: Títulos NÃO são maiúsculas --><div class="rule-box-card good"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><strong style="font-size: 14px; color: #0A1C2E;">Headlines & Títulos (H1, H2, H3, H4)</strong><span class="rule-badge-good">✓ Sentence case</span></div><p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px;"><strong>JAMAIS utilizar tudo maiúscula (UPPERCASE) em títulos!</strong> Títulos corporativos devem ser digitados em caixa natural (Sentence case), com apenas a letra inicial em maiúscula. Isso preserva tom consultivo elegante, humanizado e de prestígio editorial.</p><div style="background: var(--bg-surface-subtle); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-hairline); display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 13px; font-weight: 800; color: #0A1C2E;">✅ <span style="color: #047857;">Correto:</span> "Empresas crescem quando pessoas evoluem."</div><div style="font-size: 13px; font-weight: 800; color: #0A1C2E;">✅ <span style="color: #047857;">Correto:</span> "Soluções estratégicas para fortalecer cultura, liderança e legado."</div><div style="font-size: 12px; font-weight: 700; color: #b91c1c; text-decoration: line-through; opacity: 0.85;">❌ Incorreto: "EMPRESAS CRESCEM QUANDO PESSOAS EVOLUEM."</div></div></div><!-- Coluna 2: Onde aplicar Maiúscula --><div class="rule-box-card bad" style="border-left-color: var(--color-gold); background: linear-gradient(to right, rgba(200, 138, 59, 0.04), var(--bg-surface));"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><strong style="font-size: 14px; color: #0A1C2E;">Eyebrows, Botões & Badges</strong><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-size: 11px; font-weight: 700;">UPPERCASE EXCLUSIVO</span></div><p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px;">O uso de <code style="font-family: var(--font-family-mono); font-size: 11px; background: rgba(200, 138, 59, 0.15); padding: 2px 5px; border-radius: 4px;">text-transform: uppercase</code> é restrito e intencional aos seguintes elementos de sinalização:</p><ul style="font-size: 12.5px; color: var(--text-secondary); margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px;"><li><strong>Eyebrows / Chapéus:</strong> 12px a 13px, tracking ampliado (0.10em a 0.16em), dourado (#C48D47). Ex: <em>CONSULTORIA ESTRATÉGICA EM PESSOAS</em>.</li><li><strong>Botões & CTAs:</strong> 12.5px a 13.5px, bold 700, tracking 0.02em a 0.03em. Ex: <em>QUERO UM DIAGNÓSTICO →</em>.</li><li><strong>Mini-Badges & Chips:</strong> 9px a 11px, bold, tracking 0.05em. Ex: <em>VISÃO ESTRATÉGICA</em>.</li></ul></div></div></div><!-- ===================================================================
+           AS 3 FAMÍLIAS TIPOGRÁFICAS
+           =================================================================== --><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);"><!-- 1. Inter --><div class="comp-panel" style="margin-bottom: 0;"><div class="comp-panel-header"><span class="comp-panel-title">1. Família Sans-Serif Primária</span><span class="badge">Inter (Google Fonts)</span></div><p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">Estrutura central do site. Proporciona legibilidade técnica impecável, alta densidade de informação e precisão geométrica.</p><div style="display: flex; flex-direction: column; gap: 8px;"><div style="font-weight: 400; font-size: 14px;">Inter Regular 400 — Corpo e parágrafos contínuos</div><div style="font-weight: 500; font-size: 14px;">Inter Medium 500 — Descrições de cards e inputs</div><div style="font-weight: 600; font-size: 14px;">Inter Semibold 600 — Subtítulos e labels</div><div style="font-weight: 700; font-size: 14px;">Inter Bold 700 — Botões e títulos de módulos</div><div style="font-weight: 800; font-size: 14px; color: #0A1C2E;">Inter ExtraBold 800 — Headlines H1, H2 e Métricas</div></div></div><!-- 2. Alex Brush (Assinatura Oficial) --><div class="comp-panel" style="margin-bottom: 0; border: 1.5px solid rgba(200, 138, 59, 0.35);"><div class="comp-panel-header"><span class="comp-panel-title" style="color: var(--color-gold-dark);">2. Assinatura & Destaque Humano</span><span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">Alex Brush</span></div><p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">Tipografia cursiva de prestígio para a assinatura pessoal de <strong>Graciete Corrêa</strong> e elementos decorativos de alta exclusividade.</p><div style="background: var(--color-bg-warm); border: 1px solid var(--color-border-warm); border-radius: var(--radius-lg); padding: 18px 24px; text-align: center;"><div class="font-signature-demo">Graciete Corrêa</div><div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gold-dark); font-weight: 700; margin-top: 6px;">Fundadora & Consultora Estratégica</div></div></div><!-- 3. JetBrains Mono --><div class="comp-panel" style="margin-bottom: 0;"><div class="comp-panel-header"><span class="comp-panel-title">3. Família Monospaçada</span><span class="badge">JetBrains Mono</span></div><p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">Utilizada exclusivamente para documentação técnica de tokens, códigos CSS, valores hexadecimais e dados quantitativos.</p><div style="background: #081624; color: #CB9857; font-family: var(--font-family-mono); font-size: 12px; padding: 14px; border-radius: var(--radius-md); line-height: 1.6;"><div>--color-gold: #C88A3B;</div><div>--font-sans: 'Inter', sans-serif;</div><div>clamp(2.3rem, 3.6vw, 3.2rem);</div></div></div></div><!-- ===================================================================
+           TABELA COMPLETA DE HEADLINES (TÍTULOS REAIS)
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Especificação Exaustiva dos HEADLINES (Títulos do Site)</span><span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">Sentence case</span></div><table class="type-specimen-table"><thead><tr><th style="width: 140px;">Nível & Tag</th><th style="width: 170px;">Classe CSS</th><th style="width: 160px;">Tamanho (rem / px)</th><th style="width: 130px;">Peso & Leading</th><th style="width: 100px;">Tracking</th><th>Exemplo Real Renderizado (Sentence case)</th></tr></thead><tbody><tr><td><strong>H1 Desktop (Hero)</strong></td><td><span class="type-token-badge">.hero-title-final</span></td><td><code style="font-size: 11px;">clamp(2.3rem, 3.6vw, 3.2rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(37px a 51px)</span></td><td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.12</span></td><td><code>-0.025em</code></td><td><h1 style="font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; color: #0A1C2E; letter-spacing: -0.025em; margin: 0;">Empresas crescem quando <span style="color: var(--color-gold);">pessoas</span> evoluem.</h1></td></tr><tr><td><strong>H2 Central (Seções)</strong></td><td><span class="type-token-badge">.section-title-center-final</span></td><td><code style="font-size: 11px;">clamp(1.8rem, 2.6vw, 2.3rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(29px a 37px)</span></td><td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td><td><code>-0.025em</code></td><td><h2 style="font-size: 24px; font-weight: 800; color: #0B1B2C; margin: 0; line-height: 1.25; letter-spacing: -0.025em;">Como saber se a sua empresa precisa da PowerRH?</h2></td></tr><tr><td><strong>H2 Bento (Soluções)</strong></td><td><span class="type-token-badge">.solucoes-main-title</span></td><td><code style="font-size: 11px;">clamp(28px, 3.6vw, 40px)</code></td><td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td><td><code>-0.020em</code></td><td><h2 style="font-size: 22px; font-weight: 800; color: #0A1F33; margin: 0; line-height: 1.25; letter-spacing: -0.02em;">Soluções estratégicas para fortalecer cultura, liderança e legado.</h2></td></tr><tr><td><strong>H2 Lateral (Processo)</strong></td><td><span class="type-token-badge">.processo-title-final</span></td><td><code style="font-size: 11px;">clamp(1.8rem, 2.6vw, 2.4rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(29px a 38px)</span></td><td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td><td><code>-0.025em</code></td><td><h2 style="font-size: 22px; font-weight: 800; color: #0B1B2C; margin: 0; line-height: 1.25; letter-spacing: -0.025em;">Um processo claro, próximo e eficaz.</h2></td></tr><tr><td><strong>H3 Cards (Módulos)</strong></td><td><span class="type-token-badge">.solucao-card-title</span></td><td><code>18px / 1.125rem</code></td><td><strong>Bold 700</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.30</span></td><td><code>-0.015em</code></td><td><h3 style="font-size: 18px; font-weight: 700; color: #0B1B2C; margin: 0;">Cultura & Estrutura Organizacional</h3></td></tr><tr><td><strong>H4 Cards (Diagnóstico)</strong></td><td><span class="type-token-badge">.quando-hora-card-title</span></td><td><code>15px a 16px / 1.00rem</code></td><td><strong>Bold 700</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.35</span></td><td><code>normal</code></td><td><h4 style="font-size: 15px; font-weight: 700; color: #0B1B2C; margin: 0;">Desafios de liderança ou desalinhamento de cultura que impactam resultados.</h4></td></tr></tbody></table></div><!-- ===================================================================
+           SHOWCASE DOS 3 PADRÕES DE EYEBROWS (CHAPÉUS DE SEÇÃO)
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Padrões de EYEBROWS (Chapéus & Kickers de Seção)</span><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-weight: 700;">UPPERCASE OBRIGATÓRIO</span></div><p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">O chapéu editorial contextualiza a seção antes da headline principal. São sempre em caixa alta, dourados e com tracking aberto.</p><div class="eyebrow-showcase-grid"><!-- 1. Eyebrow Hero Padrão --><div class="eyebrow-showcase-box"><div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">01. Eyebrow Hero (.hero-eyebrow-final)</div><div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm);"><span class="hero-eyebrow-final" style="margin: 0;">CONSULTORIA ESTRATÉGICA EM PESSOAS</span></div><div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);"><strong>Specs:</strong> 12px | ExtraBold 800 | UPPERCASE | letter-spacing 0.10em | cor #C48D47</div></div><!-- 2. Eyebrow Divider Central --><div class="eyebrow-showcase-box"><div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">02. Eyebrow Divider Central (.section-eyebrow-divider)</div><div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm); text-align: center;"><div class="section-eyebrow-divider" style="margin: 0;"><span>MOMENTO DE DECISÃO</span></div></div><div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);"><strong>Specs:</strong> 12px | ExtraBold 800 | UPPERCASE | tracking 0.16em | Linhas laterais douradas de 48px</div></div><!-- 3. Eyebrow Bento Soluções --><div class="eyebrow-showcase-box"><div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">03. Eyebrow Bento Soluções (.solucoes-eyebrow-wrap)</div><div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm); text-align: center;"><div class="solucoes-eyebrow-wrap" style="margin: 0;"><span class="eyebrow-line"></span><span class="eyebrow-text">NOSSAS SOLUÇÕES</span><span class="eyebrow-line"></span></div></div><div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);"><strong>Specs:</strong> 13px | Bold 700 | UPPERCASE | tracking 0.15em | Linhas laterais douradas de 36px</div></div></div></div><!-- ===================================================================
+           SHOWCASE DOS TEXTOS & CORPO DE LEITURA (BODY COPY)
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Textos de Leitura, Subtítulos e Métricas Numéricas</span><span class="badge">Sentence case / Proporção Áurea</span></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);"><!-- Subtítulo Hero --><div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);"><div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">.hero-subtitle-final (15px / lh: 1.48 / #4A5568)</div><p class="hero-subtitle-final" style="margin: 0;">Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis.</p></div><!-- Subtítulo de Seção --><div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);"><div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">.section-subtitle (15px-16px / lh: 1.55 / #4A5568)</div><p class="section-subtitle" style="margin: 0;">Mais de 15 anos de atuação integrando cultura, desenvolvimento de líderes e governança para organizações em crescimento.</p></div><!-- Parágrafo Regular de Artigo / Leitura --><div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);"><div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">Corpo Regular &lt;p&gt; (16px / 1.00rem / lh: 1.65 / #212529)</div><p style="font-size: 16px; line-height: 1.65; color: #212529; margin: 0;">A consultoria atua diretamente na arquitetura organizacional, alinhando objetivos de negócio ao comportamento diário das equipes.</p></div><!-- Métricas Numéricas de Impacto --><div style="background: var(--color-bg-warm); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--color-border-warm);"><div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">.s2-metric-number (clamp 34px-40px / ExtraBold 800 / Dourado)</div><div style="display: flex; align-items: baseline; gap: 12px;"><span class="s2-metric-number" style="margin: 0; font-size: 36px;">+9.000</span><span style="font-size: 13px; font-weight: 600; color: #4A5568;">pessoas desenvolvidas com método e governança</span></div></div></div></div></div></section><section class="section" id="espacamento"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 03</span><h2 class="section-title">Espaçamento, Raios de Borda e Sombras</h2><p class="section-subtitle">Escala de dimensões rigorosamente proporcional com base em múltiplos de 4px, acompanhada de raios de curvatura e elevação espacial.</p></div><div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8);"><!-- Régua de Espaçamentos --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Régua Escalar de Espaçamentos</span><span class="badge">Grid 4px</span></div><div class="space-ruler"><div class="space-row"><div class="space-meta">--space-1 (4px)</div><div class="space-bar" style="width: 4px;"></div></div><div class="space-row"><div class="space-meta">--space-2 (8px)</div><div class="space-bar" style="width: 8px;"></div></div><div class="space-row"><div class="space-meta">--space-3 (12px)</div><div class="space-bar" style="width: 12px;"></div></div><div class="space-row"><div class="space-meta">--space-4 (16px)</div><div class="space-bar" style="width: 16px;"></div></div><div class="space-row"><div class="space-meta">--space-6 (24px)</div><div class="space-bar" style="width: 24px;"></div></div><div class="space-row"><div class="space-meta">--space-8 (32px)</div><div class="space-bar" style="width: 32px;"></div></div><div class="space-row"><div class="space-meta">--space-12 (48px)</div><div class="space-bar" style="width: 48px;"></div></div><div class="space-row"><div class="space-meta">--space-16 (64px)</div><div class="space-bar" style="width: 64px;"></div></div><div class="space-row"><div class="space-meta">--space-20 (80px)</div><div class="space-bar" style="width: 80px;"></div></div></div></div><!-- Raios e Sombras --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Raios de Curvatura (Border Radius) & Elevação (Box Shadows)</span></div><div class="comp-demo-row" style="margin-bottom: var(--space-8);"><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-xs); font-size: 12px; font-weight: 600;">xs (4px)</div><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-sm); font-size: 12px; font-weight: 600;">sm (8px)</div><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-md); font-size: 12px; font-weight: 600;">md (12px)</div><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-lg); font-size: 12px; font-weight: 600;">lg (16px)</div><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-xl); font-size: 12px; font-weight: 600;">xl (20px)</div><div style="padding: 16px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-2xl); font-size: 12px; font-weight: 600;">2xl (28px)</div><div style="padding: 16px 24px; background: var(--bg-surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-full); font-size: 12px; font-weight: 600;">full (Pill)</div></div><div class="shadow-showcase-grid"><div class="shadow-box" style="box-shadow: var(--shadow-xs);"><strong>Sombra XS</strong><p>--shadow-xs</p></div><div class="shadow-box" style="box-shadow: var(--shadow-sm);"><strong>Sombra SM</strong><p>--shadow-sm</p></div><div class="shadow-box" style="box-shadow: var(--shadow-md);"><strong>Sombra MD</strong><p>--shadow-md</p></div><div class="shadow-box" style="box-shadow: var(--shadow-lg);"><strong>Sombra LG</strong><p>--shadow-lg</p></div><div class="shadow-box" style="box-shadow: var(--shadow-xl);"><strong>Sombra XL</strong><p>--shadow-xl</p></div></div></div></div></div></section><section class="section section-subtle" id="botoes"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 04</span><h2 class="section-title">Botões, Estados de Ação e Badges Oficiais</h2><p class="section-subtitle">Biblioteca completa de botões executivos da <strong>PowerRH</strong>. Estilizados com o degradê metálico dourado oficial da marca (#CB9857 → #B87B2E), cantos arredondados pill, feedback tátil e variantes para superfície clara e escura.</p></div><!-- ===================================================================
+           PAINEL 1: HIERARQUIA CANÔNICA DE BOTÕES (DOURADO / AMARELO & VARIANTES)
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Hierarquia de Botões da Marca PowerRH (Identidade Homologada)</span><span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">Paleta Ouro Oficial</span></div><p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-5);">O botão de conversão da PowerRH é amarelo dourado com degradê metálico sutil, texto branco em caixa alta e sombra com glow dourado.</p><div class="comp-demo-row" style="margin-bottom: var(--space-6);"><!-- 1. Botão Primário Gold --><button type="button" class="btn btn-gold">QUERO UM DIAGNÓSTICO →</button><!-- 2. Hero Pill CTA --><button type="button" class="btn btn-hero-pill">HERO PILL CTA →</button><!-- 3. Botão Secundário Executivo --><button type="button" class="btn btn-secondary">Falar com a Especialista</button><!-- 4. Botão Contorno Ouro --><button type="button" class="btn btn-outline">Ver Todas as Soluções</button><!-- 5. Botão Navy de Autoridade --><button type="button" class="btn btn-navy">Área Institucional →</button><!-- 6. Botão Ghost --><button type="button" class="btn btn-ghost">Conhecer Metodologia →</button><!-- 7. Desabilitado --><button type="button" class="btn btn-gold" disabled>Ação Indisponível</button></div><!-- ===================================================================
+             EM SUPERFÍCIE ESCURA (NAVY PROFUNDO #01243E & RODAPÉ #081624)
+             =================================================================== --><div style="background-color: var(--color-navy-deep); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid rgba(200, 138, 59, 0.35); box-shadow: 0 12px 32px -6px rgba(1, 36, 62, 0.5);"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); flex-wrap: wrap; gap: 8px;"><div><div style="font-size: 12px; color: #E5AF63; text-transform: uppercase; font-weight: 800; letter-spacing: 0.12em;">Em Superfície Escura (Navy Deep #01243E & Rodapé Institucional)</div><div style="font-size: 12.5px; color: rgba(255, 255, 255, 0.75); margin-top: 2px;">Ouro metálico sobre fundo azul marinho profundo é a assinatura máxima de autoridade da marca.</div></div><span class="badge" style="background: rgba(200, 138, 59, 0.2); color: #E5AF63; border-color: rgba(200, 138, 59, 0.4);">Alto Contraste AAA</span></div><div class="comp-demo-row" style="margin-bottom: 0;"><!-- Ouro no Navy --><button type="button" class="btn btn-gold">SOLICITAR DIAGNÓSTICO →</button><!-- Inverso Branco --><button type="button" class="btn btn-secondary" style="background-color: #FFFFFF; color: #01243E; border-color: transparent;">Botão Inverso Branco →</button><!-- Inverso Contorno Branco/Dourado --><button type="button" class="btn btn-inverse-outline">Botão Inverso Contorno</button></div></div></div><!-- ===================================================================
+           PAINEL 2: TAMANHOS E MODIFICADORES DE FORMA
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Tamanhos Padronizados e Modificadores de Forma</span><span class="badge">Pill 9999px / Grid 4px</span></div><div class="comp-demo-row"><button type="button" class="btn btn-gold btn-sm">Small (btn-sm • 12px)</button><button type="button" class="btn btn-gold">Padrão (btn-gold • 13.5px)</button><button type="button" class="btn btn-gold btn-lg">Large (btn-lg • 14.5px) →</button><button type="button" class="btn btn-gold btn-pill">Pill Arredondado</button><button type="button" class="btn btn-gold btn-icon-only" aria-label="Seta para a direita">→</button></div><!-- Botão de Formulário Full-Width --><div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--bg-surface-subtle); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);"><div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Botão de Formulário de Conversão (.btn-form-submit):</div><div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">Utilizado no box de captura do Hero e rodapé. Altura de 40px a 44px, cantos arredondados e preenchimento responsivo.</div><div style="max-width: 380px;"><button type="button" class="btn-form-submit" style="width: 100%; height: 42px;">SOLICITAR DIAGNÓSTICO GRATUITO →</button></div></div></div><!-- ===================================================================
+           PAINEL 3: TABELA TÉCNICA DE ESPECIFICAÇÃO DOS BOTÕES
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Tabela Técnica de Referência dos Botões</span><span class="badge">Tokens Semânticos</span></div><table class="btn-specimen-table"><thead><tr><th>Variante</th><th>Classe CSS</th><th>Background</th><th>Cor do Texto</th><th>Border-Radius</th><th>Aplicação Principal</th></tr></thead><tbody><tr><td><strong>CTA Ouro Primário</strong></td><td><span class="type-token-badge">.btn-gold / .btn-primary</span></td><td><code style="font-size: 11px;">linear-gradient(135deg, #CB9857 0%, #B87B2E 100%)</code></td><td>#FFFFFF</td><td>9999px (Pill)</td><td>Header, Hero e CTAs principais de conversão</td></tr><tr><td><strong>Hero Pill Proeminente</strong></td><td><span class="type-token-badge">.btn-hero-pill</span></td><td><code style="font-size: 11px;">linear-gradient(135deg, #C58E49 0%, #AF7733 100%)</code></td><td>#FFFFFF</td><td>9999px (Pill)</td><td>Hero section e banners de alto impacto</td></tr><tr><td><strong>Secundário Executivo</strong></td><td><span class="type-token-badge">.btn-secondary</span></td><td>#FFFFFF</td><td>#01243E (Navy)</td><td>9999px (Pill)</td><td>Ações secundárias, downloads e links institucionais</td></tr><tr><td><strong>Contorno Dourado</strong></td><td><span class="type-token-badge">.btn-outline</span></td><td>Transparente (Borda 1.5px #C88A3B)</td><td>#9A621D</td><td>9999px (Pill)</td><td>Navegação secundária e botões sobre fundos claros</td></tr><tr><td><strong>Navy de Autoridade</strong></td><td><span class="type-token-badge">.btn-navy</span></td><td>#01243E (Azul Noturno)</td><td>#FFFFFF</td><td>9999px (Pill)</td><td>Ações com ênfase de seriedade e governança</td></tr><tr><td><strong>Envio de Formulário</strong></td><td><span class="type-token-badge">.btn-form-submit</span></td><td><code style="font-size: 11px;">linear-gradient(135deg, #C58E49 0%, #AF7733 100%)</code></td><td>#FFFFFF</td><td>9999px (Pill)</td><td>Formulários de captura de leads e diagnósticos</td></tr></tbody></table></div><!-- ===================================================================
+           PAINEL 4: BADGES, PILLS & EYEBROWS
+           =================================================================== --><div class="comp-panel"><div class="comp-panel-header"><span class="comp-panel-title">Badges, Pills & Marcadores de Status</span><span class="badge">Identidade Oficial</span></div><div class="comp-demo-row"><span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);"><span class="badge-dot" style="background-color: var(--color-gold);"></span>Badge Ouro Oficial</span><span class="badge badge-outline" style="border-color: var(--color-gold); color: var(--color-gold-dark);">Badge Contorno Dourado</span><span class="section-eyebrow" style="margin: 0;">Eyebrow de Seção (12px Uppercase)</span></div><div style="background-color: var(--color-navy-deep); padding: var(--space-4); border-radius: var(--radius-lg); margin-top: var(--space-4); display: inline-flex;"><span class="badge" style="background: rgba(200, 138, 59, 0.2); color: #E5AF63; border-color: rgba(200, 138, 59, 0.4);"><span class="badge-dot" style="background-color: #E5AF63;"></span>Badge em Superfície Navy Escura</span></div></div></div></section><section class="section" id="formularios"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 05</span><h2 class="section-title">Formulários & Entradas de Dados</h2><p class="section-subtitle">Componentes de captura com contraste calibrado, foco visível por teclado e notas de conformidade com dados.</p></div><div style="display: grid; grid-template-columns: 1fr; max-width: 540px; margin: 0 auto;"><div class="form-card"><div style="text-align: center; margin-bottom: var(--space-6);"><h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-2);">Fale com a nossa especialista</h3><p style="font-size: var(--font-size-sm); color: var(--text-muted); margin: 0;">Receba um diagnóstico inicial para a sua empresa.</p></div><form action="#" method="POST" onsubmit="event.preventDefault();"><div class="form-group"><label class="form-label" for="preview-nome">Seu nome</label><input type="text" id="preview-nome" class="form-control" placeholder="Ex: Roberto Almeida"></div><div class="form-group"><label class="form-label" for="preview-email">E-mail corporativo</label><input type="email" id="preview-email" class="form-control" placeholder="nome@suaempresa.com.br"></div><div class="form-group"><label class="form-label" for="preview-tel">Telefone / WhatsApp</label><input type="tel" id="preview-tel" class="form-control" placeholder="(00) 00000-0000"></div><div class="form-group"><label class="form-label" for="preview-empresa">Nome da empresa</label><input type="text" id="preview-empresa" class="form-control" placeholder="Sua Empresa Ltda."></div><div class="form-group"><label class="form-label" for="preview-servico">Como podemos ajudar?</label><select id="preview-servico" class="form-select"><option value="">Selecione uma área de foco...</option><option value="cultura">Cultura & Estrutura Organizacional</option><option value="lideranca">Liderança & Desenvolvimento</option><option value="governanca">Governança & Sucessão Familiar</option><option value="outro">Outro desafio de RH / Pessoas</option></select></div><button type="submit" class="btn-form-submit" style="width: 100%; height: 46px; margin-top: var(--space-4); font-size: 13px;">SOLICITAR DIAGNÓSTICO GRATUITO →</button><div class="form-security-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Seus dados estão seguros conosco. Não compartilhamos informações.</div></form></div></div></div></section><section class="section section-subtle" id="cards"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 06</span><h2 class="section-title">Cards e Padrões de Grid do Wireframe</h2><p class="section-subtitle">Implementação funcional dos cards de prova social, cenários de diagnóstico e vitrine de soluções corporativas.</p></div><!-- Barra de Métricas / Números --><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.1 Barra de Métricas em Superfície Inversa</h3><div class="card-metric-bar" style="margin-bottom: var(--space-12);"><div class="metric-item"><div class="metric-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div><div class="metric-value">+120</div><div class="metric-label">empresas atendidas com sucesso</div></div></div><div class="metric-item"><div class="metric-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div><div class="metric-value">+9.000</div><div class="metric-label">pessoas desenvolvidas</div></div></div><div class="metric-item"><div class="metric-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div><div class="metric-value">95%</div><div class="metric-label">de satisfação dos clientes</div></div></div><div class="metric-item"><div class="metric-icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div><div><div class="metric-value">+15 anos</div><div class="metric-label">de experiência executiva</div></div></div></div><!-- 4 Cenários / Quando Entra --><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.2 Cards de Diagnóstico ("Quando é hora de contar com apoio?")</h3><div class="trigger-grid" style="margin-bottom: var(--space-12);"><div class="card-trigger"><div class="card-trigger-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><div class="card-trigger-text">Sua empresa está crescendo rapidamente e precisa estruturar a área de pessoas com solidez.</div></div><div class="card-trigger"><div class="card-trigger-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div><div class="card-trigger-text">Há desafios de liderança ou desalinhamento de cultura que impactam os resultados operacionais.</div></div><div class="card-trigger"><div class="card-trigger-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div><div class="card-trigger-text">É momento de preparar a sucessão familiar e garantir a continuidade sustentável do negócio.</div></div><div class="card-trigger"><div class="card-trigger-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><div class="card-trigger-text">Você quer levar sua organização a um novo patamar com um time mais forte, autônomo e engajado.</div></div></div><!-- 3 Cards de Soluções --><h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">6.3 Cards de Soluções Estratégicas (com Fotos Reais & Barra de Ação)</h3><div class="solutions-grid"><div class="card-solution"><div class="card-solution-image-wrap"><img src="/site-power-rh-graci/assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/21_diagnostico_de_cultura.webp" alt="Cultura &amp; Estrutura" class="card-solution-image"></div><div class="card-solution-bar"><div class="card-solution-info"><div class="card-solution-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><span class="card-solution-title">Cultura & Estrutura</span></div><div class="card-solution-arrow">→</div></div></div><div class="card-solution"><div class="card-solution-image-wrap"><img src="/site-power-rh-graci/assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/08_lideranca_people_culture.webp" alt="Liderança &amp; Desenvolvimento" class="card-solution-image"></div><div class="card-solution-bar"><div class="card-solution-info"><div class="card-solution-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div><span class="card-solution-title">Liderança & Desenv.</span></div><div class="card-solution-arrow">→</div></div></div><div class="card-solution"><div class="card-solution-image-wrap"><img src="/site-power-rh-graci/assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/41_fundador_e_sucessor.webp" alt="Governança &amp; Sucessão" class="card-solution-image"></div><div class="card-solution-bar"><div class="card-solution-info"><div class="card-solution-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg></div><span class="card-solution-title">Governança & Sucessão</span></div><div class="card-solution-arrow">→</div></div></div></div></div></section><section class="section" id="metodo"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 07</span><h2 class="section-title">Timeline do Método ("Como Trabalhamos")</h2><p class="section-subtitle">Sequência linear de 4 passos com conectores horizontais e badges numeradas para transmitir clareza operacional.</p></div><div class="steps-wrapper"><div class="steps-grid"><div class="step-card"><div class="step-badge">01</div><div class="step-title">Diagnóstico</div><div class="step-desc">Entendemos a realidade, histórico, gargalos e desafios profundos da organização.</div></div><div class="step-card"><div class="step-badge">02</div><div class="step-title">Planejamento</div><div class="step-desc">Desenhamos soluções personalizadas e alinhadas aos objetivos estratégicos do negócio.</div></div><div class="step-card"><div class="step-badge">03</div><div class="step-title">Implementação</div><div class="step-desc">Colocamos o plano em prática lado a lado com os líderes e equipes da empresa.</div></div><div class="step-card"><div class="step-badge">04</div><div class="step-title">Evolução</div><div class="step-desc">Acompanhamos indicadores, calibramos rituais e garantimos a sustentação a longo prazo.</div></div></div></div></div></section><section class="section section-subtle" id="faq"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 08</span><h2 class="section-title">Perguntas Frequentes (FAQ) & Depoimentos</h2><p class="section-subtitle">Módulos de prova social e redução de atrito comercial com acordeão interativo nativo.</p></div><div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); margin-bottom: var(--space-12);"><!-- Depoimentos --><div class="testimonials-grid"><div class="card-testimonial"><div><div class="testimonial-quote-icon">“</div><p class="testimonial-text">A PowerRH nos ajudou a estruturar nosso RH e a fortalecer nossa cultura. O impacto nos resultados operacionais e no clima foi imediato e evidente.</p></div><div class="testimonial-author"><div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">ML</div><div><div class="testimonial-author-name">Mariana Lopes</div><div class="testimonial-author-role">CEO, Grupo Vértice</div></div></div></div><div class="card-testimonial"><div><div class="testimonial-quote-icon">“</div><p class="testimonial-text">Profissionalismo, sensibilidade e visão estratégica impecável. Uma parceria de confiança que realmente fez a diferença para o crescimento do nosso negócio.</p></div><div class="testimonial-author"><div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">RA</div><div><div class="testimonial-author-name">Roberto Almeida</div><div class="testimonial-author-role">Diretor, TechBrasil</div></div></div></div><div class="card-testimonial"><div><div class="testimonial-quote-icon">“</div><p class="testimonial-text">A Graciete tem uma capacidade única de conectar pessoas, estratégia e governança. Recomendo com absoluta tranquilidade para qualquer empresário.</p></div><div class="testimonial-author"><div class="testimonial-avatar" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;">CM</div><div><div class="testimonial-author-name">Carla Mendes</div><div class="testimonial-author-role">Sócia, Mendes & Associados</div></div></div></div></div><!-- FAQ Interativo --><div class="faq-layout" style="margin-top: var(--space-6);"><div><span class="section-eyebrow">Dúvidas Frequentes</span><h3 class="section-title" style="font-size: var(--font-size-2xl);">Tire suas dúvidas antes de começar</h3><p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-6);">Entenda como a PowerRH conduz diagnósticos, formata projetos sob medida e atua junto a líderes e empresas familiares.</p><a href="/site-power-rh-graci/#formulario-diagnostico" class="btn-gold" style="font-size: 13px; padding: 10px 22px; text-decoration: none; display: inline-flex;">Falar diretamente com a equipe →</a></div><div class="accordion"><div class="accordion-item active"><h4 class="accordion-header"><button type="button" class="accordion-trigger" aria-expanded="true"><span>Quais tipos de empresas a PowerRH atende?</span><span class="accordion-icon">+</span></button></h4><div class="accordion-body">Atendemos empresas de médio e grande porte, organizações familiares em fase de profissionalização ou sucessão, bem como empresas em franca expansão que necessitam consolidar sua estrutura de gestão de pessoas.</div></div><div class="accordion-item"><h4 class="accordion-header"><button type="button" class="accordion-trigger" aria-expanded="false"><span>Como funciona o diagnóstico inicial gratuito?</span><span class="accordion-icon">+</span></button></h4><div class="accordion-body">Realizamos uma reunião estratégica individual com a fundadora ou diretoria para mapear os pontos críticos de pessoas, gargalos de liderança e oportunidades imediatas de melhoria, sem compromisso de contratação.</div></div><div class="accordion-item"><h4 class="accordion-header"><button type="button" class="accordion-trigger" aria-expanded="false"><span>Os projetos são padronizados ou personalizados?</span><span class="accordion-icon">+</span></button></h4><div class="accordion-body">100% personalizados. Não aplicamos fórmulas genéricas. Cada arquitetura de cargos, rito de cultura ou mentoria é desenhada com base no momento e no setor específico do cliente.</div></div></div></div></div></div></section><section class="section" id="navegacao"><div class="container container-wide"><div class="section-header"><span class="section-eyebrow">Seção 09</span><h2 class="section-title">Banner de Conversão Final & Rodapé</h2><p class="section-subtitle">Superfícies de alto impacto e fechamento comercial com ancoragem de confiança.</p></div><!-- Banner CTA --><div class="cta-banner-dark" style="margin-bottom: var(--space-12);"><div class="cta-banner-grid"><div><h3 style="font-size: var(--font-size-3xl); color: var(--color-white); margin-bottom: var(--space-3);">Vamos conversar sobre o futuro da sua empresa?</h3><p style="color: var(--text-inverse-secondary); margin-bottom: 0;">Descubra como a PowerRH pode ajudar o seu negócio a crescer com pessoas mais engajadas, líderes mais preparados e resultados sustentáveis.</p></div><div><ul class="cta-checklist"><li class="cta-check-item"><span class="check-icon-circle">✓</span>Diagnóstico inicial sem compromisso comercial</li><li class="cta-check-item"><span class="check-icon-circle">✓</span>Conversa direta com a especialista Graciete Corrêa</li><li class="cta-check-item"><span class="check-icon-circle">✓</span>Soluções desenhadas sob medida para a sua realidade</li></ul><a href="/site-power-rh-graci/#formulario-diagnostico" class="btn-hero-pill" style="font-size: 14px; text-decoration: none; padding: 14px 34px;">Quero falar com a Graciete →</a></div></div></div></div></section><footer class="site-footer"><div class="container container-wide"><div class="footer-grid"><div><div class="brand-name" style="color: var(--color-white); margin-bottom: var(--space-3);">PowerRH</div><p style="font-size: var(--font-size-sm); color: var(--color-gray-400); max-width: 320px;">Consultoria estratégica em pessoas, liderança, cultura e estratégia para empresas que querem crescer de forma sustentável.</p></div><div><div class="footer-col-title">Navegação</div><ul class="footer-links"><li><a href="#inicio" class="footer-link">Início</a></li><li><a href="#cores" class="footer-link">Cores & Tokens</a></li><li><a href="#tipografia" class="footer-link">Tipografia</a></li><li><a href="#cards" class="footer-link">Componentes</a></li><li><a href="index-wireframe.html" class="footer-link">Wireframe do Site</a></li></ul></div><div><div class="footer-col-title">Soluções</div><ul class="footer-links"><li><a href="#cards" class="footer-link">Cultura & Estrutura</a></li><li><a href="#cards" class="footer-link">Liderança & Desenvolvimento</a></li><li><a href="#cards" class="footer-link">Governança & Sucessão</a></li><li><a href="#formularios" class="footer-link">Diagnóstico Gratuito</a></li></ul></div><div><div class="footer-col-title">Contato</div><div class="footer-contact-item">Travessa Mauriti, 1822 — Belém, PA</div><div class="footer-contact-item">(91) 99299-2091</div><div class="footer-contact-item">contato@powerrh.com.br</div></div></div><div class="footer-bottom"><div>© 2024 PowerRH. Todos os direitos reservados.</div><div class="footer-bottom-links"><span>Política de Privacidade</span><span>Termos de Uso</span><span>Desenvolvido com propósito</span></div></div></div></footer><script type="module">document.querySelectorAll(`.accordion-trigger`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.closest(`.accordion-item`),n=t.classList.contains(`active`);document.querySelectorAll(`.accordion-item`).forEach(e=>{e.classList.remove(`active`);let t=e.querySelector(`.accordion-trigger`);t&&t.setAttribute(`aria-expanded`,`false`)}),n||(t.classList.add(`active`),e.setAttribute(`aria-expanded`,`true`))})});</script><!-- Script de Interatividade Unificado (FAQ Accordion, Smooth Scroll) --><script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // FAQ Accordion Interativo
+        const faqTriggers = document.querySelectorAll('.faq-btn-trigger');
+        faqTriggers.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item-final');
+            if (!item) return;
+            const isActive = item.classList.contains('active');
+
+            // Fecha todos os acordeões do bloco
+            document.querySelectorAll('.faq-item-final').forEach((i) => {
+              i.classList.remove('active');
+              const trigger = i.querySelector('.faq-btn-trigger');
+              if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+
+            // Se não estava ativo, abre
+            if (!isActive) {
+              item.classList.add('active');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      });
+    </script></body></html>
