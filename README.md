@@ -1,8 +1,29 @@
-# 🚀 PowerRH — Consultoria Estratégica em Pessoas
+# 🚀 PowerRH — Consultoria Estratégica em Pessoas (Astro)
 
 > **Cliente:** Graciete Corrêa  
 > **Repositório:** [idedigitalbr/site-power-rh-graci](https://github.com/idedigitalbr/site-power-rh-graci)  
-> **Deploy GitHub Pages:** [https://idedigitalbr.github.io/site-power-rh-graci/](https://idedigitalbr.github.io/site-power-rh-graci/)
+> **Deploy GitHub Pages:** [https://idedigitalbr.github.io/site-power-rh-graci/](https://idedigitalbr.github.io/site-power-rh-graci/)  
+> **Framework:** [Astro](https://astro.build/) (Static Site Generation — SSG)
+
+---
+
+## ⚡ Como Rodar o Projeto Localmente
+
+```bash
+# 1. Instalar dependências (apenas na primeira vez)
+npm install
+
+# 2. Iniciar o servidor de desenvolvimento local
+npm run dev
+
+# O site abrirá em: http://localhost:4321/site-power-rh-graci/ (com redirecionamento automático)
+
+# 3. Compilar versão estática de produção
+npm run build
+
+# 4. Pré-visualizar a build de produção localmente
+npm run preview
+```
 
 ---
 
@@ -10,69 +31,74 @@
 
 O projeto conta com um ecossistema completo de 4 visões integradas com um switcher flutuante no topo de todas as telas:
 
-| Versão | Descrição | Link Direto (GitHub Pages) | Arquivo Local |
+| Versão | Descrição | Rota Astro / GitHub Pages | Arquivo Fonte |
 | :--- | :--- | :--- | :--- |
-| **✨ Versão Final (v2)** | Versão definitiva pixel perfect com fotografia executiva, paleta ouro/navy e micro-interações | [Acessar v2](https://idedigitalbr.github.io/site-power-rh-graci/index-final.html) | `index-final.html` |
-| **📄 Conteúdo (v1)** | Wireframe funcional neutro de alta fidelidade em escala de cinza com copy real | [Acessar v1](https://idedigitalbr.github.io/site-power-rh-graci/index-wireframe.html) | `index-wireframe.html` |
-| **👁️ Skeleton (v0)** | Blueprint estrutural e de diagramação com blocos visuais abstratos | [Acessar v0](https://idedigitalbr.github.io/site-power-rh-graci/index-wireframe-skeleton.html) | `index-wireframe-skeleton.html` |
-| **📐 Design System** | Biblioteca viva de componentes, tokens e documentação visual | [Acessar DS](https://idedigitalbr.github.io/site-power-rh-graci/design-system-preview.html) | `design-system-preview.html` |
-
-*O arquivo `index.html` realiza redirecionamento instantâneo para a `index-final.html`.*
+| **✨ Versão Final (v2)** | Versão definitiva pixel perfect com fotografia executiva, paleta ouro/navy e micro-interações | [`/`](https://idedigitalbr.github.io/site-power-rh-graci/) | `src/pages/index.astro` |
+| **📄 Conteúdo (v1)** | Wireframe funcional neutro de alta fidelidade em escala de cinza com copy real | [`/wireframe`](https://idedigitalbr.github.io/site-power-rh-graci/wireframe) | `src/pages/wireframe.astro` |
+| **👁️ Skeleton (v0)** | Blueprint estrutural e de diagramação com blocos visuais abstratos | [`/skeleton`](https://idedigitalbr.github.io/site-power-rh-graci/skeleton) | `src/pages/skeleton.astro` |
+| **📐 Design System** | Biblioteca viva de componentes, tokens e documentação visual | [`/design-system`](https://idedigitalbr.github.io/site-power-rh-graci/design-system) | `src/pages/design-system.astro` |
 
 ---
 
-## 📁 Estrutura de Arquivos
+## 📁 Arquitetura Modular de Componentes (Padrão S0 a S10)
 
-```
+Seguindo o padrão de engenharia e escalabilidade da StudUP, as seções estão organizadas de forma modular em `src/`:
+
+```text
 site-power-rh-graci/
-├── assets/
-│   ├── css/
-│   │   ├── tokens.css              # Tokens globais (cores, tipografia, espaçamentos)
-│   │   ├── base.css                # Reset moderno, containers e utilitários
-│   │   ├── components.css          # Componentes reutilizáveis (botões, cards, FAQ, forms)
-│   │   ├── design-system.css       # Ponto de entrada mestre do Design System
-│   │   └── site-final.css          # Camada visual final premium (ouro, dark navy, hero)
-│   └── imagens-diversas/
-│       ├── fotos_graci_ia/         # Fotografias executivas organizadas por seção
-│       │   ├── 01_HOME_HERO_TOPO/
-│       │   ├── 02_SOBRE_GRACIETE/
-│       │   ├── 03_SOLUCAO_CULTURA_E_ESTRUTURA/
-│       │   ├── 04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/
-│       │   ├── 05_SOLUCAO_GOVERNANCA_E_SUCESSAO/
-│       │   ├── 06_METODO_E_DIAGNOSTICO/
-│       │   ├── 07_CTA_FINAL_E_CONTATO/
-│       │   └── 08_BANCO_RESERVAS_E_MIDIAS/
-│       └── refs/                   # Wireframes e prints de referência de design
-├── DESIGN-SYSTEM.md                # Especificação normativa e documentação do Design System
-├── design-system-preview.html      # Catálogo e preview interativo do Design System
-├── index-final.html                # Landing page principal definitiva da PowerRH
-├── index-wireframe.html            # Wireframe neutro com conteúdo e copy real
-├── index-wireframe-skeleton.html   # Blueprint skeleton v0
-├── index.html                      # Ponto de entrada canônico com redirecionamento
-└── README.md                       # Documentação institucional do repositório
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              # CI/CD automático de deploy no GitHub Pages
+├── legacy-html/                    # Backup e integridade dos arquivos HTML originais
+│   ├── index-final.html
+│   ├── index-wireframe.html
+│   ├── index-wireframe-skeleton.html
+│   └── design-system-preview.html
+├── public/
+│   └── assets/                     # CSS, tokens e acervo fotográfico servidos estaticamente
+│       ├── css/
+│       │   ├── tokens.css          # Design Tokens (cores, tipografia, espaçamentos)
+│       │   ├── base.css            # Reset moderno e utilitários
+│       │   ├── components.css      # Componentes de interface reutilizáveis
+│       │   ├── design-system.css   # Import mestre do Design System
+│       │   └── site-final.css      # Camada executiva (ouro, dark navy, hero)
+│       └── imagens-diversas/
+│           └── fotos_graci_ia/     # Acervo fotográfico em alta resolução
+├── src/
+│   ├── components/
+│   │   ├── common/                 # Componentes compartilhados globais
+│   │   │   ├── S0Header.astro      # Cabeçalho unificado com emblema ouro e navegação
+│   │   │   ├── Footer.astro        # Rodapé oceânico institucional com 4 colunas
+│   │   │   └── ViewSwitcher.astro  # Switcher de navegação entre as 4 visões
+│   │   └── home/                   # Seções cronológicas da Home (S1 a S10)
+│   │       ├── S1Hero.astro        # Hero section + formulário de diagnóstico flutuante
+│   │       ├── S2Metrics.astro     # Faixa arredondada com métricas e prova rápida
+│   │       ├── S3QuandoHora.astro  # 4 cards "Quando é hora de apoio estratégico"
+│   │       ├── S4Solucoes.astro    # 3 cards de soluções com fotografia executiva
+│   │       ├── S5Processo.astro    # Método em 4 etapas (Diagnóstico a Evolução)
+│   │       ├── S6Sobre.astro       # Sobre a Fundadora Graciete Corrêa + credenciais
+│   │       ├── S7Diferenciais.astro # Diferenciais estratégicos + card de impacto
+│   │       ├── S8Depoimentos.astro # Grade de depoimentos de clientes com avatares
+│   │       ├── S9Faq.astro         # Acordeão interativo de dúvidas frequentes
+│   │       └── S10CtaBanner.astro  # Banner comercial com foto e checklist de conversão
+│   ├── layouts/
+│   │   └── Layout.astro            # Head, SEO, Meta tags, Google Fonts e scripts
+│   └── pages/
+│       ├── index.astro             # Página inicial (Versão Final v2)
+│       ├── wireframe.astro         # Wireframe neutro com conteúdo (v1)
+│       ├── skeleton.astro          # Skeleton blueprint (v0)
+│       └── design-system.astro     # Catálogo vivo do Design System
+├── astro.config.mjs                # Configuração do Astro (site e base GitHub Pages)
+├── package.json                    # Dependências e scripts npm
+├── tsconfig.json                   # Tipagem TypeScript
+├── DESIGN-SYSTEM.md                # Especificação normativa do Design System
+└── README.md                       # Esta documentação
 ```
 
 ---
 
-## 🎨 Design System First
+## 🎨 Design System First & Fidelidade Visual
 
-- **Documentação completa:** Veja o [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) para especificações detalhadas de tokens, escala tipográfica, acessibilidade (WCAG AA), regras de contraste e catálogo de componentes.
-- **Tokens Canônicos:** Todas as cores, tipografia e raios de borda derivam de variáveis CSS customizadas em `assets/css/tokens.css` e `assets/css/site-final.css`.
-
----
-
-## 💻 Desenvolvimento & Visualização Local
-
-Para visualizar localmente sem dependências ou configurações complexas:
-
-```bash
-# Com Node.js (npx serve):
-npx serve .
-
-# Ou com Python:
-python -m http.server 8080
-
-# Ou abra diretamente no navegador qualquer um dos arquivos HTML principais:
-# - index-final.html
-# - design-system-preview.html
-```
+- **Tokens Preservados:** Nenhuma regra de CSS ou token do [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) foi alterada. Os estilos continuam 100% canônicos em `public/assets/css/`.
+- **Zero Ruptura:** A experiência visual é rigorosamente idêntica (pixel-perfect) à versão homologada, com a vantagem de que qualquer alteração de texto ou imagem agora é feita em componentes de 30 a 50 linhas em vez de um arquivo de 900 linhas.
+- **Pronto para Escala:** Para criar novas rotas (ex: `/sobre`, `/servicos/lideranca`), basta criar um arquivo em `src/pages/` reaproveitando `<Layout><S0Header /> ... <Footer /></Layout>`.

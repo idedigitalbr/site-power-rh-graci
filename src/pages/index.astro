@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import S0Header from '../components/common/S0Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+import S1Hero from '../components/home/S1Hero.astro';
+import S2Metrics from '../components/home/S2Metrics.astro';
+import S3QuandoHora from '../components/home/S3QuandoHora.astro';
+import S4Solucoes from '../components/home/S4Solucoes.astro';
+import S5Processo from '../components/home/S5Processo.astro';
+import S6Sobre from '../components/home/S6Sobre.astro';
+import S7Diferenciais from '../components/home/S7Diferenciais.astro';
+import S8Depoimentos from '../components/home/S8Depoimentos.astro';
+import S9Faq from '../components/home/S9Faq.astro';
+import S10CtaBanner from '../components/home/S10CtaBanner.astro';
+---
+
+<Layout
+  title="PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa"
+  currentView="final"
+  includeFinalCss={true}
+>
+  <S0Header />
+  <main>
+    <S1Hero />
+    <S2Metrics />
+    <S3QuandoHora />
+    <S4Solucoes />
+    <S5Processo />
+    <S6Sobre />
+    <S7Diferenciais />
+    <S8Depoimentos />
+    <S9Faq />
+    <S10CtaBanner />
+  </main>
+  <Footer />
+</Layout>
