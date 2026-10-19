@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C88A3B;
+  --color-gold-hover: #B07427;
+  --color-gold-dark: #9A621D;
+  --color-gold-light: #FDF6EC;
+  --color-navy-deep: #01243E;
+  --color-navy-dark: #081624;
+  --color-navy-card: #01253E;
+  --color-navy-surface: #0E2934;
+  --color-bg-warm: #FCFAF7;
+  --color-card-warm: #FDEEDB;
+  --color-border-warm: #EDE7DD;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-signature: 'Alex Brush', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Master Design System Imports (100% Unificado com a Aplicação) */
+@import "../../public/assets/css/tokens.css";
+@import "../../public/assets/css/base.css";
+@import "../../public/assets/css/components.css";
+@import "../../public/assets/css/site-final.css";

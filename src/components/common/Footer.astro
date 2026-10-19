@@ -1,5 +1,6 @@
 ---
 // Footer.astro — Rodapé institucional oceânico com 4 colunas e direitos autorais
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <footer class="site-footer-final">
@@ -141,6 +142,8 @@
         <a href="#">Política de Privacidade</a>
         <span>•</span>
         <a href="#">Termos de Uso</a>
+        <span>•</span>
+        <a href={`${base}/design-system`} class="footer-ds-link" style="color: var(--color-gold); font-weight: 500;">📐 Design System</a>
       </div>
       <div>Pessoas que transformam negócios.</div>
     </div>

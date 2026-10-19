@@ -3,11 +3,7 @@ import Layout from '../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout
-  title="PowerRH — Design System Preview & Especificação Visual"
-  currentView="design-system"
-  includeFinalCss={false}
->
+<Layout title="PowerRH — Design System & Especificação Visual">
   <style is:inline>
 /* Estilos específicos para layout da documentação do preview */
     .ds-preview-nav {
@@ -247,12 +243,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </a>
 
         <div class="nav-actions">
-          <span class="badge">
-            <span class="badge-dot"></span>
-            v1.0.0 • Wireframe Neutro
+          <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">
+            <span class="badge-dot" style="background-color: var(--color-gold);"></span>
+            v2.0 • Astro + Tailwind + Tokens
           </span>
-          <a href="index-wireframe.html" class="btn btn-primary btn-sm">
-            Ver Wireframe Completo →
+          <a href={`${base}/`} class="btn-gold" style="font-size: 13px; padding: 8px 18px; text-decoration: none;">
+            ← Voltar para o Site Oficial
           </a>
         </div>
       </div>
@@ -295,6 +291,64 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <p class="section-subtitle">
           Na fase de wireframe, a paleta é composta estritamente por valores acromáticos calibrados para garantir contraste WCAG AA, hierarquia de leitura e transição transparente para a identidade final.
         </p>
+      </div>
+
+      
+      <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--color-gold-dark); font-weight: 700;">✨ Paleta Oficial da Marca PowerRH (Identidade Homologada)</h3>
+      <div class="swatch-grid" style="margin-bottom: var(--space-8);">
+        <div class="swatch-card" style="border: 2px solid var(--color-gold);">
+          <div class="swatch-color" style="background-color: var(--color-gold);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gold</div>
+            <div class="swatch-hex">#C88A3B</div>
+            <div class="swatch-role">Ouro Executivo / Ação Principal (CTA)</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-gold-hover);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gold-hover</div>
+            <div class="swatch-hex">#B07427</div>
+            <div class="swatch-role">Hover de Botões & Destaques Ouro</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background: var(--color-gold-gradient);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-gold-gradient</div>
+            <div class="swatch-hex">#CB9857 → #B87B2E</div>
+            <div class="swatch-role">Degradê Metálico / Emblema & Pills</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-navy-deep);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-navy-deep</div>
+            <div class="swatch-hex">#01243E</div>
+            <div class="swatch-role">Azul Oceânico Profundo / Emblema</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-navy-dark);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-navy-dark</div>
+            <div class="swatch-hex">#081624</div>
+            <div class="swatch-role">Superfície Escura Extrema / Rodapé</div>
+          </div>
+        </div>
+
+        <div class="swatch-card">
+          <div class="swatch-color" style="background-color: var(--color-bg-warm); border: 1px solid var(--color-border-warm);"></div>
+          <div class="swatch-body">
+            <div class="swatch-name">--color-bg-warm</div>
+            <div class="swatch-hex">#FCFAF7</div>
+            <div class="swatch-role">Canvas Quente & Acolhedor</div>
+          </div>
+        </div>
       </div>
 
       <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Escala Neutra Primitiva (Gray Scale)</h3>

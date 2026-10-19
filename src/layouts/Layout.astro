@@ -1,21 +1,15 @@
 ---
-import ViewSwitcher from '../components/common/ViewSwitcher.astro';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
-  currentView?: 'final' | 'wireframe' | 'skeleton' | 'design-system';
-  includeFinalCss?: boolean;
 }
 
 const {
   title = 'PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa',
   description = 'Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis. Consultoria com mais de 15 anos de atuação.',
-  currentView = 'final',
-  includeFinalCss = true,
 } = Astro.props;
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -33,24 +27,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2301243E'/><path d='M30 25h24a18 18 0 0 1 0 36H30V25zm0 24h22a6 6 0 0 0 0-12H30v12z' fill='%23C88A3B'/><circle cx='68' cy='65' r='10' fill='%23C88A3B'/></svg>"
     />
 
-    <!-- Google Fonts: Inter, Alex Brush (Assinatura) e JetBrains Mono -->
+    <!-- Google Fonts: Inter, Alex Brush (Assinatura Oficial) e JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Design System Base & Componentes Master -->
-    <link rel="stylesheet" href={`${base}/assets/css/design-system.css`} />
-    {includeFinalCss && (
-      <link rel="stylesheet" href={`${base}/assets/css/site-final.css`} />
-    )}
   </head>
   <body>
-    <!-- Switcher de Navegação Rápida entre as 4 Visões do Ecossistema -->
-    <ViewSwitcher current={currentView} />
-
     <slot />
 
     <!-- Script de Interatividade Unificado (FAQ Accordion, Smooth Scroll) -->

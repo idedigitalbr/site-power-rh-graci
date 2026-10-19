@@ -13,6 +13,48 @@
 
 :root {
   /* ----------------------------------------------------------------------------
+   * BRAND TOKENS (POWERRH OFICIAL)
+   * ---------------------------------------------------------------------------- */
+  --color-gold: #C88A3B;
+  --color-gold-hover: #B07427;
+  --color-gold-dark: #9A621D;
+  --color-gold-light: #FDF6EC;
+  --color-gold-subtle: rgba(200, 138, 59, 0.12);
+  --color-gold-border: rgba(200, 138, 59, 0.35);
+  --color-gold-gradient: linear-gradient(135deg, #CB9857 0%, #B87B2E 100%);
+  --color-gold-glow: 0 8px 24px -4px rgba(184, 123, 46, 0.4);
+
+  --color-navy-deep: #01243E;
+  --color-navy-dark: #081624;
+  --color-navy-card: #01253E;
+  --color-navy-surface: #0E2934;
+  --color-navy-border: rgba(255, 255, 255, 0.1);
+
+  --color-bg-warm: #FCFAF7;
+  --color-card-warm: #FDEEDB;
+  --color-border-warm: #EDE7DD;
+
+  --font-signature: 'Alex Brush', cursive;
+
+  /* Aliases de compatibilidade */
+  --final-gold: var(--color-gold);
+  --final-gold-hover: var(--color-gold-hover);
+  --final-gold-dark: var(--color-gold-dark);
+  --final-gold-light: var(--color-gold-light);
+  --final-gold-subtle: var(--color-gold-subtle);
+  --final-gold-border: var(--color-gold-border);
+  --final-gold-gradient: var(--color-gold-gradient);
+  --final-gold-glow: var(--color-gold-glow);
+  --final-navy-deep: var(--color-navy-deep);
+  --final-navy-dark: var(--color-navy-dark);
+  --final-navy-card: var(--color-navy-card);
+  --final-navy-surface: var(--color-navy-surface);
+  --final-navy-border: var(--color-navy-border);
+  --final-bg-warm: var(--color-bg-warm);
+  --final-card-warm: var(--color-card-warm);
+  --final-border-subtle: var(--color-border-warm);
+
+  /* ----------------------------------------------------------------------------
    * 1. PALETA DE CORES PRIMITIVAS (ESCALA NEUTRA / WIREFRAME)
    * ---------------------------------------------------------------------------- */
   --color-white: #ffffff;
