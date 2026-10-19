@@ -2,12 +2,20 @@
 // S3QuandoHora.astro — Seção Quando é hora de contar com apoio estratégico orientada a dados
 import Container from '../ui/Container.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import OrganicTransition from '../ui/OrganicTransition.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { quandoHora } = siteContent;
 ---
 
 <section class="section-quando-hora">
+  <!-- Transição Orgânica Sutil (cor exata de S2 #FAF7F2, 0 filete branco) -->
+  <OrganicTransition position="top" fill="#FAF7F2" direction="sweep-b" height={32} />
+
+  <!-- Arcos Dourados à Direita (contraponto orgânico ao S2) -->
+  <GoldenArcs position="right" variant="intersect-right" />
+
   <Container size="wide">
     <SectionHeader
       eyebrow={quandoHora.eyebrow}
@@ -53,4 +61,7 @@ const { quandoHora } = siteContent;
       ))}
     </div>
   </Container>
+
+  <!-- Transição Orgânica Sutil (entrega suavemente em S4 #FAF7F2) -->
+  <OrganicTransition position="bottom" fill="#FAF7F2" direction="sweep-a" height={32} />
 </section>

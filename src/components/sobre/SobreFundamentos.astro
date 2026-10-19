@@ -1,0 +1,192 @@
+---
+// SobreFundamentos.astro — S3 NOSSA MISSÃO, VISÃO E VALORES (Identidade Visual 100% Unificada com a Home da PowerRH)
+import Container from '../ui/Container.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import OrganicTransition from '../ui/OrganicTransition.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { sobrePage } = siteContent;
+const { fundamentos } = sobrePage;
+---
+
+<section class="section-fundamentos-final" id="fundamentos">
+  <!-- Transição Orgânica Sutil (cor exata da seção anterior #FFFFFF) -->
+  <OrganicTransition position="top" fill="#FFFFFF" direction="sweep-b" height={32} />
+
+  <Container size="wide">
+    <SectionHeader
+      eyebrow={fundamentos.eyebrow}
+      title={fundamentos.title}
+      subtitle={fundamentos.subtitle}
+      center={true}
+    />
+
+    <!-- Grid dos 3 Cards Oficiais da Home (Missão, Visão e Valores) -->
+    <div class="fundamentos-cards-grid">
+      {fundamentos.items.map((item) => (
+        <div class="fundamento-card-single">
+          <div class="fundamento-card-header">
+            <!-- Selo Circular Dourado Oficial da Home -->
+            <div class="fundamento-icon-badge">
+              {item.id === 'proposito' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              )}
+              {item.id === 'visao' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              )}
+              {item.id === 'valores' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              )}
+            </div>
+            <span class="fundamento-tag-pill">{item.badge}</span>
+          </div>
+
+          <h3 class="fundamento-card-title">{item.title}</h3>
+          <p class="fundamento-card-desc">{item.desc}</p>
+
+          <ul class="fundamento-highlights-list">
+            {item.highlights.map((hl) => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.5" class="hl-check-icon">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{hl}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+
+  <!-- Transição Orgânica Sutil (entrega no fundo Dark Navy da próxima seção) -->
+  <OrganicTransition position="bottom" fill="#01243E" direction="sweep-a" height={32} />
+</section>
+
+<style>
+  .section-fundamentos-final {
+    position: relative;
+    padding: 95px 0 100px;
+    background-color: var(--final-bg-sand, #F6DAAA);
+    overflow: hidden;
+  }
+
+  .fundamentos-cards-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 991px) {
+    .fundamentos-cards-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .fundamento-card-single {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 36px 30px;
+    border: 1px solid rgba(200, 138, 59, 0.25);
+    box-shadow: 0 8px 24px -4px rgba(11, 27, 44, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fundamento-card-single:hover {
+    transform: translateY(-6px);
+    border-color: rgba(200, 138, 59, 0.65);
+    box-shadow: 0 18px 38px -6px rgba(1, 24, 45, 0.12), 0 0 16px -2px rgba(200, 138, 59, 0.25);
+  }
+
+  .fundamento-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .fundamento-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background: var(--final-gold-gradient, linear-gradient(135deg, #CB9857 0%, #B87B2E 100%));
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(184, 123, 46, 0.35);
+    transition: transform 280ms ease;
+  }
+
+  .fundamento-card-single:hover .fundamento-icon-badge {
+    transform: scale(1.08);
+  }
+
+  .fundamento-tag-pill {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--final-gold-dark, #9A621D);
+    background: rgba(200, 138, 59, 0.12);
+    padding: 5px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.25);
+  }
+
+  .fundamento-card-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0B1B2C;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .fundamento-card-desc {
+    font-size: 14.5px;
+    color: #4A5568;
+    line-height: 1.62;
+    margin: 0 0 24px;
+  }
+
+  .fundamento-highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #F1ECE4;
+    padding-top: 20px;
+  }
+
+  .fundamento-highlights-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1E293B;
+    line-height: 1.4;
+  }
+
+  .hl-check-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+</style>

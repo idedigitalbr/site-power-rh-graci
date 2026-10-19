@@ -2,24 +2,40 @@
 // S1Hero.astro — Hero Section panorâmico de alta conversão e estética executiva
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { hero } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Apenas as fotos oficiais da pasta 01_HOME_HERO_TOPO
+const heroImages = [
+  'topo-hero (1).webp',
+  'topo-hero (2).webp',
+  'topo-hero (3).webp',
+  'topo-hero (4).webp',
+];
 ---
 
 <section class="hero-final-section" id="inicio">
-  <!-- Camada de Imagem Panorâmica com Enquadramento Perfeito (Sem cortes na cabeça) -->
-  <div class="hero-bg-media-layer" aria-hidden="true">
-    <img
-      src={`${base}/assets/imagens-diversas/fotos_graci_ia/01_HOME_HERO_TOPO/01_retrato_executivo_com_vista_para_o_rio.webp`}
-      alt="Graciete Corrêa — Consultoria Estratégica em Pessoas"
-      class="hero-bg-media-img"
-      loading="eager"
-      fetchpriority="high"
-    />
+  <!-- Camada de Imagem Panorâmica em Slideshow Suave (Sem setas, troca direta e leve a cada 20s) -->
+  <div class="hero-bg-media-layer" id="heroMediaLayer" aria-hidden="true">
+    {heroImages.map((imgName, idx) => (
+      <img
+        src={`${base}/assets/imagens-diversas/fotos_graci_ia/01_HOME_HERO_TOPO/${encodeURI(imgName)}`}
+        alt="Graciete Corrêa — Consultoria Estratégica em Pessoas"
+        class={`hero-bg-media-img ${idx === 0 ? 'is-active' : ''}`}
+        loading={idx === 0 ? 'eager' : 'lazy'}
+        fetchpriority={idx === 0 ? 'high' : 'auto'}
+        decoding="async"
+        data-slide-index={idx}
+      />
+    ))}
     <div class="hero-bg-media-gradient"></div>
   </div>
+
+  <!-- Arcos Dourados Finos na margem direita -->
+  <GoldenArcs position="right" variant="arcs-right" />
 
   <Container size="wide" class="hero-container-relative">
     <div class="hero-panoramic-layout">
@@ -36,7 +52,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </p>
 
         <div>
-          <Button href={hero.ctaHref} variant="hero-pill">
+          <Button href={hero.ctaHref} variant="hero-pill" whatsapp={true}>
             {hero.ctaText}
           </Button>
         </div>
@@ -81,95 +97,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           ))}
         </div>
       </div>
-
-      <!-- Coluna Direita: Card de Formulário de Conversão Flutuante -->
-      <div class="hero-form-column" id="formulario-diagnostico">
-        <div class="hero-form-card-final">
-          <div class="hero-form-card-header">
-            <h2 class="hero-form-title">{hero.form.title}</h2>
-            <p class="hero-form-desc">{hero.form.desc}</p>
-          </div>
-
-          <form
-            action="#"
-            method="POST"
-            onsubmit="event.preventDefault(); alert('Solicitação de diagnóstico enviada com sucesso! Em breve a especialista Graciete Corrêa entrará em contato.');"
-          >
-            <!-- Campo Nome -->
-            <div class="form-field-final">
-              <div class="input-with-icon">
-                <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <input type="text" id="hero-nome" class="form-input-final" placeholder="Seu nome" required />
-              </div>
-            </div>
-
-            <!-- Campo E-mail -->
-            <div class="form-field-final">
-              <div class="input-with-icon">
-                <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <input type="email" id="hero-email" class="form-input-final" placeholder="E-mail" required />
-              </div>
-            </div>
-
-            <!-- Campo Telefone -->
-            <div class="form-field-final">
-              <div class="input-with-icon">
-                <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <input type="tel" id="hero-telefone" class="form-input-final" placeholder="Telefone" required />
-              </div>
-            </div>
-
-            <!-- Campo Empresa -->
-            <div class="form-field-final">
-              <div class="input-with-icon">
-                <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-                <input type="text" id="hero-empresa" class="form-input-final" placeholder="Nome da empresa" required />
-              </div>
-            </div>
-
-            <!-- Campo Dropdown Solução -->
-            <div class="form-field-final">
-              <div class="input-with-icon">
-                <svg class="input-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <select id="hero-ajuda" class="form-select-final" required>
-                  <option value="">Como podemos ajudar?</option>
-                  <option value="cultura">Cultura & Estrutura</option>
-                  <option value="lideranca">Liderança & Desenvolvimento</option>
-                  <option value="governanca">Governança & Sucessão</option>
-                  <option value="outro">Outro desafio de RH Estratégico</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Botão Enviar Formulário -->
-            <Button type="submit" variant="form-submit">
-              {hero.form.buttonText}
-            </Button>
-
-            <!-- Nota de Segurança -->
-            <div class="form-security-badge-final">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-              <span>{hero.form.securityText}</span>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   </Container>
 </section>
+
+<script is:inline>
+  (() => {
+    function initHeroSlideshow() {
+      const slides = document.querySelectorAll('#heroMediaLayer .hero-bg-media-img');
+      if (slides.length <= 1) return;
+
+      let current = 0;
+      const intervalMs = 20000; // Troca automaticamente a cada 20 segundos
+
+      setInterval(() => {
+        const prev = current;
+        current = (current + 1) % slides.length;
+
+        const prevSlide = slides[prev];
+        const nextSlide = slides[current];
+
+        // Mantém a foto anterior como base para transição contínua sem piscar
+        prevSlide.classList.add('is-prev');
+        prevSlide.classList.remove('is-active');
+
+        // Foto seguinte entra com fade-in suave por cima
+        nextSlide.classList.add('is-active');
+
+        // Limpa a foto anterior após a transição de fade (1.3s)
+        setTimeout(() => {
+          prevSlide.classList.remove('is-prev');
+        }, 1300);
+      }, intervalMs);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroSlideshow);
+    } else {
+      initHeroSlideshow();
+    }
+  })();
+</script>

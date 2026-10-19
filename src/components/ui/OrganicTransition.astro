@@ -1,0 +1,66 @@
+---
+interface Props {
+  position: 'top' | 'bottom';
+  fill: string; // Cor exata do fundo da seção vizinha (ex: '#FAF7F2', '#FFFFFF', '#081624', '#FCFAF7')
+  direction?: 'sweep-a' | 'sweep-b' | 'slant-a' | 'slant-b' | 'arch' | 'fluid-wave';
+  height?: number;
+  class?: string;
+}
+
+const {
+  position,
+  fill,
+  direction = 'sweep-a',
+  height = 30,
+  class: className = '',
+} = Astro.props;
+
+// Normalização de direções (compatibilidade com slant-a / slant-b)
+const dir = (direction === 'slant-a' ? 'sweep-a' : direction === 'slant-b' ? 'sweep-b' : direction);
+---
+
+<div
+  class={`organic-transition-divider pos-${position} dir-${dir} ${className}`.trim()}
+  style={`--trans-h: ${height}px;`}
+  aria-hidden="true"
+>
+  {/* Curva Orgânica Sweep A: Esquerda suavemente mais alta, descendo com arqueamento orgânico em perspectiva */}
+  {position === 'top' && (dir === 'sweep-a' || dir === 'fluid-wave') && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,-5 L 1445,-5 L 1445,30 C 1020,33 480,9 -5,5 Z" fill={fill} />
+    </svg>
+  )}
+
+  {/* Curva Orgânica Sweep B: Direita suavemente mais alta, descendo para a esquerda em perspectiva contrária */}
+  {position === 'top' && dir === 'sweep-b' && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,-5 L 1445,-5 L 1445,5 C 960,9 420,33 -5,30 Z" fill={fill} />
+    </svg>
+  )}
+
+  {/* Curva Orgânica em Arco Suave Central (Top) */}
+  {position === 'top' && dir === 'arch' && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,-5 L 1445,-5 L 1445,7 C 1040,29 400,29 -5,7 Z" fill={fill} />
+    </svg>
+  )}
+
+  {/* Transições Inferiores (Bottom) */}
+  {position === 'bottom' && (dir === 'sweep-a' || dir === 'fluid-wave') && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,41 L 1445,41 L 1445,5 C 1020,9 480,33 -5,30 Z" fill={fill} />
+    </svg>
+  )}
+
+  {position === 'bottom' && dir === 'sweep-b' && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,41 L 1445,41 L 1445,30 C 960,33 420,9 -5,5 Z" fill={fill} />
+    </svg>
+  )}
+
+  {position === 'bottom' && dir === 'arch' && (
+    <svg viewBox="0 0 1440 36" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M -5,41 L 1445,41 L 1445,29 C 1040,7 400,7 -5,29 Z" fill={fill} />
+    </svg>
+  )}
+</div>

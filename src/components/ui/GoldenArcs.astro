@@ -1,0 +1,153 @@
+---
+interface Props {
+  position?: 'left' | 'right' | 'both' | 'top-right' | 'bottom-left';
+  variant?: 'arcs-left' | 'arcs-right' | 'intersect-left' | 'intersect-right' | 'halo-navy';
+  class?: string;
+  speed?: 'normal' | 'slow' | 'superslow';
+}
+
+const {
+  position = 'left',
+  variant = 'arcs-left',
+  class: className = '',
+  speed = 'normal',
+} = Astro.props;
+
+// ID único para evitar conflito de gradientes SVG entre instâncias
+const uid = Math.random().toString(36).substring(2, 8);
+---
+
+<div
+  class={`golden-arcs-decor decor-pos-${position} decor-speed-${speed} ${className}`.trim()}
+  aria-hidden="true"
+>
+  {/* Variante 1: Arcos Concêntricos à Esquerda (delicados, inspirados na marca) */}
+  {variant === 'arcs-left' && (
+    <svg viewBox="0 0 400 650" fill="none" xmlns="http://www.w3.org/2000/svg" class="golden-arc-svg svg-drift-1">
+      <path d="M-50 90 C120 160 210 380 50 590" stroke={`url(#gold-grad-a-${uid})`} stroke-width="1.1" />
+      <path d="M-20 170 C150 230 240 450 90 650" stroke={`url(#gold-grad-b-${uid})`} stroke-width="0.9" />
+      <path d="M10 250 C180 300 270 510 130 710" stroke={`url(#gold-grad-c-${uid})`} stroke-width="0.8" />
+      <defs>
+        <linearGradient id={`gold-grad-a-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.38" />
+          <stop offset="55%" stop-color="#E2B777" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-grad-b-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.28" />
+          <stop offset="65%" stop-color="#E2B777" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-grad-c-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.20" />
+          <stop offset="70%" stop-color="#E2B777" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+
+  {/* Variante 2: Arcos Concêntricos à Direita (inverso, de lá pra cá) */}
+  {variant === 'arcs-right' && (
+    <svg viewBox="0 0 400 650" fill="none" xmlns="http://www.w3.org/2000/svg" class="golden-arc-svg svg-drift-2">
+      <path d="M450 90 C280 160 190 380 350 590" stroke={`url(#gold-grad-ra-${uid})`} stroke-width="1.1" />
+      <path d="M420 170 C250 230 160 450 310 650" stroke={`url(#gold-grad-rb-${uid})`} stroke-width="0.9" />
+      <path d="M390 250 C220 300 130 510 270 710" stroke={`url(#gold-grad-rc-${uid})`} stroke-width="0.8" />
+      <defs>
+        <linearGradient id={`gold-grad-ra-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.38" />
+          <stop offset="55%" stop-color="#E2B777" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-grad-rb-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.28" />
+          <stop offset="65%" stop-color="#E2B777" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-grad-rc-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.20" />
+          <stop offset="70%" stop-color="#E2B777" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+
+  {/* Variante 3: Curvas Entrelaçadas Olímpicas à Esquerda (referência exata do anexo) */}
+  {variant === 'intersect-left' && (
+    <svg viewBox="0 0 380 620" fill="none" xmlns="http://www.w3.org/2000/svg" class="golden-arc-svg svg-drift-1">
+      <path d="M-40 120 C110 160 190 350 30 540" stroke={`url(#gold-cross-a-${uid})`} stroke-width="1.1" />
+      <path d="M-20 200 C130 240 210 400 65 580" stroke={`url(#gold-cross-b-${uid})`} stroke-width="0.9" />
+      <path d="M140 70 C70 230 170 410 10 580" stroke={`url(#gold-cross-c-${uid})`} stroke-width="0.85" />
+      <defs>
+        <linearGradient id={`gold-cross-a-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.36" />
+          <stop offset="60%" stop-color="#DFB574" stop-opacity="0.20" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-cross-b-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.26" />
+          <stop offset="70%" stop-color="#DFB574" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-cross-c-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#E2B777" stop-opacity="0.26" />
+          <stop offset="50%" stop-color="#C88A3B" stop-opacity="0.16" />
+          <stop offset="100%" stop-color="#E2B777" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+
+  {/* Variante 4: Curvas Entrelaçadas Olímpicas à Direita (inverso) */}
+  {variant === 'intersect-right' && (
+    <svg viewBox="0 0 380 620" fill="none" xmlns="http://www.w3.org/2000/svg" class="golden-arc-svg svg-drift-2">
+      <path d="M420 120 C270 160 190 350 350 540" stroke={`url(#gold-icross-a-${uid})`} stroke-width="1.1" />
+      <path d="M400 200 C250 240 170 400 315 580" stroke={`url(#gold-icross-b-${uid})`} stroke-width="0.9" />
+      <path d="M240 70 C310 230 210 410 370 580" stroke={`url(#gold-icross-c-${uid})`} stroke-width="0.85" />
+      <defs>
+        <linearGradient id={`gold-icross-a-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.36" />
+          <stop offset="60%" stop-color="#DFB574" stop-opacity="0.20" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-icross-b-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C88A3B" stop-opacity="0.26" />
+          <stop offset="70%" stop-color="#DFB574" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#C88A3B" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-icross-c-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E2B777" stop-opacity="0.26" />
+          <stop offset="50%" stop-color="#C88A3B" stop-opacity="0.16" />
+          <stop offset="100%" stop-color="#E2B777" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+
+  {/* Variante 5: Halo Celestial de Alto Refinamento para Fundo Navy (S7 Diferenciais) */}
+  {variant === 'halo-navy' && (
+    <svg viewBox="0 0 380 650" fill="none" xmlns="http://www.w3.org/2000/svg" class="golden-arc-svg svg-drift-1">
+      <path d="M-30 110 C140 170 210 390 60 590" stroke={`url(#gold-navy-a-${uid})`} stroke-width="1.0" />
+      <path d="M-10 190 C160 250 230 450 90 640" stroke={`url(#gold-navy-b-${uid})`} stroke-width="0.85" />
+      <path d="M120 70 C60 220 170 380 20 540" stroke={`url(#gold-navy-c-${uid})`} stroke-width="0.8" />
+      <defs>
+        <linearGradient id={`gold-navy-a-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E2B777" stop-opacity="0.32" />
+          <stop offset="50%" stop-color="#C88A3B" stop-opacity="0.20" />
+          <stop offset="100%" stop-color="#081624" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-navy-b-${uid}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E2B777" stop-opacity="0.24" />
+          <stop offset="60%" stop-color="#C88A3B" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#081624" stop-opacity="0.0" />
+        </linearGradient>
+        <linearGradient id={`gold-navy-c-${uid}`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#F1D198" stop-opacity="0.26" />
+          <stop offset="60%" stop-color="#C88A3B" stop-opacity="0.14" />
+          <stop offset="100%" stop-color="#081624" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )}
+</div>

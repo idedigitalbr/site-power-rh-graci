@@ -4,35 +4,60 @@ import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import { siteContent } from '../../data/siteContent';
 
+interface Props {
+  currentPage?: 'home' | 'sobre' | 'design-system';
+}
+
+const { currentPage = 'home' } = Astro.props;
 const { navigation } = siteContent;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const navLinks = [
+  {
+    label: 'Home',
+    href: currentPage === 'home' ? '#inicio' : `${base}/`,
+    active: currentPage === 'home',
+  },
+  {
+    label: 'Sobre',
+    href: currentPage === 'sobre' ? '#inicio-sobre' : `${base}/sobre`,
+    active: currentPage === 'sobre',
+  },
+  {
+    label: 'Soluções',
+    href: `${base}/#solucoes`,
+    active: false,
+  },
+  {
+    label: 'Contato',
+    href: `${base}/#formulario-diagnostico`,
+    active: false,
+  },
+];
+
+const homeUrl = currentPage === 'home' ? '#inicio' : `${base}/`;
+const ctaUrl = navigation.cta.href;
 ---
 
 <header class="site-header-final">
   <Container size="wide">
     <nav class="site-nav-final" aria-label="Navegação Principal">
-      <!-- Logo Institucional PowerRH com Emblema Orgânico Dourado -->
-      <a href="#inicio" class="brand-link-final">
-        <svg class="brand-emblem-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="goldLogoGrad" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#E5AF63" />
-              <stop offset="1" stop-color="#B87B2E" />
-            </linearGradient>
-          </defs>
-          <!-- Pétala 1 (Superior direita curva) -->
-          <path d="M17 19C17 9 24 3 32 4C33 13 26 21 17 19Z" fill="url(#goldLogoGrad)" />
-          <!-- Pétala 2 (Inferior esquerda ascendente) -->
-          <path d="M7 29C6 20 12 13 21 13C20 22 13 30 7 29Z" fill="url(#goldLogoGrad)" opacity="0.9" />
-        </svg>
-        <div class="brand-text-final">
-          <span class="brand-title-final">{navigation.brandName}</span>
-          <span class="brand-tagline-final">{navigation.brandTagline}</span>
-        </div>
+      <!-- Logo Institucional Oficial PowerRH -->
+      <a href={homeUrl} class="brand-link-final" aria-label="PowerRH - Página Inicial">
+        <img
+          src={`${base}/assets/imagens-diversas/logo-powerrh.png`}
+          alt="PowerRH — Pessoas que transformam negócios"
+          class="brand-logo-img"
+          width="180"
+          height="46"
+          loading="eager"
+          decoding="async"
+        />
       </a>
 
       <!-- Menu de Links Dinâmicos -->
       <ul class="nav-links-final">
-        {navigation.links.map((link) => (
+        {navLinks.map((link) => (
           <li>
             <a href={link.href} class={`nav-link-final ${link.active ? 'active' : ''}`.trim()}>
               {link.label}
@@ -43,10 +68,32 @@ const { navigation } = siteContent;
 
       <!-- CTA Principal Header -->
       <div>
-        <Button href={navigation.cta.href} variant="gold">
+        <Button href={ctaUrl} variant="gold" whatsapp={true}>
           {navigation.cta.text}
         </Button>
       </div>
     </nav>
   </Container>
 </header>
+
+<style>
+  .brand-logo-img {
+    height: 44px;
+    width: auto;
+    max-height: 48px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .brand-link-final:hover .brand-logo-img {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+
+  @media (max-width: 640px) {
+    .brand-logo-img {
+      height: 36px;
+    }
+  }
+</style>

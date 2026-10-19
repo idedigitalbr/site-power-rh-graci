@@ -223,7 +223,136 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       flex-wrap: wrap;
       margin-bottom: var(--space-4);
     }
+
+    /* Regras Canônicas de Tipografia & Hierarquia */
+    .rule-callout {
+      border: 1.5px solid rgba(200, 138, 59, 0.45);
+      background: linear-gradient(135deg, rgba(200, 138, 59, 0.06) 0%, rgba(253, 246, 236, 0.65) 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+      box-shadow: 0 6px 24px -4px rgba(200, 138, 59, 0.12);
+    }
+
+    .rule-callout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid rgba(200, 138, 59, 0.25);
+      flex-wrap: wrap;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-4);
+    }
+
+    .rule-box-card {
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .rule-box-card.bad {
+      border-left: 4px solid #ef4444;
+      background: linear-gradient(to right, rgba(239, 68, 68, 0.03), var(--bg-surface));
+    }
+
+    .rule-box-card.good {
+      border-left: 4px solid #10b981;
+      background: linear-gradient(to right, rgba(16, 185, 129, 0.03), var(--bg-surface));
+    }
+
+    .rule-badge-good {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .rule-badge-bad {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: rgba(239, 68, 68, 0.12);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .font-signature-demo {
+      font-family: var(--font-signature);
+      font-size: 42px;
+      color: var(--color-gold);
+      line-height: 1.1;
+      display: inline-block;
+    }
+
+    .eyebrow-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .eyebrow-showcase-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-specimen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-6);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .btn-specimen-table th {
+      text-align: left;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      color: var(--text-muted);
+      padding: 12px 16px;
+      background-color: var(--bg-surface-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .btn-specimen-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-hairline);
+      vertical-align: middle;
+      font-size: 13px;
+    }
   </style>
+  <!-- Custom DS Styles -->
 
 <!-- Switcher de Navegação Rápida entre as 4 Visões -->
   
@@ -235,7 +364,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="container container-wide">
       <div class="site-nav">
         <a href="#inicio" class="nav-brand">
-          <div class="brand-icon-box">PR</div>
+          <div class="brand-icon-box" style="display: flex; align-items: center; justify-content: center; padding: 2px;">
+            <img src={`${base}/assets/imagens-diversas/logo-powerrh-symbol.png`} alt="PowerRH" style="width: 28px; height: 28px; object-fit: contain;" />
+          </div>
           <div class="brand-text-block">
             <span class="brand-name">PowerRH</span>
             <span class="brand-tagline">Design System Preview</span>
@@ -438,9 +569,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <h3 style="font-size: var(--font-size-md); margin-bottom: var(--space-4); color: var(--text-secondary);">Mapeamento Semântico de Aplicação</h3>
       <div class="comp-panel">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4);">
-          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-900);">
-            <div class="font-mono" style="font-size: 12px; font-weight: 700;">--action-primary-bg</div>
-            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Fundo do botão principal de conversão</div>
+          <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gold);">
+            <div class="font-mono" style="font-size: 12px; font-weight: 700; color: var(--color-gold-dark);">--action-primary-bg (Ouro #C88A3B)</div>
+            <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Fundo do botão primário CTA de conversão</div>
           </div>
           <div style="padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); border-left: 4px solid var(--color-gray-400);">
             <div class="font-mono" style="font-size: 12px; font-weight: 700;">--border-default</div>
@@ -456,6 +587,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
         </div>
       </div>
+
+      <!-- Homologação da Logo PowerRH e Variações Oficiais -->
+      <h3 style="font-size: var(--font-size-md); margin-top: var(--space-8); margin-bottom: var(--space-4); color: var(--color-gold-dark); font-weight: 700;">💎 Identidade Visual Homologada (Logo & Favicon)</h3>
+      <div class="comp-panel">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+          <!-- Versão 1: Fundo Claro -->
+          <div style="background: #FFFFFF; border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;">
+            <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark);">Versão Principal (Fundo Claro)</span>
+            <img src={`${base}/assets/imagens-diversas/logo-powerrh.png`} alt="Logo PowerRH Principal" style="max-height: 52px; width: auto; object-fit: contain;" />
+            <div style="font-size: 11px; color: var(--text-muted);">Uso: Header institucional, propostas e superfícies claras</div>
+          </div>
+
+          <!-- Versão 2: Fundo Escuro -->
+          <div style="background: #01243E; border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;">
+            <span class="badge" style="background-color: rgba(255, 255, 255, 0.15); color: #FFFFFF;">Versão Negativa / Branca (Fundo Escuro)</span>
+            <img src={`${base}/assets/imagens-diversas/logo-powerrh-white.png`} alt="Logo PowerRH Branca" style="max-height: 52px; width: auto; object-fit: contain;" />
+            <div style="font-size: 11px; color: #94A3B8;">Uso: Hero escuro, seções noturnas e materiais em azul profundo</div>
+          </div>
+
+          <!-- Versão 3: Símbolo / Favicon -->
+          <div style="background: #FDF6EC; border: 1px solid rgba(200, 138, 59, 0.2); border-radius: var(--radius-md); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;">
+            <span class="badge" style="background-color: var(--color-gold); color: #FFFFFF;">Símbolo & Favicon Oficial</span>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+              <img src={`${base}/assets/imagens-diversas/logo-powerrh-symbol.png`} alt="Símbolo PowerRH" style="width: 48px; height: 48px; object-fit: contain;" />
+              <img src={`${base}/favicon-32x32.png`} alt="Favicon 32" style="width: 32px; height: 32px; object-fit: contain;" />
+              <img src={`${base}/favicon-16x16.png`} alt="Favicon 16" style="width: 16px; height: 16px; object-fit: contain;" />
+            </div>
+            <div style="font-size: 11px; color: var(--color-gold-dark);">Uso: Favicon do navegador, app icons e avatares</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -466,98 +628,348 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="container container-wide">
       <div class="section-header">
         <span class="section-eyebrow">Seção 02</span>
-        <h2 class="section-title">Tipografia & Hierarquia Visual</h2>
+        <h2 class="section-title">Tipografia, Escala e Regras de Hierarquia Visual</h2>
         <p class="section-subtitle">
-          Construída sobre a família tipográfica <strong>Inter</strong>, proporcionando legibilidade técnica e clareza visual corporativa para consultoria estratégica executiva.
+          Especificação canônica das famílias <strong>Inter</strong> (sans-serif), <strong>Alex Brush</strong> (assinatura institucional) e <strong>JetBrains Mono</strong> (tokens). Regras rigorosas de tamanhos, leading, tracking e capitalização editorial para consultoria executiva.
         </p>
       </div>
 
-      <div class="comp-panel">
-        <div class="comp-panel-header">
-          <span class="comp-panel-title">Amostrador de Pesos e Estilos</span>
-          <span class="badge">Família: Inter</span>
+      <!-- ===================================================================
+           REGRA DE OURO DA TIPOGRAFIA: TÍTULOS NÃO SÃO MAIÚSCULA
+           =================================================================== -->
+      <div class="rule-callout">
+        <div class="rule-callout-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 24px;">📌</span>
+            <div>
+              <h3 style="font-size: 17px; font-weight: 800; color: var(--color-gold-dark); margin: 0;">
+                Regra Canônica de Capitalização (Casing Standard PowerRH)
+              </h3>
+              <p style="font-size: 12.5px; color: var(--text-secondary); margin: 2px 0 0;">
+                Critério inegociável de sofisticação editorial para o ecossistema digital da PowerRH.
+              </p>
+            </div>
+          </div>
+          <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-weight: 700;">
+            Padrão Editorial Homologado
+          </span>
         </div>
-        <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-          <div style="font-weight: 400; font-size: var(--font-size-lg);">Inter Regular 400 — Empresas crescem quando pessoas evoluem com método e governança.</div>
-          <div style="font-weight: 500; font-size: var(--font-size-lg);">Inter Medium 500 — Empresas crescem quando pessoas evoluem com método e governança.</div>
-          <div style="font-weight: 600; font-size: var(--font-size-lg);">Inter Semibold 600 — Empresas crescem quando pessoas evoluem com método e governança.</div>
-          <div style="font-weight: 700; font-size: var(--font-size-lg);">Inter Bold 700 — Empresas crescem quando pessoas evoluem com método e governança.</div>
-          <div style="font-weight: 800; font-size: var(--font-size-lg);">Inter Extrabold 800 — Empresas crescem quando pessoas evoluem com método e governança.</div>
+
+        <div class="rule-grid">
+          <!-- Coluna 1: Títulos NÃO são maiúsculas -->
+          <div class="rule-box-card good">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <strong style="font-size: 14px; color: #0A1C2E;">Headlines & Títulos (H1, H2, H3, H4)</strong>
+              <span class="rule-badge-good">✓ Sentence case</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px;">
+              <strong>JAMAIS utilizar tudo maiúscula (UPPERCASE) em títulos!</strong> Títulos corporativos devem ser digitados em caixa natural (Sentence case), com apenas a letra inicial em maiúscula. Isso preserva tom consultivo elegante, humanizado e de prestígio editorial.
+            </p>
+            <div style="background: var(--bg-surface-subtle); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-hairline); display: flex; flex-direction: column; gap: 6px;">
+              <div style="font-size: 13px; font-weight: 800; color: #0A1C2E;">
+                ✅ <span style="color: #047857;">Correto:</span> "Empresas crescem quando pessoas evoluem."
+              </div>
+              <div style="font-size: 13px; font-weight: 800; color: #0A1C2E;">
+                ✅ <span style="color: #047857;">Correto:</span> "Soluções estratégicas para fortalecer cultura, liderança e legado."
+              </div>
+              <div style="font-size: 12px; font-weight: 700; color: #b91c1c; text-decoration: line-through; opacity: 0.85;">
+                ❌ Incorreto: "EMPRESAS CRESCEM QUANDO PESSOAS EVOLUEM."
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Onde aplicar Maiúscula -->
+          <div class="rule-box-card bad" style="border-left-color: var(--color-gold); background: linear-gradient(to right, rgba(200, 138, 59, 0.04), var(--bg-surface));">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <strong style="font-size: 14px; color: #0A1C2E;">Eyebrows, Botões & Badges</strong>
+              <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-size: 11px; font-weight: 700;">
+                UPPERCASE EXCLUSIVO
+              </span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px;">
+              O uso de <code style="font-family: var(--font-family-mono); font-size: 11px; background: rgba(200, 138, 59, 0.15); padding: 2px 5px; border-radius: 4px;">text-transform: uppercase</code> é restrito e intencional aos seguintes elementos de sinalização:
+            </p>
+            <ul style="font-size: 12.5px; color: var(--text-secondary); margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <li><strong>Eyebrows / Chapéus:</strong> 12px a 13px, tracking ampliado (0.10em a 0.16em), dourado (#C48D47). Ex: <em>CONSULTORIA ESTRATÉGICA EM PESSOAS</em>.</li>
+              <li><strong>Botões & CTAs:</strong> 12.5px a 13.5px, bold 700, tracking 0.02em a 0.03em. Ex: <em>QUERO UM DIAGNÓSTICO →</em>.</li>
+              <li><strong>Mini-Badges & Chips:</strong> 9px a 11px, bold, tracking 0.05em. Ex: <em>VISÃO ESTRATÉGICA</em>.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <table class="type-specimen-table">
-        <thead>
-          <tr>
-            <th>Token</th>
-            <th>Tamanho (rem / px)</th>
-            <th>Leading</th>
-            <th>Exemplo & Aplicação Real</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="type-token-badge">--font-size-5xl</span></td>
-            <td>3.50rem / 56px</td>
-            <td>1.15</td>
-            <td><h1 style="font-size: var(--font-size-5xl); margin: 0;">Empresas crescem.</h1></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-4xl</span></td>
-            <td>2.875rem / 46px</td>
-            <td>1.15</td>
-            <td><h2 style="font-size: var(--font-size-4xl); margin: 0;">Pessoas evoluem.</h2></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-3xl</span></td>
-            <td>2.25rem / 36px</td>
-            <td>1.30</td>
-            <td><h3 style="font-size: var(--font-size-3xl); margin: 0;">Um processo claro, próximo e eficaz.</h3></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-2xl</span></td>
-            <td>1.875rem / 30px</td>
-            <td>1.30</td>
-            <td><div style="font-size: var(--font-size-2xl); font-weight: 800;">+9.000 pessoas desenvolvidas</div></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-xl</span></td>
-            <td>1.50rem / 24px</td>
-            <td>1.30</td>
-            <td><div style="font-size: var(--font-size-xl); font-weight: 700;">Graciete Corrêa</div></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-lg</span></td>
-            <td>1.25rem / 20px</td>
-            <td>1.40</td>
-            <td><div style="font-size: var(--font-size-lg); font-weight: 600;">Cultura & Estrutura Organizacional</div></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-md</span></td>
-            <td>1.125rem / 18px</td>
-            <td>1.50</td>
-            <td><div style="font-size: var(--font-size-md); color: var(--text-secondary);">Estratégia, liderança e cultura para transformar o potencial humano.</div></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-base</span></td>
-            <td>1.00rem / 16px</td>
-            <td>1.65</td>
-            <td><p style="margin: 0;">Mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura.</p></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-sm</span></td>
-            <td>0.875rem / 14px</td>
-            <td>1.50</td>
-            <td><div style="font-size: var(--font-size-sm); color: var(--text-secondary);">Quero um diagnóstico gratuito →</div></td>
-          </tr>
-          <tr>
-            <td><span class="type-token-badge">--font-size-xs</span></td>
-            <td>0.75rem / 12px</td>
-            <td>1.20</td>
-            <td><span class="section-eyebrow" style="margin: 0;">CONSULTORIA ESTRATÉGICA EM PESSOAS</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ===================================================================
+           AS 3 FAMÍLIAS TIPOGRÁFICAS
+           =================================================================== -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+        <!-- 1. Inter -->
+        <div class="comp-panel" style="margin-bottom: 0;">
+          <div class="comp-panel-header">
+            <span class="comp-panel-title">1. Família Sans-Serif Primária</span>
+            <span class="badge">Inter (Google Fonts)</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">
+            Estrutura central do site. Proporciona legibilidade técnica impecável, alta densidade de informação e precisão geométrica.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-weight: 400; font-size: 14px;">Inter Regular 400 — Corpo e parágrafos contínuos</div>
+            <div style="font-weight: 500; font-size: 14px;">Inter Medium 500 — Descrições de cards e inputs</div>
+            <div style="font-weight: 600; font-size: 14px;">Inter Semibold 600 — Subtítulos e labels</div>
+            <div style="font-weight: 700; font-size: 14px;">Inter Bold 700 — Botões e títulos de módulos</div>
+            <div style="font-weight: 800; font-size: 14px; color: #0A1C2E;">Inter ExtraBold 800 — Headlines H1, H2 e Métricas</div>
+          </div>
+        </div>
+
+        <!-- 2. Alex Brush (Assinatura Oficial) -->
+        <div class="comp-panel" style="margin-bottom: 0; border: 1.5px solid rgba(200, 138, 59, 0.35);">
+          <div class="comp-panel-header">
+            <span class="comp-panel-title" style="color: var(--color-gold-dark);">2. Assinatura & Destaque Humano</span>
+            <span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">Alex Brush</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">
+            Tipografia cursiva de prestígio para a assinatura pessoal de <strong>Graciete Corrêa</strong> e elementos decorativos de alta exclusividade.
+          </p>
+          <div style="background: var(--color-bg-warm); border: 1px solid var(--color-border-warm); border-radius: var(--radius-lg); padding: 18px 24px; text-align: center;">
+            <div class="font-signature-demo">Graciete Corrêa</div>
+            <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gold-dark); font-weight: 700; margin-top: 6px;">
+              Fundadora & Consultora Estratégica
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. JetBrains Mono -->
+        <div class="comp-panel" style="margin-bottom: 0;">
+          <div class="comp-panel-header">
+            <span class="comp-panel-title">3. Família Monospaçada</span>
+            <span class="badge">JetBrains Mono</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">
+            Utilizada exclusivamente para documentação técnica de tokens, códigos CSS, valores hexadecimais e dados quantitativos.
+          </p>
+          <div style="background: #081624; color: #CB9857; font-family: var(--font-family-mono); font-size: 12px; padding: 14px; border-radius: var(--radius-md); line-height: 1.6;">
+            <div>--color-gold: #C88A3B;</div>
+            <div>--font-sans: 'Inter', sans-serif;</div>
+            <div>clamp(2.3rem, 3.6vw, 3.2rem);</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           TABELA COMPLETA DE HEADLINES (TÍTULOS REAIS)
+           =================================================================== -->
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Especificação Exaustiva dos HEADLINES (Títulos do Site)</span>
+          <span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">Sentence case</span>
+        </div>
+
+        <table class="type-specimen-table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Nível & Tag</th>
+              <th style="width: 170px;">Classe CSS</th>
+              <th style="width: 160px;">Tamanho (rem / px)</th>
+              <th style="width: 130px;">Peso & Leading</th>
+              <th style="width: 100px;">Tracking</th>
+              <th>Exemplo Real Renderizado (Sentence case)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>H1 Desktop (Hero)</strong></td>
+              <td><span class="type-token-badge">.hero-title-final</span></td>
+              <td><code style="font-size: 11px;">clamp(2.3rem, 3.6vw, 3.2rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(37px a 51px)</span></td>
+              <td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.12</span></td>
+              <td><code>-0.025em</code></td>
+              <td>
+                <h1 style="font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; color: #0A1C2E; letter-spacing: -0.025em; margin: 0;">
+                  Empresas crescem quando <span style="color: var(--color-gold);">pessoas</span> evoluem.
+                </h1>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>H2 Central (Seções)</strong></td>
+              <td><span class="type-token-badge">.section-title-center-final</span></td>
+              <td><code style="font-size: 11px;">clamp(1.8rem, 2.6vw, 2.3rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(29px a 37px)</span></td>
+              <td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td>
+              <td><code>-0.025em</code></td>
+              <td>
+                <h2 style="font-size: 24px; font-weight: 800; color: #0B1B2C; margin: 0; line-height: 1.25; letter-spacing: -0.025em;">
+                  Como saber se a sua empresa precisa da PowerRH?
+                </h2>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>H2 Bento (Soluções)</strong></td>
+              <td><span class="type-token-badge">.solucoes-main-title</span></td>
+              <td><code style="font-size: 11px;">clamp(28px, 3.6vw, 40px)</code></td>
+              <td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td>
+              <td><code>-0.020em</code></td>
+              <td>
+                <h2 style="font-size: 22px; font-weight: 800; color: #0A1F33; margin: 0; line-height: 1.25; letter-spacing: -0.02em;">
+                  Soluções estratégicas para fortalecer cultura, liderança e legado.
+                </h2>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>H2 Lateral (Processo)</strong></td>
+              <td><span class="type-token-badge">.processo-title-final</span></td>
+              <td><code style="font-size: 11px;">clamp(1.8rem, 2.6vw, 2.4rem)</code><br><span style="color: var(--text-muted); font-size: 11px;">(29px a 38px)</span></td>
+              <td><strong>ExtraBold 800</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.20</span></td>
+              <td><code>-0.025em</code></td>
+              <td>
+                <h2 style="font-size: 22px; font-weight: 800; color: #0B1B2C; margin: 0; line-height: 1.25; letter-spacing: -0.025em;">
+                  Um processo claro, próximo e eficaz.
+                </h2>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>H3 Cards (Módulos)</strong></td>
+              <td><span class="type-token-badge">.solucao-card-title</span></td>
+              <td><code>18px / 1.125rem</code></td>
+              <td><strong>Bold 700</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.30</span></td>
+              <td><code>-0.015em</code></td>
+              <td>
+                <h3 style="font-size: 18px; font-weight: 700; color: #0B1B2C; margin: 0;">
+                  Cultura & Estrutura Organizacional
+                </h3>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>H4 Cards (Diagnóstico)</strong></td>
+              <td><span class="type-token-badge">.quando-hora-card-title</span></td>
+              <td><code>15px a 16px / 1.00rem</code></td>
+              <td><strong>Bold 700</strong><br><span style="color: var(--text-muted); font-size: 11px;">lh: 1.35</span></td>
+              <td><code>normal</code></td>
+              <td>
+                <h4 style="font-size: 15px; font-weight: 700; color: #0B1B2C; margin: 0;">
+                  Desafios de liderança ou desalinhamento de cultura que impactam resultados.
+                </h4>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===================================================================
+           SHOWCASE DOS 3 PADRÕES DE EYEBROWS (CHAPÉUS DE SEÇÃO)
+           =================================================================== -->
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Padrões de EYEBROWS (Chapéus & Kickers de Seção)</span>
+          <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border); font-weight: 700;">
+            UPPERCASE OBRIGATÓRIO
+          </span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-4);">
+          O chapéu editorial contextualiza a seção antes da headline principal. São sempre em caixa alta, dourados e com tracking aberto.
+        </p>
+
+        <div class="eyebrow-showcase-grid">
+          <!-- 1. Eyebrow Hero Padrão -->
+          <div class="eyebrow-showcase-box">
+            <div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">
+              01. Eyebrow Hero (.hero-eyebrow-final)
+            </div>
+            <div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm);">
+              <span class="hero-eyebrow-final" style="margin: 0;">CONSULTORIA ESTRATÉGICA EM PESSOAS</span>
+            </div>
+            <div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+              <strong>Specs:</strong> 12px | ExtraBold 800 | UPPERCASE | letter-spacing 0.10em | cor #C48D47
+            </div>
+          </div>
+
+          <!-- 2. Eyebrow Divider Central -->
+          <div class="eyebrow-showcase-box">
+            <div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">
+              02. Eyebrow Divider Central (.section-eyebrow-divider)
+            </div>
+            <div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm); text-align: center;">
+              <div class="section-eyebrow-divider" style="margin: 0;">
+                <span>MOMENTO DE DECISÃO</span>
+              </div>
+            </div>
+            <div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+              <strong>Specs:</strong> 12px | ExtraBold 800 | UPPERCASE | tracking 0.16em | Linhas laterais douradas de 48px
+            </div>
+          </div>
+
+          <!-- 3. Eyebrow Bento Soluções -->
+          <div class="eyebrow-showcase-box">
+            <div style="font-size: 11px; font-family: var(--font-family-mono); color: var(--text-muted); margin-bottom: 8px;">
+              03. Eyebrow Bento Soluções (.solucoes-eyebrow-wrap)
+            </div>
+            <div style="padding: 16px; background-color: var(--color-bg-warm); border-radius: var(--radius-md); border: 1px solid var(--color-border-warm); text-align: center;">
+              <div class="solucoes-eyebrow-wrap" style="margin: 0;">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">NOSSAS SOLUÇÕES</span>
+                <span class="eyebrow-line"></span>
+              </div>
+            </div>
+            <div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+              <strong>Specs:</strong> 13px | Bold 700 | UPPERCASE | tracking 0.15em | Linhas laterais douradas de 36px
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           SHOWCASE DOS TEXTOS & CORPO DE LEITURA (BODY COPY)
+           =================================================================== -->
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Textos de Leitura, Subtítulos e Métricas Numéricas</span>
+          <span class="badge">Sentence case / Proporção Áurea</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+          <!-- Subtítulo Hero -->
+          <div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);">
+            <div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">
+              .hero-subtitle-final (15px / lh: 1.48 / #4A5568)
+            </div>
+            <p class="hero-subtitle-final" style="margin: 0;">
+              Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis.
+            </p>
+          </div>
+
+          <!-- Subtítulo de Seção -->
+          <div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);">
+            <div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">
+              .section-subtitle (15px-16px / lh: 1.55 / #4A5568)
+            </div>
+            <p class="section-subtitle" style="margin: 0;">
+              Mais de 15 anos de atuação integrando cultura, desenvolvimento de líderes e governança para organizações em crescimento.
+            </p>
+          </div>
+
+          <!-- Parágrafo Regular de Artigo / Leitura -->
+          <div style="background: var(--bg-surface-subtle); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);">
+            <div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">
+              Corpo Regular &lt;p&gt; (16px / 1.00rem / lh: 1.65 / #212529)
+            </div>
+            <p style="font-size: 16px; line-height: 1.65; color: #212529; margin: 0;">
+              A consultoria atua diretamente na arquitetura organizacional, alinhando objetivos de negócio ao comportamento diário das equipes.
+            </p>
+          </div>
+
+          <!-- Métricas Numéricas de Impacto -->
+          <div style="background: var(--color-bg-warm); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px solid var(--color-border-warm);">
+            <div style="font-family: var(--font-family-mono); font-size: 11px; color: var(--color-gold-dark); font-weight: 700; margin-bottom: 6px;">
+              .s2-metric-number (clamp 34px-40px / ExtraBold 800 / Dourado)
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 12px;">
+              <span class="s2-metric-number" style="margin: 0; font-size: 36px;">+9.000</span>
+              <span style="font-size: 13px; font-weight: 600; color: #4A5568;">pessoas desenvolvidas com método e governança</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -644,57 +1056,254 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="container container-wide">
       <div class="section-header">
         <span class="section-eyebrow">Seção 04</span>
-        <h2 class="section-title">Botões, Estados de Ação e Badges</h2>
+        <h2 class="section-title">Botões, Estados de Ação e Badges Oficiais</h2>
         <p class="section-subtitle">
-          Conjunto de botões semânticos testados para garantir feedback tátil, estados de hover, foco visível e acessibilidade.
+          Biblioteca completa de botões executivos da <strong>PowerRH</strong>. Estilizados com o degradê metálico dourado oficial da marca (#CB9857 → #B87B2E), cantos arredondados pill, feedback tátil e variantes para superfície clara e escura.
         </p>
       </div>
 
+      <!-- ===================================================================
+           PAINEL 1: HIERARQUIA CANÔNICA DE BOTÕES (DOURADO / AMARELO & VARIANTES)
+           =================================================================== -->
       <div class="comp-panel">
         <div class="comp-panel-header">
-          <span class="comp-panel-title">Hierarquia de Botões</span>
+          <span class="comp-panel-title">Hierarquia de Botões da Marca PowerRH (Identidade Homologada)</span>
+          <span class="badge" style="background: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">
+            Paleta Ouro Oficial
+          </span>
         </div>
-        <div class="comp-demo-row">
-          <button type="button" class="btn btn-primary">Botão Primário →</button>
-          <button type="button" class="btn btn-secondary">Botão Secundário</button>
-          <button type="button" class="btn btn-outline">Botão Contorno</button>
-          <button type="button" class="btn btn-ghost">Botão Ghost</button>
-          <button type="button" class="btn btn-primary" disabled>Desabilitado</button>
+        
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: var(--space-5);">
+          O botão de conversão da PowerRH é amarelo dourado com degradê metálico sutil, texto branco em caixa alta e sombra com glow dourado.
+        </p>
+
+        <div class="comp-demo-row" style="margin-bottom: var(--space-6);">
+          <!-- 1. Botão Primário Gold -->
+          <button type="button" class="btn btn-gold">
+            QUERO UM DIAGNÓSTICO →
+          </button>
+
+          <!-- 2. Hero Pill CTA -->
+          <button type="button" class="btn btn-hero-pill">
+            HERO PILL CTA →
+          </button>
+
+          <!-- 3. Botão Secundário Executivo -->
+          <button type="button" class="btn btn-secondary">
+            Falar com a Especialista
+          </button>
+
+          <!-- 4. Botão Contorno Ouro -->
+          <button type="button" class="btn btn-outline">
+            Ver Todas as Soluções
+          </button>
+
+          <!-- 5. Botão Navy de Autoridade -->
+          <button type="button" class="btn btn-navy">
+            Área Institucional →
+          </button>
+
+          <!-- 6. Botão Ghost -->
+          <button type="button" class="btn btn-ghost">
+            Conhecer Metodologia →
+          </button>
+
+          <!-- 7. Desabilitado -->
+          <button type="button" class="btn btn-gold" disabled>
+            Ação Indisponível
+          </button>
         </div>
 
-        <div style="background-color: var(--color-gray-900); padding: var(--space-6); border-radius: var(--radius-lg); margin-top: var(--space-4);">
-          <div style="font-size: 12px; color: var(--color-gray-400); margin-bottom: var(--space-3); text-transform: uppercase; font-weight: 700;">Em Superfície Inversa (Escura)</div>
+        <!-- ===================================================================
+             EM SUPERFÍCIE ESCURA (NAVY PROFUNDO #01243E & RODAPÉ #081624)
+             =================================================================== -->
+        <div style="background-color: var(--color-navy-deep); padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid rgba(200, 138, 59, 0.35); box-shadow: 0 12px 32px -6px rgba(1, 36, 62, 0.5);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 12px; color: #E5AF63; text-transform: uppercase; font-weight: 800; letter-spacing: 0.12em;">
+                Em Superfície Escura (Navy Deep #01243E & Rodapé Institucional)
+              </div>
+              <div style="font-size: 12.5px; color: rgba(255, 255, 255, 0.75); margin-top: 2px;">
+                Ouro metálico sobre fundo azul marinho profundo é a assinatura máxima de autoridade da marca.
+              </div>
+            </div>
+            <span class="badge" style="background: rgba(200, 138, 59, 0.2); color: #E5AF63; border-color: rgba(200, 138, 59, 0.4);">
+              Alto Contraste AAA
+            </span>
+          </div>
+
           <div class="comp-demo-row" style="margin-bottom: 0;">
-            <button type="button" class="btn btn-inverse">Botão Inverso Primário →</button>
-            <button type="button" class="btn btn-inverse-outline">Botão Inverso Contorno</button>
+            <!-- Ouro no Navy -->
+            <button type="button" class="btn btn-gold">
+              SOLICITAR DIAGNÓSTICO →
+            </button>
+
+            <!-- Inverso Branco -->
+            <button type="button" class="btn btn-secondary" style="background-color: #FFFFFF; color: #01243E; border-color: transparent;">
+              Botão Inverso Branco →
+            </button>
+
+            <!-- Inverso Contorno Branco/Dourado -->
+            <button type="button" class="btn btn-inverse-outline">
+              Botão Inverso Contorno
+            </button>
           </div>
         </div>
       </div>
 
+      <!-- ===================================================================
+           PAINEL 2: TAMANHOS E MODIFICADORES DE FORMA
+           =================================================================== -->
       <div class="comp-panel">
         <div class="comp-panel-header">
-          <span class="comp-panel-title">Tamanhos e Modificadores de Forma</span>
+          <span class="comp-panel-title">Tamanhos Padronizados e Modificadores de Forma</span>
+          <span class="badge">Pill 9999px / Grid 4px</span>
         </div>
+
         <div class="comp-demo-row">
-          <button type="button" class="btn btn-primary btn-sm">Small (btn-sm)</button>
-          <button type="button" class="btn btn-primary">Padrão (14px)</button>
-          <button type="button" class="btn btn-primary btn-lg">Large (btn-lg) →</button>
-          <button type="button" class="btn btn-primary btn-pill">Pill Arredondado</button>
-          <button type="button" class="btn btn-primary btn-icon-only" aria-label="Seta para a direita">→</button>
+          <button type="button" class="btn btn-gold btn-sm">
+            Small (btn-sm • 12px)
+          </button>
+
+          <button type="button" class="btn btn-gold">
+            Padrão (btn-gold • 13.5px)
+          </button>
+
+          <button type="button" class="btn btn-gold btn-lg">
+            Large (btn-lg • 14.5px) →
+          </button>
+
+          <button type="button" class="btn btn-gold btn-pill">
+            Pill Arredondado
+          </button>
+
+          <button type="button" class="btn btn-gold btn-icon-only" aria-label="Seta para a direita">
+            →
+          </button>
+        </div>
+
+        <!-- Botão de Formulário Full-Width -->
+        <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--bg-surface-subtle); border-radius: var(--radius-lg); border: 1px solid var(--border-hairline);">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">
+            Botão de Formulário de Conversão (.btn-form-submit):
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
+            Utilizado no box de captura do Hero e rodapé. Altura de 40px a 44px, cantos arredondados e preenchimento responsivo.
+          </div>
+          <div style="max-width: 380px;">
+            <button type="button" class="btn-form-submit" style="width: 100%; height: 42px;">
+              SOLICITAR DIAGNÓSTICO GRATUITO →
+            </button>
+          </div>
         </div>
       </div>
 
+      <!-- ===================================================================
+           PAINEL 3: TABELA TÉCNICA DE ESPECIFICAÇÃO DOS BOTÕES
+           =================================================================== -->
       <div class="comp-panel">
         <div class="comp-panel-header">
-          <span class="comp-panel-title">Badges, Pills & Eyebrows</span>
+          <span class="comp-panel-title">Tabela Técnica de Referência dos Botões</span>
+          <span class="badge">Tokens Semânticos</span>
+        </div>
+
+        <table class="btn-specimen-table">
+          <thead>
+            <tr>
+              <th>Variante</th>
+              <th>Classe CSS</th>
+              <th>Background</th>
+              <th>Cor do Texto</th>
+              <th>Border-Radius</th>
+              <th>Aplicação Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CTA Ouro Primário</strong></td>
+              <td><span class="type-token-badge">.btn-gold / .btn-primary</span></td>
+              <td><code style="font-size: 11px;">linear-gradient(135deg, #CB9857 0%, #B87B2E 100%)</code></td>
+              <td>#FFFFFF</td>
+              <td>9999px (Pill)</td>
+              <td>Header, Hero e CTAs principais de conversão</td>
+            </tr>
+
+            <tr>
+              <td><strong>Hero Pill Proeminente</strong></td>
+              <td><span class="type-token-badge">.btn-hero-pill</span></td>
+              <td><code style="font-size: 11px;">linear-gradient(135deg, #C58E49 0%, #AF7733 100%)</code></td>
+              <td>#FFFFFF</td>
+              <td>9999px (Pill)</td>
+              <td>Hero section e banners de alto impacto</td>
+            </tr>
+
+            <tr>
+              <td><strong>Secundário Executivo</strong></td>
+              <td><span class="type-token-badge">.btn-secondary</span></td>
+              <td>#FFFFFF</td>
+              <td>#01243E (Navy)</td>
+              <td>9999px (Pill)</td>
+              <td>Ações secundárias, downloads e links institucionais</td>
+            </tr>
+
+            <tr>
+              <td><strong>Contorno Dourado</strong></td>
+              <td><span class="type-token-badge">.btn-outline</span></td>
+              <td>Transparente (Borda 1.5px #C88A3B)</td>
+              <td>#9A621D</td>
+              <td>9999px (Pill)</td>
+              <td>Navegação secundária e botões sobre fundos claros</td>
+            </tr>
+
+            <tr>
+              <td><strong>Navy de Autoridade</strong></td>
+              <td><span class="type-token-badge">.btn-navy</span></td>
+              <td>#01243E (Azul Noturno)</td>
+              <td>#FFFFFF</td>
+              <td>9999px (Pill)</td>
+              <td>Ações com ênfase de seriedade e governança</td>
+            </tr>
+
+            <tr>
+              <td><strong>Envio de Formulário</strong></td>
+              <td><span class="type-token-badge">.btn-form-submit</span></td>
+              <td><code style="font-size: 11px;">linear-gradient(135deg, #C58E49 0%, #AF7733 100%)</code></td>
+              <td>#FFFFFF</td>
+              <td>9999px (Pill)</td>
+              <td>Formulários de captura de leads e diagnósticos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===================================================================
+           PAINEL 4: BADGES, PILLS & EYEBROWS
+           =================================================================== -->
+      <div class="comp-panel">
+        <div class="comp-panel-header">
+          <span class="comp-panel-title">Badges, Pills & Marcadores de Status</span>
+          <span class="badge">Identidade Oficial</span>
         </div>
         <div class="comp-demo-row">
-          <span class="badge"><span class="badge-dot"></span> Padrão Neutro</span>
-          <span class="badge badge-outline">Badge Contorno</span>
-          <span class="section-eyebrow">Eyebrow de Seção</span>
+          <span class="badge" style="background-color: var(--color-gold-light); color: var(--color-gold-dark); border-color: var(--color-gold-border);">
+            <span class="badge-dot" style="background-color: var(--color-gold);"></span>
+            Badge Ouro Oficial
+          </span>
+
+          <span class="badge badge-outline" style="border-color: var(--color-gold); color: var(--color-gold-dark);">
+            Badge Contorno Dourado
+          </span>
+
+          <span class="section-eyebrow" style="margin: 0;">
+            Eyebrow de Seção (12px Uppercase)
+          </span>
         </div>
-        <div style="background-color: var(--color-gray-900); padding: var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-3); display: inline-flex;">
-          <span class="badge badge-inverse"><span class="badge-dot"></span> Badge Inversa Escura</span>
+
+        <div style="background-color: var(--color-navy-deep); padding: var(--space-4); border-radius: var(--radius-lg); margin-top: var(--space-4); display: inline-flex;">
+          <span class="badge" style="background: rgba(200, 138, 59, 0.2); color: #E5AF63; border-color: rgba(200, 138, 59, 0.4);">
+            <span class="badge-dot" style="background-color: #E5AF63;"></span>
+            Badge em Superfície Navy Escura
+          </span>
         </div>
       </div>
     </div>
@@ -752,8 +1361,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               </select>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-3); padding: 14px;">
-              Solicitar diagnóstico gratuito →
+            <button type="submit" class="btn-form-submit" style="width: 100%; height: 46px; margin-top: var(--space-4); font-size: 13px;">
+              SOLICITAR DIAGNÓSTICO GRATUITO →
             </button>
 
             <div class="form-security-note">
@@ -1033,7 +1642,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-6);">
               Entenda como a PowerRH conduz diagnósticos, formata projetos sob medida e atua junto a líderes e empresas familiares.
             </p>
-            <a href="index-wireframe.html#contato" class="btn btn-secondary btn-sm">Falar diretamente com a equipe →</a>
+            <a href={`${base}/#formulario-diagnostico`} class="btn-gold" style="font-size: 13px; padding: 10px 22px; text-decoration: none; display: inline-flex;">Falar diretamente com a equipe →</a>
           </div>
 
           <div class="accordion">
@@ -1118,7 +1727,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 Soluções desenhadas sob medida para a sua realidade
               </li>
             </ul>
-            <a href="index-wireframe.html#contato" class="btn btn-inverse btn-lg">Quero falar com a Graciete →</a>
+            <a href={`${base}/#formulario-diagnostico`} class="btn-hero-pill" style="font-size: 14px; text-decoration: none; padding: 14px 34px;">Quero falar com a Graciete →</a>
           </div>
         </div>
       </div>

@@ -84,30 +84,68 @@ public/
 - **Família de Assinatura:** `'Alex Brush', 'Caveat', cursive` *(Exclusiva para títulos destacados e assinatura da fundadora)*
 - **Família Monospaçada:** `'JetBrains Mono', 'Fira Code', monospace`
 
-### 4.1 Escala Modular
-| Token | Rem | Pixels Equivalentes | Aplicação Típica |
-| :--- | :--- | :--- | :--- |
-| `--font-size-xs` | `0.75rem` | `12px` | Eyebrows, badges, notas de segurança |
-| `--font-size-sm` | `0.875rem` | `14px` | Botões padrão, menus, inputs |
-| `--font-size-base`| `1.000rem` | `16px` | Corpo de texto regular, parágrafos |
-| `--font-size-md` | `1.125rem` | `18px` | Subtítulos de seções, destaques médios |
-| `--font-size-lg` | `1.250rem` | `20px` | Títulos de cards e depoimentos |
-| `--font-size-xl` | `1.500rem` | `24px` | Chamadas e subtítulos |
-| `--font-size-2xl` | `1.875rem` | `30px` | Valores de métricas (+120, +9.000) |
-| `--font-size-3xl` | `2.250rem` | `36px` | H2, títulos de grandes seções |
-| `--font-size-5xl` | `3.500rem` | `56px` | H1 Desktop (Hero Section) |
+### 4.1 Regra Canônica de Capitalização (Casing Rule)
+> [!IMPORTANT]
+> - **HEADLINES NÃO SÃO MAIÚSCULA:** Títulos (H1, H2, H3, H4) utilizam **estritamente Sentence case** (Caixa Alta e Baixa natural — apenas a primeira letra da frase em maiúscula). Jamais aplicar `text-transform: uppercase` em títulos corporativos!
+>   - *Correto:* `Empresas crescem quando pessoas evoluem.` (H1) / `Como saber se a sua empresa precisa da PowerRH?` (H2)
+>   - *Incorreto:* `EMPRESAS CRESCEM QUANDO PESSOAS EVOLUEM.`
+> - **UPPERCASE EXCLUSIVO:** O uso de `text-transform: uppercase` é restrito e reservado a:
+>   - **Eyebrows (Chapéus):** 12px a 13px, tracking 0.10em a 0.16em, ouro `#C48D47`. Ex: `CONSULTORIA ESTRATÉGICA EM PESSOAS`.
+>   - **Botões & CTAs:** 12.5px a 13.5px, bold 700, tracking 0.02em a 0.03em. Ex: `QUERO UM DIAGNÓSTICO →`.
+>   - **Mini-Badges / Chips:** 9px a 11px, bold, tracking 0.05em. Ex: `VISÃO ESTRATÉGICA`.
+
+### 4.2 Especificação dos Headlines (Títulos Oficiais)
+| Nível / Tag | Classe CSS | Tamanho (rem / px / clamp) | Peso & Leading | Tracking | Casing |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **H1 Hero** | `.hero-title-final` | `clamp(2.3rem, 3.6vw, 3.2rem)` (37px a 51px) | ExtraBold 800 / 1.12 | `-0.025em` | Sentence case |
+| **H2 Seções Central** | `.section-title-center-final` | `clamp(1.8rem, 2.6vw, 2.3rem)` (29px a 37px) | ExtraBold 800 / 1.20 | `-0.025em` | Sentence case |
+| **H2 Bento Soluções** | `.solucoes-main-title` | `clamp(28px, 3.6vw, 40px)` | ExtraBold 800 / 1.20 | `-0.020em` | Sentence case |
+| **H2 Processo / Sobre**| `.processo-title-final` | `clamp(1.8rem, 2.6vw, 2.4rem)` (29px a 38px) | ExtraBold 800 / 1.20 | `-0.025em` | Sentence case |
+| **H3 Cards Módulos** | `.solucao-card-title` | `18px` a `20px` (1.125rem a 1.25rem) | Bold 700 / 1.30 | `-0.015em` | Sentence case |
+| **H4 Diagnóstico** | `.quando-hora-card-title` | `15px` a `16px` (1.000rem) | Bold 700 / 1.35 | `normal` | Sentence case |
+
+### 4.3 Especificação dos Eyebrows (Chapéus)
+| Padrão | Classe CSS | Tamanho | Peso | Tracking | Casing | Elementos Visuais |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Hero Eyebrow** | `.hero-eyebrow-final` | `12px` | ExtraBold 800 | `0.10em` | UPPERCASE | Cor `#C48D47` |
+| **Divider Central** | `.section-eyebrow-divider` | `12px` | ExtraBold 800 | `0.16em` | UPPERCASE | Duas linhas laterais douradas de 48px (`::before`, `::after`) |
+| **Bento Soluções** | `.solucoes-eyebrow-wrap` | `13px` | Bold 700 | `0.15em` | UPPERCASE | Linhas laterais douradas de 36px |
+
+### 4.4 Textos de Leitura (Body Copy) & Métricas
+| Aplicação | Classe / Tag | Tamanho | Peso | Line-Height | Cor |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Subtítulo Hero** | `.hero-subtitle-final` | `15px` | Regular 400 | `1.48` | `#4A5568` |
+| **Subtítulo de Seção** | `.section-subtitle` | `15px a 16px` | Regular 400 | `1.55` | `#4A5568` |
+| **Corpo Regular** | `<p>`, `.text-base` | `16px` | Regular 400 | `1.65` | `#212529` |
+| **Cards & Depoimentos** | `.card-desc` | `14px` | Regular 400 | `1.50` | `#4A5568` |
+| **Microcopy & Segurança** | `.form-security-badge` | `11px a 12px` | Regular 400 | `1.30` | `#64748B` |
+| **Métricas Numéricas** | `.s2-metric-number` | `clamp(34px, 2.6vw, 40px)` | ExtraBold 800 | `1.10` | `#C48D47` |
 
 ---
 
-## 🧩 5. Catálogo de UI Primitives (`src/components/ui/`)
+## 🔘 5. Catálogo de Botões & Ações
+
+| Variante | Classe CSS | Background | Cor do Texto | Border Radius | Aplicação |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **CTA Ouro Primário** | `.btn-gold` / `.btn-primary` | `linear-gradient(135deg, #CB9857 0%, #B87B2E 100%)` | `#FFFFFF` | `9999px` | Header, Hero e CTAs principais |
+| **Hero Pill CTA** | `.btn-hero-pill` | `linear-gradient(135deg, #C58E49 0%, #AF7733 100%)` | `#FFFFFF` | `9999px` | Hero section e banners |
+| **Secundário Executivo** | `.btn-secondary` | `#FFFFFF` | `#01243E` (Navy) | `9999px` | Borda dourada suave e ações secundárias |
+| **Contorno Ouro** | `.btn-outline` | Transparente (Borda 1.5px `#C88A3B`) | `#9A621D` | `9999px` | Ações de exploração em fundo claro |
+| **Navy de Autoridade** | `.btn-navy` | `#01243E` (Azul Oceânico) | `#FFFFFF` | `9999px` | Ações institucionais de governança |
+| **Envio de Formulário** | `.btn-form-submit` | `linear-gradient(135deg, #C58E49 0%, #AF7733 100%)` | `#FFFFFF` | `9999px` | Formulário de diagnóstico |
+| **Inverso Branco (Dark)** | `.btn-inverse` | `#FFFFFF` | `#01243E` | `9999px` | Sobre superfície escura (Navy / Rodapé) |
+
+---
+
+## 🧩 6. Catálogo de UI Primitives (`src/components/ui/`)
 
 1. **`Container.astro`**: Define os limites de largura responsiva da página (`default: 1140px`, `wide: 1240px`).
-2. **`Button.astro`**: Botão polimórfico (`<a>` ou `<button>`) com variantes `gold`, `hero-pill`, `form-submit` e `outline`.
+2. **`Button.astro`**: Botão polimórfico (`<a>` ou `<button>`) com variantes `gold`, `hero-pill`, `form-submit`, `secondary`, `outline` e `navy`.
 3. **`SectionHeader.astro`**: Título padronizado com eyebrow decorativo, alinhamento central ou à esquerda.
 
 ---
 
-## 💻 6. Consumo & Manutenção
+## 💻 7. Consumo & Manutenção
 
 Para adicionar novas seções ou páginas no projeto mantendo fidelidade total ao Design System:
 

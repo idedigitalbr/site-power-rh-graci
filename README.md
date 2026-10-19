@@ -32,6 +32,7 @@ npm run preview
 | Página | Descrição | Rota Astro / GitHub Pages | Arquivo Fonte |
 | :--- | :--- | :--- | :--- |
 | **✨ Site Oficial PowerRH** | Versão definitiva pixel-perfect com fotografia executiva, paleta ouro/navy e componentes modulares | [`/`](https://idedigitalbr.github.io/site-power-rh-graci/) | `src/pages/index.astro` |
+| **🏛️ Sobre Nós** | História institucional, trajetória da fundadora Graciete Corrêa, métricas de autoridade, fundamentos (missão, visão, valores) e tríade estratégica | [`/sobre`](https://idedigitalbr.github.io/site-power-rh-graci/sobre) | `src/pages/sobre.astro` |
 | **📐 Design System** | Biblioteca viva de componentes, tokens semânticos e documentação visual oficial (link no rodapé) | [`/design-system`](https://idedigitalbr.github.io/site-power-rh-graci/design-system) | `src/pages/design-system.astro` |
 
 ---

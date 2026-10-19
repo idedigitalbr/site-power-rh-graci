@@ -1,12 +1,21 @@
 ---
 // S5Processo.astro — Seção Como Trabalhamos (Método estruturado em 4 etapas)
 import Container from '../ui/Container.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import OrganicTransition from '../ui/OrganicTransition.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { processo } = siteContent;
 ---
 
 <section class="section-processo-final">
+  <!-- Transição Orgânica Sutil (cor exata de S4 #FAF7F2, 0 filete branco) -->
+  <OrganicTransition position="top" fill="#FAF7F2" direction="sweep-a" height={32} />
+
+  <!-- Arcos Dourados Finos Orgânicos nas Bordas -->
+  <GoldenArcs position="left" variant="intersect-left" />
+  <GoldenArcs position="right" variant="arcs-right" />
+
   <Container size="wide">
     <div class="processo-header-layout-final">
       <div>
@@ -26,4 +35,7 @@ const { processo } = siteContent;
       </div>
     </div>
   </Container>
+
+  <!-- Transição Orgânica Sutil (entrega suavemente em S6 #FFFFFF) -->
+  <OrganicTransition position="bottom" fill="#FFFFFF" direction="sweep-b" height={32} />
 </section>

@@ -1,0 +1,47 @@
+---
+interface Props {
+  position?: 'top' | 'bottom';
+  fill?: string;
+  height?: number;
+  class?: string;
+}
+
+const {
+  position = 'top',
+  fill = '#FFFFFF',
+  height = 18,
+  class: className = '',
+} = Astro.props;
+---
+
+<div
+  class={`section-divider-curve curve-${position} ${className}`.trim()}
+  style={`--divider-h: ${height}px;`}
+  aria-hidden="true"
+>
+  {position === 'top' ? (
+    <svg
+      viewBox="0 0 1440 24"
+      fill="none"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,0 L1440,0 L1440,20 C960,18 480,8 0,4 Z"
+        fill={fill}
+      />
+    </svg>
+  ) : (
+    <svg
+      viewBox="0 0 1440 24"
+      fill="none"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,24 L1440,24 L1440,4 C960,8 480,18 0,20 Z"
+        fill={fill}
+      />
+    </svg>
+  )}
+</div>

@@ -1,0 +1,194 @@
+---
+// SobreGaleriaAtuacao.astro — S4 SEÇÃO COM GALERIA DE FOTOS (Identidade Visual 100% Unificada com a Home da PowerRH)
+import Container from '../ui/Container.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import OrganicTransition from '../ui/OrganicTransition.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Fotos reais do acervo oficial da PowerRH
+const fotosGaleria = {
+  destaque: 'assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/14_discussao_estrategica_janela_ampla.webp',
+  apoio1: 'assets/imagens-diversas/fotos_graci_ia/04_SOLUCAO_LIDERANCA_E_DESENVOLVIMENTO/10_conversa_executiva_terraco.webp',
+  apoio2: 'assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp',
+};
+---
+
+<section class="section-diferenciais-final sobre-galeria-section" id="atuacao">
+  <!-- Arcos Dourados Celestes no Fundo Dark Navy (Idêntico a S7 Diferenciais da Home) -->
+  <GoldenArcs position="left" variant="halo-navy" />
+  <GoldenArcs position="right" variant="intersect-right" />
+
+  <Container size="wide">
+    <div class="diferenciais-grid-final">
+      <!-- Lado Esquerdo: Galeria Executiva de Fotos Reais da PowerRH -->
+      <div class="sobre-galeria-bento">
+        <!-- Foto Principal Ampla: Discussão Estratégica em Sala de Reunião -->
+        <div class="galeria-photo-card card-wide">
+          <img
+            src={`${base}/${fotosGaleria.destaque}`}
+            alt="Graciete Corrêa conduzindo alinhamento estratégico com lideranças"
+            class="galeria-img"
+            loading="lazy"
+          />
+          <div class="galeria-pill-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>ATUAÇÃO EM CAMPO</span>
+          </div>
+        </div>
+
+        <!-- 2 Fotos Secundárias Lado a Lado -->
+        <div class="galeria-row-sub">
+          <div class="galeria-photo-card card-sub">
+            <img
+              src={`${base}/${fotosGaleria.apoio1}`}
+              alt="Mentoria executiva e aconselhamento de liderança"
+              class="galeria-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="galeria-photo-card card-sub">
+            <img
+              src={`${base}/${fotosGaleria.apoio2}`}
+              alt="Reunião executiva de governança e fechamento de projetos"
+              class="galeria-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito: 4 Áreas de Atuação (Classes Oficiais da Home S7) -->
+      <div>
+        <span class="diferenciais-eyebrow">NOSSA ATUAÇÃO</span>
+        <h2 class="diferenciais-title-final">Precisão estratégica em cada etapa da gestão de pessoas.</h2>
+
+        <div class="diferenciais-cards-grid">
+          <!-- Card 1: Estratégia -->
+          <div class="diferencial-card-single">
+            <div class="diferencial-icon-final">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3 class="diferencial-name-final">Estratégia &amp; Diagnóstico</h3>
+            <p class="diferencial-desc-final">Mapeamento da maturidade de gestão, planejamento e alinhamento de pessoas aos objetivos centrais do negócio.</p>
+          </div>
+
+          <!-- Card 2: Cultura -->
+          <div class="diferencial-card-single">
+            <div class="diferencial-icon-final">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+            </div>
+            <h3 class="diferencial-name-final">Cultura &amp; Clima</h3>
+            <p class="diferencial-desc-final">Rituais vivos, fortalecimento do pertencimento e retenção de talentos-chave com metodologia humanizada.</p>
+          </div>
+
+          <!-- Card 3: Liderança -->
+          <div class="diferencial-card-single">
+            <div class="diferencial-icon-final">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="diferencial-name-final">Formação de Líderes</h3>
+            <p class="diferencial-desc-final">Capacitação prática, mentoria executiva e preparação de gestores para tomada de decisão e alta performance.</p>
+          </div>
+
+          <!-- Card 4: Governança -->
+          <div class="diferencial-card-single">
+            <div class="diferencial-icon-final">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="diferencial-name-final">Governança &amp; Sucessão</h3>
+            <p class="diferencial-desc-final">Acordos societários, estruturação de conselhos e transição geracional segura para empresas familiares.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+
+  <!-- Transição Orgânica Sutil (entrega no fundo branco da seção Depoimentos da Home) -->
+  <OrganicTransition position="bottom" fill="#FFFFFF" direction="sweep-a" height={32} />
+</section>
+
+<style>
+  .sobre-galeria-section {
+    padding: 100px 0 110px;
+  }
+
+  .sobre-galeria-bento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .galeria-photo-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(200, 138, 59, 0.28);
+    background: #061626;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-wide {
+    height: 250px;
+  }
+
+  .galeria-row-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card-sub {
+    height: 180px;
+  }
+
+  .galeria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), filter 350ms ease;
+    filter: brightness(0.92) contrast(1.05);
+  }
+
+  .galeria-photo-card:hover .galeria-img {
+    transform: scale(1.04);
+    filter: brightness(1) contrast(1.1);
+  }
+
+  .galeria-pill-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(1, 36, 62, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(200, 138, 59, 0.4);
+    color: var(--final-gold, #C88A3B);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+</style>

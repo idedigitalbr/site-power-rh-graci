@@ -31,6 +31,7 @@
   --color-navy-border: rgba(255, 255, 255, 0.1);
 
   --color-bg-warm: #FCFAF7;
+  --color-bg-sand: #F6DAAA;
   --color-card-warm: #FDEEDB;
   --color-border-warm: #EDE7DD;
 
@@ -51,6 +52,7 @@
   --final-navy-surface: var(--color-navy-surface);
   --final-navy-border: var(--color-navy-border);
   --final-bg-warm: var(--color-bg-warm);
+  --final-bg-sand: var(--color-bg-sand);
   --final-card-warm: var(--color-card-warm);
   --final-border-subtle: var(--color-border-warm);
 
@@ -105,36 +107,36 @@
   --border-inverse-subtle: #3d434a;
 
   /* Ações & Interatividade (Botões, Links, Focus) */
-  --action-primary-bg: var(--color-gray-900);
-  --action-primary-hover: var(--color-gray-800);
-  --action-primary-active: var(--color-black);
+  --action-primary-bg: var(--color-gold);
+  --action-primary-hover: var(--color-gold-hover);
+  --action-primary-active: var(--color-gold-dark);
   --action-primary-text: var(--color-white);
 
   --action-secondary-bg: var(--color-white);
-  --action-secondary-border: var(--color-gray-300);
-  --action-secondary-hover: var(--color-gray-100);
-  --action-secondary-text: var(--color-gray-900);
+  --action-secondary-border: var(--color-gold-border);
+  --action-secondary-hover: var(--color-gold-light);
+  --action-secondary-text: var(--color-gold-dark);
 
-  --action-inverse-bg: var(--color-white);
-  --action-inverse-hover: var(--color-gray-100);
-  --action-inverse-text: var(--color-gray-950);
+  --action-inverse-bg: var(--color-gold-gradient);
+  --action-inverse-hover: linear-gradient(135deg, #B87B2E 0%, #A6681E 100%);
+  --action-inverse-text: var(--color-white);
 
-  --action-ghost-hover: var(--color-gray-100);
+  --action-ghost-hover: var(--color-gold-light);
   --action-disabled-bg: var(--color-gray-200);
-  --action-disabled-text: var(--color-gray-500);
+  --action-disabled-text: var(--color-gray-400);
 
   /* Badges & Indicadores de Apoio */
-  --badge-bg: var(--color-gray-100);
-  --badge-border: var(--color-gray-300);
-  --badge-text: var(--color-gray-800);
+  --badge-bg: var(--color-gold-light);
+  --badge-border: var(--color-gold-border);
+  --badge-text: var(--color-gold-dark);
 
-  --badge-inverse-bg: rgba(255, 255, 255, 0.12);
-  --badge-inverse-border: rgba(255, 255, 255, 0.2);
-  --badge-inverse-text: var(--color-white);
+  --badge-inverse-bg: rgba(200, 138, 59, 0.15);
+  --badge-inverse-border: rgba(200, 138, 59, 0.35);
+  --badge-inverse-text: var(--color-gold-light);
 
   /* Acessibilidade & Estados de Foco */
-  --focus-ring: 0 0 0 3px rgba(33, 37, 41, 0.25);
-  --focus-ring-inverse: 0 0 0 3px rgba(255, 255, 255, 0.35);
+  --focus-ring: 0 0 0 3px rgba(200, 138, 59, 0.25);
+  --focus-ring-inverse: 0 0 0 3px rgba(200, 138, 59, 0.45);
 
   /* ----------------------------------------------------------------------------
    * 3. TIPOGRAFIA & ESCALA VISUAL

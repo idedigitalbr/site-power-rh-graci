@@ -1,0 +1,48 @@
+---
+// sobre.astro — Página Oficial "Sobre Nós" da PowerRH (Graciete Corrêa)
+import Layout from '../layouts/Layout.astro';
+import S0Header from '../components/common/S0Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+// As 4 seções principais inspiradas na estrutura de referência LENSES
+import SobreHero from '../components/sobre/SobreHero.astro';
+import SobreSplitStory from '../components/sobre/SobreSplitStory.astro';
+import SobreFundamentos from '../components/sobre/SobreFundamentos.astro';
+import SobreGaleriaAtuacao from '../components/sobre/SobreGaleriaAtuacao.astro';
+
+// Seções reutilizadas da home com acabamento executivo de alto padrão
+import S8Depoimentos from '../components/home/S8Depoimentos.astro';
+import S10CtaBanner from '../components/home/S10CtaBanner.astro';
+import { siteContent } from '../data/siteContent';
+
+const { sobrePage } = siteContent;
+---
+
+<Layout
+  title={sobrePage.meta.title}
+  description={sobrePage.meta.description}
+>
+  <S0Header currentPage="sobre" />
+  
+  <main>
+    <!-- S1: Topo Herozinho -->
+    <SobreHero />
+
+    <!-- S2: Sobrezinha com Foto, Manifesto e Indicadores Consolidados -->
+    <SobreSplitStory />
+
+    <!-- S3: Nossa Missão, Visão e Valores (Cards Fundamentos) -->
+    <SobreFundamentos />
+
+    <!-- S4: Seção com Galeria de Fotos & Atuação em Campo -->
+    <SobreGaleriaAtuacao />
+
+    <!-- Prova Social Consolidada (Reaproveitamento da Home) -->
+    <S8Depoimentos />
+
+    <!-- Banner Comercial Executivo de Conversão (Reaproveitamento da Home) -->
+    <S10CtaBanner />
+  </main>
+
+  <Footer />
+</Layout>

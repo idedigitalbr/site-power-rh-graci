@@ -1,5 +1,5 @@
 ---
-// Footer.astro — Rodapé institucional oceânico padronizado e orientado a dados
+// Footer.astro — Rodapé minimalista e compacto (estilo +B Farma / Villa Plaza)
 import Container from '../ui/Container.astro';
 import { siteContent } from '../../data/siteContent';
 
@@ -7,108 +7,250 @@ const { footer } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<footer class="site-footer-final">
-  <Container size="wide">
-    <div class="footer-main-grid-final">
-      <!-- Coluna 1: Logo & Missão -->
-      <div>
-        <div class="footer-brand-title">{footer.brandTitle}</div>
-        <p class="footer-brand-desc">
-          {footer.brandDesc}
-        </p>
-        <div class="footer-social-row">
+<footer class="site-footer-wrapper">
+  <!-- 1. Corpo Principal Centralizado (Cor dourada suave da seção) -->
+  <div class="footer-main-strip">
+    <Container size="wide">
+      <div class="footer-compact-body">
+        <!-- Logo Centralizado Compacto Oficial PowerRH -->
+        <a href={`${base}/`} class="footer-compact-brand" aria-label="PowerRH - Voltar ao início">
+          <img
+            src={`${base}/assets/imagens-diversas/logo-powerrh.png`}
+            alt="PowerRH — Pessoas que transformam negócios"
+            class="footer-logo-img"
+            width="196"
+            height="50"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+
+        <!-- Redes Sociais Centralizadas em Círculos Menorzinhos -->
+        <div class="footer-social-circles">
+          <!-- Instagram -->
           <a
-            href={footer.socialLinks[0].href}
+            href={footer.socialLinks.find(s => s.name === 'Instagram')?.href || 'https://instagram.com'}
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-social-btn"
-            aria-label="LinkedIn"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a
-            href={footer.socialLinks[1].href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-social-btn"
+            class="footer-circle-mini"
             aria-label="Instagram"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
+
+          <!-- LinkedIn -->
+          <a
+            href={footer.socialLinks.find(s => s.name === 'LinkedIn')?.href || 'https://linkedin.com'}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-circle-mini"
+            aria-label="LinkedIn"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            href={footer.socialLinks.find(s => s.name === 'WhatsApp')?.href || 'https://wa.me/5591992992091'}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-circle-mini"
+            aria-label="WhatsApp"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </a>
         </div>
       </div>
+    </Container>
+  </div>
 
-      <!-- Coluna 2: Navegação -->
-      <div>
-        <div class="footer-col-heading">Navegação</div>
-        <ul class="footer-links-list">
-          {footer.navLinks.map((link) => (
-            <li class="footer-link-item">
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Coluna 3: Soluções -->
-      <div>
-        <div class="footer-col-heading">Soluções</div>
-        <ul class="footer-links-list">
-          {footer.solutionLinks.map((link) => (
-            <li class="footer-link-item">
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Coluna 4: Contato -->
-      <div>
-        <div class="footer-col-heading">Contato</div>
-        <div class="footer-contact-item-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span set:html={footer.contact.address.replace(' • ', '<br />')} />
+  <!-- 2. Mini Rodapé Inferior (Faixa Azul Escura / Compacta e Sutil) -->
+  <div class="footer-bottom-mini-strip">
+    <Container size="wide">
+      <div class="footer-mini-bar-inner">
+        <div class="footer-mini-copy">{footer.copyright}</div>
+        <div class="footer-mini-legal">
+          <a href={`${base}/sobre`} class="footer-mini-link">Sobre Nós</a>
+          <span class="footer-mini-bullet">•</span>
+          <a href={`${base}/#inicio`} class="footer-mini-link">Termos & Privacidade</a>
         </div>
-        <div class="footer-contact-item-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>{footer.contact.phone}</span>
-        </div>
-        <div class="footer-contact-item-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>{footer.contact.email}</span>
+        <div class="footer-mini-extra">
+          <a href={`${base}/design-system`} class="footer-mini-ds">📐 Design System</a>
         </div>
       </div>
-    </div>
-
-    <!-- Rodapé Inferior -->
-    <div class="footer-bottom-bar">
-      <div>{footer.copyright}</div>
-      <div class="footer-bottom-links">
-        <a href="#">Política de Privacidade</a>
-        <span>•</span>
-        <a href="#">Termos de Uso</a>
-        <span>•</span>
-        <a href={`${base}/design-system`} class="footer-ds-link" style="color: var(--color-gold); font-weight: 500;">
-          📐 Design System
-        </a>
-      </div>
-      <div>{footer.tagline}</div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </footer>
+
+<style>
+  .site-footer-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--final-bg-warm, #FAF7F2);
+  }
+
+  /* Faixa Principal Centralizada com a cor suave dourada (#F6DAAA), subindo com border-radius */
+  .footer-main-strip {
+    background-color: #F6DAAA;
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    padding-top: 185px;
+    padding-bottom: 38px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-compact-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-compact-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .footer-compact-brand:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+
+  .footer-logo-img {
+    height: 48px;
+    width: auto;
+    max-height: 52px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(9, 34, 56, 0.08));
+  }
+
+  @media (max-width: 640px) {
+    .footer-logo-img {
+      height: 40px;
+    }
+  }
+
+  /* Redes sociais em círculos pequenos (34px) */
+  .footer-social-circles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .footer-circle-mini {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #092238;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 6px rgba(9, 34, 56, 0.15);
+  }
+
+  .footer-circle-mini:hover {
+    background-color: #B87B2E;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(9, 34, 56, 0.25);
+  }
+
+  /* Mini Rodapezinho na cor Azul Escuro (Faixa Inferior fina e sutil) */
+  .footer-bottom-mini-strip {
+    background-color: #092238;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer-mini-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.015em;
+    color: #62778C;
+    flex-wrap: wrap;
+    gap: 8px;
+    line-height: 1.25;
+  }
+
+  .footer-mini-copy {
+    color: #62778C;
+  }
+
+  .footer-mini-bullet {
+    color: rgba(255, 255, 255, 0.15);
+    margin: 0 5px;
+  }
+
+  .footer-mini-link {
+    color: #62778C;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-mini-link:hover {
+    color: #A3B8CC;
+  }
+
+  .footer-mini-ds {
+    color: #62778C;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .footer-mini-ds:hover {
+    color: #ECC78A;
+  }
+
+  @media (max-width: 991px) {
+    .footer-main-strip {
+      border-top-left-radius: 36px;
+      border-top-right-radius: 36px;
+      padding-top: 150px;
+      padding-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-main-strip {
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      padding-top: 125px;
+      padding-bottom: 24px;
+    }
+
+    .footer-bottom-mini-strip {
+      padding: 6px 0;
+    }
+
+    .footer-mini-bar-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 4px;
+    }
+  }
+</style>

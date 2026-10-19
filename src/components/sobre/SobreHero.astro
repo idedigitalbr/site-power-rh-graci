@@ -1,0 +1,212 @@
+---
+// SobreHero.astro — S1 TOPO HERO (Identidade Visual 100% Unificada com a Home da PowerRH)
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { sobrePage } = siteContent;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Fotos oficiais executivas para o background panorâmico suave
+const heroBgImages = [
+  '01_HOME_HERO_TOPO/topo-hero (2).webp',
+  '01_HOME_HERO_TOPO/topo-hero (1).webp',
+];
+---
+
+<section class="hero-final-section sobre-hero-custom" id="inicio-sobre">
+  <!-- Camada de Imagem Panorâmica em Fundo com Gradiente Oficial Dark Navy -->
+  <div class="hero-bg-media-layer" aria-hidden="true">
+    <img
+      src={`${base}/assets/imagens-diversas/fotos_graci_ia/${heroBgImages[0]}`}
+      alt="PowerRH — Sobre Nós"
+      class="hero-bg-media-img is-active"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="hero-bg-media-gradient"></div>
+  </div>
+
+  <!-- Arcos Dourados Finos da Marca na margem direita -->
+  <GoldenArcs position="right" variant="arcs-right" />
+
+  <Container size="wide" class="hero-container-relative">
+    <div class="hero-panoramic-layout">
+      <!-- Coluna Principal: Copywriting, Headline e Selos Oficiais da Home -->
+      <div class="hero-copy-box">
+        <span class="hero-eyebrow-final">SOBRE A POWERRH</span>
+        
+        <h1 class="hero-title-final">
+          Construindo legados humanos<br />
+          para <span class="highlight-gold">empresas perenes</span>.
+        </h1>
+
+        <p class="hero-subtitle-final">
+          A PowerRH nasceu para conectar a estratégia do negócio à potência das pessoas. Unimos mais de 30 anos de vivência corporativa executiva a um olhar sensível, prático e sob medida para cada cultura empresarial.
+        </p>
+
+        <div class="hero-cta-group">
+          <Button href="#sobre-historia" variant="hero-pill">
+            Conheça nossa trajetória
+          </Button>
+        </div>
+
+        <!-- Mini-Badges de Benefícios Rápidos com Ícones Dourados (Padrão Home) -->
+        <div class="hero-mini-badges-row">
+          <div class="hero-mini-badge-item">
+            <div class="mini-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="mini-badge-text">
+              <span>+30 ANOS</span>
+              <span>DE EXPERIÊNCIA</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-badge-item">
+            <div class="mini-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="mini-badge-text">
+              <span>METODOLOGIA</span>
+              <span>PRÓPRIA & HUMANA</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-badge-item">
+            <div class="mini-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="mini-badge-text">
+              <span>GOVERNANÇA</span>
+              <span>E SUCESSÃO</span>
+            </div>
+          </div>
+
+          <div class="hero-mini-badge-item">
+            <div class="mini-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C48D47" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <div class="mini-badge-text">
+              <span>ATUAÇÃO</span>
+              <span>EM TODO BRASIL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Lateral de Autoridade e Propósito (Padrão Executivo PowerRH) -->
+      <div class="sobre-hero-card-col">
+        <div class="sobre-hero-quote-card">
+          <div class="quote-card-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>PROPÓSITO &amp; VALOR</span>
+          </div>
+
+          <p class="quote-card-text">
+            “Pessoas no centro, estratégia no horizonte e resultados perenes no negócio.”
+          </p>
+
+          <div class="quote-card-footer">
+            <div class="quote-card-author">
+              <strong>Graciete Corrêa</strong>
+              <span>Fundadora da PowerRH • Belém - PA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .sobre-hero-custom {
+    min-height: clamp(540px, 72vh, 680px);
+  }
+
+  .sobre-hero-card-col {
+    margin-left: auto;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 991px) {
+    .sobre-hero-card-col {
+      margin-left: 0;
+      margin-top: 32px;
+      width: 100%;
+    }
+  }
+
+  .sobre-hero-quote-card {
+    background: rgba(1, 36, 62, 0.85);
+    border: 1px solid rgba(200, 138, 59, 0.35);
+    border-radius: 20px;
+    padding: 32px 28px;
+    max-width: 380px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(200, 138, 59, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .quote-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--final-gold, #C88A3B);
+    text-transform: uppercase;
+  }
+
+  .quote-card-text {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #F8FAFC;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .quote-card-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+  }
+
+  .quote-card-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .quote-card-author strong {
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  .quote-card-author span {
+    font-size: 12px;
+    color: #94A3B8;
+  }
+</style>

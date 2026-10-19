@@ -1,0 +1,159 @@
+---
+// SobreSplitStory.astro — S2 SOBREZINHA (Identidade Visual 100% Unificada com a Home da PowerRH)
+import Container from '../ui/Container.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
+import { siteContent } from '../../data/siteContent';
+
+const { sobrePage } = siteContent;
+const { historia } = sobrePage;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="section-sobre-final" id="sobre-historia">
+  <!-- Arcos Dourados Finos Orgânicos na margem direita (Padrão Home S6) -->
+  <GoldenArcs position="right" variant="arcs-right" />
+
+  <Container size="wide">
+    <div class="sobre-grid-final">
+      <!-- Coluna Esquerda: Foto Oficial em Poltrona Executiva de Autoridade -->
+      <div class="sobre-photo-container">
+        <div class="sobre-img-box">
+          <img
+            src={`${base}/${historia.image}`}
+            alt={`${historia.founderName} — ${historia.founderRole}`}
+            class="sobre-photo-final"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Badge Flutuante de Credencial da Home -->
+        <div class="sobre-floating-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>{historia.founderRole}</span>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Conteúdo Biográfico, Credenciais & Indicadores Oficiais -->
+      <div class="sobre-details-col">
+        <span class="hero-eyebrow-final" style="margin-bottom: 4px;">{historia.eyebrow}</span>
+        <h2 class="sobre-name-final">{historia.founderName}</h2>
+        <span class="sobre-subtitle-gold">30+ ANOS DE TRANSFORMAÇÃO CORPORATIVA</span>
+
+        <p class="sobre-bio-text">
+          {historia.paragraphs[0]}
+        </p>
+
+        <p class="sobre-bio-text" style="margin-top: -16px;">
+          {historia.paragraphs[1]}
+        </p>
+
+        <!-- 4 Credenciais com Ícones Dourados Circulares (Exato S6 Sobre da Home) -->
+        <div class="sobre-credentials-list">
+          {historia.credentials.map((cred) => (
+            <div class="credential-item-final">
+              <div class="credential-icon-circle">
+                {cred.iconType === 'cert' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                )}
+                {cred.iconType === 'mentor' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  </svg>
+                )}
+                {cred.iconType === 'industry' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                )}
+                {cred.iconType === 'star' && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                )}
+              </div>
+              <span class="credential-text-final">{cred.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Indicadores / KPIs Consolidados com a ID Visual de Métricas da Home -->
+        <div class="sobre-metrics-bar">
+          <div class="sobre-metric-box">
+            <span class="sobre-metric-num">+30</span>
+            <span class="sobre-metric-lbl">ANOS DE ATUAÇÃO EXECUTIVA</span>
+          </div>
+          <div class="sobre-metric-box">
+            <span class="sobre-metric-num">+2.000</span>
+            <span class="sobre-metric-lbl">COLABORADORES SOB GESTÃO</span>
+          </div>
+          <div class="sobre-metric-box">
+            <span class="sobre-metric-num">+2</span>
+            <span class="sobre-metric-lbl">OPERAÇÕES DE M&amp;A ESTRUTURADAS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .sobre-metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--final-border-subtle, #EDE7DD);
+  }
+
+  @media (max-width: 640px) {
+    .sobre-metrics-bar {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+
+  .sobre-metric-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    background: #FCFAF7;
+    border: 1px solid rgba(200, 138, 59, 0.2);
+    border-radius: 12px;
+    transition: all 250ms ease;
+  }
+
+  .sobre-metric-box:hover {
+    background: #FFFFFF;
+    border-color: rgba(200, 138, 59, 0.45);
+    box-shadow: 0 4px 14px rgba(200, 138, 59, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .sobre-metric-num {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--final-gold-dark, #9A621D);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .sobre-metric-lbl {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748B;
+    line-height: 1.35;
+  }
+</style>

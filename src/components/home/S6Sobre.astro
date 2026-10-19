@@ -1,7 +1,7 @@
 ---
 // S6Sobre.astro — Seção Sobre a Fundadora (Graciete Corrêa), biografia e credenciais
 import Container from '../ui/Container.astro';
-import Button from '../ui/Button.astro';
+import GoldenArcs from '../ui/GoldenArcs.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { sobre } = siteContent;
@@ -9,6 +9,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-sobre-final" id="sobre">
+  <!-- Arcos Dourados Finos Orgânicos na margem direita -->
+  <GoldenArcs position="right" variant="arcs-right" />
+
   <Container size="wide">
     <div class="sobre-grid-final">
       <!-- Foto Oficial em Poltrona de Autoridade -->
@@ -40,12 +43,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <p class="sobre-bio-text">
           {sobre.bio}
         </p>
-
-        <div style="margin-bottom: 28px;">
-          <Button href={sobre.ctaHref} variant="gold">
-            {sobre.ctaText}
-          </Button>
-        </div>
 
         <!-- 4 Credenciais com Ícones Dourados Circulares -->
         <div class="sobre-credentials-list">
