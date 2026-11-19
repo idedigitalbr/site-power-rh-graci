@@ -2,11 +2,9 @@
 // S8Depoimentos.astro — Seção Depoimentos orientada a dados com cards e avatares
 import Container from '../ui/Container.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
-import GoldenArcs from '../ui/GoldenArcs.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { depoimentos } = siteContent;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-depoimentos-final" id="depoimentos">
@@ -25,12 +23,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <p class="depoimento-text-final">{card.quote}</p>
           </div>
           <div class="depoimento-author-row">
-            <img
-              src={`${base}/${card.avatar}`}
-              alt={card.author}
-              class="depoimento-avatar-img"
-              loading="lazy"
-            />
+            <span class="depoimento-avatar-initials" aria-hidden="true">
+              {card.author.split(' ').slice(0, 2).map((name) => name.charAt(0)).join('')}
+            </span>
             <div>
               <div class="depoimento-author-name">{card.author}</div>
               <div class="depoimento-author-role">{card.role}</div>
@@ -39,5 +34,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
       ))}
     </div>
+    <p class="depoimento-source-note">
+      Trechos de recomendações profissionais publicadas no
+      <a href="https://www.linkedin.com/in/gracietecorreacoach/" target="_blank" rel="noopener noreferrer">LinkedIn de Graciete Corrêa</a>.
+    </p>
   </Container>
 </section>
+
+<style>
+  .depoimento-avatar-initials { width: 46px; height: 46px; min-width: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #F6E8D5; color: #01243E; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; }
+  .depoimento-source-note { text-align: center; margin: 26px auto 0; font-size: 13px; color: #64748B; }
+  .depoimento-source-note a { color: #81551E; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+</style>

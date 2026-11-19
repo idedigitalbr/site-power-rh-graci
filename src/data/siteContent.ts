@@ -50,7 +50,6 @@ export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
-  avatar: string;
 }
 
 export interface FaqItem {
@@ -233,7 +232,7 @@ export interface ServicosHubData {
 export const siteContent = {
   meta: {
     title: 'PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa',
-    description: 'Estratégia, liderança e cultura para transformar o potencial humano em resultados reais e sustentáveis. Consultoria com mais de 15 anos de atuação.',
+    description: 'Consultoria e advisory em cultura, liderança e governança. Experiência executiva de mais de 30 anos com Graciete Corrêa.',
   },
   
   navigation: {
@@ -399,10 +398,10 @@ export const siteContent = {
     eyebrow: 'SOBRE A FUNDADORA',
     name: 'Graciete Corrêa',
     title: 'ESPECIALISTA EM ESTRATÉGIA DE PESSOAS',
-    bio: 'Executiva e consultora com mais de 15 anos de experiência em desenvolvimento organizacional, liderança e cultura. Apaixonada por pessoas, acredita no poder de uma gestão mais humana e estratégica para conexões mais fortes e um futuro melhor.',
+    bio: 'Executiva e consultora com mais de 30 anos de atuação em Gente e Gestão, liderança e transformação organizacional. Conecta experiência de gestão, sensibilidade humana e estratégia de negócios para construir organizações mais maduras e preparadas para o futuro.',
     ctaText: 'CONHEÇA MINHA HISTÓRIA →',
     ctaHref: '#formulario-diagnostico',
-    floatingPill: 'Mais de 15 anos transformando pessoas e negócios.',
+    floatingPill: 'Mais de 30 anos de trajetória executiva.',
     image: 'assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp',
     credentials: [
       { text: 'Especialista em Desenvolvimento Organizacional e Liderança', iconType: 'cert' },
@@ -449,26 +448,23 @@ export const siteContent = {
   },
 
   depoimentos: {
-    eyebrow: 'DEPOIMENTOS',
-    title: 'O que nossos clientes dizem',
+    eyebrow: 'RECOMENDAÇÕES PROFISSIONAIS',
+    title: 'O reconhecimento de quem trabalhou com a Graciete.',
     items: [
       {
-        quote: 'A PowerRH nos ajudou a estruturar nossa liderança e a fortalecer nossa cultura. O impacto nos resultados foi evidente.',
-        author: 'Mariana Lopes',
-        role: 'CEO, Grupo Vértice',
-        avatar: 'assets/imagens-diversas/avatar-mariana.png',
+        quote: 'Extremamente cuidadosa com planos de desenvolvimento de lideranças, inspira pela ética e lidera pelo exemplo.',
+        author: 'Walter Garcia',
+        role: 'Executivo financeiro (CFO) e de M&A · LinkedIn',
       },
       {
-        quote: 'Profissionalismo, sensibilidade e visão estratégica. Uma parceria que realmente faz a diferença para o nosso negócio.',
-        author: 'Roberto Almeida',
-        role: 'Diretor, TechBrasil',
-        avatar: 'assets/imagens-diversas/avatar-roberto.png',
+        quote: 'Mantém sempre o olhar atento às necessidades do cliente mas igualmente se faz guardiã da estratégia do negócio.',
+        author: 'Rani Gressi Campos',
+        role: 'Diretora de Recursos Humanos (CHRO) · LinkedIn',
       },
       {
-        quote: 'A Graciete tem uma capacidade única de conectar pessoas, estratégia e resultados. Recomendo de olhos fechados.',
-        author: 'Carla Mendes',
-        role: 'Sócia, Mendes & Associados',
-        avatar: 'assets/imagens-diversas/avatar-carla.png',
+        quote: 'Voltaria a tê-la em meu time sem qualquer tipo de hesitação.',
+        author: 'Robson Lodi',
+        role: 'Gestor de Remuneração e Benefícios · LinkedIn',
       },
     ] as TestimonialItem[],
   },
@@ -513,8 +509,8 @@ export const siteContent = {
     brandTitle: 'PowerRH',
     brandDesc: 'Consultoria estratégica em pessoas, liderança, cultura e governança para organizações que buscam crescimento sustentável e perene.',
     socialLinks: [
-      { name: 'Instagram', href: 'https://instagram.com' },
-      { name: 'LinkedIn', href: 'https://linkedin.com' },
+      { name: 'Instagram', href: 'https://www.instagram.com/gracietecoach/' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/gracietecorreacoach/' },
       { name: 'WhatsApp', href: 'https://wa.me/5591992992091' },
     ],
     navLinks: [

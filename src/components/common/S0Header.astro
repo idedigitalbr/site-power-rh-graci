@@ -59,15 +59,29 @@ const ctaUrl = navigation.cta.href;
       <ul class="nav-links-final">
         {navLinks.map((link) => (
           <li>
-            <a href={link.href} class={`nav-link-final ${link.active ? 'active' : ''}`.trim()}>
+            <a href={link.href} class={`nav-link-final ${link.active ? 'active' : ''}`.trim()} aria-current={link.active ? 'page' : undefined}>
               {link.label}
             </a>
           </li>
         ))}
       </ul>
 
+      <!-- Menu mobile nativo e acessível, sem dependência de JavaScript -->
+      <details class="mobile-nav-final">
+        <summary aria-label="Abrir menu de navegação">
+          <span aria-hidden="true">☰</span>
+          <span>Menu</span>
+        </summary>
+        <ul class="mobile-nav-list">
+          {navLinks.map((link) => (
+            <li><a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a></li>
+          ))}
+          <li class="mobile-nav-cta"><a href={ctaUrl} target="_blank" rel="noopener noreferrer">{navigation.cta.text}</a></li>
+        </ul>
+      </details>
+
       <!-- CTA Principal Header -->
-      <div>
+      <div class="header-desktop-cta">
         <Button href={ctaUrl} variant="gold" whatsapp={true}>
           {navigation.cta.text}
         </Button>
@@ -96,4 +110,14 @@ const ctaUrl = navigation.cta.href;
       height: 36px;
     }
   }
+  .mobile-nav-final { display: none; position: relative; }
+  .mobile-nav-final summary { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #EDE7DD; border-radius: 9999px; color: #01243E; background: #FFFFFF; font: 600 14px/1 'Inter', sans-serif; cursor: pointer; list-style: none; }
+  .mobile-nav-final summary::-webkit-details-marker { display: none; }
+  .mobile-nav-final summary span:first-child { font-size: 17px; line-height: 1; }
+  .mobile-nav-list { position: absolute; z-index: 999; top: calc(100% + 12px); right: 0; width: min(310px, calc(100vw - 32px)); padding: 10px; margin: 0; list-style: none; background: #FFFFFF; border: 1px solid #EDE7DD; border-radius: 18px; box-shadow: 0 18px 42px rgba(1,36,62,.18); }
+  .mobile-nav-list a { display: block; padding: 13px 15px; border-radius: 10px; color: #01243E; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .mobile-nav-list a:hover, .mobile-nav-list a[aria-current='page'] { background: #FCFAF7; }
+  .mobile-nav-cta a { background: #C88A3B; color: #FFFFFF; text-align: center; margin-top: 5px; }
+  .mobile-nav-cta a:hover { background: #B07427; }
+  @media (max-width: 768px) { .mobile-nav-final { display: block; margin-left: auto; } .header-desktop-cta { display: none; } .site-nav-final { gap: 12px; } }
 </style>
