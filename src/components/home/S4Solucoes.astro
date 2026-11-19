@@ -41,7 +41,7 @@ const governanca = solucoes.items[2];
     <!-- Layout Bento Editorial Monolítico -->
     <div class="solucoes-bento-grid">
       
-      <!-- LINHA 1: Foto Reunião Estratégica (Esquerda) + Card Advisor de Negócios (Direita) -->
+      <!-- LINHA 1: Foto Reunião Estratégica (Esquerda) + Card Advisory de Negócios e Cultura (Direita) -->
       <div class="solucoes-row-top">
         <!-- Foto Ampla da Reunião Executiva -->
         <div class="solucao-media-card photo-wide">
@@ -715,15 +715,21 @@ const governanca = solucoes.items[2];
     }
 
     .solucao-card-navy {
-      height: 260px;
+      height: auto;
+      min-height: 280px;
     }
 
     .solucoes-subgrid-left {
       grid-template-columns: 1fr 1fr;
-      height: 280px;
+      height: auto;
     }
 
-    .solucao-card-governanca {
+    .solucao-card-light {
+      height: auto;
+      min-height: 280px;
+    }
+
+    .solucao-media-card.photo-portrait {
       height: 280px;
     }
   }
@@ -751,25 +757,24 @@ const governanca = solucoes.items[2];
     }
 
     .solucao-card-light {
-      height: 260px;
+      padding: 24px 20px;
+      height: auto;
+      min-height: 250px;
     }
 
     .solucao-card-navy {
-      padding: 26px 24px;
+      padding: 24px 20px;
       height: auto;
-      min-height: 240px;
+      min-height: 250px;
     }
 
-    .solucao-card-light {
-      padding: 26px 24px;
+    .subitem-title {
+      font-size: 13px;
     }
 
-    .solucao-card-governanca {
-      height: 300px;
-    }
-
-    .governanca-bottom-bar {
-      padding: 14px 18px;
+    .subitem-icon-circle {
+      width: 34px;
+      height: 34px;
     }
   }
 
