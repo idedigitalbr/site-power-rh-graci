@@ -392,7 +392,7 @@ export const siteContent = {
     floatingPill: '+30 anos de experiência executiva.',
     image: 'assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp',
     credentials: [
-      { text: 'Advisor de Negócios e Consultoria em DHO', iconType: 'cert' },
+      { text: 'Advisory de Negócios e Consultoria em DHO', iconType: 'cert' },
       { text: 'Planejamento estratégico, cultura e sucessão familiar', iconType: 'mentor' },
       { text: 'Desenvolvimento de lideranças e performance', iconType: 'industry' },
       { text: 'Processos, estrutura organizacional e RH estratégico', iconType: 'star' },
@@ -483,7 +483,7 @@ export const siteContent = {
 
   footer: {
     brandTitle: 'PowerRH',
-    brandDesc: 'Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), integrando estratégia, pessoas e processos.',
+    brandDesc: 'Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), integrando estratégia, pessoas e processos.',
     socialLinks: [
       { name: 'Instagram', href: 'https://www.instagram.com/gracietecoach/' },
       { name: 'LinkedIn', href: 'https://www.linkedin.com/in/gracietecorreacoach/' },
@@ -497,7 +497,7 @@ export const siteContent = {
       { label: 'Dúvidas Frequentes', href: '#faq' },
     ],
     solutionLinks: [
-      { label: 'Advisor de Negócios', href: '/servicos/advisory-negocios-cultura' },
+      { label: 'Advisory de Negócios e Cultura', href: '/servicos/advisory-negocios-cultura' },
       { label: 'Pessoas, Liderança e Performance', href: '/servicos/pessoas-lideranca-performance' },
       { label: 'Processos e Estrutura Organizacional', href: '/servicos/processos-estrutura-organizacional' },
     ],
@@ -513,15 +513,15 @@ export const siteContent = {
   sobrePage: {
     proposta: sobrePropostaOficial,
     meta: {
-      title: 'Sobre a PowerRH — Advisor de Negócios e DHO',
-      description: 'Conheça a PowerRH, que atua com Advisor de Negócios e DHO, apoiando empresários e executivos com pensamento sistêmico, liderança e processos.',
+      title: 'Sobre a PowerRH — Advisory de Negócios e DHO',
+      description: 'Conheça a PowerRH, que atua com Advisory de Negócios e DHO, apoiando empresários e executivos com pensamento sistêmico, liderança e processos.',
     },
     hero: {
-      eyebrow: 'QUEM SOMOS · ADVISOR DE NEGÓCIOS E DHO',
-      titlePrefix: 'Advisor de Negócios',
+      eyebrow: 'QUEM SOMOS · ADVISORY DE NEGÓCIOS E DHO',
+      titlePrefix: 'Advisory de Negócios',
       titleHighlight: 'gestão estratégica',
       titleSuffix: 'e desenvolvimento humano.',
-      lead: 'A PowerRH atua com Advisor de Negócios e Consultoria em DHO para desenvolver a visão estratégica das lideranças e conectar as decisões sobre pessoas, cultura, processos e estrutura aos resultados.',
+      lead: 'A PowerRH atua com Advisory de Negócios e Consultoria em DHO para desenvolver a visão estratégica das lideranças e conectar as decisões sobre pessoas, cultura, processos e estrutura aos resultados.',
       rootsBadge: 'Propósito & Futuro',
       rootsTitle: 'Pessoas no centro, resultados no horizonte.',
       rootsCopy: 'Atuamos especialmente com empresas familiares e empresas de dono que buscam profissionalizar a gestão, preparar sucessores e preservar seu legado.',
@@ -648,7 +648,7 @@ export const siteContent = {
     pilares: {
       eyebrow: 'TRÊS PILARES DE ATUAÇÃO',
       title: 'Nossa atuação integrada.',
-      subtitle: 'Advisor de Negócios, desenvolvimento humano e estrutura organizacional conectados à estratégia do negócio.',
+      subtitle: 'Advisory de Negócios, desenvolvimento humano e estrutura organizacional conectados à estratégia do negócio.',
       items: solucoesOficiais.map((s, i) => ({
         number: String(i + 1).padStart(2, '0'),
         title: s.title,
