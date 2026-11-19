@@ -76,13 +76,43 @@ const contactUrl = `${base}/#formulario-diagnostico`;
 
 <script is:inline>
   (() => {
-    const details = Array.from(document.querySelectorAll('.solutions-dropdown, .mobile-nav'));
+    const menus = Array.from(document.querySelectorAll('.solutions-dropdown, .mobile-nav, .mobile-solutions'));
+    const hoverEnabled = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    menus.forEach((menu) => {
+      // <details> fechado oculta o painel no navegador, mesmo que haja :hover no CSS.
+      // Por isso abrimos o elemento nativamente ao passar o mouse.
+      menu.addEventListener('pointerenter', (event) => {
+        if (hoverEnabled.matches && event.pointerType === 'mouse') menu.open = true;
+      });
+      menu.addEventListener('pointerleave', (event) => {
+        if (hoverEnabled.matches && event.pointerType === 'mouse') menu.open = false;
+      });
+
+      // Em computadores, o clique nao deve fechar o submenu que ja abriu no hover.
+      // Em celulares e tablets, o toque continua funcionando normalmente.
+      const trigger = menu.querySelector(':scope > summary');
+      trigger?.addEventListener('click', (event) => {
+        if (hoverEnabled.matches && event.detail > 0) {
+          event.preventDefault();
+          menu.open = true;
+        }
+      });
+
+      menu.addEventListener('focusin', () => { menu.open = true; });
+      menu.addEventListener('focusout', (event) => {
+        if (!menu.contains(event.relatedTarget)) menu.open = false;
+      });
+    });
+
     document.addEventListener('click', (event) => {
-      details.forEach(menu => { if (menu.open && !menu.contains(event.target)) menu.open = false; });
+      menus.forEach(menu => {
+        if (menu.open && !menu.contains(event.target)) menu.open = false;
+      });
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
-        details.forEach(menu => menu.open = false);
+        menus.forEach(menu => menu.open = false);
         document.activeElement?.blur?.();
       }
     });
@@ -110,6 +140,8 @@ const contactUrl = `${base}/#formulario-diagnostico`;
   .mobile-nav-trigger { display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; font-weight:700; color:#0A1F33; }
   .mobile-nav-trigger::-webkit-details-marker, .mobile-solutions summary::-webkit-details-marker { display:none; }
   .mobile-nav-panel { position:absolute; top:calc(100% + 18px); right:0; width:min(340px,calc(100vw - 24px)); padding:12px; border:1px solid #EDE7DD; border-radius:14px; background:#FFF; box-shadow:0 18px 46px rgba(1,36,62,.2); z-index:1002; display:flex; flex-direction:column; }
+  /* Ponte invisivel entre o gatilho e o painel: evita fechar ao atravessar o espaco. */
+  .mobile-nav-panel::before { content:""; position:absolute; top:-20px; right:0; left:0; height:20px; }
   .mobile-nav-panel > a, .mobile-solutions > summary { display:block; padding:13px 14px; color:#123049; font-size:14px; text-decoration:none; border-radius:7px; }
   .mobile-solutions summary { cursor:pointer; font-weight:700; display:flex; justify-content:space-between; }
   .mobile-nav-panel > a:hover, .mobile-solutions > summary:hover { background:#FAF7F2; }
