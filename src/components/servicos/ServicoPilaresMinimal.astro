@@ -11,7 +11,7 @@ interface Props {
 const { service } = Astro.props;
 const { modules } = service;
 // Seleciona os 3 principais módulos para manter o layout limpo e sem poluição
-const displayModules = modules.items.slice(0, 3);
+const displayModules = modules.items;
 ---
 
 <section class="section-pilares-minimal" id="pilares-atuacao">
@@ -36,7 +36,7 @@ const displayModules = modules.items.slice(0, 3);
 
           <div class="pilar-card-bottom">
             <ul class="pilar-deliv-chips">
-              {item.deliverables.slice(0, 2).map((deliv) => (
+              {item.deliverables.map((deliv) => (
                 <li class="pilar-chip-item">
                   <span class="chip-check">✓</span>
                   <span>{deliv}</span>
@@ -61,7 +61,7 @@ const displayModules = modules.items.slice(0, 3);
 
   .pilares-minimal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
     gap: 32px;
     margin-top: 50px;
   }
