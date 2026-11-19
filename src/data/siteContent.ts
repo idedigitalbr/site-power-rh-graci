@@ -314,7 +314,7 @@ export const siteContent = {
 
   quandoHora: {
     eyebrow: 'QUANDO É HORA',
-    title: 'Quando a gestão precisa conectar estratégia, pessoas e processos?',
+    title: 'Quando é a hora certa de contar com um apoio estratégico de advisory?',
     items: [
       {
         id: 1,
