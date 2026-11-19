@@ -1,123 +1,126 @@
 ---
-// S0Header.astro — Header institucional padronizado e orientado a dados
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import { siteContent } from '../../data/siteContent';
+import { solucoesOficiais } from '../../data/servicosOficiais';
 
 interface Props {
   currentPage?: 'home' | 'sobre' | 'servicos' | 'design-system';
 }
-
 const { currentPage = 'home' } = Astro.props;
-const { navigation } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const navLinks = [
-  {
-    label: 'Home',
-    href: currentPage === 'home' ? '#inicio' : `${base}/`,
-    active: currentPage === 'home',
-  },
-  {
-    label: 'Sobre',
-    href: currentPage === 'sobre' ? '#inicio-sobre' : `${base}/sobre`,
-    active: currentPage === 'sobre',
-  },
-  {
-    label: 'Soluções',
-    href: currentPage === 'home' ? '#solucoes' : `${base}/servicos`,
-    active: currentPage === 'servicos',
-  },
-  {
-    label: 'Contato',
-    href: `${base}/#formulario-diagnostico`,
-    active: false,
-  },
-];
-
+const { navigation } = siteContent;
 const homeUrl = currentPage === 'home' ? '#inicio' : `${base}/`;
-const ctaUrl = navigation.cta.href;
+const aboutUrl = currentPage === 'sobre' ? '#inicio-sobre' : `${base}/sobre`;
+const contactUrl = `${base}/#formulario-diagnostico`;
 ---
 
 <header class="site-header-final">
   <Container size="wide">
-    <nav class="site-nav-final" aria-label="Navegação Principal">
-      <!-- Logo Institucional Oficial PowerRH -->
-      <a href={homeUrl} class="brand-link-final" aria-label="PowerRH - Página Inicial">
-        <img
-          src={`${base}/assets/imagens-diversas/logo-powerrh.png`}
-          alt="PowerRH — Pessoas que transformam negócios"
-          class="brand-logo-img"
-          width="180"
-          height="46"
-          loading="eager"
-          decoding="async"
-        />
+    <nav class="site-nav-final" aria-label="Navegação principal">
+      <a href={homeUrl} class="brand-link-final" aria-label="PowerRH — Página inicial">
+        <img src={`${base}/assets/imagens-diversas/logo-powerrh.png`} alt="PowerRH — Pessoas que transformam negócios" class="brand-logo-img" width="180" height="46" loading="eager" decoding="async" />
       </a>
 
-      <!-- Menu de Links Dinâmicos -->
-      <ul class="nav-links-final">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class={`nav-link-final ${link.active ? 'active' : ''}`.trim()} aria-current={link.active ? 'page' : undefined}>
-              {link.label}
-            </a>
-          </li>
-        ))}
+      <ul class="nav-links-final desktop-nav">
+        <li><a href={homeUrl} class={`nav-link-final ${currentPage === 'home' ? 'active' : ''}`}>Home</a></li>
+        <li><a href={aboutUrl} class={`nav-link-final ${currentPage === 'sobre' ? 'active' : ''}`}>Sobre</a></li>
+        <li>
+          <details class="solutions-dropdown">
+            <summary class={`nav-link-final solutions-trigger ${currentPage === 'servicos' ? 'active' : ''}`} aria-label="Abrir menu de soluções">
+              Soluções
+              <svg class="chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="solutions-menu">
+              <span class="solutions-kicker">NOSSAS SOLUÇÕES</span>
+              {solucoesOficiais.map((s, i) => (
+                <a class="solution-link" href={`${base}/servicos/${s.slug}`}>
+                  <span class="solution-number">{String(i + 1).padStart(2,'0')}</span>
+                  <span>{s.title}</span>
+                  <span class="solution-arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+              <a class="all-solutions-link" href={`${base}/servicos`}>Ver todas as soluções <span aria-hidden="true">→</span></a>
+            </div>
+          </details>
+        </li>
+        <li><a href={contactUrl} class="nav-link-final">Contato</a></li>
       </ul>
 
-      <!-- Menu mobile nativo e acessível, sem dependência de JavaScript -->
-      <details class="mobile-nav-final">
-        <summary aria-label="Abrir menu de navegação">
-          <span aria-hidden="true">☰</span>
-          <span>Menu</span>
-        </summary>
-        <ul class="mobile-nav-list">
-          {navLinks.map((link) => (
-            <li><a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a></li>
-          ))}
-          <li class="mobile-nav-cta"><a href={ctaUrl} target="_blank" rel="noopener noreferrer">{navigation.cta.text}</a></li>
-        </ul>
-      </details>
-
-      <!-- CTA Principal Header -->
-      <div class="header-desktop-cta">
-        <Button href={ctaUrl} variant="gold" whatsapp={true}>
-          {navigation.cta.text}
-        </Button>
+      <div class="desktop-cta">
+        <Button href={navigation.cta.href} variant="gold" whatsapp={true}>{navigation.cta.text}</Button>
       </div>
+
+      <details class="mobile-nav">
+        <summary class="mobile-nav-trigger" aria-label="Abrir menu de navegação">
+          <span>Menu</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <div class="mobile-nav-panel">
+          <a href={homeUrl}>Home</a>
+          <a href={aboutUrl}>Sobre</a>
+          <details class="mobile-solutions">
+            <summary>Soluções <span aria-hidden="true">⌄</span></summary>
+            <div class="mobile-submenu">
+              {solucoesOficiais.map(s => <a href={`${base}/servicos/${s.slug}`}>{s.title}</a>)}
+              <a href={`${base}/servicos`}>Ver todas as soluções</a>
+            </div>
+          </details>
+          <a href={contactUrl}>Contato</a>
+          <a class="mobile-contact" href={navigation.cta.href} target="_blank" rel="noopener noreferrer">Entrar em contato</a>
+        </div>
+      </details>
     </nav>
   </Container>
 </header>
 
+<script is:inline>
+  (() => {
+    const details = Array.from(document.querySelectorAll('.solutions-dropdown, .mobile-nav'));
+    document.addEventListener('click', (event) => {
+      details.forEach(menu => { if (menu.open && !menu.contains(event.target)) menu.open = false; });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        details.forEach(menu => menu.open = false);
+        document.activeElement?.blur?.();
+      }
+    });
+  })();
+</script>
+
 <style>
-  .brand-logo-img {
-    height: 44px;
-    width: auto;
-    max-height: 48px;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+  .brand-logo-img { height:44px; width:auto; max-height:48px; object-fit:contain; display:block; transition:transform .2s ease,opacity .2s ease; }
+  .brand-link-final:hover .brand-logo-img { transform:scale(1.02); opacity:.95; }
+  .solutions-dropdown { position:relative; }
+  .solutions-trigger { display:inline-flex; align-items:center; gap:7px; cursor:pointer; list-style:none; white-space:nowrap; }
+  .solutions-trigger::-webkit-details-marker { display:none; }
+  .chevron { transition:transform .2s ease; }
+  .solutions-dropdown[open] .chevron, .solutions-dropdown:hover .chevron { transform:rotate(180deg); }
+  .solutions-menu { display:none; position:absolute; z-index:1001; top:calc(100% + 19px); left:50%; transform:translateX(-50%); width:min(380px,90vw); padding:16px; background:#fff; border:1px solid #EDE7DD; border-radius:14px; box-shadow:0 18px 46px rgba(1,36,62,.16); }
+  .solutions-menu::before { content:""; position:absolute; height:24px; top:-24px; right:0; left:0; }
+  .solutions-dropdown[open] .solutions-menu, .solutions-dropdown:hover .solutions-menu, .solutions-dropdown:focus-within .solutions-menu { display:block; }
+  .solutions-kicker { display:block; font-size:10px; font-weight:800; letter-spacing:.15em; color:#B07427; margin:3px 10px 11px; }
+  .solution-link { display:grid; grid-template-columns:22px minmax(0,1fr) 14px; align-items:center; gap:10px; padding:12px 10px; border-radius:9px; text-decoration:none; color:#123049; font-size:13px; font-weight:600; line-height:1.4; }
+  .solution-link:hover, .solution-link:focus-visible { background:#FAF7F2; color:#98621E; outline-offset:2px; }
+  .solution-number { color:#B07427; font-size:11px; font-weight:800; }
+  .solution-arrow { opacity:.65; }
+  .all-solutions-link { display:flex; justify-content:space-between; padding:12px 10px 5px; margin-top:8px; border-top:1px solid #EDE7DD; font-size:12px; font-weight:700; color:#9A621D; text-decoration:none; }
+  .mobile-nav { display:none; position:relative; }
+  .mobile-nav-trigger { display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; font-weight:700; color:#0A1F33; }
+  .mobile-nav-trigger::-webkit-details-marker, .mobile-solutions summary::-webkit-details-marker { display:none; }
+  .mobile-nav-panel { position:absolute; top:calc(100% + 18px); right:0; width:min(340px,calc(100vw - 24px)); padding:12px; border:1px solid #EDE7DD; border-radius:14px; background:#FFF; box-shadow:0 18px 46px rgba(1,36,62,.2); z-index:1002; display:flex; flex-direction:column; }
+  .mobile-nav-panel > a, .mobile-solutions > summary { display:block; padding:13px 14px; color:#123049; font-size:14px; text-decoration:none; border-radius:7px; }
+  .mobile-solutions summary { cursor:pointer; font-weight:700; display:flex; justify-content:space-between; }
+  .mobile-nav-panel > a:hover, .mobile-solutions > summary:hover { background:#FAF7F2; }
+  .mobile-submenu { display:flex; flex-direction:column; padding:0 4px 8px 16px; }
+  .mobile-submenu a { padding:11px 10px; font-size:13px; text-decoration:none; color:#475569; border-left:2px solid #EDE7DD; line-height:1.35; }
+  .mobile-submenu a:hover { color:#9A621D; border-color:#C88A3B; }
+  .mobile-nav-panel > .mobile-contact { color:#FFF; background:#092238; text-align:center; font-weight:700; margin-top:6px; }
+  @media (max-width:860px) {
+    .site-header-final .desktop-nav, .site-header-final .desktop-cta { display:none; }
+    .mobile-nav { display:block; }
+    .brand-logo-img { height:38px; }
   }
-
-  .brand-link-final:hover .brand-logo-img {
-    transform: scale(1.02);
-    opacity: 0.95;
-  }
-
-  @media (max-width: 640px) {
-    .brand-logo-img {
-      height: 36px;
-    }
-  }
-  .mobile-nav-final { display: none; position: relative; }
-  .mobile-nav-final summary { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #EDE7DD; border-radius: 9999px; color: #01243E; background: #FFFFFF; font: 600 14px/1 'Inter', sans-serif; cursor: pointer; list-style: none; }
-  .mobile-nav-final summary::-webkit-details-marker { display: none; }
-  .mobile-nav-final summary span:first-child { font-size: 17px; line-height: 1; }
-  .mobile-nav-list { position: absolute; z-index: 999; top: calc(100% + 12px); right: 0; width: min(310px, calc(100vw - 32px)); padding: 10px; margin: 0; list-style: none; background: #FFFFFF; border: 1px solid #EDE7DD; border-radius: 18px; box-shadow: 0 18px 42px rgba(1,36,62,.18); }
-  .mobile-nav-list a { display: block; padding: 13px 15px; border-radius: 10px; color: #01243E; text-decoration: none; font-weight: 600; font-size: 14px; }
-  .mobile-nav-list a:hover, .mobile-nav-list a[aria-current='page'] { background: #FCFAF7; }
-  .mobile-nav-cta a { background: #C88A3B; color: #FFFFFF; text-align: center; margin-top: 5px; }
-  .mobile-nav-cta a:hover { background: #B07427; }
-  @media (max-width: 768px) { .mobile-nav-final { display: block; margin-left: auto; } .header-desktop-cta { display: none; } .site-nav-final { gap: 12px; } }
+  @media (prefers-reduced-motion:reduce) { .chevron,.brand-logo-img { transition:none; } }
 </style>
