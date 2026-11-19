@@ -29,13 +29,9 @@ const {
     )
   )}
   
-  <h2 class={center ? 'section-title-center-final' : 'processo-title-final'}>
-    {title}
-  </h2>
+  <h2 class={center ? 'section-title-center-final' : 'processo-title-final'} set:html={title} />
 
   {subtitle && (
-    <p class="section-subtitle" style="max-width: 680px; margin: 12px auto 0;">
-      {subtitle}
-    </p>
+    <p class="section-subtitle" style="max-width: 680px; margin: 12px auto 0;" set:html={subtitle} />
   )}
 </div>

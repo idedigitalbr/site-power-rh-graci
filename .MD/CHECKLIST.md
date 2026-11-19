@@ -124,7 +124,7 @@
 **S6 — Sobre a Graciete / Fundadora**
 - [x] Estrutura da apresentação da fundadora
 - [x] Texto biográfico inicial e credenciais
-- [ ] Corrigir inconsistências de tempo de experiência no conteúdo
+- [x] Corrigir inconsistências de tempo de experiência no conteúdo (+30 anos de experiência padronizado)
 - [ ] Revisar a trajetória executiva e as qualificações com o material original
 - [ ] Substituir/validar imagem definitiva
 - [ ] Confirmar o link de apresentação para PG 02 — Sobre
@@ -254,7 +254,7 @@
 - [ ] Apresentar rituais e práticas de fortalecimento da cultura desejada
 
 **S4 — Arquitetura e Design Organizacional**
-- [ ] Apresentar desenho organizacional, organogramas e fluxos de trabalho
+- [ ] Apresentar design organizacional, organogramas e fluxos de trabalho
 - [ ] Explicar papéis, responsabilidades e processos de gestão
 
 **S5 — Cargos, Carreiras e Remuneração**
@@ -356,7 +356,7 @@
   - [ ] Desenvolver a média liderança
   - [ ] Iniciar ou organizar a sucessão familiar
   - [ ] Compreender e modelar a cultura organizacional
-  - [ ] Melhorar o desenho organizacional, processos ou modelo de gestão
+  - [ ] Melhorar o design organizacional, processos ou modelo de gestão
 - [ ] Botão: Solicitar Reunião de Diagnóstico
 - [ ] Preparar o formulário para validação e integração da Etapa 04
 
@@ -502,7 +502,7 @@
 2. [ ] **Tornar os formulários realmente funcionais:** a Home atualmente simula sucesso sem enviar a solicitação.
 3. [ ] **Corrigir a navegação mobile:** o menu desktop é ocultado e não existe substituto funcional no código atual.
 4. [ ] **Substituir depoimentos provisórios e validar provas de autoridade.**
-5. [ ] **Padronizar a biografia e os anos de experiência**, com base nos dados aprovados pela Graciete.
+5. [x] **Padronizar a biografia e os anos de experiência**, com base nos dados aprovados pela Graciete (+30 anos de experiência padronizado em todo o site).
 6. [ ] **Validar fotografias reais** e eliminar imagens provisórias que prejudiquem o posicionamento.
 7. [ ] **Corrigir o Footer, redes sociais, política de privacidade e todos os CTAs.**
 8. [ ] **Concluir QA, homologação, deploy e entrega.**

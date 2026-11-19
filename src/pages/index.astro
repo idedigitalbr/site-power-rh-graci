@@ -12,9 +12,13 @@ import S6Sobre from '../components/home/S6Sobre.astro';
 import S7Diferenciais from '../components/home/S7Diferenciais.astro';
 import S9Faq from '../components/home/S9Faq.astro';
 import S10CtaBanner from '../components/home/S10CtaBanner.astro';
+import { siteContent } from '../data/siteContent';
 ---
 
-<Layout title="PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa">
+<Layout
+  title={siteContent.meta.title}
+  description={siteContent.meta.description}
+>
   <S0Header />
   <main>
     <S1Hero />

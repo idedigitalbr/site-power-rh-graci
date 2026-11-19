@@ -234,8 +234,8 @@ export interface ServicosHubData {
 
 export const siteContent = {
   meta: {
-    title: 'PowerRH — Advisory de Negócios e DHO | Graciete Corrêa',
-    description: 'Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), conectando estratégia, cultura, pessoas, processos e estrutura aos resultados.',
+    title: 'PowerRH — Advisor de Negócios e DHO | Graciete Corrêa',
+    description: 'Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), conectando estratégia, cultura, pessoas, processos e estrutura aos resultados.',
   },
   
   navigation: {
@@ -254,7 +254,7 @@ export const siteContent = {
   },
 
   hero: {
-    eyebrow: 'ADVISORY DE NEGÓCIOS E DESENVOLVIMENTO HUMANO',
+    eyebrow: 'ADVISOR DE NEGÓCIOS E DESENVOLVIMENTO HUMANO',
     headlinePrefix: 'Empresas evoluem',
     headlineHighlight: 'pessoas e estratégia',
     headlineSuffix: 'caminham juntas.',
@@ -277,7 +277,7 @@ export const siteContent = {
 
   metrics: [
     {
-      number: '30+',
+      number: '+30',
       label: 'anos de experiência executiva',
       iconType: 'chart',
     },
@@ -303,7 +303,7 @@ export const siteContent = {
     headlinePrefix: 'Resultados que',
     headlineMiddle: 'constroem',
     headlineHighlight: 'legados.',
-    description: 'A PowerRH atua com Advisory de Negócios e Consultoria em DHO. Apoiamos empresários, sócios e executivos a definir prioridades, desenvolver lideranças e estruturar a gestão com uma visão sistêmica do negócio.',
+    description: 'A PowerRH atua com Advisor de Negócios e Consultoria em DHO. Apoiamos empresários, sócios e executivos a definir prioridades, desenvolver lideranças e estruturar a gestão com uma visão sistêmica do negócio.',
     form: {
       title: 'Fale com a nossa especialista',
       desc: 'Receba um diagnóstico inicial para a sua empresa.',
@@ -314,7 +314,7 @@ export const siteContent = {
 
   quandoHora: {
     eyebrow: 'QUANDO É HORA',
-    title: 'Quando é a hora certa de contar com um apoio estratégico de advisory?',
+    title: 'Quando é a hora certa de contar com um apoio estratégico de advisor?',
     items: [
       {
         id: 1,
@@ -384,13 +384,13 @@ export const siteContent = {
     eyebrow: 'SOBRE A FUNDADORA',
     name: 'Graciete Corrêa',
     title: 'ADVISOR DE NEGÓCIOS E DHO',
-    bio: 'Executiva de Gente e Gestão, Advisor Comportamental e de Negócios e fundadora da PowerRH, com mais de 30 anos de experiência executiva. Apoia empresários, sócios e executivos a conectar a estratégia às decisões sobre cultura, pessoas, processos e estrutura.',
+    bio: 'Executiva de Gente e Gestão, Advisor Comportamental e de Negócios e fundadora da PowerRH, com +30 anos de experiência executiva. Apoia empresários, sócios e executivos a conectar a estratégia às decisões sobre cultura, pessoas, processos e estrutura.',
     ctaText: 'CONHEÇA SUA TRAJETÓRIA →',
     ctaHref: '/sobre',
-    floatingPill: 'Mais de 30 anos de experiência executiva.',
+    floatingPill: '+30 anos de experiência executiva.',
     image: 'assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/Imagem do ChatGPT 7 de out. de 2026, 19_18_59-1.webp',
     credentials: [
-      { text: 'Advisory de Negócios e Consultoria em DHO', iconType: 'cert' },
+      { text: 'Advisor de Negócios e Consultoria em DHO', iconType: 'cert' },
       { text: 'Planejamento estratégico, cultura e sucessão familiar', iconType: 'mentor' },
       { text: 'Desenvolvimento de lideranças e performance', iconType: 'industry' },
       { text: 'Processos, estrutura organizacional e RH estratégico', iconType: 'star' },
@@ -422,7 +422,7 @@ export const siteContent = {
       {
         name: 'Experiência Comprovada',
         title: 'Experiência Comprovada',
-        desc: 'Mais de 25 anos transformando organizações.',
+        desc: '+30 anos de experiência transformando organizações.',
         iconType: 'award',
       },
     ] as DifferentialItem[],
@@ -481,7 +481,7 @@ export const siteContent = {
 
   footer: {
     brandTitle: 'PowerRH',
-    brandDesc: 'Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), integrando estratégia, pessoas e processos.',
+    brandDesc: 'Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), integrando estratégia, pessoas e processos.',
     socialLinks: [
       { name: 'Instagram', href: 'https://www.instagram.com/gracietecoach/' },
       { name: 'LinkedIn', href: 'https://www.linkedin.com/in/gracietecorreacoach/' },
@@ -511,15 +511,15 @@ export const siteContent = {
   sobrePage: {
     proposta: sobrePropostaOficial,
     meta: {
-      title: 'Sobre a PowerRH — Advisory de Negócios e DHO',
-      description: 'Conheça a PowerRH, que atua com Advisory de Negócios e DHO, apoiando empresários e executivos com pensamento sistêmico, liderança e processos.',
+      title: 'Sobre a PowerRH — Advisor de Negócios e DHO',
+      description: 'Conheça a PowerRH, que atua com Advisor de Negócios e DHO, apoiando empresários e executivos com pensamento sistêmico, liderança e processos.',
     },
     hero: {
-      eyebrow: 'QUEM SOMOS · ADVISORY DE NEGÓCIOS E DHO',
-      titlePrefix: 'Advisory de Negócios',
+      eyebrow: 'QUEM SOMOS · ADVISOR DE NEGÓCIOS E DHO',
+      titlePrefix: 'Advisor de Negócios',
       titleHighlight: 'gestão estratégica',
       titleSuffix: 'e desenvolvimento humano.',
-      lead: 'A PowerRH atua com Advisory de Negócios e Consultoria em DHO para desenvolver a visão estratégica das lideranças e conectar as decisões sobre pessoas, cultura, processos e estrutura aos resultados.',
+      lead: 'A PowerRH atua com Advisor de Negócios e Consultoria em DHO para desenvolver a visão estratégica das lideranças e conectar as decisões sobre pessoas, cultura, processos e estrutura aos resultados.',
       rootsBadge: 'Propósito & Futuro',
       rootsTitle: 'Pessoas no centro, resultados no horizonte.',
       rootsCopy: 'Atuamos especialmente com empresas familiares e empresas de dono que buscam profissionalizar a gestão, preparar sucessores e preservar seu legado.',
@@ -529,13 +529,13 @@ export const siteContent = {
       title: 'Mais de três décadas transformando organizações de dentro para fora.',
       lead: 'Nossa fundadora Graciete Corrêa construiu sua história onde a liderança é testada de verdade: na indústria, no varejo, na gestão de crises e em complexas operações societárias.',
       paragraphs: [
-        'Ao longo de mais de 30 anos de atuação executiva, Graciete liderou áreas de Recursos Humanos e Desenvolvimento Organizacional em grandes companhias, gerindo diretamente mais de 2.000 profissionais e conduzindo projetos de alta complexidade estrutural.',
+        'Ao longo de +30 anos de experiência executiva, Graciete liderou áreas de Recursos Humanos e Desenvolvimento Organizacional em grandes companhias, gerindo diretamente mais de 2.000 profissionais e conduzindo projetos de alta complexidade estrutural.',
         'Sua trajetória inclui a condução de 2 operações de Fusões e Aquisições (M&A), integrando culturas e processos de forma harmoniosa, e a conquista de 2 certificações GPTW (Great Place to Work) em operações sob sua liderança direta.',
         'A PowerRH é a consolidação de todo esse aprendizado corporativo colocado a serviço de empresários que buscam estruturar suas empresas para o próximo ciclo de crescimento, sucessão familiar sólida e perenidade.',
       ],
       founderName: 'Graciete Corrêa',
       founderRole: 'Fundadora & Consultora Estratégica Principal',
-      floatingBadge: '30+ anos de liderança executiva em gestão de pessoas',
+      floatingBadge: '+30 anos de experiência executiva em gestão de pessoas',
       quote: 'Empresas não são feitas apenas de processos e números. São feitas de gente com sonhos, dores e potenciais. Quando você cuida com estratégia de quem faz acontecer, o resultado é uma consequência inevitável.',
       image: 'assets/imagens-diversas/fotos_graci_ia/02_SOBRE_GRACIETE/55_retrato_autoridade.webp',
       credentials: [
@@ -547,7 +547,7 @@ export const siteContent = {
     },
     indicadores: [
       {
-        number: '30+',
+        number: '+30',
         label: 'Anos de experiência executiva no mercado corporativo',
         iconType: 'chart',
       },
@@ -574,7 +574,7 @@ export const siteContent = {
     ] as MetricItem[],
     fundamentos: {
       eyebrow: 'O QUE NOS GUIA',
-      title: 'Fundamentos que constroem nossa atuação.',
+      title: 'Fundamentos que constroem<br />nossa atuação.',
       subtitle: 'Princípios inegociáveis que norteiam cada diagnóstico, mentoria e projeto desenvolvido pela PowerRH.',
       items: [
         {
@@ -640,7 +640,7 @@ export const siteContent = {
     pilares: {
       eyebrow: 'TRÊS PILARES DE ATUAÇÃO',
       title: 'Nossa atuação integrada.',
-      subtitle: 'Advisory de Negócios, desenvolvimento humano e estrutura organizacional conectados à estratégia do negócio.',
+      subtitle: 'Advisor de Negócios, desenvolvimento humano e estrutura organizacional conectados à estratégia do negócio.',
       items: solucoesOficiais.map((s, i) => ({
         number: String(i + 1).padStart(2, '0'),
         title: s.title,

@@ -208,7 +208,7 @@ export const solucoesOficiais = [
     ],
     "modules": [
       [
-        "Desenho organizacional",
+        "Design organizacional",
         "ESTRUTURA E ALÇADAS",
         "Revisão de organogramas, responsabilidades, níveis de decisão e relações entre as áreas, esclarecendo quem decide, quem executa e como as equipes trabalham juntas.",
         [
@@ -283,7 +283,7 @@ export const solucoesOficiais = [
 ];
 export const servicosHubOficial = {
   "meta": {
-    "title": "Soluções PowerRH | Advisory de Negócios e DHO",
+    "title": "Soluções PowerRH | Advisor de Negócios e DHO",
     "description": "Conheça os três pilares da PowerRH: Advisory de Negócios e Cultura, Pessoas Liderança e Performance, Processos e Estrutura Organizacional."
   },
   "hero": {
@@ -291,7 +291,7 @@ export const servicosHubOficial = {
     "titlePrefix": "Três pilares integrados para",
     "titleHighlight": "gestão estratégica",
     "titleSuffix": "e resultados consistentes.",
-    "lead": "Advisory de Negócios e Consultoria em DHO com pensamento sistêmico, ligando estratégia, pessoas, cultura, processos e estrutura.",
+    "lead": "Advisor de Negócios e Consultoria em DHO com pensamento sistêmico, ligando estratégia, pessoas, cultura, processos e estrutura.",
     "floatingBadge": "3 pilares integrados",
     "pills": [
       "Advisory de Negócios e Cultura",
@@ -344,7 +344,7 @@ export const servicosHubOficial = {
       "desc": "Organizamos cargos, responsabilidades e fluxos de trabalho e implantamos rotinas de acompanhamento que dão consistência à execução e clareza para que pessoas, equipes e líderes melhorem suas entregas.",
       "image": "assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/24_design_organizacional.webp",
       "highlights": [
-        "Desenho organizacional",
+        "Design organizacional",
         "Mapeamento e melhoria de processos de Pessoas",
         "Plano de Cargos, Carreiras e Salários",
         "RH estratégico e sistemas de gestão de pessoas"
@@ -543,7 +543,7 @@ export const servicosDetalhadosOficiais = {
     "differential": {
       "eyebrow": "EXPERIÊNCIA EXECUTIVA",
       "title": "A experiência a serviço das decisões",
-      "lead": "Graciete Corrêa reúne mais de 30 anos de vivência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
+      "lead": "Graciete Corrêa reúne +30 anos de experiência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
       "quote": "A clareza nas decisões, nos papéis e nas prioridades sustenta a evolução da gestão.",
       "founderName": "Graciete Corrêa",
       "founderRole": "Fundadora da PowerRH · Advisor de Negócios e DHO",
@@ -741,7 +741,7 @@ export const servicosDetalhadosOficiais = {
     "differential": {
       "eyebrow": "EXPERIÊNCIA EXECUTIVA",
       "title": "A experiência a serviço das decisões",
-      "lead": "Graciete Corrêa reúne mais de 30 anos de vivência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
+      "lead": "Graciete Corrêa reúne +30 anos de experiência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
       "quote": "A clareza nas decisões, nos papéis e nas prioridades sustenta a evolução da gestão.",
       "founderName": "Graciete Corrêa",
       "founderRole": "Fundadora da PowerRH · Advisor de Negócios e DHO",
@@ -811,7 +811,7 @@ export const servicosDetalhadosOficiais = {
       "image": "assets/imagens-diversas/fotos_graci_ia/03_SOLUCAO_CULTURA_E_ESTRUTURA/24_design_organizacional.webp",
       "floatingBadge": "Advisory e Desenvolvimento Humano e Organizacional",
       "pills": [
-        "Desenho organizacional",
+        "Design organizacional",
         "Mapeamento e melhoria de processos de Pessoas",
         "Plano de Cargos, Carreiras e Salários",
         "RH estratégico e sistemas de gestão de pessoas"
@@ -851,7 +851,7 @@ export const servicosDetalhadosOficiais = {
       "items": [
         {
           "number": "01",
-          "title": "Desenho organizacional",
+          "title": "Design organizacional",
           "subtitle": "ESTRUTURA E ALÇADAS",
           "desc": "Revisão de organogramas, responsabilidades, níveis de decisão e relações entre as áreas, esclarecendo quem decide, quem executa e como as equipes trabalham juntas.",
           "deliverables": [
@@ -951,7 +951,7 @@ export const servicosDetalhadosOficiais = {
     "differential": {
       "eyebrow": "EXPERIÊNCIA EXECUTIVA",
       "title": "A experiência a serviço das decisões",
-      "lead": "Graciete Corrêa reúne mais de 30 anos de vivência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
+      "lead": "Graciete Corrêa reúne +30 anos de experiência executiva em Gente e Gestão e uma abordagem que conecta estratégia, cultura, pessoas e estrutura.",
       "quote": "A clareza nas decisões, nos papéis e nas prioridades sustenta a evolução da gestão.",
       "founderName": "Graciete Corrêa",
       "founderRole": "Fundadora da PowerRH · Advisor de Negócios e DHO",
@@ -1008,7 +1008,7 @@ export const sobrePropostaOficial = {
   "eyebrow": "SOBRE A POWERRH",
   "title": "Uma visão sistêmica para decisões mais consistentes.",
   "paragraphs": [
-    "A PowerRH atua com Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO). Apoia empresários, sócios e executivos a desenvolver uma visão estratégica a partir do pensamento sistêmico, compreendendo como as decisões sobre pessoas, cultura, processos e estrutura afetam os resultados da empresa.",
+    "A PowerRH atua com Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO). Apoia empresários, sócios e executivos a desenvolver uma visão estratégica a partir do pensamento sistêmico, compreendendo como as decisões sobre pessoas, cultura, processos e estrutura afetam os resultados da empresa.",
     "Na prática, ajudamos a liderança a construir um modelo de gestão a partir do pensamento estratégico para definir os resultados que deseja alcançar, identificar o que favorece ou limita essas entregas, estabelecer prioridades e acompanhar a execução. A partir dessa direção, apoiamos a empresa a estruturar seus processos, desenvolver pessoas e capacitar líderes para assumir responsabilidades e tomar decisões com mais autonomia.",
     "Atuamos especialmente com empresas familiares (ou empresas de dono) que desejam profissionalizar a gestão, preparar sucessores e preservar seu legado. Nosso trabalho ajuda a criar as condições para que a empresa cresça de forma sustentável, mantenha a consistência dos resultados e esteja preparada para dar continuidade ao negócio ao longo das gerações."
   ]

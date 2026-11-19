@@ -337,6 +337,10 @@
   line-height: 1.48;
   margin: 0 0 24px;
   max-width: 420px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .btn-hero-pill {

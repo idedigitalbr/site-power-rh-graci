@@ -61,6 +61,10 @@ p {
   color: var(--text-secondary);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-4);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 p:last-child {
@@ -221,6 +225,10 @@ button, input, select, textarea {
   color: var(--text-secondary);
   line-height: var(--line-height-relaxed);
   max-width: 680px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .section-header-center .section-subtitle {
