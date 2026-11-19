@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import S0Header from '../../components/common/S0Header.astro';
+import Footer from '../../components/common/Footer.astro';
+import ServicoHero from '../../components/servicos/ServicoHero.astro';
+import ServicosNavSelector from '../../components/servicos/ServicosNavSelector.astro';
+import ServicoEditorialStory from '../../components/servicos/ServicoEditorialStory.astro';
+import ServicoPilaresMinimal from '../../components/servicos/ServicoPilaresMinimal.astro';
+import ServicoAutoridadeMetodo from '../../components/servicos/ServicoAutoridadeMetodo.astro';
+import S8Depoimentos from '../../components/home/S8Depoimentos.astro';
+import S10CtaBanner from '../../components/home/S10CtaBanner.astro';
+import { siteContent } from '../../data/siteContent';
+
+const service = siteContent.servicos['advisory-negocios-cultura'];
+---
+
+<Layout title={service.meta.title} description={service.meta.description}>
+  <S0Header currentPage="servicos" />
+  <main>
+    <ServicoHero service={service} />
+    <ServicosNavSelector currentSlug={service.slug} />
+    <ServicoEditorialStory service={service} />
+    <ServicoPilaresMinimal service={service} />
+    <ServicoAutoridadeMetodo service={service} />
+    <S8Depoimentos />
+    <S10CtaBanner />
+  </main>
+  <Footer />
+</Layout>
