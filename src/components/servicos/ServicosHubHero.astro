@@ -71,119 +71,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
       </div>
 
-      <!-- Card Lateral de Propósito Executivo -->
-      <div class="hub-hero-card-col">
-        <div class="hub-hero-quote-card">
-          <div class="quote-card-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <span>ADVISORY SÊNIOR</span>
-          </div>
-
-          <p class="quote-card-text">
-            “Não entregamos manuais teóricos ou diagnósticos engavetados: colocamos 30+ anos de vivência corporativa à mesa do decisor.”
-          </p>
-
-          <div class="quote-card-footer">
-            <div class="quote-card-author">
-              <strong>Graciete Corrêa</strong>
-              <span>CEO da PowerRH • Conselheira de Empresas</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </Container>
 </section>
 
 <style>
-  .hub-hero-custom {
-    min-height: clamp(540px, 72vh, 680px);
-    background-color: #FFFFFF;
-  }
-
-  .hero-cta-group {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-  }
-
-  .hub-hero-card-col {
-    margin-left: auto;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-  }
-
-  @media (max-width: 991px) {
-    .hub-hero-card-col {
-      margin-left: 0;
-      margin-top: 32px;
-      width: 100%;
-    }
-    .hero-cta-group {
-      justify-content: center;
-    }
-  }
-
-  .hub-hero-quote-card {
-    background: rgba(1, 36, 62, 0.88);
-    border: 1px solid rgba(200, 138, 59, 0.35);
-    border-radius: 20px;
-    padding: 32px 28px;
-    max-width: 380px;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 138, 59, 0.12);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .quote-card-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: var(--final-gold, #C88A3B);
-    text-transform: uppercase;
-    font-family: var(--font-mono, monospace);
-  }
-
-  .quote-card-text {
-    font-size: 15.5px;
-    line-height: 1.55;
-    color: #F8FAFC;
-    font-weight: 600;
-    font-style: italic;
-    margin: 0;
-  }
-
-  .quote-card-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-top: 14px;
-  }
-
-  .quote-card-author {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .quote-card-author strong {
-    font-size: 14px;
-    color: #FFFFFF;
-    font-weight: 700;
-  }
-
-  .quote-card-author span {
-    font-size: 12px;
-    color: #94A3B8;
-  }
+  .hub-hero-custom { min-height: clamp(540px, 72vh, 680px); background-color: #FFFFFF; }
+  .hero-cta-group { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  @media (max-width: 991px) { .hero-cta-group { justify-content: center; } }
 </style>

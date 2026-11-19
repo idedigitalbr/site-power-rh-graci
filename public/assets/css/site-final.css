@@ -1370,26 +1370,7 @@
   display: block;
 }
 
-.sobre-floating-pill {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: #FFFFFF;
-  padding: 12px 20px;
-  border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #0B1B2C;
-  border: 1px solid var(--final-border-subtle);
-}
 
-.sobre-floating-pill svg {
-  color: var(--final-gold);
-}
 
 .sobre-details-col {
   display: flex;
