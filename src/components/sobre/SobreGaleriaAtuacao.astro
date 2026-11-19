@@ -134,8 +134,37 @@ const fotosGaleria = {
     filter: brightness(1) contrast(1.1);
   }
 
-  .pilar-link-card { text-decoration:none; display:block; transition:transform .2s ease, border-color .2s ease; }
-  .pilar-link-card:hover { transform:translateY(-3px); border-color:#C88A3B; }
-  .link-saiba-mais { display:block; margin-top:15px; font-size:12px; font-weight:800; color:#C88A3B; }
-  .pilar-link-card:last-child:nth-child(odd) { grid-column:1/-1; }
+  .pilar-link-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, background-color 300ms ease;
+  }
+  .pilar-link-card:hover {
+    transform: translateY(-4px);
+    border-color: #C88A3B;
+  }
+  .pilar-link-card .diferencial-icon-final {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    transform-origin: left center;
+  }
+  .pilar-link-card .diferencial-name-final,
+  .pilar-link-card .diferencial-desc-final {
+    width: 100%;
+  }
+  .link-saiba-mais {
+    display: block;
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #C88A3B;
+  }
+  .pilar-link-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 </style>

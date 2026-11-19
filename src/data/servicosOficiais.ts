@@ -2,8 +2,8 @@
 export const solucoesOficiais = [
   {
     "slug": "advisory-negocios-cultura",
-    "title": "Advisory de Negócios e Cultura",
-    "short": "Advisory e Cultura",
+    "title": "Advisor de Negócios",
+    "short": "Advisor de Negócios",
     "category": "ESTRATÉGIA · CULTURA · SUCESSÃO",
     "desc": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio.",
     "hero": [
@@ -77,7 +77,7 @@ export const solucoesOficiais = [
     ],
     "faqs": [
       [
-        "Advisory de Negócios é apenas consultoria de RH?",
+        "Advisor de Negócios é apenas consultoria de RH?",
         "Não. A atuação considera a empresa como um sistema integrado: pessoas, cultura, processos, estrutura e resultados."
       ],
       [
@@ -399,11 +399,11 @@ export const servicosHubOficial = {
 export const servicosDetalhadosOficiais = {
   "advisory-negocios-cultura": {
     "slug": "advisory-negocios-cultura",
-    "shortTitle": "Advisory de Negócios e Cultura",
+    "shortTitle": "Advisor de Negócios",
     "category": "ESTRATÉGIA · CULTURA · SUCESSÃO",
     "eyebrow": "SOLUÇÃO 01 · ESTRATÉGIA · CULTURA · SUCESSÃO",
     "meta": {
-      "title": "Advisory de Negócios e Cultura | PowerRH",
+      "title": "Advisor de Negócios | PowerRH",
       "description": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio."
     },
     "hero": {
@@ -411,7 +411,7 @@ export const servicosDetalhadosOficiais = {
       "titleHighlight": "visão sistêmica",
       "titleSuffix": "do negócio e de suas pessoas.",
       "lead": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio.",
-      "badge": "Advisory de Negócios e Cultura",
+      "badge": "Advisor de Negócios",
       "image": "assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/19_advisory_empresaria.webp",
       "floatingBadge": "Advisory e Desenvolvimento Humano e Organizacional",
       "pills": [
@@ -420,11 +420,11 @@ export const servicosDetalhadosOficiais = {
         "Cultura organizacional"
       ],
       "ctaText": "CONVERSAR SOBRE ESTA SOLUÇÃO",
-      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisory%20de%20Neg%C3%B3cios%20e%20Cultura."
+      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisor%20de%20Neg%C3%B3cios."
     },
     "scenarios": {
       "eyebrow": "DESAFIOS QUE ENFRENTAMOS",
-      "title": "Quando faz sentido investir em advisory e cultura?",
+      "title": "Quando faz sentido investir em advisor de negócios?",
       "subtitle": "Avaliamos a realidade de cada organização antes de construir o escopo do trabalho.",
       "items": [
         {
@@ -565,10 +565,10 @@ export const servicosDetalhadosOficiais = {
     },
     "faq": {
       "eyebrow": "DÚVIDAS FREQUENTES",
-      "title": "Perguntas sobre Advisory de Negócios e Cultura",
+      "title": "Perguntas sobre Advisor de Negócios",
       "items": [
         {
-          "question": "Advisory de Negócios é apenas consultoria de RH?",
+          "question": "Advisor de Negócios é apenas consultoria de RH?",
           "answer": "Não. A atuação considera a empresa como um sistema integrado: pessoas, cultura, processos, estrutura e resultados.",
           "isOpenDefault": true
         },
@@ -583,7 +583,7 @@ export const servicosDetalhadosOficiais = {
       ]
     },
     "cta": {
-      "heading": "Vamos conversar sobre <span class=\"highlight-gold\">advisory de negócios e cultura?</span>",
+      "heading": "Vamos conversar sobre <span class=\"highlight-gold\">advisor de negócios?</span>",
       "desc": "Conheça a forma de atuação da PowerRH e apresente os desafios da sua empresa.",
       "checklist": [
         "Conversa contextualizada ao seu negócio",
@@ -592,7 +592,7 @@ export const servicosDetalhadosOficiais = {
       ],
       "image": "assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp",
       "ctaText": "ENTRAR EM CONTATO",
-      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisory%20de%20Neg%C3%B3cios%20e%20Cultura."
+      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisor%20de%20Neg%C3%B3cios."
     }
   },
   "pessoas-lideranca-performance": {

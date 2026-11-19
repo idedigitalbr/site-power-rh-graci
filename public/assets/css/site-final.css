@@ -685,6 +685,10 @@
   color: #4A5568;
   line-height: 1.68;
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 /* --- Coluna 3: Formulário de Diagnóstico Flutuante (Dark Navy Card) --- */
@@ -941,6 +945,10 @@
   margin: 0;
   font-weight: 500;
   transition: color 280ms ease;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .quando-hora-card-final:hover .quando-hora-text-final {
@@ -1332,6 +1340,10 @@
   line-height: 1.45;
   margin: 0;
   transition: color 280ms ease;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .step-card-final:hover .step-desc-final {
@@ -1403,6 +1415,10 @@
   color: #4A5568;
   line-height: 1.68;
   margin-bottom: 30px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .sobre-credentials-list {
@@ -1483,6 +1499,7 @@
 .diferencial-card-single {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
   padding: 18px 16px;
   border-radius: 16px;
@@ -1502,6 +1519,12 @@
 }
 
 .diferencial-icon-final {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: fit-content;
+  transform-origin: left center;
   color: var(--final-gold);
   margin-bottom: 4px;
   transition: transform 280ms ease, color 280ms ease;
@@ -1525,6 +1548,10 @@
   line-height: 1.5;
   margin: 0;
   transition: color 280ms ease;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .diferencial-card-single:hover .diferencial-desc-final {
@@ -1603,6 +1630,10 @@
   color: #475569;
   line-height: 1.45;
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 /* ----------------------------------------------------------------------------
@@ -1667,6 +1698,10 @@
   line-height: 1.62;
   margin: 0;
   transition: color 280ms ease;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .depoimento-card-final:hover .depoimento-text-final {
@@ -1754,6 +1789,10 @@
   color: #4A5568;
   line-height: 1.6;
   margin-bottom: 24px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .faq-accordion-list {
@@ -1815,6 +1854,10 @@
   font-size: 14px;
   color: #475569;
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .faq-item-final.active .faq-answer-body {
@@ -1898,6 +1941,10 @@
   line-height: 1.5;
   margin: 0;
   max-width: 440px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .cta-banner-actions-col {
@@ -2081,6 +2128,10 @@
     max-width: 620px;
     margin: 0 auto;
     order: 1;
+  }
+  .s2-copy-column .s2-description {
+    text-align: justify;
+    text-justify: inter-word;
   }
   .s2-metrics-grid {
     max-width: 440px;

@@ -495,7 +495,7 @@ export const siteContent = {
       { label: 'Dúvidas Frequentes', href: '#faq' },
     ],
     solutionLinks: [
-      { label: 'Advisory de Negócios e Cultura', href: '/servicos/advisory-negocios-cultura' },
+      { label: 'Advisor de Negócios', href: '/servicos/advisory-negocios-cultura' },
       { label: 'Pessoas, Liderança e Performance', href: '/servicos/pessoas-lideranca-performance' },
       { label: 'Processos e Estrutura Organizacional', href: '/servicos/processos-estrutura-organizacional' },
     ],

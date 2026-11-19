@@ -23,3 +23,49 @@
 @import "../../public/assets/css/base.css";
 @import "../../public/assets/css/components.css";
 @import "../../public/assets/css/site-final.css";
+
+/* ==============================================================================
+ * PADRÃO CORPORATIVO DE TIPOGRAFIA: TEXTOS JUSTIFICADOS
+ * Garante que todos os textos de leitura e parágrafos de todas as páginas
+ * sejam perfeitamente justificados com hifenação tipográfica elegante.
+ * ============================================================================== */
+p,
+article p,
+section p,
+main p,
+.prose p,
+.s2-description,
+.hero-subtitle-final,
+.quando-hora-text-final,
+.step-desc-final,
+.sobre-bio-text,
+.diferencial-desc-final,
+.destaque-card-desc,
+.depoimento-text-final,
+.faq-desc-final,
+.faq-answer-body,
+.cta-banner-sub,
+.autoridade-subtitle-lead,
+.diferencial-lead-copy,
+.quote-text,
+.pillar-desc,
+.dor-card-desc,
+.editorial-lead-text,
+.quote-body,
+.faq-answer-text,
+.help-card-desc,
+.step-card-desc,
+.modulo-card-desc,
+.pilar-card-desc,
+.state-text,
+.hub-card-desc,
+.hub-metodo-desc,
+.fundamento-card-desc,
+.proposta-textos p,
+.proposta-lead,
+.proposta-intro p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
