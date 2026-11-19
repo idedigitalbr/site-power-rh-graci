@@ -234,7 +234,7 @@ export interface ServicosHubData {
 
 export const siteContent = {
   meta: {
-    title: 'PowerRH — Consultoria Estratégica em Pessoas | Graciete Corrêa',
+    title: 'PowerRH — Advisory de Negócios e DHO | Graciete Corrêa',
     description: 'Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), conectando estratégia, cultura, pessoas, processos e estrutura aos resultados.',
   },
   
@@ -452,16 +452,16 @@ export const siteContent = {
     items: [
       {
         question: 'Quais tipos de empresas a PowerRH atende?',
-        answer: 'Atendemos empresas em fase de expansão, organizações familiares em processo de profissionalização e governança, e empresas de médio e grande porte que buscam desenvolver líderes e alinhar cultura com resultados.',
+        answer: 'Apoiamos empresários, sócios e executivos, especialmente de empresas familiares ou empresas de dono que desejam profissionalizar a gestão, desenvolver lideranças, organizar processos e preparar sucessores.',
         isOpenDefault: true,
       },
       {
-        question: 'Como funciona o diagnóstico inicial?',
-        answer: 'O diagnóstico é uma sessão estratégica sem compromisso com a fundadora para mapear a situação atual de gestão de pessoas, identificar gargalos imediatos e estruturar os passos necessários para a evolução.',
+        question: 'Como começa um projeto com a PowerRH?',
+        answer: 'Começamos compreendendo os desafios do negócio, o que favorece ou limita as entregas e quais prioridades precisam ser estabelecidas, definindo o escopo conforme o momento da empresa.',
       },
       {
-        question: 'Os projetos são personalizados?',
-        answer: 'Sim, 100% personalizados. Entendemos a realidade, maturidade e cultura de cada cliente para desenhar intervenções sob medida que gerem adesão real do time.',
+        question: 'Os três pilares podem ser trabalhados em conjunto?',
+        answer: 'Sim. Estratégia e cultura, pessoas e performance, processos e estrutura são frentes conectadas pelo pensamento sistêmico e podem ser combinadas conforme as necessidades da organização.',
       },
     ] as FaqItem[],
   },
@@ -511,14 +511,14 @@ export const siteContent = {
   sobrePage: {
     proposta: sobrePropostaOficial,
     meta: {
-      title: 'Sobre Nós — PowerRH | Consultoria Estratégica em Pessoas & Governança',
+      title: 'Sobre a PowerRH — Advisory de Negócios e DHO',
       description: 'Conheça a PowerRH, que atua com Advisory de Negócios e DHO, apoiando empresários e executivos com pensamento sistêmico, liderança e processos.',
     },
     hero: {
-      eyebrow: 'QUEM SOMOS • CONSULTORIA ESTRATÉGICA EM PESSOAS',
-      titlePrefix: 'Construindo legados humanos',
-      titleHighlight: 'empresas',
-      titleSuffix: 'perenes.',
+      eyebrow: 'QUEM SOMOS · ADVISORY DE NEGÓCIOS E DHO',
+      titlePrefix: 'Advisory de Negócios',
+      titleHighlight: 'gestão estratégica',
+      titleSuffix: 'e desenvolvimento humano.',
       lead: 'A PowerRH atua com Advisory de Negócios e Consultoria em DHO para desenvolver a visão estratégica das lideranças e conectar as decisões sobre pessoas, cultura, processos e estrutura aos resultados.',
       rootsBadge: 'Propósito & Futuro',
       rootsTitle: 'Pessoas no centro, resultados no horizonte.',
