@@ -1,5 +1,5 @@
 ---
-// ServicosNavSelector.astro — Barra de navegação rápida entre os 4 serviços
+// ServicosNavSelector.astro — Barra de navegação rápida entre as três soluções
 import Container from '../ui/Container.astro';
 
 interface Props {
@@ -9,32 +9,14 @@ interface Props {
 const { currentSlug } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const servicesList = [
-  {
-    slug: 'cultura-organizacional',
-    title: 'Cultura & Design',
-    category: '01',
-    href: `${base}/servicos/cultura-organizacional`,
-  },
-  {
-    slug: 'lideranca-executiva',
-    title: 'Líderes de Líderes',
-    category: '02',
-    href: `${base}/servicos/lideranca-executiva`,
-  },
-  {
-    slug: 'governanca-e-sucessao',
-    title: 'Governança & Sucessão',
-    category: '03',
-    href: `${base}/servicos/governanca-e-sucessao`,
-  },
-  {
-    slug: 'advisory-empresarial',
-    title: 'Advisory Empresarial',
-    category: '04',
-    href: `${base}/servicos/advisory-empresarial`,
-  },
-];
+import { solucoesOficiais } from '../../data/servicosOficiais';
+const servicesList = solucoesOficiais.map((s, i) => ({
+  slug: s.slug,
+  title: s.title,
+  category: String(i + 1).padStart(2, '0'),
+  href: `${base}/servicos/${s.slug}`,
+}));
+
 ---
 
 <section class="section-servicos-selector" aria-label="Navegar entre outras soluções">

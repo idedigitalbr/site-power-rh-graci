@@ -3,6 +3,7 @@
 import Container from '../ui/Container.astro';
 import GoldenArcs from '../ui/GoldenArcs.astro';
 import OrganicTransition from '../ui/OrganicTransition.astro';
+import { solucoesOficiais } from '../../data/servicosOficiais';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -54,61 +55,27 @@ const fotosGaleria = {
         </div>
       </div>
 
-      <!-- Lado Direito: 4 Áreas de Atuação (Classes Oficiais da Home S7) -->
+      <!-- Os três pilares oficiais de atuação da PowerRH -->
       <div>
         <span class="diferenciais-eyebrow">NOSSA ATUAÇÃO</span>
-        <h2 class="diferenciais-title-final">Precisão estratégica em cada etapa da gestão de pessoas.</h2>
-
+        <h2 class="diferenciais-title-final">Três pilares. Uma visão integrada do negócio.</h2>
         <div class="diferenciais-cards-grid">
-          <!-- Card 1: Estratégia -->
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="6"></circle>
-                <circle cx="12" cy="12" r="2"></circle>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Estratégia &amp; Diagnóstico</h3>
-            <p class="diferencial-desc-final">Mapeamento da maturidade de gestão, planejamento e alinhamento de pessoas aos objetivos centrais do negócio.</p>
-          </div>
-
-          <!-- Card 2: Cultura -->
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Cultura &amp; Clima</h3>
-            <p class="diferencial-desc-final">Rituais vivos, fortalecimento do pertencimento e retenção de talentos-chave com metodologia humanizada.</p>
-          </div>
-
-          <!-- Card 3: Liderança -->
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Formação de Líderes</h3>
-            <p class="diferencial-desc-final">Capacitação prática, mentoria executiva e preparação de gestores para tomada de decisão e alta performance.</p>
-          </div>
-
-          <!-- Card 4: Governança -->
-          <div class="diferencial-card-single">
-            <div class="diferencial-icon-final">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <h3 class="diferencial-name-final">Governança &amp; Sucessão</h3>
-            <p class="diferencial-desc-final">Acordos societários, estruturação de conselhos e transição geracional segura para empresas familiares.</p>
-          </div>
+          {solucoesOficiais.map((servico, index) => (
+            <a class="diferencial-card-single pilar-link-card" href={`${base}/servicos/${servico.slug}`}>
+              <div class="diferencial-icon-final">
+                {index === 0 ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+                ) : index === 1 ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M3 21v-2a6 6 0 0 1 12 0v2"/><path d="M17 5a4 4 0 0 1 0 7"/><path d="M18 15a5 5 0 0 1 3 5v1"/></svg>
+                ) : (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v3h11v-3M12 13v1"/></svg>
+                )}
+              </div>
+              <h3 class="diferencial-name-final">{servico.title}</h3>
+              <p class="diferencial-desc-final">{servico.desc}</p>
+              <span class="link-saiba-mais">Conhecer solução →</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -167,4 +134,8 @@ const fotosGaleria = {
     filter: brightness(1) contrast(1.1);
   }
 
+  .pilar-link-card { text-decoration:none; display:block; transition:transform .2s ease, border-color .2s ease; }
+  .pilar-link-card:hover { transform:translateY(-3px); border-color:#C88A3B; }
+  .link-saiba-mais { display:block; margin-top:15px; font-size:12px; font-weight:800; color:#C88A3B; }
+  .pilar-link-card:last-child:nth-child(odd) { grid-column:1/-1; }
 </style>

@@ -1,0 +1,35 @@
+---
+import Container from '../ui/Container.astro';
+import { sobrePropostaOficial } from '../../data/servicosOficiais';
+---
+<section id="sobre-powerrh" class="sobre-proposta">
+  <Container size="wide">
+    <div class="proposta-layout">
+      <div class="proposta-intro">
+        <span class="proposta-eyebrow">{sobrePropostaOficial.eyebrow}</span>
+        <h2>{sobrePropostaOficial.title}</h2>
+        <div class="proposta-mark" aria-hidden="true"></div>
+        <p>Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO).</p>
+      </div>
+      <div class="proposta-textos">
+        {sobrePropostaOficial.paragraphs.map((paragraph, i) => (
+          <p class={i === 0 ? 'proposta-lead' : ''}>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
+<style>
+  .sobre-proposta { position:relative; background:#FAF7F2; padding:clamp(64px,8vw,116px) 0; }
+  .proposta-layout { display:grid; grid-template-columns:minmax(240px,.85fr) minmax(0,1.15fr); gap:clamp(36px,6vw,100px); align-items:start; }
+  .proposta-intro { position:sticky; top:110px; }
+  .proposta-eyebrow { display:block; font-size:12px; letter-spacing:.16em; color:#A57232; font-weight:800; margin-bottom:16px; }
+  .proposta-intro h2 { font-size:clamp(29px,3.2vw,48px); line-height:1.17; letter-spacing:-.035em; color:#01243E; font-weight:800; margin:0; }
+  .proposta-mark { width:54px; height:2px; background:#C88A3B; margin:26px 0; }
+  .proposta-intro p { color:#526273; line-height:1.7; font-size:16px; }
+  .proposta-textos { border-left:1px solid rgba(200,138,59,.35); padding-left:clamp(24px,3.5vw,50px); }
+  .proposta-textos p { color:#455363; font-size:clamp(15px,1.25vw,17px); line-height:1.9; margin:0 0 25px; }
+  .proposta-textos p:last-child { margin-bottom:0; }
+  .proposta-textos .proposta-lead { font-size:clamp(17px,1.45vw,20px); color:#092238; font-weight:500; line-height:1.75; }
+  @media(max-width:800px) { .proposta-layout { grid-template-columns:1fr; gap:30px; } .proposta-intro { position:static; } .proposta-textos { padding-left:20px; } }
+</style>
