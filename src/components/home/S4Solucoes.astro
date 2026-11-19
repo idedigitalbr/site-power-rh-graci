@@ -53,12 +53,16 @@ const governanca = solucoes.items[2];
           />
         </div>
 
-        <!-- Card Navy: Advisor de Negócios -->
-        <article class="solucao-card-navy">
+        <!-- Card Navy: Advisory de Negócios e Cultura -->
+        <a
+          href={`${base}/servicos/${cultura.slug}`}
+          class="solucao-card-navy"
+          aria-label={`Conhecer página de ${cultura.title}`}
+        >
           <div class="card-navy-header">
             <!-- Ícone Gold: 2 Pessoas / Comunidade -->
             <div class="card-icon-gold">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -68,21 +72,51 @@ const governanca = solucoes.items[2];
             <h3 class="card-navy-title">
               {cultura.title}
             </h3>
-            <p class="card-navy-desc">
-              {cultura.desc}
-            </p>
           </div>
-          <a
-            href={`${base}/servicos/${cultura.slug}`}
-            class="solucao-arrow-btn btn-right"
-            aria-label={`Conhecer página de ${cultura.title}`}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </article>
+
+          <!-- Subitens com Ícones Circulares (Estilo Anexo 3) -->
+          <div class="solucao-subitens-list">
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+              </div>
+              <span class="subitem-title">Planejamento estratégico</span>
+            </div>
+
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="subitem-title">Governança e sucessão familiar</span>
+            </div>
+
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <span class="subitem-title">Cultura organizacional</span>
+            </div>
+          </div>
+
+          <div class="card-footer-action">
+            <span class="solucao-arrow-btn btn-right" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
 
       <!-- LINHA 2: (Card Líderes + Foto Retrato) + Card Processos e Estrutura Organizacional -->
@@ -92,7 +126,11 @@ const governanca = solucoes.items[2];
         <div class="solucoes-subgrid-left">
           
           <!-- Card Light: Pessoas, Liderança e Performance com Curva Orgânica Quente no Canto -->
-          <article class="solucao-card-light">
+          <a
+            href={`${base}/servicos/${lideranca.slug}`}
+            class="solucao-card-light"
+            aria-label={`Conhecer página de ${lideranca.title}`}
+          >
             <!-- Curva Orgânica Fluida em Tom Areia/Creme Quente -->
             <div class="organic-wave-corner" aria-hidden="true">
               <svg viewBox="0 0 180 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -101,7 +139,7 @@ const governanca = solucoes.items[2];
             </div>
 
             <div class="card-light-header">
-              <!-- Ícone Gold: Gráfico de Barras / Performance (Alinhado à Esquerda) -->
+              <!-- Ícone Gold: Gráfico de Barras / Performance -->
               <div class="card-icon-gold">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -112,23 +150,54 @@ const governanca = solucoes.items[2];
               <h3 class="card-light-title">
                 {lideranca.title}
               </h3>
-              <p class="card-light-desc">
-                {lideranca.desc}
-              </p>
             </div>
 
-            <!-- Botão de Seta Alinhado à Esquerda -->
-            <a
-              href={`${base}/servicos/${lideranca.slug}`}
-              class="solucao-arrow-btn btn-left"
-              aria-label={`Conhecer página de ${lideranca.title}`}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </article>
+            <!-- Subitens com Ícones Circulares (Estilo Anexo 3) -->
+            <div class="solucao-subitens-list">
+              <div class="subitem-row">
+                <div class="subitem-icon-circle">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="subitem-title">Engenharia de equipes</span>
+              </div>
+
+              <div class="subitem-row">
+                <div class="subitem-icon-circle">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <span class="subitem-title">Desenvolvimento de lideranças</span>
+              </div>
+
+              <div class="subitem-row">
+                <div class="subitem-icon-circle">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <span class="subitem-title">Performance</span>
+              </div>
+            </div>
+
+            <!-- Botão de Seta Alinhado à Direita -->
+            <div class="card-footer-action">
+              <span class="solucao-arrow-btn btn-right" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+          </a>
 
           <!-- Foto Retrato do Líder / Facilitador -->
           <div class="solucao-media-card photo-portrait">
@@ -141,42 +210,71 @@ const governanca = solucoes.items[2];
           </div>
         </div>
 
-        <!-- Card Processos e Estrutura Organizacional: Foto no Topo + Barra Navy Compacta -->
-        <article class="solucao-card-governanca">
-          <div class="governanca-img-wrap">
-            <img
-              src={`${base}/${governanca.image}`}
-              alt={governanca.alt}
-              class="bento-photo-img"
-              loading="lazy"
-            />
+        <!-- Card Processos e Estrutura Organizacional -->
+        <a
+          href={`${base}/servicos/${governanca.slug}`}
+          class="solucao-card-navy solucao-card-processos"
+          style={`--card-bg-img: url('${base}/${governanca.image}');`}
+          aria-label={`Conhecer página de ${governanca.title}`}
+        >
+          <div class="card-navy-header">
+            <!-- Ícone Gold: Relógio / Estrutura e Governança -->
+            <div class="card-icon-gold">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="8.5" y="14" width="7" height="7" rx="1"></rect>
+                <path d="M6.5 10v3h11v-3M12 13v1"></path>
+              </svg>
+            </div>
+            <h3 class="card-navy-title">
+              {governanca.title}
+            </h3>
           </div>
-          <div class="governanca-bottom-bar">
-            <div class="governanca-content-block">
-              <!-- Ícone Gold: Relógio / Continuidade e Governança -->
-              <div class="card-icon-gold flex-shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 14 14"></polyline>
+
+          <!-- Subitens com Ícones Circulares (Estilo Anexo 3) -->
+          <div class="solucao-subitens-list">
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="8.5" y="14" width="7" height="7" rx="1"></rect>
+                  <path d="M6.5 10v3h11v-3M12 13v1"></path>
                 </svg>
               </div>
-              <div class="governanca-text-wrap">
-                <h3 class="governanca-card-title">{governanca.title}</h3>
-                <p class="governanca-card-desc">{governanca.desc}</p>
-              </div>
+              <span class="subitem-title">Design organizacional</span>
             </div>
-            <a
-              href={`${base}/servicos/${governanca.slug}`}
-              class="solucao-arrow-btn btn-right flex-shrink-0"
-              aria-label={`Conhecer página de ${governanca.title}`}
-            >
+
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+              </div>
+              <span class="subitem-title">Mapeamento e processos</span>
+            </div>
+
+            <div class="subitem-row">
+              <div class="subitem-icon-circle">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <span class="subitem-title">Cargos, Carreiras e Salários</span>
+            </div>
+          </div>
+
+          <div class="card-footer-action">
+            <span class="solucao-arrow-btn btn-right" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </a>
+            </span>
           </div>
-        </article>
+        </a>
 
       </div>
     </div>

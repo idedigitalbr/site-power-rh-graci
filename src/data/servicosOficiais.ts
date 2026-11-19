@@ -2,8 +2,8 @@
 export const solucoesOficiais = [
   {
     "slug": "advisory-negocios-cultura",
-    "title": "Advisor de Negócios",
-    "short": "Advisor de Negócios",
+    "title": "Advisory de Negócios e Cultura",
+    "short": "Advisory e Cultura",
     "category": "ESTRATÉGIA · CULTURA · SUCESSÃO",
     "desc": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio.",
     "hero": [
@@ -77,7 +77,7 @@ export const solucoesOficiais = [
     ],
     "faqs": [
       [
-        "Advisor de Negócios é apenas consultoria de RH?",
+        "Advisory de Negócios é apenas consultoria de RH?",
         "Não. A atuação considera a empresa como um sistema integrado: pessoas, cultura, processos, estrutura e resultados."
       ],
       [
@@ -283,7 +283,7 @@ export const solucoesOficiais = [
 ];
 export const servicosHubOficial = {
   "meta": {
-    "title": "Soluções PowerRH | Advisor de Negócios e DHO",
+    "title": "Soluções PowerRH | Advisory de Negócios e DHO",
     "description": "Conheça os três pilares da PowerRH: Advisory de Negócios e Cultura, Pessoas Liderança e Performance, Processos e Estrutura Organizacional."
   },
   "hero": {
@@ -291,7 +291,7 @@ export const servicosHubOficial = {
     "titlePrefix": "Três pilares integrados para",
     "titleHighlight": "gestão estratégica",
     "titleSuffix": "e resultados consistentes.",
-    "lead": "Advisor de Negócios e Consultoria em DHO com pensamento sistêmico, ligando estratégia, pessoas, cultura, processos e estrutura.",
+    "lead": "Advisory de Negócios e Consultoria em DHO com pensamento sistêmico, ligando estratégia, pessoas, cultura, processos e estrutura.",
     "floatingBadge": "3 pilares integrados",
     "pills": [
       "Advisory de Negócios e Cultura",
@@ -399,11 +399,11 @@ export const servicosHubOficial = {
 export const servicosDetalhadosOficiais = {
   "advisory-negocios-cultura": {
     "slug": "advisory-negocios-cultura",
-    "shortTitle": "Advisor de Negócios",
+    "shortTitle": "Advisory de Negócios e Cultura",
     "category": "ESTRATÉGIA · CULTURA · SUCESSÃO",
     "eyebrow": "SOLUÇÃO 01 · ESTRATÉGIA · CULTURA · SUCESSÃO",
     "meta": {
-      "title": "Advisor de Negócios | PowerRH",
+      "title": "Advisory de Negócios e Cultura | PowerRH",
       "description": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio."
     },
     "hero": {
@@ -411,7 +411,7 @@ export const servicosDetalhadosOficiais = {
       "titleHighlight": "visão sistêmica",
       "titleSuffix": "do negócio e de suas pessoas.",
       "lead": "Apoiamos empresários, sócios e executivos na análise de desafios, na definição de prioridades e nas decisões sobre gestão e pessoas que orientam o crescimento e a continuidade do negócio.",
-      "badge": "Advisor de Negócios",
+      "badge": "Advisory de Negócios e Cultura",
       "image": "assets/imagens-diversas/fotos_graci_ia/05_SOLUCAO_GOVERNANCA_E_SUCESSAO/19_advisory_empresaria.webp",
       "floatingBadge": "Advisory e Desenvolvimento Humano e Organizacional",
       "pills": [
@@ -420,11 +420,11 @@ export const servicosDetalhadosOficiais = {
         "Cultura organizacional"
       ],
       "ctaText": "CONVERSAR SOBRE ESTA SOLUÇÃO",
-      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisor%20de%20Neg%C3%B3cios."
+      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisory%20de%20Neg%C3%B3cios%20e%20Cultura."
     },
     "scenarios": {
       "eyebrow": "DESAFIOS QUE ENFRENTAMOS",
-      "title": "Quando faz sentido investir em advisor de negócios?",
+      "title": "Quando faz sentido investir em advisory e cultura?",
       "subtitle": "Avaliamos a realidade de cada organização antes de construir o escopo do trabalho.",
       "items": [
         {
@@ -565,10 +565,10 @@ export const servicosDetalhadosOficiais = {
     },
     "faq": {
       "eyebrow": "DÚVIDAS FREQUENTES",
-      "title": "Perguntas sobre Advisor de Negócios",
+      "title": "Perguntas sobre Advisory de Negócios e Cultura",
       "items": [
         {
-          "question": "Advisor de Negócios é apenas consultoria de RH?",
+          "question": "Advisory de Negócios é apenas consultoria de RH?",
           "answer": "Não. A atuação considera a empresa como um sistema integrado: pessoas, cultura, processos, estrutura e resultados.",
           "isOpenDefault": true
         },
@@ -583,7 +583,7 @@ export const servicosDetalhadosOficiais = {
       ]
     },
     "cta": {
-      "heading": "Vamos conversar sobre <span class=\"highlight-gold\">advisor de negócios?</span>",
+      "heading": "Vamos conversar sobre <span class=\"highlight-gold\">advisory de negócios e cultura?</span>",
       "desc": "Conheça a forma de atuação da PowerRH e apresente os desafios da sua empresa.",
       "checklist": [
         "Conversa contextualizada ao seu negócio",
@@ -592,7 +592,7 @@ export const servicosDetalhadosOficiais = {
       ],
       "image": "assets/imagens-diversas/fotos_graci_ia/07_CTA_FINAL_E_CONTATO/59_reuniao_fechamento.webp",
       "ctaText": "ENTRAR EM CONTATO",
-      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisor%20de%20Neg%C3%B3cios."
+      "ctaHref": "https://wa.me/5591992992091?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20a%20PowerRH%20sobre%20Advisory%20de%20Neg%C3%B3cios%20e%20Cultura."
     }
   },
   "pessoas-lideranca-performance": {
@@ -1008,7 +1008,7 @@ export const sobrePropostaOficial = {
   "eyebrow": "SOBRE A POWERRH",
   "title": "Uma visão sistêmica para decisões mais consistentes.",
   "paragraphs": [
-    "A PowerRH atua com Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO). Apoia empresários, sócios e executivos a desenvolver uma visão estratégica a partir do pensamento sistêmico, compreendendo como as decisões sobre pessoas, cultura, processos e estrutura afetam os resultados da empresa.",
+    "A PowerRH atua com Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO). Apoia empresários, sócios e executivos a desenvolver uma visão estratégica a partir do pensamento sistêmico, compreendendo como as decisões sobre pessoas, cultura, processos e estrutura afetam os resultados da empresa.",
     "Na prática, ajudamos a liderança a construir um modelo de gestão a partir do pensamento estratégico para definir os resultados que deseja alcançar, identificar o que favorece ou limita essas entregas, estabelecer prioridades e acompanhar a execução. A partir dessa direção, apoiamos a empresa a estruturar seus processos, desenvolver pessoas e capacitar líderes para assumir responsabilidades e tomar decisões com mais autonomia.",
     "Atuamos especialmente com empresas familiares (ou empresas de dono) que desejam profissionalizar a gestão, preparar sucessores e preservar seu legado. Nosso trabalho ajuda a criar as condições para que a empresa cresça de forma sustentável, mantenha a consistência dos resultados e esteja preparada para dar continuidade ao negócio ao longo das gerações."
   ]

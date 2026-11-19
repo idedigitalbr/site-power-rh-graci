@@ -53,16 +53,48 @@ const { fundamentos } = sobrePage;
           <h3 class="fundamento-card-title">{item.title}</h3>
           <p class="fundamento-card-desc">{item.desc}</p>
 
-          <ul class="fundamento-highlights-list">
-            {item.highlights.map((hl) => (
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.5" class="hl-check-icon">
-                  <polyline points="20 6 9 17 4 12"></polyline>
+          <!-- Sanfona Interativa dos Itens com Check (Linha Expansível) -->
+          <div class="fundamento-accordion-box">
+            <button
+              type="button"
+              class="fundamento-accordion-toggle"
+              aria-expanded="false"
+              aria-controls={`accordion-panel-${item.id}`}
+              id={`accordion-btn-${item.id}`}
+              data-label-closed={item.accordionLabel || 'Ver compromissos e diferenciais'}
+              data-label-open={item.accordionLabelOpen || 'Ocultar diferenciais'}
+            >
+              <span class="accordion-toggle-left">
+                <span class="accordion-toggle-dot" aria-hidden="true"></span>
+                <span class="accordion-label-text">{item.accordionLabel || 'Ver compromissos e diferenciais'}</span>
+              </span>
+              <span class="accordion-chevron-circle" aria-hidden="true">
+                <svg class="accordion-chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
-                <span>{hl}</span>
-              </li>
-            ))}
-          </ul>
+              </span>
+            </button>
+
+            <div
+              id={`accordion-panel-${item.id}`}
+              class="fundamento-accordion-panel"
+              role="region"
+              aria-labelledby={`accordion-btn-${item.id}`}
+            >
+              <div class="fundamento-accordion-inner">
+                <ul class="fundamento-highlights-list">
+                  {item.highlights.map((hl) => (
+                    <li>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2.5" class="hl-check-icon">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
     </div>
@@ -71,6 +103,53 @@ const { fundamentos } = sobrePage;
   <!-- Transição Orgânica Sutil (entrega no fundo Dark Navy da próxima seção) -->
   <OrganicTransition position="bottom" fill="#01243E" direction="sweep-a" height={32} />
 </section>
+
+<script is:inline>
+  (() => {
+    const initFundamentosAccordions = () => {
+      const toggles = document.querySelectorAll('.fundamento-accordion-toggle');
+      toggles.forEach((btn) => {
+        if (btn.dataset.initialized === 'true') return;
+        btn.dataset.initialized = 'true';
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = btn.closest('.fundamento-accordion-box');
+          if (!box) return;
+
+          const panel = box.querySelector('.fundamento-accordion-panel');
+          const labelEl = btn.querySelector('.accordion-label-text');
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+          if (isExpanded) {
+            btn.setAttribute('aria-expanded', 'false');
+            btn.classList.remove('is-open');
+            panel?.classList.remove('is-open');
+            if (labelEl) {
+              const closedLabel = btn.getAttribute('data-label-closed');
+              if (closedLabel) labelEl.textContent = closedLabel;
+            }
+          } else {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.classList.add('is-open');
+            panel?.classList.add('is-open');
+            if (labelEl) {
+              const openLabel = btn.getAttribute('data-label-open');
+              if (openLabel) labelEl.textContent = openLabel;
+            }
+          }
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFundamentosAccordions);
+    } else {
+      initFundamentosAccordions();
+    }
+    document.addEventListener('astro:page-load', initFundamentosAccordions);
+  })();
+</script>
 
 <style>
   .section-fundamentos-final {
@@ -99,7 +178,7 @@ const { fundamentos } = sobrePage;
   .fundamento-card-single {
     background: #FFFFFF;
     border-radius: 20px;
-    padding: 36px 30px;
+    padding: 36px 30px 28px;
     border: 1px solid rgba(200, 138, 59, 0.25);
     box-shadow: 0 8px 24px -4px rgba(11, 27, 44, 0.06);
     display: flex;
@@ -162,21 +241,134 @@ const { fundamentos } = sobrePage;
     color: #4A5568;
     line-height: 1.62;
     margin: 0 0 24px;
-    text-align: justify;
+    text-align: justify !important;
     text-justify: inter-word;
     hyphens: auto;
     -webkit-hyphens: auto;
   }
 
+  /* Sanfona / Acordeão dos Itens com Check */
+  .fundamento-accordion-box {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .fundamento-accordion-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 6px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #EDE7DD;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 260ms ease, background-color 260ms ease;
+    user-select: none;
+  }
+
+  .fundamento-accordion-toggle:hover {
+    border-top-color: #C88A3B;
+  }
+
+  .fundamento-accordion-toggle.is-open {
+    border-top-color: #C88A3B;
+    padding-bottom: 10px;
+  }
+
+  .accordion-toggle-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .accordion-toggle-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: #C88A3B;
+    transition: transform 250ms ease, background-color 250ms ease;
+  }
+
+  .fundamento-accordion-toggle:hover .accordion-toggle-dot,
+  .fundamento-accordion-toggle.is-open .accordion-toggle-dot {
+    transform: scale(1.3);
+    background: #9A621D;
+  }
+
+  .accordion-label-text {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--final-gold-dark, #9A621D);
+    transition: color 250ms ease;
+  }
+
+  .fundamento-accordion-toggle:hover .accordion-label-text {
+    color: #01243E;
+  }
+
+  .accordion-chevron-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    background: rgba(200, 138, 59, 0.1);
+    border: 1px solid rgba(200, 138, 59, 0.25);
+    color: #9A621D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 280ms cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+
+  .fundamento-accordion-toggle:hover .accordion-chevron-circle {
+    background: rgba(200, 138, 59, 0.2);
+    border-color: #C88A3B;
+    transform: scale(1.06);
+    color: #01243E;
+  }
+
+  .fundamento-accordion-toggle.is-open .accordion-chevron-circle {
+    background: var(--final-gold-gradient, linear-gradient(135deg, #CB9857 0%, #B87B2E 100%));
+    border-color: #B87B2E;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(184, 123, 46, 0.3);
+  }
+
+  .accordion-chevron-icon {
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fundamento-accordion-toggle.is-open .accordion-chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .fundamento-accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease;
+    opacity: 0;
+  }
+
+  .fundamento-accordion-panel.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .fundamento-accordion-inner {
+    overflow: hidden;
+  }
+
   .fundamento-highlights-list {
     list-style: none;
-    padding: 0;
-    margin: auto 0 0;
+    padding: 10px 0 6px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-top: 1px solid #F1ECE4;
-    padding-top: 20px;
   }
 
   .fundamento-highlights-list li {
@@ -186,7 +378,14 @@ const { fundamentos } = sobrePage;
     font-size: 13.5px;
     font-weight: 600;
     color: #1E293B;
-    line-height: 1.4;
+    line-height: 1.45;
+  }
+
+  .fundamento-highlights-list li span {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   .hl-check-icon {

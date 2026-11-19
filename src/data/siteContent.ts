@@ -67,7 +67,9 @@ export interface FundamentoItem {
   title: string;
   desc: string;
   iconType: 'purpose' | 'vision' | 'values';
-  highlights?: string[];
+  highlights: string[];
+  accordionLabel?: string;
+  accordionLabelOpen?: string;
 }
 
 export interface PilarAtuacaoItem {
@@ -234,8 +236,8 @@ export interface ServicosHubData {
 
 export const siteContent = {
   meta: {
-    title: 'PowerRH — Advisor de Negócios e DHO | Graciete Corrêa',
-    description: 'Advisor de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), conectando estratégia, cultura, pessoas, processos e estrutura aos resultados.',
+    title: 'PowerRH — Advisory de Negócios e DHO | Graciete Corrêa',
+    description: 'Advisory de Negócios e Consultoria em Desenvolvimento Humano e Organizacional (DHO), conectando estratégia, cultura, pessoas, processos e estrutura aos resultados.',
   },
   
   navigation: {
@@ -254,7 +256,7 @@ export const siteContent = {
   },
 
   hero: {
-    eyebrow: 'ADVISOR DE NEGÓCIOS E DESENVOLVIMENTO HUMANO',
+    eyebrow: 'ADVISORY DE NEGÓCIOS E DESENVOLVIMENTO HUMANO',
     headlinePrefix: 'Empresas evoluem',
     headlineHighlight: 'pessoas e estratégia',
     headlineSuffix: 'caminham juntas.',
@@ -303,7 +305,7 @@ export const siteContent = {
     headlinePrefix: 'Resultados que',
     headlineMiddle: 'constroem',
     headlineHighlight: 'legados.',
-    description: 'A PowerRH atua com Advisor de Negócios e Consultoria em DHO. Apoiamos empresários, sócios e executivos a definir prioridades, desenvolver lideranças e estruturar a gestão com uma visão sistêmica do negócio.',
+    description: 'A PowerRH atua com Advisory de Negócios e Consultoria em DHO. Apoiamos empresários, sócios e executivos a definir prioridades, desenvolver lideranças e estruturar a gestão com uma visão sistêmica do negócio.',
     form: {
       title: 'Fale com a nossa especialista',
       desc: 'Receba um diagnóstico inicial para a sua empresa.',
@@ -314,7 +316,7 @@ export const siteContent = {
 
   quandoHora: {
     eyebrow: 'QUANDO É HORA',
-    title: 'Quando é a hora certa de contar com um apoio estratégico de advisor?',
+    title: 'Quando é a hora certa de contar com um apoio estratégico de advisory?',
     items: [
       {
         id: 1,
@@ -583,6 +585,8 @@ export const siteContent = {
           title: 'Missão',
           desc: 'Despertar e estruturar o potencial humano nas empresas, alinhando cultura, liderança e processos para que os negócios prosperem com solidez, lucratividade e significado duradouro.',
           iconType: 'purpose',
+          accordionLabel: 'Ver compromissos práticos',
+          accordionLabelOpen: 'Ocultar compromissos',
           highlights: [
             'Conexão entre estratégia e comportamento humano',
             'Desenvolvimento de ambientes seguros e produtivos',
@@ -595,6 +599,8 @@ export const siteContent = {
           title: 'Visão',
           desc: 'Ser a consultoria estratégica de referência na profissionalização da gestão, governança e desenvolvimento de lideranças para empresas em expansão e grupos familiares no Brasil.',
           iconType: 'vision',
+          accordionLabel: 'Ver metas e diferenciais',
+          accordionLabelOpen: 'Ocultar diferenciais',
           highlights: [
             'Impacto comprovado na retenção e no engajamento',
             'Referência em transições de sucessão geracional',
@@ -607,6 +613,8 @@ export const siteContent = {
           title: 'Valores',
           desc: 'Princípios que definem como nos relacionamos com cada cliente, líder e colaborador:',
           iconType: 'values',
+          accordionLabel: 'Ver pilares de conduta',
+          accordionLabelOpen: 'Ocultar pilares',
           highlights: [
             'Humanidade no centro de cada decisão',
             'Ética e confidencialidade inegociáveis',
