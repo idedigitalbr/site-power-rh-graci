@@ -6,9 +6,9 @@ import { siteContent } from '../../data/siteContent';
 const { solucoes } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const cultura = solucoes.items.find((item) => item.id === 'cultura') || solucoes.items[0];
-const lideranca = solucoes.items.find((item) => item.id === 'lideranca') || solucoes.items[1];
-const governanca = solucoes.items.find((item) => item.id === 'governanca') || solucoes.items[2];
+const cultura = solucoes.items[0];
+const lideranca = solucoes.items[1];
+const governanca = solucoes.items[2];
 ---
 
 <section class="section-solucoes-modern" id="solucoes">
@@ -33,8 +33,8 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
         <span class="eyebrow-line" aria-hidden="true"></span>
       </div>
       <h2 class="solucoes-main-title">
-        Soluções estratégicas para<br />
-        fortalecer cultura, liderança e legado.
+        Três pilares integrados para<br />
+        fortalecer a gestão e os resultados.
       </h2>
     </div>
 
@@ -66,14 +66,14 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
               </svg>
             </div>
             <h3 class="card-navy-title">
-              Cultura<br />Organizacional
+              {cultura.title}
             </h3>
             <p class="card-navy-desc">
               {cultura.desc}
             </p>
           </div>
           <a
-            href={`${base}/servicos/cultura-organizacional`}
+            href={`${base}/servicos/${cultura.slug}`}
             class="solucao-arrow-btn btn-right"
             aria-label={`Conhecer página de ${cultura.title}`}
           >
@@ -110,7 +110,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
                 </svg>
               </div>
               <h3 class="card-light-title">
-                Líderes de<br />Líderes
+                {lideranca.title}
               </h3>
               <p class="card-light-desc">
                 {lideranca.desc}
@@ -119,7 +119,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
             <!-- Botão de Seta Alinhado à Esquerda -->
             <a
-              href={`${base}/servicos/lideranca-executiva`}
+              href={`${base}/servicos/${lideranca.slug}`}
               class="solucao-arrow-btn btn-left"
               aria-label={`Conhecer página de ${lideranca.title}`}
             >
@@ -166,7 +166,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
               </div>
             </div>
             <a
-              href={`${base}/servicos/governanca-e-sucessao`}
+              href={`${base}/servicos/${governanca.slug}`}
               class="solucao-arrow-btn btn-right flex-shrink-0"
               aria-label={`Conhecer página de ${governanca.title}`}
             >
@@ -184,7 +184,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
     <!-- Botão Central: Explorar Todas as 4 Soluções & Advisory -->
     <div class="solucoes-hub-cta-wrap">
       <a href={`${base}/servicos`} class="btn-solucoes-hub-pill">
-        <span>Conhecer o portfólio completo com as 4 soluções de Advisory</span>
+        <span>Conhecer as três soluções da PowerRH</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -291,14 +291,14 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
     display: grid;
     grid-template-columns: 1.48fr 1fr;
     gap: 18px;
-    height: 290px;
+    height: 345px;
   }
 
   .solucoes-row-bottom {
     display: grid;
     grid-template-columns: 1.48fr 1fr;
     gap: 18px;
-    height: 290px;
+    height: 345px;
   }
 
   .solucoes-subgrid-left {
@@ -412,7 +412,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
   .card-navy-title {
     font-family: var(--font-sans);
-    font-size: 28px;
+    font-size: clamp(21px, 2.15vw, 26px);
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.15;
@@ -487,7 +487,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
   .card-light-title {
     font-family: var(--font-sans);
-    font-size: 28px;
+    font-size: clamp(20px, 1.85vw, 24px);
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.15;
@@ -587,7 +587,7 @@ const governanca = solucoes.items.find((item) => item.id === 'governanca') || so
 
   .governanca-card-title {
     font-family: var(--font-sans);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.2;
