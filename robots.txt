@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://idedigitalbr.github.io/site-power-rh-graci/sitemap.xml
