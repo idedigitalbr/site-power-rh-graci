@@ -5,14 +5,14 @@ import { siteContent } from '../../data/siteContent';
 import { solucoesOficiais } from '../../data/servicosOficiais';
 
 interface Props {
-  currentPage?: 'home' | 'sobre' | 'servicos' | 'design-system';
+  currentPage?: 'home' | 'sobre' | 'servicos' | 'contato' | 'privacidade' | 'design-system';
 }
 const { currentPage = 'home' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { navigation } = siteContent;
 const homeUrl = currentPage === 'home' ? '#inicio' : `${base}/`;
 const aboutUrl = currentPage === 'sobre' ? '#inicio-sobre' : `${base}/sobre`;
-const contactUrl = `${base}/#formulario-diagnostico`;
+const contactUrl = currentPage === 'contato' ? '#inicio-contato' : `${base}/contato`;
 ---
 
 <header class="site-header-final">
@@ -44,7 +44,7 @@ const contactUrl = `${base}/#formulario-diagnostico`;
             </div>
           </details>
         </li>
-        <li><a href={contactUrl} class="nav-link-final">Contato</a></li>
+        <li><a href={contactUrl} class={`nav-link-final ${currentPage === 'contato' ? 'active' : ''}`}>Contato</a></li>
       </ul>
 
       <div class="desktop-cta">

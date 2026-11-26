@@ -4,14 +4,18 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'PowerRH — Advisory de Negócios e DHO | Graciete Corrêa',
   description = 'Consultoria e advisory em cultura, liderança e governança com Graciete Corrêa, executiva com +30 anos de experiência.',
+  noindex = false,
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const siteOrigin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://idedigitalbr.github.io';
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).toString();
 ---
 
 <!doctype html>
@@ -21,6 +25,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
 
     <!-- Favicon Oficial PowerRH (Emblema Dourado com Raio) -->
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
@@ -33,9 +39,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <!-- Open Graph / Redes Sociais -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${base}/assets/imagens-diversas/logo-powerrh.png`} />
+    <meta property="og:image" content={`${siteOrigin}${base}/assets/imagens-diversas/logo-powerrh.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Google Fonts: Inter, Alex Brush (Assinatura Oficial) e JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

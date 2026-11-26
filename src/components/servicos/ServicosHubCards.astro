@@ -42,10 +42,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <h3 class="hub-card-title">{card.title}</h3>
             <p class="hub-card-desc">{card.desc}</p>
 
-            <!-- Tags Rápidas de Entrega (Apenas 3 para não poluir) -->
+            <!-- Serviços Específicos do Pilar -->
             <div class="hub-card-tags-row">
-              {card.highlights.slice(0, 3).map((hl) => (
-                <span class="hub-tag-chip">{hl}</span>
+              {card.highlights.map((hl) => (
+                <span class="hub-tag-chip">
+                  <span class="hub-tag-icon" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>{hl}</span>
+                </span>
               ))}
             </div>
 
@@ -74,15 +81,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .hub-editorial-cards-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
     margin-top: 54px;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1100px) {
+    .hub-editorial-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
     .hub-editorial-cards-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 28px;
     }
   }
 
@@ -174,17 +188,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .hub-tag-chip {
     font-size: 13px;
-    color: #334155;
+    font-weight: 600;
+    color: #1E293B;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    line-height: 1.35;
   }
 
-  .hub-tag-chip::before {
-    content: '•';
-    color: var(--color-gold, #C88A3B);
-    font-size: 16px;
-    line-height: 1;
+  .hub-tag-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 9999px;
+    background: #FDF6EC;
+    border: 1px solid rgba(200, 138, 59, 0.3);
+    color: #9A621D;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hub-card-action {

@@ -19,12 +19,12 @@
 
 | Código | Página pública | Etapa | Situação |
 |---|---|---|---|
-| PG 01 | Home | 02 — Core | Em desenvolvimento |
-| PG 02 | A PowerRH / Sobre | 02 — Core | Em desenvolvimento |
-| PG 03 | Cultura e Arquitetura Organizacional e de Negócios | 03 — Complementar | Não desenvolvida |
-| PG 04 | Engenharia de Equipes e Líderes de Líderes | 03 — Complementar | Não desenvolvida |
-| PG 05 | Governança, Sucessão e Advisory Familiar | 03 — Complementar | Não desenvolvida |
-| PG 06 | Contato / Diagnóstico Estratégico | 03 — Complementar | Não desenvolvida |
+| PG 01 | Home | 02 — Core | Implementada (aguardando validação final) |
+| PG 02 | A PowerRH / Sobre | 02 — Core | Implementada (aguardando validação final) |
+| PG 03 | Advisory de Negócios e Cultura | 03 — Complementar | Implementada (aguardando validação final) |
+| PG 04 | Pessoas, Liderança e Performance | 03 — Complementar | Implementada (aguardando validação final) |
+| PG 05 | Processos e Estrutura Organizacional | 03 — Complementar | Implementada (aguardando validação final) |
+| PG 06 | Contato / Diagnóstico Estratégico | 03 — Complementar | Implementada (aguardando painel/backend) |
 
 **Decisão de arquitetura:** a minuta original reunia as três especialidades na aba “Soluções”. Para o escopo operacional atual, **cada solução terá uma página própria**. O item “Soluções” do menu servirá para acessar essas três páginas; **não há uma PG Soluções genérica prevista neste checklist**. As rotas definitivas serão definidas na implementação.
 
@@ -86,39 +86,37 @@
 **S1 — Hero / Topo**
 - [x] Estrutura visual principal do Hero
 - [x] Rotação de imagens do topo
-- [x] Headline, texto de apoio e botão CTA
+- [x] Headline, texto de apoio e botão CTA (`ADVISORY ESTRATÉGICO`)
 - [ ] Definir e aplicar a copy final aprovada
 - [ ] Selecionar imagens definitivas (priorizar fotografia real)
-- [ ] Revisar enquadramentos, legibilidade e experiência mobile
-- [ ] Conferir CTA para o diagnóstico estratégico
+- [x] Revisar enquadramentos, legibilidade e experiência mobile
+- [x] Conferir CTA para o diagnóstico estratégico
 
 **S2 — Autoridade, Indicadores e Diagnóstico**
 - [x] Estrutura visual dos indicadores
 - [x] Interface inicial do formulário de diagnóstico na Home
 - [ ] Validar números, métricas e resultados mencionados
-- [ ] Revisar os campos para alinhar ao briefing
-- [ ] Preparar o formulário para a integração funcional da Etapa 04
+- [x] Revisar os campos para alinhar ao briefing
+- [x] Preparar o formulário para envio formatado ao WhatsApp (integração com banco/painel adiada)
 
 **S3 — Desafios / Quando Buscar Apoio Estratégico**
 - [x] Estrutura dos cards de identificação dos desafios
 - [x] Ícones e organização inicial do conteúdo
-- [ ] Alinhar o texto à dor real do empresário e da média liderança
-- [ ] Contemplar a mensagem do briefing sobre crescimento e dependência do fundador, sem excesso de apelo comercial
-- [ ] Refinar espaçamentos e adaptação mobile
+- [x] Alinhar o texto à dor real do empresário e da média liderança
+- [x] Contemplar a mensagem do briefing sobre crescimento e dependência do fundador, sem excesso de apelo comercial
+- [x] Refinar espaçamentos e adaptação mobile
 
 **S4 — Nossas Soluções**
 - [x] Estrutura visual dos três pilares na Home
 - [x] Cards com imagens e descrições resumidas
 - [ ] Validar textos e imagens dos três pilares
-- [ ] Vincular o card **Cultura** à PG 03
-- [ ] Vincular o card **Líderes de Líderes** à PG 04
-- [ ] Vincular o card **Governança e Sucessão** à PG 05
-- [ ] Conferir CTA, estados interativos e mobile
+- [x] Vincular os três cards às respectivas páginas individuais de soluções
+- [x] Conferir CTA, estados interativos e mobile
 
 **S5 — Como Trabalhamos / Advisory**
 - [x] Estrutura das etapas de trabalho: diagnóstico, planejamento, implementação e evolução
-- [ ] Revisar a metodologia com base no briefing
-- [ ] Explicar a atuação próxima, sênior e discreta do Advisor
+- [x] Revisar a metodologia com base no briefing
+- [x] Explicar a atuação próxima, sênior e discreta do Advisor
 - [ ] Validar nomenclaturas e conteúdo final
 
 **S6 — Sobre a Graciete / Fundadora**
@@ -127,73 +125,73 @@
 - [x] Corrigir inconsistências de tempo de experiência no conteúdo (+30 anos de experiência padronizado)
 - [ ] Revisar a trajetória executiva e as qualificações com o material original
 - [ ] Substituir/validar imagem definitiva
-- [ ] Confirmar o link de apresentação para PG 02 — Sobre
+- [x] Confirmar o link de apresentação para PG 02 — Sobre
 
 **S7 — Diferenciais PowerRH**
 - [x] Estrutura visual dos diferenciais
 - [x] Cards e imagem de destaque
-- [ ] Refinar diferenciais: senioridade, pragmatismo, proximidade e confidencialidade
-- [ ] Evitar informações não comprovadas ou promessas excessivas
+- [x] Refinar diferenciais: senioridade, pragmatismo, proximidade e confidencialidade
+- [x] Evitar informações não comprovadas ou promessas excessivas
 - [ ] Validar imagem e conteúdo final
 
 **S8 — Prova Social / Depoimentos**
 - [x] Componente reutilizável de depoimentos desenvolvido no projeto
-- [ ] Incluir a seção na Home (componente ainda não renderizado nessa página)
-- [ ] Substituir os depoimentos provisórios/não verificados
+- [x] Incluir a seção na Home
+- [x] Substituir os depoimentos provisórios/não verificados por recomendações públicas do LinkedIn
 - [ ] Selecionar referências profissionais reais disponibilizadas pela cliente
 - [ ] Validar nomes, cargos, recortes e permissão de publicação
-- [ ] Preservar o posicionamento de discrição e confidencialidade
+- [x] Preservar o posicionamento de discrição e confidencialidade
 
 **S9 — Perguntas Frequentes**
 - [x] Estrutura e interação de FAQ implementadas
 - [ ] Revisar perguntas e respostas com a cliente
-- [ ] Revisar acessibilidade, teclado e comportamento no mobile
+- [x] Revisar acessibilidade, teclado e comportamento no mobile
 
 **S10 — CTA Final**
 - [x] Estrutura visual do banner final
-- [x] Botão de conversão
-- [ ] Revisar imagem e texto de fechamento
-- [ ] Direcionar o botão ao fluxo definitivo de diagnóstico
+- [x] Botão de conversão (`ADVISORY ESTRATÉGICO`)
+- [x] Revisar imagem e texto de fechamento
+- [x] Direcionar o botão ao fluxo definitivo de diagnóstico (`/contato`)
 
 ### [ ] PG 02 — A POWERRH / SOBRE
 
 **S1 — Hero / Manifesto**
 - [x] Estrutura visual da abertura
-- [ ] Revisar apresentação institucional
-- [ ] Incorporar/validar o conceito **“Honrar o passado. Estruturar o futuro.”**
+- [x] Revisar apresentação institucional
+- [x] Incorporar/validar o conceito **“Honrar o passado. Estruturar o futuro.”**
 - [ ] Definir imagem e CTA aprovados
 
 **S2 — História, Trajetória e Autoridade**
 - [x] Estrutura de apresentação biográfica e indicadores
-- [ ] Revisar a trajetória executiva e a experiência de mais de 30 anos
+- [x] Revisar a trajetória executiva e a experiência de mais de 30 anos
 - [ ] Validar credenciais, experiências e indicadores mencionados
-- [ ] Revisar referências a governança, transformação organizacional e M&A
+- [x] Revisar referências a governança, transformação organizacional e M&A
 - [ ] Validar fotografia real da Graciete
-- [ ] Reforçar autoridade com linguagem profissional, humana e objetiva
+- [x] Reforçar autoridade com linguagem profissional, humana e objetiva (com citação e botão "Ver mais")
 
 **S3 — Missão, Visão e Valores**
-- [x] Estrutura visual dos fundamentos institucionais
-- [ ] Revisar missão e visão conforme texto original
-- [ ] Validar os valores: pragmatismo, resultados, senioridade, confidencialidade, humanismo e perenidade
-- [ ] Refinar apresentação e hierarquia de conteúdo
+- [x] Estrutura visual dos fundamentos institucionais (formato sanfona)
+- [x] Revisar missão e visão conforme texto original
+- [x] Validar os valores: pragmatismo, resultados, senioridade, confidencialidade, humanismo e perenidade
+- [x] Refinar apresentação e hierarquia de conteúdo
 
 **S4 — Metodologia / Áreas de Atuação / Galeria**
 - [x] Estrutura inicial de galeria e frentes de atuação
-- [ ] Conferir aderência ao método do Advisor descrito pela cliente
-- [ ] Revisar conteúdos de diagnóstico de campo, análise comportamental e aconselhamento ativo
+- [x] Conferir aderência ao método do Advisor descrito pela cliente
+- [x] Revisar conteúdos de diagnóstico de campo, análise comportamental e aconselhamento ativo
 - [ ] Selecionar e substituir imagens provisórias por fotografias autorizadas
-- [ ] Validar legendas, descrições e versões responsivas
+- [x] Validar legendas, descrições e versões responsivas
 
 **S5 — Prova Social**
-- [x] Componente de depoimentos incluído na página Sobre
-- [ ] Retirar depoimentos não comprovados atualmente cadastrados
-- [ ] Selecionar depoimentos reais do material da cliente/LinkedIn
+- [x] Componente de depoimentos incluído na página Sobre (em formato carrossel)
+- [x] Retirar depoimentos não comprovados atualmente cadastrados
+- [x] Selecionar depoimentos reais do material da cliente/LinkedIn
 - [ ] Validar texto, autoria, cargo e autorização antes da publicação
 
 **S6 — CTA Final**
 - [x] Estrutura do CTA de fechamento
-- [ ] Revisar texto e imagem
-- [ ] Vincular à página Contato / Diagnóstico Estratégico
+- [x] Revisar texto e imagem
+- [x] Vincular à página Contato / Diagnóstico Estratégico
 
 ## 2.2 — TELA DE LOGIN
 
@@ -208,18 +206,18 @@
 **Header / Navegação**
 - [x] Logo e estrutura de navegação desktop
 - [x] CTA de WhatsApp no cabeçalho
-- [ ] Implementar **menu mobile funcional** (navegação atual é ocultada em telas menores)
-- [ ] Atualizar menu para Home, Sobre, as três Soluções e Contato
-- [ ] Definir “Soluções” como item de navegação para as três páginas individuais
-- [ ] Revisar estados ativos, âncoras e comportamento sticky
+- [x] Implementar **menu mobile funcional**
+- [x] Atualizar menu para Home, Sobre, as três Soluções e Contato
+- [x] Definir “Soluções” como item de navegação para as três páginas individuais
+- [x] Revisar estados ativos, âncoras e comportamento sticky
 
 **Footer / Rodapé**
 - [x] Estrutura visual do rodapé
 - [x] Identidade visual e ícones sociais
-- [ ] Substituir URLs genéricas de Instagram/LinkedIn pelos perfis oficiais
-- [ ] Validar WhatsApp, e-mail e demais informações de contato
-- [ ] Corrigir link de Termos/Privacidade (atualmente não aponta para a política)
-- [ ] Remover link público do Design System do rodapé de produção
+- [x] Substituir URLs genéricas de Instagram/LinkedIn pelos perfis oficiais
+- [x] Validar WhatsApp, e-mail e demais informações de contato
+- [x] Corrigir link de Termos/Privacidade (apontando para `/privacidade`)
+- [x] Remover link público do Design System do rodapé de produção
 
 **Base de navegação e componentes**
 - [x] Rotas atuais Home e Sobre
@@ -498,13 +496,13 @@
 
 ## PENDÊNCIAS CRÍTICAS PARA CONCLUIR O PROJETO
 
-1. [ ] **Criar as quatro páginas ainda inexistentes:** as três páginas individuais de soluções e a página de Contato.
-2. [ ] **Tornar os formulários realmente funcionais:** a Home atualmente simula sucesso sem enviar a solicitação.
-3. [ ] **Corrigir a navegação mobile:** o menu desktop é ocultado e não existe substituto funcional no código atual.
-4. [ ] **Substituir depoimentos provisórios e validar provas de autoridade.**
+1. [x] **Criar as páginas individuais das três soluções e a página de Contato (`/contato`) + Política de Privacidade (`/privacidade`).**
+2. [ ] **Integrar painel/banco de leads nos formulários** (adiado — atualmente enviam os dados formatados para o WhatsApp oficial).
+3. [x] **Corrigir a navegação mobile** e menu dropdown de Soluções.
+4. [ ] **Validar provas de autoridade e novos depoimentos com foto junto à cliente** (base atual atualizada com recomendações reais do LinkedIn).
 5. [x] **Padronizar a biografia e os anos de experiência**, com base nos dados aprovados pela Graciete (+30 anos de experiência padronizado em todo o site).
 6. [ ] **Validar fotografias reais** e eliminar imagens provisórias que prejudiquem o posicionamento.
-7. [ ] **Corrigir o Footer, redes sociais, política de privacidade e todos os CTAs.**
-8. [ ] **Concluir QA, homologação, deploy e entrega.**
+7. [x] **Corrigir o Footer, redes sociais, política de privacidade e todos os CTAs.**
+8. [ ] **Definir nova paleta de cores mais leve (adiada) e concluir homologação, domínio oficial e entrega.**
 
 **Observação de auditoria:** as marcações foram feitas com base nas fontes e na inspeção anterior do código publicado no GitHub; não substituem teste de build, navegação real, performance ou aprovação da cliente. Itens de design e texto implementados podem continuar pendentes de validação.

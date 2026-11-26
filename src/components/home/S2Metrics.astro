@@ -4,6 +4,7 @@ import Container from '../ui/Container.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { metrics, s2Consultoria } = siteContent;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="section-s2-consultoria" id="formulario-diagnostico">
@@ -109,10 +110,10 @@ const { metrics, s2Consultoria } = siteContent;
           </div>
 
           <form
+            id="home-diagnostico-form"
             action="#"
             method="POST"
             class="s2-form-fields"
-            onsubmit="event.preventDefault(); alert('Solicitação de diagnóstico enviada com sucesso! Em breve a especialista Graciete Corrêa entrará em contato.');"
           >
             <!-- Campo Nome -->
             <div class="s2-input-field">
@@ -164,11 +165,13 @@ const { metrics, s2Consultoria } = siteContent;
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
                 <select id="s2-ajuda" name="ajuda" class="s2-select" required>
-                  <option value="" disabled selected>Como podemos ajudar?</option>
-                  <option value="cultura">Cultura & Estrutura</option>
-                  <option value="lideranca">Liderança & Desenvolvimento</option>
-                  <option value="governanca">Governança & Sucessão</option>
-                  <option value="outro">Outro desafio de RH Estratégico</option>
+                  <option value="" disabled selected>Qual o maior desafio atual?</option>
+                  <option value="Reduzir a sobrecarga operacional do fundador">Reduzir a sobrecarga operacional do fundador</option>
+                  <option value="Desenvolver a média liderança">Desenvolver a média liderança</option>
+                  <option value="Iniciar ou organizar a sucessão familiar">Iniciar ou organizar a sucessão familiar</option>
+                  <option value="Compreender e modelar a cultura organizacional">Compreender e modelar a cultura organizacional</option>
+                  <option value="Melhorar o design organizacional, processos ou modelo de gestão">Melhorar o design organizacional, processos ou modelo de gestão</option>
+                  <option value="Outro desafio estratégico">Outro desafio estratégico</option>
                 </select>
               </div>
             </div>
@@ -178,13 +181,18 @@ const { metrics, s2Consultoria } = siteContent;
               {s2Consultoria.form.buttonText}
             </button>
 
+            <p id="home-form-feedback" class="s2-form-feedback" role="status" aria-live="polite" hidden></p>
+
             <!-- Nota de Segurança -->
             <div class="s2-security-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C88A3B" stroke-width="2">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
-              <span>{s2Consultoria.form.securityText}</span>
+              <span>
+                {s2Consultoria.form.securityText}
+                <a href={`${base}/privacidade`} class="s2-privacy-link">Política de Privacidade</a>.
+              </span>
             </div>
           </form>
         </div>
@@ -192,3 +200,90 @@ const { metrics, s2Consultoria } = siteContent;
     </div>
   </Container>
 </section>
+
+<script is:inline>
+  (() => {
+    const initHomeForm = () => {
+      const form = document.getElementById('home-diagnostico-form');
+      const feedback = document.getElementById('home-form-feedback');
+      if (!form || !feedback || form.dataset.initialized === 'true') return;
+      form.dataset.initialized = 'true';
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const nome = String(data.get('nome') || '').trim();
+        const email = String(data.get('email') || '').trim();
+        const telefone = String(data.get('telefone') || '').trim();
+        const empresa = String(data.get('empresa') || '').trim();
+        const ajuda = String(data.get('ajuda') || '').trim();
+
+        const mensagem = [
+          'Olá, Graciete! Gostaria de solicitar um diagnóstico inicial pela PowerRH.',
+          '',
+          `*Nome:* ${nome}`,
+          `*E-mail:* ${email}`,
+          `*Telefone/WhatsApp:* ${telefone}`,
+          `*Empresa:* ${empresa}`,
+          `*Desafio principal:* ${ajuda}`,
+        ].join('\n');
+
+        const waUrl = `https://wa.me/5591992992091?text=${encodeURIComponent(mensagem)}`;
+        const opened = window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+        feedback.hidden = false;
+        feedback.innerHTML = '';
+        const textNode = document.createTextNode('Solicitação preparada para envio via WhatsApp. ');
+        const link = document.createElement('a');
+        link.href = waUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.className = 's2-feedback-link';
+        link.textContent = opened ? 'Abrir conversa novamente →' : 'Clique aqui para concluir o envio →';
+        feedback.appendChild(textNode);
+        feedback.appendChild(link);
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHomeForm);
+    } else {
+      initHomeForm();
+    }
+    document.addEventListener('astro:page-load', initHomeForm);
+  })();
+</script>
+
+<style>
+  .s2-privacy-link {
+    color: #E2B777;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-left: 4px;
+  }
+
+  .s2-form-feedback {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(200, 138, 59, 0.16);
+    border: 1px solid rgba(200, 138, 59, 0.45);
+    color: #F8FAFC;
+    font-size: 12.5px;
+    line-height: 1.45;
+    text-align: left !important;
+  }
+
+  .s2-form-feedback[hidden] {
+    display: none;
+  }
+
+  .s2-feedback-link {
+    color: #F6DAAA;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

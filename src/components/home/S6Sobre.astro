@@ -2,6 +2,7 @@
 // S6Sobre.astro — Seção Sobre a Fundadora (Graciete Corrêa), biografia e credenciais
 import Container from '../ui/Container.astro';
 import GoldenArcs from '../ui/GoldenArcs.astro';
+import Button from '../ui/Button.astro';
 import { siteContent } from '../../data/siteContent';
 
 const { sobre } = siteContent;
@@ -73,7 +74,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
           ))}
         </div>
+
+        <div class="sobre-cta-wrap">
+          <Button href={`${base}${sobre.ctaHref}`} variant="gold">
+            {sobre.ctaText}
+          </Button>
+        </div>
       </div>
     </div>
   </Container>
 </section>
+
+<style>
+  .sobre-cta-wrap {
+    margin-top: 4px;
+  }
+</style>

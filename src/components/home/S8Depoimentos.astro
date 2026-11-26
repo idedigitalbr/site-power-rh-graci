@@ -1,39 +1,137 @@
 ---
-// S8Depoimentos.astro — Seção Depoimentos orientada a dados com cards e avatares
+// S8Depoimentos.astro — Seção Depoimentos (Grade, Carrossel na Sobre e Destaque por Serviço)
 import Container from '../ui/Container.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 import { siteContent } from '../../data/siteContent';
 
+interface Props {
+  variant?: 'grid' | 'carousel';
+  serviceSlug?: string;
+}
+
+const { variant = 'grid', serviceSlug } = Astro.props;
 const { depoimentos } = siteContent;
+
+const singleCard = serviceSlug
+  ? depoimentos.items.find((item) => item.serviceSlug === serviceSlug) || depoimentos.items[0]
+  : null;
+
+const getInitials = (author: string) =>
+  author
+    .split(' ')
+    .slice(0, 2)
+    .map((name) => name.charAt(0))
+    .join('');
 ---
 
 <section class="section-depoimentos-final" id="depoimentos">
   <Container size="wide">
     <SectionHeader
-      eyebrow={depoimentos.eyebrow}
+      eyebrow={singleCard ? 'RECOMENDAÇÃO EM DESTAQUE' : depoimentos.eyebrow}
       title={depoimentos.title}
       center={true}
     />
 
-    <div class="depoimentos-grid-final">
-      {depoimentos.items.map((card) => (
-        <div class="depoimento-card-final">
+    {singleCard ? (
+      <div class="depoimento-featured-wrap">
+        <article class="depoimento-card-final depoimento-card-featured">
           <div>
+            {singleCard.serviceTag && (
+              <span class="depoimento-service-tag">{singleCard.serviceTag}</span>
+            )}
             <div class="depoimento-quote-mark">“</div>
-            <p class="depoimento-text-final">{card.quote}</p>
+            <p class="depoimento-text-final depoimento-text-featured">{singleCard.quote}</p>
           </div>
           <div class="depoimento-author-row">
             <span class="depoimento-avatar-initials" aria-hidden="true">
-              {card.author.split(' ').slice(0, 2).map((name) => name.charAt(0)).join('')}
+              {getInitials(singleCard.author)}
             </span>
             <div>
-              <div class="depoimento-author-name">{card.author}</div>
-              <div class="depoimento-author-role">{card.role}</div>
+              <div class="depoimento-author-name">{singleCard.author}</div>
+              <div class="depoimento-author-role">{singleCard.role}</div>
             </div>
           </div>
+        </article>
+      </div>
+    ) : variant === 'carousel' ? (
+      <div class="depoimentos-carousel-shell" data-carousel tabindex="0" aria-roledescription="carrossel" aria-label="Recomendações profissionais">
+        <div class="depoimentos-carousel-viewport">
+          <div class="depoimentos-carousel-track" data-carousel-track>
+            {depoimentos.items.map((card, index) => (
+              <div class="depoimentos-carousel-slide" data-slide-index={index}>
+                <article class="depoimento-card-final depoimento-card-carousel">
+                  <div>
+                    {card.serviceTag && (
+                      <span class="depoimento-service-tag">{card.serviceTag}</span>
+                    )}
+                    <div class="depoimento-quote-mark">“</div>
+                    <p class="depoimento-text-final depoimento-text-featured">{card.quote}</p>
+                  </div>
+                  <div class="depoimento-author-row">
+                    <span class="depoimento-avatar-initials" aria-hidden="true">
+                      {getInitials(card.author)}
+                    </span>
+                    <div>
+                      <div class="depoimento-author-name">{card.author}</div>
+                      <div class="depoimento-author-role">{card.role}</div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
+
+        <div class="depoimentos-carousel-controls">
+          <button type="button" class="carousel-nav-btn" data-carousel-prev aria-label="Recomendação anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="carousel-dots-wrap" role="tablist" aria-label="Selecionar recomendação">
+            {depoimentos.items.map((card, index) => (
+              <button
+                type="button"
+                class={`carousel-dot-btn ${index === 0 ? 'is-active' : ''}`}
+                data-carousel-dot={index}
+                aria-label={`Ver recomendação de ${card.author}`}
+                aria-pressed={index === 0 ? 'true' : 'false'}
+              ></button>
+            ))}
+          </div>
+
+          <span class="carousel-counter" data-carousel-counter aria-live="polite">01 / {String(depoimentos.items.length).padStart(2, '0')}</span>
+
+          <button type="button" class="carousel-nav-btn" data-carousel-next aria-label="Próxima recomendação">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    ) : (
+      <div class="depoimentos-grid-final">
+        {depoimentos.items.map((card) => (
+          <div class="depoimento-card-final">
+            <div>
+              <div class="depoimento-quote-mark">“</div>
+              <p class="depoimento-text-final">{card.quote}</p>
+            </div>
+            <div class="depoimento-author-row">
+              <span class="depoimento-avatar-initials" aria-hidden="true">
+                {getInitials(card.author)}
+              </span>
+              <div>
+                <div class="depoimento-author-name">{card.author}</div>
+                <div class="depoimento-author-role">{card.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
     <p class="depoimento-source-note">
       Trechos de recomendações profissionais publicadas no
       <a href="https://www.linkedin.com/in/gracietecorreacoach/" target="_blank" rel="noopener noreferrer">LinkedIn de Graciete Corrêa</a>.
@@ -41,8 +139,246 @@ const { depoimentos } = siteContent;
   </Container>
 </section>
 
+{variant === 'carousel' && !singleCard && (
+  <script is:inline>
+    (() => {
+      const initCarousels = () => {
+        const shells = document.querySelectorAll('[data-carousel]');
+        shells.forEach((shell) => {
+          if (shell.dataset.initialized === 'true') return;
+          shell.dataset.initialized = 'true';
+
+          const track = shell.querySelector('[data-carousel-track]');
+          const slides = shell.querySelectorAll('.depoimentos-carousel-slide');
+          const prevBtn = shell.querySelector('[data-carousel-prev]');
+          const nextBtn = shell.querySelector('[data-carousel-next]');
+          const dots = shell.querySelectorAll('[data-carousel-dot]');
+          const counter = shell.querySelector('[data-carousel-counter]');
+
+          if (!track || slides.length === 0) return;
+
+          let current = 0;
+          const total = slides.length;
+          let touchStartX = 0;
+
+          const updateSlide = (idx) => {
+            current = (idx + total) % total;
+            track.style.transform = `translateX(-${current * 100}%)`;
+
+            dots.forEach((dot, i) => {
+              const active = i === current;
+              dot.classList.toggle('is-active', active);
+              dot.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
+
+            if (counter) {
+              counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+            }
+          };
+
+          prevBtn?.addEventListener('click', () => updateSlide(current - 1));
+          nextBtn?.addEventListener('click', () => updateSlide(current + 1));
+
+          dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+              const targetIdx = Number(dot.getAttribute('data-carousel-dot'));
+              if (!Number.isNaN(targetIdx)) updateSlide(targetIdx);
+            });
+          });
+
+          shell.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              updateSlide(current - 1);
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              updateSlide(current + 1);
+            }
+          });
+
+          shell.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0]?.screenX || 0;
+          }, { passive: true });
+
+          shell.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0]?.screenX || 0;
+            const delta = touchStartX - touchEndX;
+            if (Math.abs(delta) > 40) {
+              updateSlide(delta > 0 ? current + 1 : current - 1);
+            }
+          }, { passive: true });
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousels);
+      } else {
+        initCarousels();
+      }
+      document.addEventListener('astro:page-load', initCarousels);
+    })();
+  </script>
+)}
+
 <style>
-  .depoimento-avatar-initials { width: 46px; height: 46px; min-width: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #F6E8D5; color: #01243E; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; }
-  .depoimento-source-note { text-align: center; margin: 26px auto 0; font-size: 13px; color: #64748B; }
-  .depoimento-source-note a { color: #81551E; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .depoimento-avatar-initials {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #F6E8D5;
+    color: #01243E;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .depoimento-source-note {
+    text-align: center;
+    margin: 26px auto 0;
+    font-size: 13px;
+    color: #64748B;
+  }
+
+  .depoimento-source-note a {
+    color: #81551E;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .depoimento-featured-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .depoimento-card-featured,
+  .depoimento-card-carousel {
+    padding: 38px 36px;
+  }
+
+  .depoimento-service-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9A621D;
+    background: #FDF6EC;
+    border: 1px solid rgba(200, 138, 59, 0.35);
+    border-radius: 9999px;
+    padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+
+  .depoimento-card-final:hover .depoimento-service-tag {
+    background: rgba(200, 138, 59, 0.18);
+    color: #ECC78A;
+    border-color: rgba(200, 138, 59, 0.5);
+  }
+
+  .depoimento-text-featured {
+    font-size: 17px;
+    line-height: 1.68;
+  }
+
+  .depoimentos-carousel-shell {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    outline: none;
+  }
+
+  .depoimentos-carousel-viewport {
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .depoimentos-carousel-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .depoimentos-carousel-slide {
+    min-width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
+  .depoimentos-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .carousel-nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 138, 59, 0.45);
+    background: #FFFFFF;
+    color: #01243E;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(1, 36, 62, 0.08);
+  }
+
+  .carousel-nav-btn:hover,
+  .carousel-nav-btn:focus-visible {
+    background: #01243E;
+    color: #FFFFFF;
+    border-color: #01243E;
+  }
+
+  .carousel-dots-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .carousel-dot-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    border: none;
+    background: #CBD5E1;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+  }
+
+  .carousel-dot-btn.is-active {
+    width: 26px;
+    background: #C88A3B;
+  }
+
+  .carousel-counter {
+    font-family: var(--font-mono, monospace);
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748B;
+  }
+
+  @media (max-width: 640px) {
+    .depoimento-card-featured,
+    .depoimento-card-carousel {
+      padding: 26px 22px;
+    }
+
+    .depoimento-text-featured {
+      font-size: 15px;
+    }
+  }
 </style>

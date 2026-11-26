@@ -53,6 +53,8 @@ export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
+  serviceSlug?: string;
+  serviceTag?: string;
 }
 
 export interface FaqItem {
@@ -247,7 +249,7 @@ export const siteContent = {
       { label: 'Home', href: '#inicio', active: true },
       { label: 'Sobre', href: '#sobre' },
       { label: 'Soluções', href: '#solucoes' },
-      { label: 'Contato', href: '#formulario-diagnostico' },
+      { label: 'Contato', href: '/contato' },
     ],
     cta: {
       text: 'ENTRAR EM CONTATO',
@@ -261,8 +263,8 @@ export const siteContent = {
     headlineHighlight: 'pessoas e estratégia',
     headlineSuffix: 'caminham juntas.',
     subtitle: 'Conectamos decisões sobre pessoas, cultura, processos e estrutura aos resultados do negócio, a partir do pensamento sistêmico.',
-    ctaText: 'ENTRAR EM CONTATO',
-    ctaHref: 'https://wa.me/5591992992091?text=Ol%C3%A1%2C+gostaria+de+conversar+com+a+PowerRH',
+    ctaText: 'ADVISORY ESTRATÉGICO',
+    ctaHref: 'https://wa.me/5591992992091?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+Advisory+Estrat%C3%A9gico+com+a+PowerRH',
     miniBadges: [
       { line1: 'VISÃO', line2: 'ESTRATÉGICA' },
       { line1: 'FOCO EM', line2: 'RESULTADOS' },
@@ -362,22 +364,22 @@ export const siteContent = {
       {
         step: '01',
         title: 'Diagnóstico',
-        desc: 'Entendemos sua realidade e desafios.',
+        desc: 'Escuta confidencial e leitura sistêmica da realidade, cultura e desafios do negócio.',
       },
       {
         step: '02',
         title: 'Planejamento',
-        desc: 'Desenhamos soluções personalizadas.',
+        desc: 'Desenho sob medida de prioridades, metas e soluções alinhadas ao momento da empresa.',
       },
       {
         step: '03',
         title: 'Implementação',
-        desc: 'Colocamos o plano em prática, lado a lado.',
+        desc: 'Atuação sênior, próxima e discreta lado a lado com o empresário e a liderança.',
       },
       {
         step: '04',
         title: 'Evolução',
-        desc: 'Acompanhamos resultados e ajustes contínuos.',
+        desc: 'Acompanhamento contínuo dos resultados, feedbacks e ajustes para sustentar o legado.',
       },
     ] as ProcessStepItem[],
   },
@@ -385,7 +387,7 @@ export const siteContent = {
   sobre: {
     eyebrow: 'SOBRE A FUNDADORA',
     name: 'Graciete Corrêa',
-    title: 'ADVISOR DE NEGÓCIOS E DHO',
+    title: 'ADVISOR ESPECIALISTA EM ESTRATÉGIA DE NEGÓCIOS E PESSOAS',
     bio: 'Executiva de Gente e Gestão, Advisor Comportamental e de Negócios e fundadora da PowerRH, com +30 anos de experiência executiva. Apoia empresários, sócios e executivos a conectar a estratégia às decisões sobre cultura, pessoas, processos e estrutura.',
     ctaText: 'CONHEÇA SUA TRAJETÓRIA →',
     ctaHref: '/sobre',
@@ -439,9 +441,27 @@ export const siteContent = {
     eyebrow: 'RECOMENDAÇÕES PROFISSIONAIS',
     title: 'O que profissionais que trabalharam com Graciete dizem',
     items: [
-      { quote: 'Especialista em implantação de governança corporativa e em processos de sucessão', author: 'Walter Garcia', role: 'CFO · Recomendação profissional no LinkedIn', avatar: '' },
-      { quote: 'Voltaria a tê-la em meu time sem qualquer tipo de hesitação.', author: 'Robson Lodi', role: 'Gestor de Remuneração e Benefícios · Recomendação no LinkedIn', avatar: '' },
-      { quote: 'Sempre se destacou pela sua visão estratégica transformada em execução com excelência.', author: 'Gilbert Asdrúbal Hernández Lourenço', role: 'Executivo comercial · Recomendação no LinkedIn', avatar: '' },
+      {
+        quote: 'Especialista em implantação de governança corporativa e em processos de sucessão',
+        author: 'Walter Garcia',
+        role: 'CFO · Recomendação profissional no LinkedIn',
+        serviceSlug: 'advisory-negocios-cultura',
+        serviceTag: 'Advisory de Negócios e Cultura',
+      },
+      {
+        quote: 'Voltaria a tê-la em meu time sem qualquer tipo de hesitação.',
+        author: 'Robson Lodi',
+        role: 'Gestor de Remuneração e Benefícios · Recomendação no LinkedIn',
+        serviceSlug: 'processos-estrutura-organizacional',
+        serviceTag: 'Processos e Estrutura Organizacional',
+      },
+      {
+        quote: 'Sempre se destacou pela sua visão estratégica transformada em execução com excelência.',
+        author: 'Gilbert Asdrúbal Hernández Lourenço',
+        role: 'Executivo comercial · Recomendação no LinkedIn',
+        serviceSlug: 'pessoas-lideranca-performance',
+        serviceTag: 'Pessoas, Liderança e Performance',
+      },
     ] as TestimonialItem[],
   },
 
@@ -477,8 +497,8 @@ export const siteContent = {
       'Conversa direta com a especialista',
       'Soluções sob medida para a sua realidade',
     ],
-    ctaText: 'ENTRAR EM CONTATO',
-    ctaHref: 'https://wa.me/5591992992091?text=Ol%C3%A1%2C+gostaria+de+conversar+com+a+Graciete+da+PowerRH',
+    ctaText: 'ADVISORY ESTRATÉGICO →',
+    ctaHref: '/contato',
   },
 
   footer: {
@@ -616,10 +636,12 @@ export const siteContent = {
           accordionLabel: 'Ver pilares de conduta',
           accordionLabelOpen: 'Ocultar pilares',
           highlights: [
-            'Humanidade no centro de cada decisão',
-            'Ética e confidencialidade inegociáveis',
-            'Excelência prática e foco em resultados reais',
-            'Parceria próxima e construção de legado',
+            'Pragmatismo — decisões objetivas e soluções aplicáveis à realidade do negócio',
+            'Resultados — foco em entregas mensuráveis e evolução sustentável',
+            'Senioridade — +30 anos de vivência executiva à mesa das decisões',
+            'Confidencialidade — ética, discrição e sigilo absoluto em cada projeto',
+            'Humanismo — pessoas no centro de cada transformação organizacional',
+            'Perenidade — preparação de lideranças e sucessores para preservar o legado',
           ],
         },
       ] as FundamentoItem[],

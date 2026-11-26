@@ -7,9 +7,13 @@ import { siteContent } from '../../data/siteContent';
 
 const { ctaBanner } = siteContent;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ctaHref = ctaBanner.ctaHref.startsWith('http')
+  ? ctaBanner.ctaHref
+  : `${base}${ctaBanner.ctaHref}`;
+const isWhatsappCta = ctaHref.includes('wa.me') || ctaHref.includes('whatsapp');
 ---
 
-<section class="section-cta-final-banner" id="formulario-diagnostico">
+<section class="section-cta-final-banner" id="cta-final">
   <Container size="wide">
     <div class="cta-banner-wrapper">
       <div class="cta-banner-inner-grid">
@@ -44,10 +48,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
           <div>
             <Button
-              href={ctaBanner.ctaHref}
+              href={ctaHref}
               variant="gold"
               class="w-full text-center flex items-center justify-center py-3.5 px-6.5"
-              whatsapp={true}
+              whatsapp={isWhatsappCta}
             >
               {ctaBanner.ctaText}
             </Button>

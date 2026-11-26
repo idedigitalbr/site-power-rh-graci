@@ -14,8 +14,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <GoldenArcs position="right" variant="arcs-right" />
 
   <Container size="wide">
-    <div class="sobre-grid-final">
-      <!-- Coluna Esquerda: Foto Oficial em Poltrona Executiva de Autoridade -->
+    <div class="sobre-grid-final sobre-story-grid">
+      <!-- Coluna Esquerda: Foto Oficial em Poltrona Executiva + Citação Editorial -->
       <div class="sobre-photo-container">
         <div class="sobre-img-box">
           <img
@@ -26,6 +26,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           />
         </div>
 
+        <blockquote class="sobre-story-quote">
+          <span class="sobre-quote-mark" aria-hidden="true">“</span>
+          <p class="sobre-quote-text">{historia.quote}</p>
+          <footer class="sobre-quote-footer">
+            <strong>{historia.founderName}</strong> · Advisor especialista em estratégia de negócios e pessoas
+          </footer>
+        </blockquote>
       </div>
 
       <!-- Coluna Direita: Conteúdo Biográfico, Credenciais & Indicadores Oficiais -->
@@ -34,13 +41,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <h2 class="sobre-name-final">{historia.founderName}</h2>
         <span class="sobre-subtitle-gold">+30 ANOS DE EXPERIÊNCIA E TRANSFORMAÇÃO CORPORATIVA</span>
 
-        <p class="sobre-bio-text">
+        <p class="sobre-bio-text sobre-bio-lead">
           {historia.paragraphs[0]}
         </p>
 
-        <p class="sobre-bio-text" style="margin-top: -16px;">
-          {historia.paragraphs[1]}
-        </p>
+        {historia.paragraphs.length > 1 && (
+          <div class="bio-expandable-wrap" data-bio-accordion>
+            <div class="bio-expandable-panel" id="sobre-bio-extra" role="region">
+              <div class="bio-expandable-inner">
+                {historia.paragraphs.slice(1).map((paragraph) => (
+                  <p class="sobre-bio-text sobre-bio-extra-p">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="bio-toggle-btn"
+              aria-expanded="false"
+              aria-controls="sobre-bio-extra"
+              data-bio-toggle
+            >
+              <span data-bio-label>Ver mais sobre a trajetória</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        )}
 
         <!-- 4 Credenciais com Ícones Dourados Circulares (Exato S6 Sobre da Home) -->
         <div class="sobre-credentials-list">
@@ -99,7 +129,143 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </Container>
 </section>
 
+<script is:inline>
+  (() => {
+    const initBioExpanders = () => {
+      const toggles = document.querySelectorAll('[data-bio-toggle]');
+      toggles.forEach((btn) => {
+        if (btn.dataset.initialized === 'true') return;
+        btn.dataset.initialized = 'true';
+
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('[data-bio-accordion]');
+          const panel = wrap?.querySelector('.bio-expandable-panel');
+          const label = btn.querySelector('[data-bio-label]');
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+          if (isOpen) {
+            btn.setAttribute('aria-expanded', 'false');
+            btn.classList.remove('is-open');
+            panel?.classList.remove('is-open');
+            if (label) label.textContent = 'Ver mais sobre a trajetória';
+          } else {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.classList.add('is-open');
+            panel?.classList.add('is-open');
+            if (label) label.textContent = 'Ver menos';
+          }
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBioExpanders);
+    } else {
+      initBioExpanders();
+    }
+    document.addEventListener('astro:page-load', initBioExpanders);
+  })();
+</script>
+
 <style>
+  .sobre-story-grid {
+    align-items: start;
+  }
+
+  .sobre-story-quote {
+    margin: 20px 0 0;
+    padding: 20px 22px;
+    background: #FAF7F2;
+    border: 1px solid #EDE7DD;
+    border-left: 3px solid #C88A3B;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .sobre-quote-mark {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    line-height: 0.8;
+    color: #C88A3B;
+    margin-bottom: 6px;
+  }
+
+  .sobre-quote-text {
+    font-size: 14px;
+    line-height: 1.62;
+    color: #334155;
+    margin: 0 0 10px;
+    font-style: italic;
+  }
+
+  .sobre-quote-footer {
+    font-size: 12px;
+    color: #64748B;
+  }
+
+  .sobre-quote-footer strong {
+    color: #01243E;
+    font-weight: 700;
+  }
+
+  .sobre-bio-lead {
+    margin-bottom: 14px;
+  }
+
+  .bio-expandable-wrap {
+    margin-bottom: 26px;
+  }
+
+  .bio-expandable-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease;
+  }
+
+  .bio-expandable-panel.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .bio-expandable-inner {
+    overflow: hidden;
+  }
+
+  .sobre-bio-extra-p {
+    margin-bottom: 16px;
+  }
+
+  .bio-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FDF6EC;
+    color: #9A621D;
+    border: 1px solid rgba(200, 138, 59, 0.4);
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .bio-toggle-btn:hover {
+    background: #C88A3B;
+    color: #FFFFFF;
+    border-color: #C88A3B;
+  }
+
+  .bio-toggle-btn svg {
+    transition: transform 0.25s ease;
+  }
+
+  .bio-toggle-btn.is-open svg {
+    transform: rotate(180deg);
+  }
+
   .sobre-metrics-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
